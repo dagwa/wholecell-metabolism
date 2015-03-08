@@ -1,0 +1,33 @@
+-- VERSION_4
+-- START DISKCACHE
+/home/mkoenig/Desktop/wholecell-metabolism/python/.metadata/.plugins/org.eclipse.core.resources/.projects/annotation/com.python.pydev.analysis/v2_indexcache
+__init__|1423475649000|/home/mkoenig/Desktop/wholecell-metabolism/python/annotation/__init__.py
+annotate_tools|1425811845000|/home/mkoenig/Desktop/wholecell-metabolism/python/annotation/annotate_tools.py
+-- END DISKCACHE
+-- START DICTIONARY
+1
+1=annotate_tools
+-- END DICTIONARY
+-- START TREE 1
+17
+ann|0|
+che|2|check!10@check_sbml!10@
+cid|0|
+csv|0|
+cur|0|
+cvd|0|
+dat|0|
+doc|0|
+err|0|
+fil|0|
+m_c|0|
+m_d|0|
+r_c|0|
+r_d|0|
+res|0|
+sbm|0|
+ver|0|
+-- END TREE
+-- START TREE 2
+0
+-- END TREE
