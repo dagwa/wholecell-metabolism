@@ -1,25 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Annotion of Metabolism.sbml with information from the 
-publication sublement.
+Annotation of Metabolism.sbml with information from the 
+publication supplement.
 
 Annotation are divided into
 - CV terms (annotated via CV terms)
-- annotation strings
+- annotation strings (not implemented yet)
+
+The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
 
 @author: Matthias Koenig
 @date: 2015-03-08
 """
 from libsbml import *
 from annotate_tools import check_sbml, check
-from pandas import Series, DataFrame
+from pandas import DataFrame
 import pandas as pd
 
 #######################################################################
 DATA_DIR = "../../data"
 RESULTS_DIR = "../../results"
 VERSION = 1
-# sbml_raw = "{}/Metabolism_L3V1.sbml".format(DATA_DIR)
 sbml_raw = "{}/Metabolism.sbml".format(DATA_DIR)
 sbml_out = "{}/Metabolism_annotated_{}.sbml".format(RESULTS_DIR, VERSION)
 csv_metabolites = "{}/Table_S3G_metabolites.csv".format(DATA_DIR)
@@ -79,27 +80,31 @@ print r_cvdf
 #######################################################################
 
 def cid_from_sid(sid):
-    # the id to lookup is without M_ and _compartment
-    # for instance M_A23CMP_c -> A23CMP in the annotation table
-    # annotations for all compartments are identical
+    '''
+    Create the compound id in the supplement tables from ids in SBML.
+    The id lookup for species is without M_ and _compartment.
+    For instance M_A23CMP_c -> A23CMP in the annotation table.
+    '''
     tokens = sid.split('_')
     return '_'.join(tokens[1:(len(tokens)-1)])
 
 def cid_from_rid(sid):
+    '''
+    Get compound id for lookup from SBML reaction id.
+    '''
     tokens = sid.split('_')
     return '_'.join(tokens[1:len(tokens)])
 
 def annotate_model(filename):
     '''
     Annotate the model with given annotation data frames
-    for metabolites and reactions
+    for metabolites and reactions.
+    Uses the global cvdf datasets and the parsed table information.
     '''
     # read original model
     doc = readSBML(filename)
     m = doc.getModel()
     
-    # Necessary to update level and version (support CV terms)    
-    # doc.setLevelAndVersion(3, 1)
     mid = 'Metabolism_annotated_{}'.format(VERSION)
     m.setId(mid)
     m.setName(mid)
@@ -171,8 +176,6 @@ if __name__ == "__main__":
     r_df = r_df.set_index(r_df.ID)
     # print r_df.head()
     
-    annotate_model(sbml_raw)
-    filename = sbml_raw
-    
+    annotate_model(sbml_raw)    
     check_sbml(sbml_raw)
     

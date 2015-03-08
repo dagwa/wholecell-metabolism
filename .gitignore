@@ -1,0 +1,7 @@
+*~
+.~lock*
+.metadata
+.project
+.pydevproject
+python/annotation/.settings/
+*/.metadata/
