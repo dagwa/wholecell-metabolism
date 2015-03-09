@@ -1,0 +1,109 @@
+id	model_type	wid	name	path	value_x	value_y	label_x	label_y
+7024	Reaction	TX_GLUP	glycerol transport via diffusion	M 72,305 L 126,305	93	292	93	302
+6386	Reaction	GlpQ1	Glycerophosphodiester phosphodiesterase (Glycerophosphocholine)	M 72,335 L 126,335	93	333	93	343
+6387	Reaction	GlpQ2	Glycerophosphodiester phosphodiesterase (Glycerophosphoethanolamine)	M 72,355 L 126,355	93	353	93	363
+6388	Reaction	GlpQ3	Glycerophosphodiester phosphodiesterase (Glycerophosphoserine)	M 72,375 L 126,375	93	373	93	383
+6389	Reaction	GlpQ4	Glycerophosphodiester phosphodiesterase (Glycerophosphoglycerol)	M 72,395 L 126,395	93	393	93	403
+6390	Reaction	GlpQ5	Glycerophosphodiester phosphodiesterase (Glycerophosphoinositol)	M 72,415 L 126,415	93	413	93	423
+7016	Reaction	TX_FRUPTS	D-fructose transport via PEP:Pyr PTS	M 97,95 L 151,95	117	93	117	83
+6442	Reaction	GpsA	glycerol-3-phosphate dehydrogenase (NAD)	M 180,227 L 180,266	158	251	158	241
+6366	Reaction	FruK1	fructose-1-phosphate kinase	M 164,101 L 222,178	163	143	164	133
+6385	Reaction	GlpK	glycerol kinase	M 140,302 L 173,281	166	303	166	313
+7021	Reaction	TX_GLCPTS	D-glucose transport via PEP:Pyr PTS	M 230,32 L 230,86	206	60	206	50
+7021	Reaction	TX_GLCPTS	D-glucose transport via PEP:Pyr PTS	M 260,380 C 230,387 235,394 235,402 C 235,410 230,417 260,424	211	407	211	397
+6785	Reaction	Pgi	glucose-6-phosphate isomerase	M 230,101 L 230,131	213	120	213	110
+6943	Reaction	TpiA	triose-phosphate isomerase	M 187,220 L 261,220	221	219	221	229
+6382	Reaction	GapA	glyceraldehyde-3-phosphate dehydrogenase	M 270,225 L 270,252	244	251	244	241
+6355	Reaction	Eno	enolase	M 270,345 L 270,372	244	361	244	351
+6356	Reaction	Fba	fructose-bisphosphate aldolase	M 236,189 L 264,214	262	201	262	191
+6356	Reaction	Fba	fructose-bisphosphate aldolase	M 225,189 L 186,213	262	201	262	191
+6791	Reaction	Pgm	phosphoglucomutase	M 323,67 L 238,92	282	64	282	74
+6780	Reaction	PfkA1	phosphofructokinase	M 225,145 L 225,178	291	142	257	142
+6781	Reaction	PfkA2	phosphofructokinase	M 228,145 L 228,178	291	153	257	153
+6782	Reaction	PfkA3	phosphofructokinase	M 231,145 L 231,178	291	163	257	163
+6783	Reaction	PfkA4	phosphofructokinase	M 234,145 L 234,178	291	174	257	174
+6472	Reaction	LdhA	D-lactate dehydrogenase	M 270,432 L 270,476	293	466	293	456
+6441	Reaction	GpmA	phosphoglycerate mutase	M 274,305 L 274,331	300	324	300	314
+5490	Reaction	DeoC	deoxyribose-phosphate aldolase	M 358,220 L 280,220	322	218	322	211
+6786	Reaction	Pgk1	phosphoglycerate kinase	M 265,265 L 265,293	333	266	299	266
+6787	Reaction	Pgk2	phosphoglycerate kinase	M 268,265 L 268,293	333	277	299	277
+6788	Reaction	Pgk3	phosphoglycerate kinase	M 271,265 L 271,293	333	288	299	288
+6789	Reaction	Pgk4	phosphoglycerate kinase	M 274,265 L 274,293	333	299	299	299
+6884	Reaction	Pyk_ADP	pyruvate kinase	M 263,385 L 263,418	339	370	305	370
+6891	Reaction	Pyk_GDP	pyruvate kinase	M 266,385 L 266,418	339	381	305	381
+6886	Reaction	Pyk_DADP	pyruvate kinase	M 269,385 L 269,418	339	392	305	392
+6888	Reaction	Pyk_DGDP	pyruvate kinase	M 272,385 L 272,418	339	404	305	404
+6885	Reaction	Pyk_CDP	pyruvate kinase	M 275,385 L 275,418	339	415	305	415
+6887	Reaction	Pyk_DCDP	pyruvate kinase	M 278,385 L 278,418	339	427	305	427
+6889	Reaction	Pyk_DTDP	pyruvate kinase	M 281,385 L 281,418	339	438	305	438
+6381	Reaction	GalU1	UTP-glucose-1-phosphate uridylyltransferase (irreversible)	M 336,65 L 396,65	360	62	360	53
+6940	Reaction	Tkt2	transketolase	M 402,124 C 389,104 371,103 349,122	377	103	377	94
+6940	Reaction	Tkt2	transketolase	M 402,91 C 391,113 373,113 349,93	377	103	377	94
+6939	Reaction	Tkt1	transketolase	M 402,135 C 391,157 373,157 349,137	377	172	377	166
+6939	Reaction	Tkt1	transketolase	M 402,168 C 389,148 371,147 349,166	377	172	377	166
+5416	Reaction	AceE	pyruvate dehydrogenase	M 277,425 L 436,425	394	445	394	435
+6816	Reaction	Ppc	phosphoenolpyruvate carboxylase	M 278,380 L 476,380	398	378	398	368
+6815	Reaction	Ppa	inorganic diphosphatase	M 392,245 L 450,245	414	253	414	243
+5453	Reaction	AtpA	ATP synthase (four protons for one ATP) (periplasm)	M 392,270 L 450,270	414	277	414	267
+6944	Reaction	TrxB	thioredoxin reductase (NADPH)	M 392,295 L 450,295	414	304	414	292
+6740	Reaction	NOX	NADH dehydrogenase	M 392,320 L 450,320	414	329	414	317
+6755	Reaction	PcbX	oxaloacetate carboxylase	M 275,423 L 475,381	419	404	419	414
+6927	Reaction	Rpe	ribulose 5-phosphate 3-epimerase	M 405,136 L 405,145	432	147	432	139
+6928	Reaction	RpiB	ribose-5-phosphate isomerase	M 405,159 L 405,169	432	172	432	166
+6878	Reaction	PrsA	phosphoribosylpyrophosphate synthetase	M 405,178 L 405,197	432	197	432	189
+6380	Reaction	GalE	UDPglucose 4-epimerase	M 473,65 L 414,65	450	62	450	53
+6880	Reaction	Pta	phosphotransacetylase	M 450,429 L 483,459	480	443	480	433
+6930	Reaction	TalA	transaldolase	M 347,181 C 347,182 357,200 379,211 C 400,221 457,222 471,197 C 484,172 477,140 456,116 C 435,91 411,87 411,87	492	219	492	209
+6930	Reaction	TalA	transaldolase	M 341,134 C 341,134 327,179 345,197 C 362,214 379,216 388,217 C 394,218 461,224 474,190 C 486,156 463,100 437,84 C 412,69 349,83 349,83	492	219	492	209
+7124	Reaction	TX_PIUP1	phosphate transport via ABC system	M 526,245 L 469,245	504	253	505	243
+6511	Reaction	Mdh	malate dehydrogenase	M 485,337 L 485,371	506	357	506	347
+6383	Reaction	Glf	FAD reductase	M 487,65 L 538,65	507	62	507	53
+6946	Reaction	TX_ACUP	acetate reversible transport via proton symport	M 490,558 L 490,524	512	544	512	554
+5417	Reaction	AckA	acetate kinase	M 490,471 L 490,505	514	481	514	491
+5450	Reaction	AspC1	Aspartate aminotransferase	M 489,383 C 508,393 539,393 553,383	522	415	522	405
+5450	Reaction	AspC1	Aspartate aminotransferase	M 489,396 C 508,389 539,389 553,396	522	415	522	405
+7265	Reaction	YicP	adenine deaminase	M 605,86 L 605,161	590	121	590	111
+5492	Reaction	DeoD2	purine-nucleoside phosphorylase (Deoxyadenosine)	M 674,66 L 614,77	643	68	643	58
+5495	Reaction	DeoD5	purine-nucleoside phosphorylase (Adenosine)	M 612,80 L 670,80	643	88	643	98
+5491	Reaction	DeoD1	purine-nucleoside phosphorylase (Deoxyinosine)	M 674,158 L 615,168	643	158	643	148
+5494	Reaction	DeoD4	purine-nucleoside phosphorylase (Inosine)	M 612,172 L 671,172	643	179	643	189
+5493	Reaction	DeoD3	purine-nucleoside phosphorylase (Deoxyguanosine)	M 674,250 L 614,255	643	247	643	239
+5496	Reaction	DeoD6	purine-nucleoside phosphorylase (Guanosine)	M 614,255 L 671,260	643	267	643	275
+6462	Reaction	Hpt2	guanine phosphoribosyltransferase	M 607,263 C 644,287 712,287 747,266	677	302	677	292
+5487	Reaction	DcdK	dCMP kinase	M 684,360 L 723,398	679	378	679	388
+6461	Reaction	Hpt1	hypoxanthine phosphoribosyltransferase (Hypoxanthine)	M 607,176 C 644,200 712,200 747,176	680	214	680	204
+5427	Reaction	Apt	adenine phosphoribosyltransferase	M 607,85 C 644,109 712,109 747,85	683	124	683	114
+6889	Reaction	Pyk_DTDP	pyruvate kinase	M 699,505 L 655,505	683	502	683	494
+5486	Reaction	Dak1	deoxyadenylate kinase (dA:ATP)	M 686,65 L 746,65	716	63	716	53
+7154	Reaction	UshA_AMP	5'-nucleotidase (AMP)	M 748,80 L 689,80	716	87	716	97
+7217	Reaction	UshA_IMP	5'-nucleotidase (IMP)	M 746,170 L 690,170	716	158	716	168
+5500	Reaction	Dgk1	deoxyguanylate kinase (dG:ATP)	M 687,250 L 747,250	716	247	716	239
+7207	Reaction	UshA_GMP	5'-nucleotidase (GMP)	M 749,260 L 689,260	716	267	716	277
+5476	Reaction	CmkA1	cytidylate kinase (dCMP)	M 773,355 L 688,355	733	353	733	343
+6942	Reaction	Tmk	thiamine kinase	M 773,505 L 715,505	750	524	750	516
+5487	Reaction	DcdK	dCMP kinase	M 734,401 L 772,362	753	383	752	392
+6938	Reaction	ThyA	thymidylate synthase	M 780,461 L 780,496	761	484	761	474
+5423	Reaction	Adk4	deoxyadenylate kinase (dADP)	M 761,62 L 813,48	777	53	777	43
+6438	Reaction	Gmk2	deoxyguanylate kinase (dGMP:ATP)	M 762,247 L 815,229	777	235	777	225
+6437	Reaction	Gmk1	guanylate kinase (GMP:ATP)	M 761,260 L 816,260	782	270	782	280
+5477	Reaction	CmkA2	cytidylate kinase (CMP)	M 927,349 C 880,320 655,320 610,347	782	324	782	314
+5478	Reaction	CmkB3	UMP kinase	M 980,462 C 960,570 605,570 605,464	782	555	782	565
+5420	Reaction	Adk1	adenylate kinase (ATP)	M 761,78 L 815,78	806	96	770	96
+5421	Reaction	Adk2	adentylate kinase (GTP)	M 761,80 L 815,80	806	108	770	108
+5422	Reaction	Adk3	adentylate kinase (ITP)	M 761,82 L 815,82	806	119	770	119
+5488	Reaction	Dck	5'-nucleotidase (dCMP)	M 849,353 L 789,353	817	353	817	343
+7166	Reaction	UshA_dCMP	5'-nucleotidase (dCMP)	M 786,357 L 846,357	817	367	817	377
+6935	Reaction	Tdk1	deoxyuridine kinase (ATP:Deoxyuridine)	M 849,453 L 788,453	817	452	817	444
+7182	Reaction	UshA_dUMP	5'-nucleotidase (dUMP)	M 785,457 L 847,457	817	464	818	473
+6936	Reaction	Tdk2	thymidine kinase (ATP:thymidine)	M 849,503 L 788,503	817	500	817	490
+7176	Reaction	UshA_dTMP	5'-nucleotidase (dTMP)	M 785,507 L 847,507	817	515	817	524
+5464	Reaction	Cdd2	deoxycytidine deaminase	M 855,361 L 855,446	874	386	874	376
+6756	Reaction	Pdp1	deoxyuridine phosphorylase	M 861,459 L 921,477	885	452	885	444
+6756	Reaction	Pdp1	deoxyuridine phosphorylase	M 861,455 L 921,455	885	475	885	467
+6757	Reaction	Pdp2	thymidine phosphorylase	M 861,502 L 920,484	885	490	885	500
+6757	Reaction	Pdp2	thymidine phosphorylase	M 861,505 L 921,505	885	515	885	524
+6758	Reaction	Pdp3	pyrimidine-nucleoside phosphorylase (uracil)	M 975,409 L 936,449	926	425	926	415
+7153	Reaction	Upp	uracil phosphoribosyltransferase	M 937,455 L 971,455	945	445	945	435
+7150	Reaction	Udk2	cytidine kinase (GTP)	M 973,355 L 939,355	962	350	962	340
+5463	Reaction	Cdd1	cytidine deaminase	M 980,361 L 980,396	997	382	997	372
+7149	Reaction	Udk1	uridine kinase (GTP:Uridine)	M 980,411 L 980,446	997	431	998	421

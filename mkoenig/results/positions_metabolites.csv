@@ -1,0 +1,98 @@
+id	model_type	wid	name	compartment	x	y
+3714	Metabolite	GL	glycerol	e	65	305
+3759	Metabolite	GPCH	sn-Glycero-3-phosphocholine	c	65	335
+3760	Metabolite	GPE	sn-Glycero-3-phosphoethanolamine	c	65	355
+3764	Metabolite	GPS	Glycerophosphoserine	c	65	375
+3761	Metabolite	GPG	Glycerophosphoglycerol	c	65	395
+3763	Metabolite	GPI	sn-Glycero-3-phospho-1-inositol	c	65	415
+3682	Metabolite	FRU	D-Fructose	e	90	95
+3714	Metabolite	GL	glycerol	c	135	305
+3474	Metabolite	CHOL	choline	c	135	335
+3659	Metabolite	ETN	ethanolamine	c	135	355
+4034	Metabolite	SER	L-Serine	c	135	375
+3714	Metabolite	GL	glycerol	c	135	395
+3814	Metabolite	INOS	myo-inositol	c	135	415
+3660	Metabolite	F1P	D-Fructose 1-phosphate	c	160	95
+4047	Metabolite	T3P2	Dihydroxyacetone phosphate	c	180	220
+3716	Metabolite	GL3P	Glycerol 3-phosphate	c	180	275
+3717	Metabolite	GLC	D-Glucose	e	230	25
+3691	Metabolite	G6P	D-Glucose 6-phosphate	c	230	95
+3691	Metabolite	G6P	D-Glucose 6-phosphate	c	230	95
+3664	Metabolite	F6P	D-Fructose 6-phosphate	c	230	140
+3674	Metabolite	FDP	D-Fructose 1,6-bisphosphate	c	230	185
+4046	Metabolite	T3P1	D-glyceraldehdye-3-phosphate	c	270	220
+3576	Metabolite	DPG	3-Phospho-D-glyceroyl phosphate	c	270	260
+3690	Metabolite	G3P	3-Phospho-D-glycerate	c	270	300
+3688	Metabolite	G2P	D-Glycerate 2-phosphate	c	270	340
+3983	Metabolite	PEP	phosphoenolpyruvate	c	270	380
+4016	Metabolite	PYR	pyruvate	c	270	425
+3820	Metabolite	LAC	D-lactate	c	270	485
+3686	Metabolite	G1P	D-Glucose 1-phosphate	c	330	65
+3664	Metabolite	F6P	D-Fructose 6-phosphate	c	345	85
+4047	Metabolite	T3P2	Dihydroxyacetone phosphate	c	345	130
+4030	Metabolite	S7P	D-sedoheptulose-7-phosphate	c	345	175
+3578	Metabolite	DR5P	2-Deoxy-D-ribose 5-phosphate	c	365	220
+3999	Metabolite	PPI	diphosphate	c	385	245
+3393	Metabolite	ADP	ADP	c	385	270
+3915	Metabolite	NADPH	nicotinamide adenine dinucleotide phosphate, reduced	c	385	295
+3913	Metabolite	NADH	nicotinamide adenine dinucleotide, reduced	c	385	320
+4088	Metabolite	UDPG	UDP-glucose	c	405	65
+3623	Metabolite	E4P	D-Erythrose 4-phosphate	c	405	85
+4101	Metabolite	X5P	D-Xylulose 5-phosphate	c	405	130
+4025	Metabolite	RL5P	D-Ribulose 5-phosphate	c	405	153
+4018	Metabolite	R5P	alpha-D-Ribose 5-phosphate	c	405	175
+4005	Metabolite	PRPP	5-Phospho-alpha-D-ribose 1-diphosphate	c	405	205
+3387	Metabolite	ACCOA	Acetyl-CoA	c	445	425
+3993	Metabolite	PI	phosphate	c	460	245
+3436	Metabolite	ATP	ATP	c	460	270
+3914	Metabolite	NADP	nicotinamide adenine dinucleotide phosphate, oxidized	c	460	295
+3912	Metabolite	NAD	nicotinamide adenine dinucleotide, oxidized	c	460	320
+4089	Metabolite	UDPGAL	UDP-galactose	c	480	65
+3878	Metabolite	MAL	L-Malate	c	485	330
+3953	Metabolite	OA	oxaloacetate	c	485	380
+3746	Metabolite	GLU	L-Glutamate	c	485	400
+3390	Metabolite	ACTP	Acetyl phosphate	c	490	465
+3385	Metabolite	AC	acetate	c	490	515
+3385	Metabolite	AC	acetate	e	490	565
+3993	Metabolite	PI	phosphate	e	535	245
+4090	Metabolite	UDPGALF	UDP-D-galacto-1,4-furanose	c	548	65
+3434	Metabolite	ASP	L-Aspartate	c	560	380
+3398	Metabolite	AKG	2-Oxoglutarate	c	560	400
+3391	Metabolite	AD	adenine	c	605	80
+3809	Metabolite	HYXN	hypoxanthine	c	605	170
+3758	Metabolite	GN	guanine	c	605	255
+3459	Metabolite	CDP	CDP	c	605	355
+4087	Metabolite	UDP	UDP	c	605	455
+3595	Metabolite	DTTP	dTTP	c	645	505
+3519	Metabolite	DA	deoxyadenosine	c	680	65
+3392	Metabolite	ADN	adenosine	c	680	80
+3815	Metabolite	INS	inosine	c	680	170
+3550	Metabolite	DG	deoxyguanosine	c	680	250
+3765	Metabolite	GSN	guanosine	c	680	260
+3534	Metabolite	DCDP	dCDP	c	680	355
+3597	Metabolite	DUDP	dUDP	c	680	455
+3587	Metabolite	DTDP	dTDP	c	705	505
+3542	Metabolite	DCTP	dCTP	c	730	405
+3599	Metabolite	DUTP	dUTP	c	730	455
+3525	Metabolite	DAMP	dAMP	c	755	65
+3403	Metabolite	AMP	AMP	c	755	80
+3813	Metabolite	IMP	IMP	c	755	170
+3552	Metabolite	DGMP	dGMP	c	755	250
+3755	Metabolite	GMP	GMP	c	755	260
+3535	Metabolite	DCMP	dCMP	c	780	355
+3598	Metabolite	DUMP	dUMP	c	780	455
+3588	Metabolite	DTMP	dTMP	c	780	505
+3520	Metabolite	DADP	dADP	c	825	45
+3393	Metabolite	ADP	ADP	c	825	80
+3551	Metabolite	DGDP	dGDP	c	825	225
+3711	Metabolite	GDP	GDP	c	825	260
+3528	Metabolite	DC	deoxycytidine	c	855	355
+3596	Metabolite	DU	deoxyuridine	c	855	455
+3581	Metabolite	DT	thymidine	c	855	505
+3486	Metabolite	CMP	CMP	c	930	355
+4095	Metabolite	URA	uracil	c	930	455
+3577	Metabolite	DR1P	2-Deoxy-D-ribose 1-phosphate	c	930	480
+4062	Metabolite	THY	thymine	c	930	505
+3518	Metabolite	CYTD	cytidine	c	980	355
+4096	Metabolite	URI	uridine	c	980	405
+4093	Metabolite	UMP	UMP	c	980	455

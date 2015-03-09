@@ -6,7 +6,7 @@ Write SBML for metabolism process directly from database information.
 '''
 from libsbml import *
 from public.models import Metabolite, Reaction, Protein, ProteinComplex
-
+from public.models import Entry, Molecule
 def test():
     pass
 
