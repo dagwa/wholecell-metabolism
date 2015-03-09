@@ -1,0 +1,2116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="wholecellkb" schema="public" type="PostgreSQL - 9.3.6">
+   <tables>
+      <table name="auth_group" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_group_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="group_id" foreignKey="group_id_refs_id_f4b32aac" implied="false" onDeleteCascade="false" table="auth_group_permissions"/>
+            <child column="group_id" foreignKey="auth_user_groups_group_id_fkey" implied="false" onDeleteCascade="false" table="auth_user_groups"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="80" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_group_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_group_name_key" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+         <index name="auth_group_name_like" unique="false">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="auth_group_permissions" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_group_permissions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="group_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="group_id_refs_id_f4b32aac" implied="false" onDeleteCascade="false" table="auth_group"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_group_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_permission"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_group_permissions_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_group_permissions_group_id" unique="false">
+            <column ascending="true" name="group_id"/>
+         </index>
+         <index name="auth_group_permissions_group_id_permission_id_key" unique="true">
+            <column ascending="true" name="group_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="auth_group_permissions_permission_id" unique="false">
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table name="auth_permission" numRows="165" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_permission_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="permission_id" foreignKey="auth_group_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_group_permissions"/>
+            <child column="permission_id" foreignKey="auth_user_user_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_user_user_permissions"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="content_type_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="content_type_id_refs_id_d043b34a" implied="false" onDeleteCascade="false" table="django_content_type"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="codename" nullable="false" remarks="" size="100" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_permission_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_permission_content_type_id" unique="false">
+            <column ascending="true" name="content_type_id"/>
+         </index>
+         <index name="auth_permission_content_type_id_codename_key" unique="true">
+            <column ascending="true" name="content_type_id"/>
+            <column ascending="true" name="codename"/>
+         </index>
+      </table>
+      <table name="auth_user" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_user_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="user_id" foreignKey="user_id_refs_id_40c41112" implied="false" onDeleteCascade="false" table="auth_user_groups"/>
+            <child column="user_id" foreignKey="user_id_refs_id_4dc23c39" implied="false" onDeleteCascade="false" table="auth_user_user_permissions"/>
+            <child column="user_id" foreignKey="user_id_refs_id_c0d12874" implied="false" onDeleteCascade="false" table="django_admin_log"/>
+            <child column="created_user_id" foreignKey="public_entry_created_user_id_fkey" implied="false" onDeleteCascade="false" table="public_entry"/>
+            <child column="last_updated_user_id" foreignKey="public_entry_last_updated_user_id_fkey" implied="false" onDeleteCascade="false" table="public_entry"/>
+            <child column="user_id" foreignKey="public_userprofile_user_id_fkey" implied="false" onDeleteCascade="false" table="public_userprofile"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="password" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="2" name="last_login" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="3" name="is_superuser" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="4" name="username" nullable="false" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="first_name" nullable="false" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="last_name" nullable="false" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="email" nullable="false" remarks="" size="75" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="is_staff" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="9" name="is_active" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="10" name="date_joined" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_user_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_username_key" unique="true">
+            <column ascending="true" name="username"/>
+         </index>
+         <index name="auth_user_username_like" unique="false">
+            <column ascending="true" name="username"/>
+         </index>
+      </table>
+      <table name="auth_user_groups" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_user_groups_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_id_refs_id_40c41112" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="group_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_user_groups_group_id_fkey" implied="false" onDeleteCascade="false" table="auth_group"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_user_groups_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_groups_group_id" unique="false">
+            <column ascending="true" name="group_id"/>
+         </index>
+         <index name="auth_user_groups_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+         <index name="auth_user_groups_user_id_group_id_key" unique="true">
+            <column ascending="true" name="user_id"/>
+            <column ascending="true" name="group_id"/>
+         </index>
+      </table>
+      <table name="auth_user_user_permissions" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('auth_user_user_permissions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_id_refs_id_4dc23c39" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="auth_user_user_permissions_permission_id_fkey" implied="false" onDeleteCascade="false" table="auth_permission"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="auth_user_user_permissions_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="auth_user_user_permissions_permission_id" unique="false">
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="auth_user_user_permissions_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+         <index name="auth_user_user_permissions_user_id_permission_id_key" unique="true">
+            <column ascending="true" name="user_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table name="django_admin_log" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('django_admin_log_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="6" id="1" name="action_time" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="2" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="user_id_refs_id_c0d12874" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="content_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="content_type_id_refs_id_93d2d1f8" implied="false" onDeleteCascade="false" table="django_content_type"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="object_id" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="object_repr" nullable="false" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="action_flag" nullable="false" remarks="" size="5" type="int2"/>
+         <column autoUpdated="false" digits="0" id="7" name="change_message" nullable="false" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="django_admin_log_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="django_admin_log_content_type_id" unique="false">
+            <column ascending="true" name="content_type_id"/>
+         </index>
+         <index name="django_admin_log_user_id" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table name="django_content_type" numRows="55" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('django_content_type_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="content_type_id" foreignKey="content_type_id_refs_id_d043b34a" implied="false" onDeleteCascade="false" table="auth_permission"/>
+            <child column="content_type_id" foreignKey="content_type_id_refs_id_93d2d1f8" implied="false" onDeleteCascade="false" table="django_admin_log"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="app_label" nullable="false" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="model" nullable="false" remarks="" size="100" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="django_content_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="django_content_type_app_label_model_key" unique="true">
+            <column ascending="true" name="app_label"/>
+            <column ascending="true" name="model"/>
+         </index>
+      </table>
+      <table name="django_session" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="session_key" nullable="false" remarks="" size="40" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="1" name="session_data" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="6" id="2" name="expire_date" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="session_key" sequenceNumberInPK="1"/>
+         <index name="django_session_pkey" unique="true">
+            <column ascending="true" name="session_key"/>
+         </index>
+         <index name="django_session_expire_date" unique="false">
+            <column ascending="true" name="expire_date"/>
+         </index>
+         <index name="django_session_session_key_like" unique="false">
+            <column ascending="true" name="session_key"/>
+         </index>
+      </table>
+      <table name="public_bindingsite" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_bindingsite_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="bindingsite_id" foreignKey="bindingsite_id_refs_id_4d37f6bf" implied="false" onDeleteCascade="false" table="public_bindingsite_evidence"/>
+            <child column="binding_site_id" foreignKey="public_transcriptionalregulation_binding_site_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionalregulation"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="coordinate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="length" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="direction" nullable="false" remarks="" size="10" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_bindingsite_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_bindingsite_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_bindingsite_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="bindingsite_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="bindingsite_id_refs_id_4d37f6bf" implied="false" onDeleteCascade="false" table="public_bindingsite"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_bindingsite_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_bindingsite_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_bindingsite_evidence_bindingsite_id" unique="false">
+            <column ascending="true" name="bindingsite_id"/>
+         </index>
+         <index name="public_bindingsite_evidence_bindingsite_id_evidence_id_key" unique="true">
+            <column ascending="true" name="bindingsite_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_bindingsite_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_biomasscomposition" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_biomasscomposition_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="biomasscomposition_id" foreignKey="biomasscomposition_id_refs_id_1f8d2156" implied="false" onDeleteCascade="false" table="public_biomasscomposition_evidence"/>
+            <child column="biomasscomposition_id" foreignKey="public_metabolite_biomass_compositio_biomasscomposition_id_fkey" implied="false" onDeleteCascade="false" table="public_metabolite_biomass_composition"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="1" name="concentration" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="2" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_b1909041" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_biomasscomposition_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_biomasscomposition_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+      </table>
+      <table name="public_biomasscomposition_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_biomasscomposition_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="biomasscomposition_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="biomasscomposition_id_refs_id_1f8d2156" implied="false" onDeleteCascade="false" table="public_biomasscomposition"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_biomasscomposition_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_biomasscomposition_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_biomasscomposition_evi_biomasscomposition_id_evidenc_key" unique="true">
+            <column ascending="true" name="biomasscomposition_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_biomasscomposition_evidence_biomasscomposition_id" unique="false">
+            <column ascending="true" name="biomasscomposition_id"/>
+         </index>
+         <index name="public_biomasscomposition_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_chromosome" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="chromosome_id" foreignKey="public_chromosomefeature_chromosome_id_fkey" implied="false" onDeleteCascade="false" table="public_chromosomefeature"/>
+            <child column="chromosome_id" foreignKey="public_gene_chromosome_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+            <parent column="parent_ptr_species_component_id" foreignKey="public_chromosome_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="sequence" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="length" nullable="false" remarks="" size="10" type="int4"/>
+         <primaryKey column="parent_ptr_molecule_id" sequenceNumberInPK="1"/>
+         <index name="public_chromosome_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_molecule_id"/>
+         </index>
+      </table>
+      <table name="public_chromosomefeature" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="public_chromosomefeature_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="chromosome_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="public_chromosomefeature_chromosome_id_fkey" implied="false" onDeleteCascade="false" table="public_chromosome"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="coordinate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="length" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="direction" nullable="false" remarks="" size="10" type="varchar"/>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_chromosomefeature_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+         <index name="public_chromosomefeature_chromosome_id" unique="false">
+            <column ascending="true" name="chromosome_id"/>
+         </index>
+      </table>
+      <table name="public_codon" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_codon_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="codon_id" foreignKey="codon_id_refs_id_74387874" implied="false" onDeleteCascade="false" table="public_codon_evidence"/>
+            <child column="codon_id" foreignKey="public_gene_codons_codon_id_fkey" implied="false" onDeleteCascade="false" table="public_gene_codons"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="sequence" nullable="false" remarks="" size="3" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_codon_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_codon_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_codon_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="codon_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="codon_id_refs_id_74387874" implied="false" onDeleteCascade="false" table="public_codon"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_codon_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_codon_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_codon_evidence_codon_id" unique="false">
+            <column ascending="true" name="codon_id"/>
+         </index>
+         <index name="public_codon_evidence_codon_id_evidence_id_key" unique="true">
+            <column ascending="true" name="codon_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_codon_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_coenzymeparticipant" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_coenzymeparticipant_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="coenzymeparticipant_id" foreignKey="coenzymeparticipant_id_refs_id_114503cb" implied="false" onDeleteCascade="false" table="public_coenzymeparticipant_evidence"/>
+            <child column="coenzymeparticipant_id" foreignKey="public_reaction_coenzymes_coenzymeparticipant_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction_coenzymes"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="metabolite_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_917bf806" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_158372d5" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="3" name="coefficient" nullable="true" remarks="" size="17" type="float8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_coenzymeparticipant_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_coenzymeparticipant_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+         <index name="public_coenzymeparticipant_metabolite_id" unique="false">
+            <column ascending="true" name="metabolite_id"/>
+         </index>
+      </table>
+      <table name="public_coenzymeparticipant_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_coenzymeparticipant_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="coenzymeparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="coenzymeparticipant_id_refs_id_114503cb" implied="false" onDeleteCascade="false" table="public_coenzymeparticipant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_coenzymeparticipant_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_coenzymeparticipant_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_coenzymeparticipant_ev_coenzymeparticipant_id_eviden_key" unique="true">
+            <column ascending="true" name="coenzymeparticipant_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_coenzymeparticipant_evidence_coenzymeparticipant_id" unique="false">
+            <column ascending="true" name="coenzymeparticipant_id"/>
+         </index>
+         <index name="public_coenzymeparticipant_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_compartment" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_b1909041" implied="false" onDeleteCascade="false" table="public_biomasscomposition"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_158372d5" implied="false" onDeleteCascade="false" table="public_coenzymeparticipant"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_e27e3dc6" implied="false" onDeleteCascade="false" table="public_enzymeparticipant"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_cd6fa90e" implied="false" onDeleteCascade="false" table="public_metabolitemapcoordinate"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_ed3f73a6" implied="false" onDeleteCascade="false" table="public_modificationreaction"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_eed6220b" implied="false" onDeleteCascade="false" table="public_prostheticgroupparticipant"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_ef844c79" implied="false" onDeleteCascade="false" table="public_proteincomplexbiosythesisparticipant"/>
+            <child column="localization_id" foreignKey="public_proteinmonomer_localization_id_fkey" implied="false" onDeleteCascade="false" table="public_proteinmonomer"/>
+            <child column="compartment_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_4675d434" implied="false" onDeleteCascade="false" table="public_reactionstoichiometryparticipant"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_compartment_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_compartment_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_crossreference" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_crossreference_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="crossreference_id" foreignKey="public_entry_cross_references_crossreference_id_fkey" implied="false" onDeleteCascade="false" table="public_entry_cross_references"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="xid" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="source" nullable="false" remarks="" size="20" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_crossreference_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_disulfidebond" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_disulfidebond_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="disulfidebond_id" foreignKey="disulfidebond_id_refs_id_c6b0fc18" implied="false" onDeleteCascade="false" table="public_disulfidebond_evidence"/>
+            <child column="disulfidebond_id" foreignKey="public_proteincomplex_disulfide_bonds_disulfidebond_id_fkey" implied="false" onDeleteCascade="false" table="public_proteincomplex_disulfide_bonds"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="protein_monomer_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_protein_id" foreignKey="protein_monomer_id_refs_parent_ptr_protein_id_ab587129" implied="false" onDeleteCascade="false" table="public_proteinmonomer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="residue_1" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="residue_2" nullable="false" remarks="" size="10" type="int4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_disulfidebond_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_disulfidebond_protein_monomer_id" unique="false">
+            <column ascending="true" name="protein_monomer_id"/>
+         </index>
+      </table>
+      <table name="public_disulfidebond_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_disulfidebond_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="disulfidebond_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="disulfidebond_id_refs_id_c6b0fc18" implied="false" onDeleteCascade="false" table="public_disulfidebond"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_disulfidebond_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_disulfidebond_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_disulfidebond_evidence_disulfidebond_id" unique="false">
+            <column ascending="true" name="disulfidebond_id"/>
+         </index>
+         <index name="public_disulfidebond_evidence_disulfidebond_id_evidence_id_key" unique="true">
+            <column ascending="true" name="disulfidebond_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_disulfidebond_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_dnafootprint" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_dnafootprint_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="dnafootprint_id" foreignKey="dnafootprint_id_refs_id_3fb5bb65" implied="false" onDeleteCascade="false" table="public_dnafootprint_evidence"/>
+            <child column="dna_footprint_id" foreignKey="public_protein_dna_footprint_id_fkey" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="binding" nullable="false" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="region" nullable="false" remarks="" size="10" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_dnafootprint_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_dnafootprint_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_dnafootprint_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="dnafootprint_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="dnafootprint_id_refs_id_3fb5bb65" implied="false" onDeleteCascade="false" table="public_dnafootprint"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_dnafootprint_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_dnafootprint_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_dnafootprint_evidence_dnafootprint_id" unique="false">
+            <column ascending="true" name="dnafootprint_id"/>
+         </index>
+         <index name="public_dnafootprint_evidence_dnafootprint_id_evidence_id_key" unique="true">
+            <column ascending="true" name="dnafootprint_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_dnafootprint_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_entry" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entry_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="entry_id" foreignKey="entry_id_refs_id_1d8ae028" implied="false" onDeleteCascade="false" table="public_entry_cross_references"/>
+            <child column="entry_id" foreignKey="entry_id_refs_id_918a6f27" implied="false" onDeleteCascade="false" table="public_entry_synonyms"/>
+            <child column="parent_ptr_entry_id" foreignKey="public_species_parent_ptr_entry_id_fkey" implied="false" onDeleteCascade="false" table="public_species"/>
+            <child column="parent_ptr_entry_id" foreignKey="public_speciescomponent_parent_ptr_entry_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="model_type" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="wid" nullable="false" remarks="" size="150" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="name" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="comments" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="created_user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entry_created_user_id_fkey" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="6" name="created_date" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="7" name="last_updated_user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entry_last_updated_user_id_fkey" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="8" name="last_updated_date" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entry_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entry_created_user_id" unique="false">
+            <column ascending="true" name="created_user_id"/>
+         </index>
+         <index name="public_entry_last_updated_user_id" unique="false">
+            <column ascending="true" name="last_updated_user_id"/>
+         </index>
+         <index name="public_entry_wid" unique="false">
+            <column ascending="true" name="wid"/>
+         </index>
+         <index name="public_entry_wid_like" unique="false">
+            <column ascending="true" name="wid"/>
+         </index>
+      </table>
+      <table name="public_entry_cross_references" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entry_cross_references_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entry_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entry_id_refs_id_1d8ae028" implied="false" onDeleteCascade="false" table="public_entry"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="crossreference_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entry_cross_references_crossreference_id_fkey" implied="false" onDeleteCascade="false" table="public_crossreference"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entry_cross_references_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entry_cross_references_crossreference_id" unique="false">
+            <column ascending="true" name="crossreference_id"/>
+         </index>
+         <index name="public_entry_cross_references_entry_id" unique="false">
+            <column ascending="true" name="entry_id"/>
+         </index>
+         <index name="public_entry_cross_references_entry_id_crossreference_id_key" unique="true">
+            <column ascending="true" name="entry_id"/>
+            <column ascending="true" name="crossreference_id"/>
+         </index>
+      </table>
+      <table name="public_entry_synonyms" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entry_synonyms_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entry_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entry_id_refs_id_918a6f27" implied="false" onDeleteCascade="false" table="public_entry"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="synonym_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entry_synonyms_synonym_id_fkey" implied="false" onDeleteCascade="false" table="public_synonym"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entry_synonyms_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entry_synonyms_entry_id" unique="false">
+            <column ascending="true" name="entry_id"/>
+         </index>
+         <index name="public_entry_synonyms_entry_id_synonym_id_key" unique="true">
+            <column ascending="true" name="entry_id"/>
+            <column ascending="true" name="synonym_id"/>
+         </index>
+         <index name="public_entry_synonyms_synonym_id" unique="false">
+            <column ascending="true" name="synonym_id"/>
+         </index>
+      </table>
+      <table name="public_entrybooleandata" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrybooleandata_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="entrybooleandata_id" foreignKey="entrybooleandata_id_refs_id_2937560e" implied="false" onDeleteCascade="false" table="public_entrybooleandata_evidence"/>
+            <child column="is_essential_id" foreignKey="public_gene_is_essential_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+            <child column="is_n_terminal_methionine_cleaved_id" foreignKey="public_proteinmonomer_is_n_terminal_methionine_cleaved_id_fkey" implied="false" onDeleteCascade="false" table="public_proteinmonomer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="value" nullable="false" remarks="" size="1" type="bool"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrybooleandata_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_entrybooleandata_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrybooleandata_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entrybooleandata_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entrybooleandata_id_refs_id_2937560e" implied="false" onDeleteCascade="false" table="public_entrybooleandata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entrybooleandata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrybooleandata_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entrybooleandata_evide_entrybooleandata_id_evidence__key" unique="true">
+            <column ascending="true" name="entrybooleandata_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_entrybooleandata_evidence_entrybooleandata_id" unique="false">
+            <column ascending="true" name="entrybooleandata_id"/>
+         </index>
+         <index name="public_entrybooleandata_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_entrychardata" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrychardata_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="entrychardata_id" foreignKey="entrychardata_id_refs_id_89cdb3ef" implied="false" onDeleteCascade="false" table="public_entrychardata_evidence"/>
+            <child column="value_id" foreignKey="public_parameter_value_id_fkey" implied="false" onDeleteCascade="false" table="public_parameter"/>
+            <child column="regulatory_rule_id" foreignKey="public_protein_regulatory_rule_id_fkey" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="value" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="units" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrychardata_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_entrychardata_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrychardata_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entrychardata_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entrychardata_id_refs_id_89cdb3ef" implied="false" onDeleteCascade="false" table="public_entrychardata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entrychardata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrychardata_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entrychardata_evidence_entrychardata_id" unique="false">
+            <column ascending="true" name="entrychardata_id"/>
+         </index>
+         <index name="public_entrychardata_evidence_entrychardata_id_evidence_id_key" unique="true">
+            <column ascending="true" name="entrychardata_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_entrychardata_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_entryfloatdata" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entryfloatdata_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="entryfloatdata_id" foreignKey="entryfloatdata_id_refs_id_09333e9f" implied="false" onDeleteCascade="false" table="public_entryfloatdata_evidence"/>
+            <child column="optimal_temperature_id" foreignKey="public_reaction_optimal_temperature_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <child column="value_id" foreignKey="public_stimulus_value_id_fkey" implied="false" onDeleteCascade="false" table="public_stimulus"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="1" name="value" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="2" name="units" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entryfloatdata_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_entryfloatdata_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entryfloatdata_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entryfloatdata_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entryfloatdata_id_refs_id_09333e9f" implied="false" onDeleteCascade="false" table="public_entryfloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entryfloatdata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entryfloatdata_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entryfloatdata_evidenc_entryfloatdata_id_evidence_id_key" unique="true">
+            <column ascending="true" name="entryfloatdata_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_entryfloatdata_evidence_entryfloatdata_id" unique="false">
+            <column ascending="true" name="entryfloatdata_id"/>
+         </index>
+         <index name="public_entryfloatdata_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_entrypositivefloatdata" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrypositivefloatdata_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="entrypositivefloatdata_id" foreignKey="entrypositivefloatdata_id_refs_id_f4306200" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata_evidence"/>
+            <child column="expression_id" foreignKey="public_gene_expression_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+            <child column="half_life_id" foreignKey="public_gene_half_life_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+            <child column="keq_id" foreignKey="public_reaction_keq_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <child column="optimal_ph_id" foreignKey="public_reaction_optimal_ph_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <child column="activity_id" foreignKey="public_transcriptionalregulation_activity_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionalregulation"/>
+            <child column="affinity_id" foreignKey="public_transcriptionalregulation_affinity_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionalregulation"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="1" name="value" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="2" name="units" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrypositivefloatdata_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_entrypositivefloatdata_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrypositivefloatdata_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entrypositivefloatdata_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entrypositivefloatdata_id_refs_id_f4306200" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entrypositivefloatdata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrypositivefloatdata_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entrypositivefloatdata_entrypositivefloatdata_id_evi_key" unique="true">
+            <column ascending="true" name="entrypositivefloatdata_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_entrypositivefloatdata_evidence_entrypositivefloatda34d1" unique="false">
+            <column ascending="true" name="entrypositivefloatdata_id"/>
+         </index>
+         <index name="public_entrypositivefloatdata_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_entrytextdata" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrytextdata_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="entrytextdata_id" foreignKey="entrytextdata_id_refs_id_59c2d2c4" implied="false" onDeleteCascade="false" table="public_entrytextdata_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="value" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="units" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrytextdata_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_entrytextdata_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_entrytextdata_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="entrytextdata_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="entrytextdata_id_refs_id_59c2d2c4" implied="false" onDeleteCascade="false" table="public_entrytextdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_entrytextdata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_entrytextdata_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_entrytextdata_evidence_entrytextdata_id" unique="false">
+            <column ascending="true" name="entrytextdata_id"/>
+         </index>
+         <index name="public_entrytextdata_evidence_entrytextdata_id_evidence_id_key" unique="true">
+            <column ascending="true" name="entrytextdata_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_entrytextdata_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_enzymeparticipant" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_enzymeparticipant_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="enzymeparticipant_id" foreignKey="enzymeparticipant_id_refs_id_fe8da27e" implied="false" onDeleteCascade="false" table="public_enzymeparticipant_evidence"/>
+            <child column="enzyme_id" foreignKey="public_reaction_enzyme_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="protein_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="protein_id_refs_parent_ptr_molecule_id_7a3f3ee2" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_e27e3dc6" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_enzymeparticipant_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_enzymeparticipant_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+         <index name="public_enzymeparticipant_protein_id" unique="false">
+            <column ascending="true" name="protein_id"/>
+         </index>
+      </table>
+      <table name="public_enzymeparticipant_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_enzymeparticipant_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="enzymeparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="enzymeparticipant_id_refs_id_fe8da27e" implied="false" onDeleteCascade="false" table="public_enzymeparticipant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_enzymeparticipant_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_enzymeparticipant_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_enzymeparticipant_evid_enzymeparticipant_id_evidence_key" unique="true">
+            <column ascending="true" name="enzymeparticipant_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_enzymeparticipant_evidence_enzymeparticipant_id" unique="false">
+            <column ascending="true" name="enzymeparticipant_id"/>
+         </index>
+         <index name="public_enzymeparticipant_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="evidence_id" foreignKey="public_bindingsite_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_bindingsite_evidence"/>
+            <child column="evidence_id" foreignKey="public_biomasscomposition_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_biomasscomposition_evidence"/>
+            <child column="evidence_id" foreignKey="public_codon_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_codon_evidence"/>
+            <child column="evidence_id" foreignKey="public_coenzymeparticipant_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_coenzymeparticipant_evidence"/>
+            <child column="evidence_id" foreignKey="public_disulfidebond_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_disulfidebond_evidence"/>
+            <child column="evidence_id" foreignKey="public_dnafootprint_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_dnafootprint_evidence"/>
+            <child column="evidence_id" foreignKey="public_entrybooleandata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_entrybooleandata_evidence"/>
+            <child column="evidence_id" foreignKey="public_entrychardata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_entrychardata_evidence"/>
+            <child column="evidence_id" foreignKey="public_entryfloatdata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_entryfloatdata_evidence"/>
+            <child column="evidence_id" foreignKey="public_entrypositivefloatdata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata_evidence"/>
+            <child column="evidence_id" foreignKey="public_entrytextdata_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_entrytextdata_evidence"/>
+            <child column="evidence_id" foreignKey="public_enzymeparticipant_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_enzymeparticipant_evidence"/>
+            <child column="evidence_id" foreignKey="evidence_id_refs_id_2c82ee51" implied="false" onDeleteCascade="false" table="public_evidence_references"/>
+            <child column="evidence_id" foreignKey="public_homolog_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_homolog_evidence"/>
+            <child column="evidence_id" foreignKey="public_kinetics_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_kinetics_evidence"/>
+            <child column="evidence_id" foreignKey="public_mediacomposition_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_mediacomposition_evidence"/>
+            <child column="evidence_id" foreignKey="public_modificationreaction_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_modificationreaction_evidence"/>
+            <child column="evidence_id" foreignKey="public_prostheticgroupparticipant_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_prostheticgroupparticipant_evidence"/>
+            <child column="evidence_id" foreignKey="public_proteincomplexbiosythesisparticipant_ev_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_proteincomplexbiosythesisparticipant_evidence"/>
+            <child column="evidence_id" foreignKey="public_reactionstoichiometryparticipant_eviden_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_reactionstoichiometryparticipant_evidence"/>
+            <child column="evidence_id" foreignKey="public_signalsequence_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_signalsequence_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="value" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="units" nullable="true" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="is_experimentally_constrained" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="4" name="species" nullable="true" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="media" nullable="true" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="6" name="pH" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="temperature" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="8" name="comments" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="9" name="species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="species_component_id_refs_parent_ptr_entry_id_8ba7619e" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_evidence_species_component_id" unique="false">
+            <column ascending="true" name="species_component_id"/>
+         </index>
+      </table>
+      <table name="public_evidence_references" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_evidence_references_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="evidence_id_refs_id_2c82ee51" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="reference_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reference_id_refs_parent_ptr_species_component_id_95b8a082" implied="false" onDeleteCascade="false" table="public_reference"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_evidence_references_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_evidence_references_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_evidence_references_evidence_id_reference_id_key" unique="true">
+            <column ascending="true" name="evidence_id"/>
+            <column ascending="true" name="reference_id"/>
+         </index>
+         <index name="public_evidence_references_reference_id" unique="false">
+            <column ascending="true" name="reference_id"/>
+         </index>
+      </table>
+      <table name="public_gene" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="gene_id" foreignKey="gene_id_refs_parent_ptr_molecule_id_4d8bacb5" implied="false" onDeleteCascade="false" table="public_gene_codons"/>
+            <child column="gene_id" foreignKey="gene_id_refs_parent_ptr_molecule_id_10398c4c" implied="false" onDeleteCascade="false" table="public_gene_homologs"/>
+            <child column="gene_id" foreignKey="public_proteinmonomer_gene_id_fkey" implied="false" onDeleteCascade="false" table="public_proteinmonomer"/>
+            <child column="gene_id" foreignKey="public_transcriptionunit_genes_gene_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionunit_genes"/>
+            <parent column="parent_ptr_species_component_id" foreignKey="public_gene_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="symbol" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="chromosome_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="public_gene_chromosome_id_fkey" implied="false" onDeleteCascade="false" table="public_chromosome"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="coordinate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="length" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="direction" nullable="false" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="is_essential_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_gene_is_essential_id_fkey" implied="false" onDeleteCascade="false" table="public_entrybooleandata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="7" name="expression_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_gene_expression_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="8" name="half_life_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_gene_half_life_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="9" name="amino_acid_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="amino_acid_id_refs_parent_ptr_molecule_id_d9222857" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+         </column>
+         <primaryKey column="parent_ptr_molecule_id" sequenceNumberInPK="1"/>
+         <index name="public_gene_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_molecule_id"/>
+         </index>
+         <index name="public_gene_amino_acid_id" unique="false">
+            <column ascending="true" name="amino_acid_id"/>
+         </index>
+         <index name="public_gene_chromosome_id" unique="false">
+            <column ascending="true" name="chromosome_id"/>
+         </index>
+         <index name="public_gene_expression_id" unique="false">
+            <column ascending="true" name="expression_id"/>
+         </index>
+         <index name="public_gene_half_life_id" unique="false">
+            <column ascending="true" name="half_life_id"/>
+         </index>
+         <index name="public_gene_is_essential_id" unique="false">
+            <column ascending="true" name="is_essential_id"/>
+         </index>
+      </table>
+      <table name="public_gene_codons" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_gene_codons_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="gene_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="gene_id_refs_parent_ptr_molecule_id_4d8bacb5" implied="false" onDeleteCascade="false" table="public_gene"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="codon_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_gene_codons_codon_id_fkey" implied="false" onDeleteCascade="false" table="public_codon"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_gene_codons_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_gene_codons_codon_id" unique="false">
+            <column ascending="true" name="codon_id"/>
+         </index>
+         <index name="public_gene_codons_gene_id" unique="false">
+            <column ascending="true" name="gene_id"/>
+         </index>
+         <index name="public_gene_codons_gene_id_codon_id_key" unique="true">
+            <column ascending="true" name="gene_id"/>
+            <column ascending="true" name="codon_id"/>
+         </index>
+      </table>
+      <table name="public_gene_homologs" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_gene_homologs_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="gene_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="gene_id_refs_parent_ptr_molecule_id_10398c4c" implied="false" onDeleteCascade="false" table="public_gene"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="homolog_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_gene_homologs_homolog_id_fkey" implied="false" onDeleteCascade="false" table="public_homolog"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_gene_homologs_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_gene_homologs_gene_id" unique="false">
+            <column ascending="true" name="gene_id"/>
+         </index>
+         <index name="public_gene_homologs_gene_id_homolog_id_key" unique="true">
+            <column ascending="true" name="gene_id"/>
+            <column ascending="true" name="homolog_id"/>
+         </index>
+         <index name="public_gene_homologs_homolog_id" unique="false">
+            <column ascending="true" name="homolog_id"/>
+         </index>
+      </table>
+      <table name="public_homolog" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_homolog_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="homolog_id" foreignKey="public_gene_homologs_homolog_id_fkey" implied="false" onDeleteCascade="false" table="public_gene_homologs"/>
+            <child column="homolog_id" foreignKey="homolog_id_refs_id_6587a4e2" implied="false" onDeleteCascade="false" table="public_homolog_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="xid" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="species" nullable="false" remarks="" size="20" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_homolog_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_homolog_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_homolog_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="homolog_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="homolog_id_refs_id_6587a4e2" implied="false" onDeleteCascade="false" table="public_homolog"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_homolog_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_homolog_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_homolog_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_homolog_evidence_homolog_id" unique="false">
+            <column ascending="true" name="homolog_id"/>
+         </index>
+         <index name="public_homolog_evidence_homolog_id_evidence_id_key" unique="true">
+            <column ascending="true" name="homolog_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_kinetics" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_kinetics_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="kinetics_id" foreignKey="kinetics_id_refs_id_a616e6bf" implied="false" onDeleteCascade="false" table="public_kinetics_evidence"/>
+            <child column="kinetics_backward_id" foreignKey="public_reaction_kinetics_backward_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <child column="kinetics_forward_id" foreignKey="public_reaction_kinetics_forward_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="rate_law" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="km" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="3" name="vmax" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="4" name="vmax_unit" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_kinetics_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_kinetics_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_kinetics_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="kinetics_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="kinetics_id_refs_id_a616e6bf" implied="false" onDeleteCascade="false" table="public_kinetics"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_kinetics_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_kinetics_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_kinetics_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_kinetics_evidence_kinetics_id" unique="false">
+            <column ascending="true" name="kinetics_id"/>
+         </index>
+         <index name="public_kinetics_evidence_kinetics_id_evidence_id_key" unique="true">
+            <column ascending="true" name="kinetics_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+      </table>
+      <table name="public_mediacomposition" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_mediacomposition_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="mediacomposition_id" foreignKey="mediacomposition_id_refs_id_e43b02fb" implied="false" onDeleteCascade="false" table="public_mediacomposition_evidence"/>
+            <child column="media_composition_id" foreignKey="public_metabolite_media_composition_id_fkey" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="1" name="concentration" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="2" name="is_diffused" nullable="false" remarks="" size="1" type="bool"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_mediacomposition_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_mediacomposition_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_mediacomposition_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="mediacomposition_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="mediacomposition_id_refs_id_e43b02fb" implied="false" onDeleteCascade="false" table="public_mediacomposition"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_mediacomposition_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_mediacomposition_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_mediacomposition_evide_mediacomposition_id_evidence__key" unique="true">
+            <column ascending="true" name="mediacomposition_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_mediacomposition_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_mediacomposition_evidence_mediacomposition_id" unique="false">
+            <column ascending="true" name="mediacomposition_id"/>
+         </index>
+      </table>
+      <table name="public_metabolite" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="metabolite_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_917bf806" implied="false" onDeleteCascade="false" table="public_coenzymeparticipant"/>
+            <child column="amino_acid_id" foreignKey="amino_acid_id_refs_parent_ptr_molecule_id_d9222857" implied="false" onDeleteCascade="false" table="public_gene"/>
+            <child column="metabolite_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_acc9e0dc" implied="false" onDeleteCascade="false" table="public_metabolite_biomass_composition"/>
+            <child column="metabolite_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_68b8e424" implied="false" onDeleteCascade="false" table="public_metabolite_map_coordinates"/>
+            <child column="metabolite_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_5c8ca392" implied="false" onDeleteCascade="false" table="public_prostheticgroupparticipant"/>
+            <parent column="parent_ptr_species_component_id" foreignKey="public_metabolite_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="traditional_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="iupac_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="empirical_formula" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="smiles" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="charge" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="is_hydrophobic" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="17" id="7" name="volume" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="deltag_formation" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="pka" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="pi" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="11" name="log_p" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="log_d" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="13" name="media_composition_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_metabolite_media_composition_id_fkey" implied="false" onDeleteCascade="false" table="public_mediacomposition"/>
+         </column>
+         <primaryKey column="parent_ptr_molecule_id" sequenceNumberInPK="1"/>
+         <index name="public_metabolite_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_molecule_id"/>
+         </index>
+         <index name="public_metabolite_media_composition_id" unique="false">
+            <column ascending="true" name="media_composition_id"/>
+         </index>
+      </table>
+      <table name="public_metabolite_biomass_composition" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_metabolite_biomass_composition_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="metabolite_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_acc9e0dc" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="biomasscomposition_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_metabolite_biomass_compositio_biomasscomposition_id_fkey" implied="false" onDeleteCascade="false" table="public_biomasscomposition"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_metabolite_biomass_composition_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_metabolite_biomass_com_metabolite_id_biomasscomposit_key" unique="true">
+            <column ascending="true" name="metabolite_id"/>
+            <column ascending="true" name="biomasscomposition_id"/>
+         </index>
+         <index name="public_metabolite_biomass_composition_biomasscomposition_id" unique="false">
+            <column ascending="true" name="biomasscomposition_id"/>
+         </index>
+         <index name="public_metabolite_biomass_composition_metabolite_id" unique="false">
+            <column ascending="true" name="metabolite_id"/>
+         </index>
+      </table>
+      <table name="public_metabolite_map_coordinates" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_metabolite_map_coordinates_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="metabolite_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_68b8e424" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="metabolitemapcoordinate_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_metabolite_map_coordinat_metabolitemapcoordinate_id_fkey" implied="false" onDeleteCascade="false" table="public_metabolitemapcoordinate"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_metabolite_map_coordinates_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_metabolite_map_coordin_metabolite_id_metabolitemapco_key" unique="true">
+            <column ascending="true" name="metabolite_id"/>
+            <column ascending="true" name="metabolitemapcoordinate_id"/>
+         </index>
+         <index name="public_metabolite_map_coordinates_metabolite_id" unique="false">
+            <column ascending="true" name="metabolite_id"/>
+         </index>
+         <index name="public_metabolite_map_coordinates_metabolitemapcoordinate_id" unique="false">
+            <column ascending="true" name="metabolitemapcoordinate_id"/>
+         </index>
+      </table>
+      <table name="public_metabolitemapcoordinate" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_metabolitemapcoordinate_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="metabolitemapcoordinate_id" foreignKey="public_metabolite_map_coordinat_metabolitemapcoordinate_id_fkey" implied="false" onDeleteCascade="false" table="public_metabolite_map_coordinates"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_cd6fa90e" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="2" name="x" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="y" nullable="false" remarks="" size="17" type="float8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_metabolitemapcoordinate_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_metabolitemapcoordinate_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+      </table>
+      <table name="public_modificationreaction" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_modificationreaction_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="modificationreaction_id" foreignKey="modificationreaction_id_refs_id_1c1bc0a4" implied="false" onDeleteCascade="false" table="public_modificationreaction_evidence"/>
+            <child column="modification_id" foreignKey="public_reaction_modification_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="molecule_id_refs_parent_ptr_species_component_id_205b9af2" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_ed3f73a6" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="position" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_modificationreaction_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_modificationreaction_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+         <index name="public_modificationreaction_molecule_id" unique="false">
+            <column ascending="true" name="molecule_id"/>
+         </index>
+      </table>
+      <table name="public_modificationreaction_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_modificationreaction_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="modificationreaction_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="modificationreaction_id_refs_id_1c1bc0a4" implied="false" onDeleteCascade="false" table="public_modificationreaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_modificationreaction_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_modificationreaction_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_modificationreaction_e_modificationreaction_id_evide_key" unique="true">
+            <column ascending="true" name="modificationreaction_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_modificationreaction_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_modificationreaction_evidence_modificationreaction_id" unique="false">
+            <column ascending="true" name="modificationreaction_id"/>
+         </index>
+      </table>
+      <table name="public_molecule" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="parent_ptr_molecule_id" foreignKey="public_chromosome_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_chromosome"/>
+            <child column="parent_ptr_molecule_id" foreignKey="public_gene_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+            <child column="parent_ptr_molecule_id" foreignKey="public_metabolite_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+            <child column="molecule_id" foreignKey="molecule_id_refs_parent_ptr_species_component_id_205b9af2" implied="false" onDeleteCascade="false" table="public_modificationreaction"/>
+            <child column="molecule_id" foreignKey="public_parameter_molecules_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_parameter_molecules"/>
+            <child column="parent_ptr_molecule_id" foreignKey="public_protein_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_protein"/>
+            <child column="molecule_id" foreignKey="molecule_id_refs_parent_ptr_species_component_id_884585f1" implied="false" onDeleteCascade="false" table="public_proteincomplexbiosythesisparticipant"/>
+            <child column="molecule_id" foreignKey="molecule_id_refs_parent_ptr_species_component_id_68f5428a" implied="false" onDeleteCascade="false" table="public_reactionstoichiometryparticipant"/>
+            <child column="parent_ptr_molecule_id" foreignKey="public_stimulus_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_stimulus"/>
+            <child column="parent_ptr_molecule_id" foreignKey="public_transcriptionunit_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionunit"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_molecule_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_molecule_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_note" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="public_note_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_note_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_parameter" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="parameter_id" foreignKey="parameter_id_refs_parent_ptr_species_component_id_b25e9317" implied="false" onDeleteCascade="false" table="public_parameter_molecules"/>
+            <child column="parameter_id" foreignKey="parameter_id_refs_parent_ptr_species_component_id_1bb1342c" implied="false" onDeleteCascade="false" table="public_parameter_reactions"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_parameter_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="value_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_parameter_value_id_fkey" implied="false" onDeleteCascade="false" table="public_entrychardata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="state_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="state_id_refs_parent_ptr_species_component_id_a7fa0111" implied="false" onDeleteCascade="false" table="public_state"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="process_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="process_id_refs_parent_ptr_species_component_id_a6b3fa55" implied="false" onDeleteCascade="false" table="public_process"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_parameter_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+         <index name="public_parameter_process_id" unique="false">
+            <column ascending="true" name="process_id"/>
+         </index>
+         <index name="public_parameter_state_id" unique="false">
+            <column ascending="true" name="state_id"/>
+         </index>
+         <index name="public_parameter_value_id" unique="false">
+            <column ascending="true" name="value_id"/>
+         </index>
+      </table>
+      <table name="public_parameter_molecules" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_parameter_molecules_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="parameter_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="parameter_id_refs_parent_ptr_species_component_id_b25e9317" implied="false" onDeleteCascade="false" table="public_parameter"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_parameter_molecules_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_parameter_molecules_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_parameter_molecules_molecule_id" unique="false">
+            <column ascending="true" name="molecule_id"/>
+         </index>
+         <index name="public_parameter_molecules_parameter_id" unique="false">
+            <column ascending="true" name="parameter_id"/>
+         </index>
+         <index name="public_parameter_molecules_parameter_id_molecule_id_key" unique="true">
+            <column ascending="true" name="parameter_id"/>
+            <column ascending="true" name="molecule_id"/>
+         </index>
+      </table>
+      <table name="public_parameter_reactions" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_parameter_reactions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="parameter_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="parameter_id_refs_parent_ptr_species_component_id_1bb1342c" implied="false" onDeleteCascade="false" table="public_parameter"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="reaction_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_4587e455" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_parameter_reactions_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_parameter_reactions_parameter_id" unique="false">
+            <column ascending="true" name="parameter_id"/>
+         </index>
+         <index name="public_parameter_reactions_parameter_id_reaction_id_key" unique="true">
+            <column ascending="true" name="parameter_id"/>
+            <column ascending="true" name="reaction_id"/>
+         </index>
+         <index name="public_parameter_reactions_reaction_id" unique="false">
+            <column ascending="true" name="reaction_id"/>
+         </index>
+      </table>
+      <table name="public_pathway" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="pathway_id" foreignKey="public_reaction_pathways_pathway_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction_pathways"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_pathway_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_pathway_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_process" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="process_id" foreignKey="process_id_refs_parent_ptr_species_component_id_a6b3fa55" implied="false" onDeleteCascade="false" table="public_parameter"/>
+            <child column="formation_process_id" foreignKey="public_proteincomplex_formation_process_id_fkey" implied="false" onDeleteCascade="false" table="public_proteincomplex"/>
+            <child column="processes_id" foreignKey="public_reaction_processes_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_process_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="initialization_order" nullable="false" remarks="" size="10" type="int4"/>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_process_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_prostheticgroupparticipant" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_prostheticgroupparticipant_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="prostheticgroupparticipant_id" foreignKey="prostheticgroupparticipant_id_refs_id_b2dceaac" implied="false" onDeleteCascade="false" table="public_prostheticgroupparticipant_evidence"/>
+            <child column="prostheticgroupparticipant_id" foreignKey="public_protein_prosthetic_gro_prostheticgroupparticipant_i_fkey" implied="false" onDeleteCascade="false" table="public_protein_prosthetic_groups"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="metabolite_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="metabolite_id_refs_parent_ptr_molecule_id_5c8ca392" implied="false" onDeleteCascade="false" table="public_metabolite"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_eed6220b" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="coefficient" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_prostheticgroupparticipant_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_prostheticgroupparticipant_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+         <index name="public_prostheticgroupparticipant_metabolite_id" unique="false">
+            <column ascending="true" name="metabolite_id"/>
+         </index>
+      </table>
+      <table name="public_prostheticgroupparticipant_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_prostheticgroupparticipant_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="prostheticgroupparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="prostheticgroupparticipant_id_refs_id_b2dceaac" implied="false" onDeleteCascade="false" table="public_prostheticgroupparticipant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_prostheticgroupparticipant_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_prostheticgroupparticipant_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_prostheticgrouppartici_prostheticgroupparticipant_id_key" unique="true">
+            <column ascending="true" name="prostheticgroupparticipant_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_prostheticgroupparticipant_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_prostheticgroupparticipant_evidence_prostheticgrouppfc1a" unique="false">
+            <column ascending="true" name="prostheticgroupparticipant_id"/>
+         </index>
+      </table>
+      <table name="public_protein" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="protein_id" foreignKey="protein_id_refs_parent_ptr_molecule_id_7a3f3ee2" implied="false" onDeleteCascade="false" table="public_enzymeparticipant"/>
+            <child column="from_protein_id" foreignKey="from_protein_id_refs_parent_ptr_molecule_id_0e2c4314" implied="false" onDeleteCascade="false" table="public_protein_chaperones"/>
+            <child column="to_protein_id" foreignKey="to_protein_id_refs_parent_ptr_molecule_id_0e2c4314" implied="false" onDeleteCascade="false" table="public_protein_chaperones"/>
+            <child column="protein_id" foreignKey="protein_id_refs_parent_ptr_molecule_id_ab603979" implied="false" onDeleteCascade="false" table="public_protein_prosthetic_groups"/>
+            <child column="parent_ptr_protein_id" foreignKey="public_proteincomplex_parent_ptr_protein_id_fkey" implied="false" onDeleteCascade="false" table="public_proteincomplex"/>
+            <child column="parent_ptr_protein_id" foreignKey="public_proteinmonomer_parent_ptr_protein_id_fkey" implied="false" onDeleteCascade="false" table="public_proteinmonomer"/>
+            <child column="transcription_factor_id" foreignKey="public_transcriptionalregulation_transcription_factor_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionalregulation"/>
+            <parent column="parent_ptr_species_component_id" foreignKey="public_protein_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="dna_footprint_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_protein_dna_footprint_id_fkey" implied="false" onDeleteCascade="false" table="public_dnafootprint"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="regulatory_rule_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_protein_regulatory_rule_id_fkey" implied="false" onDeleteCascade="false" table="public_entrychardata"/>
+         </column>
+         <primaryKey column="parent_ptr_molecule_id" sequenceNumberInPK="1"/>
+         <index name="public_protein_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_molecule_id"/>
+         </index>
+         <index name="public_protein_dna_footprint_id" unique="false">
+            <column ascending="true" name="dna_footprint_id"/>
+         </index>
+         <index name="public_protein_regulatory_rule_id" unique="false">
+            <column ascending="true" name="regulatory_rule_id"/>
+         </index>
+      </table>
+      <table name="public_protein_chaperones" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_protein_chaperones_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="from_protein_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="from_protein_id_refs_parent_ptr_molecule_id_0e2c4314" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="to_protein_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="to_protein_id_refs_parent_ptr_molecule_id_0e2c4314" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_protein_chaperones_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_protein_chaperones_from_protein_id" unique="false">
+            <column ascending="true" name="from_protein_id"/>
+         </index>
+         <index name="public_protein_chaperones_from_protein_id_to_protein_id_key" unique="true">
+            <column ascending="true" name="from_protein_id"/>
+            <column ascending="true" name="to_protein_id"/>
+         </index>
+         <index name="public_protein_chaperones_to_protein_id" unique="false">
+            <column ascending="true" name="to_protein_id"/>
+         </index>
+      </table>
+      <table name="public_protein_prosthetic_groups" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_protein_prosthetic_groups_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="protein_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="protein_id_refs_parent_ptr_molecule_id_ab603979" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="prostheticgroupparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_protein_prosthetic_gro_prostheticgroupparticipant_i_fkey" implied="false" onDeleteCascade="false" table="public_prostheticgroupparticipant"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_protein_prosthetic_groups_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_protein_prosthetic_gro_protein_id_prostheticgrouppar_key" unique="true">
+            <column ascending="true" name="protein_id"/>
+            <column ascending="true" name="prostheticgroupparticipant_id"/>
+         </index>
+         <index name="public_protein_prosthetic_groups_prostheticgroupparticipant_id" unique="false">
+            <column ascending="true" name="prostheticgroupparticipant_id"/>
+         </index>
+         <index name="public_protein_prosthetic_groups_protein_id" unique="false">
+            <column ascending="true" name="protein_id"/>
+         </index>
+      </table>
+      <table name="public_proteincomplex" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_protein_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="proteincomplex_id" foreignKey="proteincomplex_id_refs_parent_ptr_protein_id_9bfa6001" implied="false" onDeleteCascade="false" table="public_proteincomplex_biosynthesis"/>
+            <child column="proteincomplex_id" foreignKey="proteincomplex_id_refs_parent_ptr_protein_id_85b42b84" implied="false" onDeleteCascade="false" table="public_proteincomplex_disulfide_bonds"/>
+            <parent column="parent_ptr_molecule_id" foreignKey="public_proteincomplex_parent_ptr_protein_id_fkey" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="formation_process_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_proteincomplex_formation_process_id_fkey" implied="false" onDeleteCascade="false" table="public_process"/>
+         </column>
+         <primaryKey column="parent_ptr_protein_id" sequenceNumberInPK="1"/>
+         <index name="public_proteincomplex_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_protein_id"/>
+         </index>
+         <index name="public_proteincomplex_formation_process_id" unique="false">
+            <column ascending="true" name="formation_process_id"/>
+         </index>
+      </table>
+      <table name="public_proteincomplex_biosynthesis" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_proteincomplex_biosynthesis_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="proteincomplex_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_protein_id" foreignKey="proteincomplex_id_refs_parent_ptr_protein_id_9bfa6001" implied="false" onDeleteCascade="false" table="public_proteincomplex"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="proteincomplexbiosythesisparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_proteincomplex_biosynt_proteincomplexbiosythesispar_fkey" implied="false" onDeleteCascade="false" table="public_proteincomplexbiosythesisparticipant"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_proteincomplex_biosynthesis_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_proteincomplex_biosynt_proteincomplex_id_proteincomp_key" unique="true">
+            <column ascending="true" name="proteincomplex_id"/>
+            <column ascending="true" name="proteincomplexbiosythesisparticipant_id"/>
+         </index>
+         <index name="public_proteincomplex_biosynthesis_proteincomplex_id" unique="false">
+            <column ascending="true" name="proteincomplex_id"/>
+         </index>
+         <index name="public_proteincomplex_biosynthesis_proteincomplexbiosythesi9b1e" unique="false">
+            <column ascending="true" name="proteincomplexbiosythesisparticipant_id"/>
+         </index>
+      </table>
+      <table name="public_proteincomplex_disulfide_bonds" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_proteincomplex_disulfide_bonds_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="proteincomplex_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_protein_id" foreignKey="proteincomplex_id_refs_parent_ptr_protein_id_85b42b84" implied="false" onDeleteCascade="false" table="public_proteincomplex"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="disulfidebond_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_proteincomplex_disulfide_bonds_disulfidebond_id_fkey" implied="false" onDeleteCascade="false" table="public_disulfidebond"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_proteincomplex_disulfide_bonds_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_proteincomplex_disulfi_proteincomplex_id_disulfidebo_key" unique="true">
+            <column ascending="true" name="proteincomplex_id"/>
+            <column ascending="true" name="disulfidebond_id"/>
+         </index>
+         <index name="public_proteincomplex_disulfide_bonds_disulfidebond_id" unique="false">
+            <column ascending="true" name="disulfidebond_id"/>
+         </index>
+         <index name="public_proteincomplex_disulfide_bonds_proteincomplex_id" unique="false">
+            <column ascending="true" name="proteincomplex_id"/>
+         </index>
+      </table>
+      <table name="public_proteincomplexbiosythesisparticipant" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_proteincomplexbiosythesisparticipant_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="proteincomplexbiosythesisparticipant_id" foreignKey="public_proteincomplex_biosynt_proteincomplexbiosythesispar_fkey" implied="false" onDeleteCascade="false" table="public_proteincomplex_biosynthesis"/>
+            <child column="proteincomplexbiosythesisparticipant_id" foreignKey="proteincomplexbiosythesisparticipant_id_refs_id_621d8528" implied="false" onDeleteCascade="false" table="public_proteincomplexbiosythesisparticipant_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="molecule_id_refs_parent_ptr_species_component_id_884585f1" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="residue" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="17" id="3" name="coefficient" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="4" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_ef844c79" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_proteincomplexbiosythesisparticipant_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_proteincomplexbiosythesisparticipant_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+         <index name="public_proteincomplexbiosythesisparticipant_molecule_id" unique="false">
+            <column ascending="true" name="molecule_id"/>
+         </index>
+      </table>
+      <table name="public_proteincomplexbiosythesisparticipant_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_proteincomplexbiosythesisparticipant_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="proteincomplexbiosythesisparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="proteincomplexbiosythesisparticipant_id_refs_id_621d8528" implied="false" onDeleteCascade="false" table="public_proteincomplexbiosythesisparticipant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_proteincomplexbiosythesisparticipant_ev_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_proteincomplexbiosythesisparticipant_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_proteincomplexbiosythe_proteincomplexbiosythesispart_key" unique="true">
+            <column ascending="true" name="proteincomplexbiosythesisparticipant_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_proteincomplexbiosythesisparticipant_evidence_evidenaf55" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_proteincomplexbiosythesisparticipant_evidence_protei28ef" unique="false">
+            <column ascending="true" name="proteincomplexbiosythesisparticipant_id"/>
+         </index>
+      </table>
+      <table name="public_proteinmonomer" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_protein_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="protein_monomer_id" foreignKey="protein_monomer_id_refs_parent_ptr_protein_id_ab587129" implied="false" onDeleteCascade="false" table="public_disulfidebond"/>
+            <parent column="parent_ptr_molecule_id" foreignKey="public_proteinmonomer_parent_ptr_protein_id_fkey" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="gene_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="public_proteinmonomer_gene_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="is_n_terminal_methionine_cleaved_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_proteinmonomer_is_n_terminal_methionine_cleaved_id_fkey" implied="false" onDeleteCascade="false" table="public_entrybooleandata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="localization_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_proteinmonomer_localization_id_fkey" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="signal_sequence_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_proteinmonomer_signal_sequence_id_fkey" implied="false" onDeleteCascade="false" table="public_signalsequence"/>
+         </column>
+         <primaryKey column="parent_ptr_protein_id" sequenceNumberInPK="1"/>
+         <index name="public_proteinmonomer_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_protein_id"/>
+         </index>
+         <index name="public_proteinmonomer_gene_id" unique="false">
+            <column ascending="true" name="gene_id"/>
+         </index>
+         <index name="public_proteinmonomer_is_n_terminal_methionine_cleaved_id" unique="false">
+            <column ascending="true" name="is_n_terminal_methionine_cleaved_id"/>
+         </index>
+         <index name="public_proteinmonomer_localization_id" unique="false">
+            <column ascending="true" name="localization_id"/>
+         </index>
+         <index name="public_proteinmonomer_signal_sequence_id" unique="false">
+            <column ascending="true" name="signal_sequence_id"/>
+         </index>
+      </table>
+      <table name="public_reaction" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="reaction_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_4587e455" implied="false" onDeleteCascade="false" table="public_parameter_reactions"/>
+            <child column="reaction_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_94450148" implied="false" onDeleteCascade="false" table="public_reaction_coenzymes"/>
+            <child column="reaction_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_9ccc5d67" implied="false" onDeleteCascade="false" table="public_reaction_map_coordinates"/>
+            <child column="reaction_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_341566ad" implied="false" onDeleteCascade="false" table="public_reaction_pathways"/>
+            <child column="reaction_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_3cf4c6d0" implied="false" onDeleteCascade="false" table="public_reaction_stoichiometry"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_reaction_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="direction" nullable="false" remarks="" size="1" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="modification_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_modification_id_fkey" implied="false" onDeleteCascade="false" table="public_modificationreaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="enzyme_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_enzyme_id_fkey" implied="false" onDeleteCascade="false" table="public_enzymeparticipant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="is_spontaneous" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="17" id="5" name="delta_g" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="6" name="keq_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_keq_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="7" name="kinetics_forward_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_kinetics_forward_id_fkey" implied="false" onDeleteCascade="false" table="public_kinetics"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="8" name="kinetics_backward_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_kinetics_backward_id_fkey" implied="false" onDeleteCascade="false" table="public_kinetics"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="9" name="optimal_ph_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_optimal_ph_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="10" name="optimal_temperature_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_optimal_temperature_id_fkey" implied="false" onDeleteCascade="false" table="public_entryfloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="11" name="processes_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_reaction_processes_id_fkey" implied="false" onDeleteCascade="false" table="public_process"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="12" name="states_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="states_id_refs_parent_ptr_species_component_id_6baf6b06" implied="false" onDeleteCascade="false" table="public_state"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_reaction_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+         <index name="public_reaction_enzyme_id" unique="false">
+            <column ascending="true" name="enzyme_id"/>
+         </index>
+         <index name="public_reaction_keq_id" unique="false">
+            <column ascending="true" name="keq_id"/>
+         </index>
+         <index name="public_reaction_kinetics_backward_id" unique="false">
+            <column ascending="true" name="kinetics_backward_id"/>
+         </index>
+         <index name="public_reaction_kinetics_forward_id" unique="false">
+            <column ascending="true" name="kinetics_forward_id"/>
+         </index>
+         <index name="public_reaction_modification_id" unique="false">
+            <column ascending="true" name="modification_id"/>
+         </index>
+         <index name="public_reaction_optimal_ph_id" unique="false">
+            <column ascending="true" name="optimal_ph_id"/>
+         </index>
+         <index name="public_reaction_optimal_temperature_id" unique="false">
+            <column ascending="true" name="optimal_temperature_id"/>
+         </index>
+         <index name="public_reaction_processes_id" unique="false">
+            <column ascending="true" name="processes_id"/>
+         </index>
+         <index name="public_reaction_states_id" unique="false">
+            <column ascending="true" name="states_id"/>
+         </index>
+      </table>
+      <table name="public_reaction_coenzymes" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reaction_coenzymes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="reaction_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_94450148" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="coenzymeparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_coenzymes_coenzymeparticipant_id_fkey" implied="false" onDeleteCascade="false" table="public_coenzymeparticipant"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reaction_coenzymes_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_reaction_coenzymes_coenzymeparticipant_id" unique="false">
+            <column ascending="true" name="coenzymeparticipant_id"/>
+         </index>
+         <index name="public_reaction_coenzymes_reaction_id" unique="false">
+            <column ascending="true" name="reaction_id"/>
+         </index>
+         <index name="public_reaction_coenzymes_reaction_id_coenzymeparticipant_i_key" unique="true">
+            <column ascending="true" name="reaction_id"/>
+            <column ascending="true" name="coenzymeparticipant_id"/>
+         </index>
+      </table>
+      <table name="public_reaction_map_coordinates" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reaction_map_coordinates_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="reaction_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_9ccc5d67" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="reactionmapcoordinate_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_map_coordinates_reactionmapcoordinate_id_fkey" implied="false" onDeleteCascade="false" table="public_reactionmapcoordinate"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reaction_map_coordinates_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_reaction_map_coordinat_reaction_id_reactionmapcoordi_key" unique="true">
+            <column ascending="true" name="reaction_id"/>
+            <column ascending="true" name="reactionmapcoordinate_id"/>
+         </index>
+         <index name="public_reaction_map_coordinates_reaction_id" unique="false">
+            <column ascending="true" name="reaction_id"/>
+         </index>
+         <index name="public_reaction_map_coordinates_reactionmapcoordinate_id" unique="false">
+            <column ascending="true" name="reactionmapcoordinate_id"/>
+         </index>
+      </table>
+      <table name="public_reaction_pathways" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reaction_pathways_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="reaction_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_341566ad" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="pathway_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_reaction_pathways_pathway_id_fkey" implied="false" onDeleteCascade="false" table="public_pathway"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reaction_pathways_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_reaction_pathways_pathway_id" unique="false">
+            <column ascending="true" name="pathway_id"/>
+         </index>
+         <index name="public_reaction_pathways_reaction_id" unique="false">
+            <column ascending="true" name="reaction_id"/>
+         </index>
+         <index name="public_reaction_pathways_reaction_id_pathway_id_key" unique="true">
+            <column ascending="true" name="reaction_id"/>
+            <column ascending="true" name="pathway_id"/>
+         </index>
+      </table>
+      <table name="public_reaction_stoichiometry" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reaction_stoichiometry_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="reaction_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reaction_id_refs_parent_ptr_species_component_id_3cf4c6d0" implied="false" onDeleteCascade="false" table="public_reaction"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="reactionstoichiometryparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reaction_stoichiometry_reactionstoichiometrypartici_fkey" implied="false" onDeleteCascade="false" table="public_reactionstoichiometryparticipant"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reaction_stoichiometry_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_reaction_stoichiometry_reaction_id" unique="false">
+            <column ascending="true" name="reaction_id"/>
+         </index>
+         <index name="public_reaction_stoichiometry_reaction_id_reactionstoichiom_key" unique="true">
+            <column ascending="true" name="reaction_id"/>
+            <column ascending="true" name="reactionstoichiometryparticipant_id"/>
+         </index>
+         <index name="public_reaction_stoichiometry_reactionstoichiometryparticip032d" unique="false">
+            <column ascending="true" name="reactionstoichiometryparticipant_id"/>
+         </index>
+      </table>
+      <table name="public_reactionmapcoordinate" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reactionmapcoordinate_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="reactionmapcoordinate_id" foreignKey="public_reaction_map_coordinates_reactionmapcoordinate_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction_map_coordinates"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="path" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="17" id="2" name="value_x" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="value_y" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="label_x" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="label_y" nullable="false" remarks="" size="17" type="float8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reactionmapcoordinate_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_reactionstoichiometryparticipant" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reactionstoichiometryparticipant_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="reactionstoichiometryparticipant_id" foreignKey="public_reaction_stoichiometry_reactionstoichiometrypartici_fkey" implied="false" onDeleteCascade="false" table="public_reaction_stoichiometry"/>
+            <child column="reactionstoichiometryparticipant_id" foreignKey="reactionstoichiometryparticipant_id_refs_id_bfd5acc9" implied="false" onDeleteCascade="false" table="public_reactionstoichiometryparticipant_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="molecule_id_refs_parent_ptr_species_component_id_68f5428a" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="2" name="coefficient" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="3" name="compartment_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="compartment_id_refs_parent_ptr_species_component_id_4675d434" implied="false" onDeleteCascade="false" table="public_compartment"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reactionstoichiometryparticipant_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_reactionstoichiometryparticipant_compartment_id" unique="false">
+            <column ascending="true" name="compartment_id"/>
+         </index>
+         <index name="public_reactionstoichiometryparticipant_molecule_id" unique="false">
+            <column ascending="true" name="molecule_id"/>
+         </index>
+      </table>
+      <table name="public_reactionstoichiometryparticipant_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_reactionstoichiometryparticipant_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="reactionstoichiometryparticipant_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="reactionstoichiometryparticipant_id_refs_id_bfd5acc9" implied="false" onDeleteCascade="false" table="public_reactionstoichiometryparticipant"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_reactionstoichiometryparticipant_eviden_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_reactionstoichiometryparticipant_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_reactionstoichiometryp_reactionstoichiometryparticip_key" unique="true">
+            <column ascending="true" name="reactionstoichiometryparticipant_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_reactionstoichiometryparticipant_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_reactionstoichiometryparticipant_evidence_reactionste93b" unique="false">
+            <column ascending="true" name="reactionstoichiometryparticipant_id"/>
+         </index>
+      </table>
+      <table name="public_reference" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="reference_id" foreignKey="reference_id_refs_parent_ptr_species_component_id_95b8a082" implied="false" onDeleteCascade="false" table="public_evidence_references"/>
+            <child column="reference_id" foreignKey="reference_id_refs_parent_ptr_species_component_id_f4e3c097" implied="false" onDeleteCascade="false" table="public_speciescomponent_references"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_reference_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="authors" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="editors" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="year" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="title" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="publication" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="publisher" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="volume" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="issue" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="pages" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_reference_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_signalsequence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_signalsequence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="signal_sequence_id" foreignKey="public_proteinmonomer_signal_sequence_id_fkey" implied="false" onDeleteCascade="false" table="public_proteinmonomer"/>
+            <child column="signalsequence_id" foreignKey="signalsequence_id_refs_id_54a0abca" implied="false" onDeleteCascade="false" table="public_signalsequence_evidence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="type" nullable="false" remarks="" size="20" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="location" nullable="false" remarks="" size="1" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="length" nullable="false" remarks="" size="10" type="int4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_signalsequence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_signalsequence_evidence" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_signalsequence_evidence_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="signalsequence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="signalsequence_id_refs_id_54a0abca" implied="false" onDeleteCascade="false" table="public_signalsequence"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="evidence_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_signalsequence_evidence_evidence_id_fkey" implied="false" onDeleteCascade="false" table="public_evidence"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_signalsequence_evidence_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_signalsequence_evidenc_signalsequence_id_evidence_id_key" unique="true">
+            <column ascending="true" name="signalsequence_id"/>
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_signalsequence_evidence_evidence_id" unique="false">
+            <column ascending="true" name="evidence_id"/>
+         </index>
+         <index name="public_signalsequence_evidence_signalsequence_id" unique="false">
+            <column ascending="true" name="signalsequence_id"/>
+         </index>
+      </table>
+      <table name="public_species" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_entry_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="species_id" foreignKey="species_id_refs_parent_ptr_entry_id_8ab7d433" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+            <parent column="id" foreignKey="public_species_parent_ptr_entry_id_fkey" implied="false" onDeleteCascade="false" table="public_entry"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="genetic_code" nullable="false" remarks="" size="50" type="varchar"/>
+         <primaryKey column="parent_ptr_entry_id" sequenceNumberInPK="1"/>
+         <index name="public_species_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_entry_id"/>
+         </index>
+      </table>
+      <table name="public_speciescomponent" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_entry_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="parent_ptr_species_component_id" foreignKey="public_chromosomefeature_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_chromosomefeature"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_compartment_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_compartment"/>
+            <child column="species_component_id" foreignKey="species_component_id_refs_parent_ptr_entry_id_8ba7619e" implied="false" onDeleteCascade="false" table="public_evidence"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_molecule_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_note_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_note"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_parameter_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_parameter"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_pathway_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_pathway"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_process_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_process"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_reaction_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_reference_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_reference"/>
+            <child column="speciescomponent_id" foreignKey="speciescomponent_id_refs_parent_ptr_entry_id_1a335bb1" implied="false" onDeleteCascade="false" table="public_speciescomponent_references"/>
+            <child column="speciescomponent_id" foreignKey="speciescomponent_id_refs_parent_ptr_entry_id_47482936" implied="false" onDeleteCascade="false" table="public_speciescomponent_type"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_state_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_state"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_transcriptionalregulat_parent_ptr_species_component_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionalregulation"/>
+            <child column="parent_ptr_species_component_id" foreignKey="public_type_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_type"/>
+            <parent column="id" foreignKey="public_speciescomponent_parent_ptr_entry_id_fkey" implied="false" onDeleteCascade="false" table="public_entry"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="species_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="species_id_refs_parent_ptr_entry_id_8ab7d433" implied="false" onDeleteCascade="false" table="public_species"/>
+         </column>
+         <primaryKey column="parent_ptr_entry_id" sequenceNumberInPK="1"/>
+         <index name="public_speciescomponent_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_entry_id"/>
+         </index>
+         <index name="public_speciescomponent_species_id" unique="false">
+            <column ascending="true" name="species_id"/>
+         </index>
+      </table>
+      <table name="public_speciescomponent_references" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_speciescomponent_references_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="speciescomponent_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="speciescomponent_id_refs_parent_ptr_entry_id_1a335bb1" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="reference_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="reference_id_refs_parent_ptr_species_component_id_f4e3c097" implied="false" onDeleteCascade="false" table="public_reference"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_speciescomponent_references_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_speciescomponent_refer_speciescomponent_id_reference_key" unique="true">
+            <column ascending="true" name="speciescomponent_id"/>
+            <column ascending="true" name="reference_id"/>
+         </index>
+         <index name="public_speciescomponent_references_reference_id" unique="false">
+            <column ascending="true" name="reference_id"/>
+         </index>
+         <index name="public_speciescomponent_references_speciescomponent_id" unique="false">
+            <column ascending="true" name="speciescomponent_id"/>
+         </index>
+      </table>
+      <table name="public_speciescomponent_type" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_speciescomponent_type_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="speciescomponent_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="speciescomponent_id_refs_parent_ptr_entry_id_47482936" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="type_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="type_id_refs_parent_ptr_species_component_id_4a740fe5" implied="false" onDeleteCascade="false" table="public_type"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_speciescomponent_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_speciescomponent_type_speciescomponent_id" unique="false">
+            <column ascending="true" name="speciescomponent_id"/>
+         </index>
+         <index name="public_speciescomponent_type_speciescomponent_id_type_id_key" unique="true">
+            <column ascending="true" name="speciescomponent_id"/>
+            <column ascending="true" name="type_id"/>
+         </index>
+         <index name="public_speciescomponent_type_type_id" unique="false">
+            <column ascending="true" name="type_id"/>
+         </index>
+      </table>
+      <table name="public_state" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="state_id" foreignKey="state_id_refs_parent_ptr_species_component_id_a7fa0111" implied="false" onDeleteCascade="false" table="public_parameter"/>
+            <child column="states_id" foreignKey="states_id_refs_parent_ptr_species_component_id_6baf6b06" implied="false" onDeleteCascade="false" table="public_reaction"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_state_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_state_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+      </table>
+      <table name="public_stimulus" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_stimulus_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="value_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_stimulus_value_id_fkey" implied="false" onDeleteCascade="false" table="public_entryfloatdata"/>
+         </column>
+         <primaryKey column="parent_ptr_molecule_id" sequenceNumberInPK="1"/>
+         <index name="public_stimulus_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_molecule_id"/>
+         </index>
+         <index name="public_stimulus_value_id" unique="false">
+            <column ascending="true" name="value_id"/>
+         </index>
+      </table>
+      <table name="public_synonym" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_synonym_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="synonym_id" foreignKey="public_entry_synonyms_synonym_id_fkey" implied="false" onDeleteCascade="false" table="public_entry_synonyms"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_synonym_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="public_transcriptionalregulation" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_entry_id" foreignKey="public_transcriptionalregulat_parent_ptr_species_component_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="transcription_unit_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="public_transcriptionalregulation_transcription_unit_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionunit"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="transcription_factor_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="public_transcriptionalregulation_transcription_factor_id_fkey" implied="false" onDeleteCascade="false" table="public_protein"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="binding_site_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_transcriptionalregulation_binding_site_id_fkey" implied="false" onDeleteCascade="false" table="public_bindingsite"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="affinity_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_transcriptionalregulation_affinity_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="activity_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_transcriptionalregulation_activity_id_fkey" implied="false" onDeleteCascade="false" table="public_entrypositivefloatdata"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_transcriptionalregulation_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+         <index name="public_transcriptionalregulation_activity_id" unique="false">
+            <column ascending="true" name="activity_id"/>
+         </index>
+         <index name="public_transcriptionalregulation_affinity_id" unique="false">
+            <column ascending="true" name="affinity_id"/>
+         </index>
+         <index name="public_transcriptionalregulation_binding_site_id" unique="false">
+            <column ascending="true" name="binding_site_id"/>
+         </index>
+         <index name="public_transcriptionalregulation_transcription_factor_id" unique="false">
+            <column ascending="true" name="transcription_factor_id"/>
+         </index>
+         <index name="public_transcriptionalregulation_transcription_unit_id" unique="false">
+            <column ascending="true" name="transcription_unit_id"/>
+         </index>
+      </table>
+      <table name="public_transcriptionunit" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_molecule_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="transcription_unit_id" foreignKey="public_transcriptionalregulation_transcription_unit_id_fkey" implied="false" onDeleteCascade="false" table="public_transcriptionalregulation"/>
+            <child column="transcriptionunit_id" foreignKey="transcriptionunit_id_refs_parent_ptr_molecule_id_34ba6d25" implied="false" onDeleteCascade="false" table="public_transcriptionunit_genes"/>
+            <parent column="parent_ptr_species_component_id" foreignKey="public_transcriptionunit_parent_ptr_molecule_id_fkey" implied="false" onDeleteCascade="false" table="public_molecule"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="promoter_35_coordinate" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="promoter_35_length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="promoter_10_coordinate" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="promoter_10_length" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="tss_coordinate" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="parent_ptr_molecule_id" sequenceNumberInPK="1"/>
+         <index name="public_transcriptionunit_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_molecule_id"/>
+         </index>
+      </table>
+      <table name="public_transcriptionunit_genes" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_transcriptionunit_genes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="transcriptionunit_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="transcriptionunit_id_refs_parent_ptr_molecule_id_34ba6d25" implied="false" onDeleteCascade="false" table="public_transcriptionunit"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="gene_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_molecule_id" foreignKey="public_transcriptionunit_genes_gene_id_fkey" implied="false" onDeleteCascade="false" table="public_gene"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_transcriptionunit_genes_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_transcriptionunit_genes_gene_id" unique="false">
+            <column ascending="true" name="gene_id"/>
+         </index>
+         <index name="public_transcriptionunit_genes_transcriptionunit_id" unique="false">
+            <column ascending="true" name="transcriptionunit_id"/>
+         </index>
+         <index name="public_transcriptionunit_genes_transcriptionunit_id_gene_id_key" unique="true">
+            <column ascending="true" name="transcriptionunit_id"/>
+            <column ascending="true" name="gene_id"/>
+         </index>
+      </table>
+      <table name="public_type" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="parent_ptr_species_component_id" nullable="false" remarks="" size="10" type="int4">
+            <child column="type_id" foreignKey="type_id_refs_parent_ptr_species_component_id_4a740fe5" implied="false" onDeleteCascade="false" table="public_speciescomponent_type"/>
+            <child column="parent_id" foreignKey="public_type_parent_id_fkey" implied="false" onDeleteCascade="false" table="public_type"/>
+            <parent column="parent_ptr_entry_id" foreignKey="public_type_parent_ptr_species_component_id_fkey" implied="false" onDeleteCascade="false" table="public_speciescomponent"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="parent_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="parent_ptr_species_component_id" foreignKey="public_type_parent_id_fkey" implied="false" onDeleteCascade="false" table="public_type"/>
+         </column>
+         <primaryKey column="parent_ptr_species_component_id" sequenceNumberInPK="1"/>
+         <index name="public_type_pkey" unique="true">
+            <column ascending="true" name="parent_ptr_species_component_id"/>
+         </index>
+         <index name="public_type_parent_id" unique="false">
+            <column ascending="true" name="parent_id"/>
+         </index>
+      </table>
+      <table name="public_userprofile" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('public_userprofile_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="public_userprofile_user_id_fkey" implied="false" onDeleteCascade="false" table="auth_user"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="affiliation" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="website" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="phone" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="address" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="city" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="state" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="zip" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="country" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="public_userprofile_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="public_userprofile_user_id_key" unique="true">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+   </tables>
+</database>

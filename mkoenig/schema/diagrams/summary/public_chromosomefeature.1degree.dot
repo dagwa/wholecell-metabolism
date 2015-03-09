@@ -1,0 +1,34 @@
+// dot 2.36.0 on Linux 3.13.0-43-generic
+// SchemaSpy rev 590
+digraph "public_chromosomefeature" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "public_chromosomefeature" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">public_chromosomefeature</TD></TR>
+      <TR><TD PORT="parent_ptr_species_component_id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">parent_ptr_species_component_id</TD></TR>
+      <TR><TD PORT="chromosome_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">chromosome_id</TD></TR>
+      <TR><TD PORT="coordinate" COLSPAN="3" ALIGN="LEFT">coordinate</TD></TR>
+      <TR><TD PORT="length" COLSPAN="3" ALIGN="LEFT">length</TD></TR>
+      <TR><TD PORT="direction" COLSPAN="3" ALIGN="LEFT">direction</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">2,305 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/public_chromosomefeature.html"
+    tooltip="public_chromosomefeature"
+  ];
+}

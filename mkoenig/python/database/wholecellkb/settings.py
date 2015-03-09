@@ -60,11 +60,13 @@ WSGI_APPLICATION = 'wholecellkb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wholecellkb',
         'USER': 'mkoenig',
         'PASSWORD': 'test',
         'HOST': 'localhost',
         'PORT': '3306',
+        # 'PORT': '5432',
     }
 }
 

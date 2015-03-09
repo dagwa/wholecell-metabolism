@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Saved parameters for SchemaSpyGUI. Load it with Load Menu</comment>
+<entry key="pathOutputTField">/home/mkoenig/wholecell-metabolism/mkoenig/schema</entry>
+<entry key="descTArea"/>
+<entry key="aHTMLCBox">false</entry>
+<entry key="dbNameTField">wholecellkb</entry>
+<entry key="tNameRExTField"/>
+<entry key="dbUserTField">mkoenig</entry>
+<entry key="tNameExRExTField"/>
+<entry key="cssPathTField"/>
+<entry key="dbHostTField">localhost</entry>
+<entry key="dbTypeCBox">mysql</entry>
+<entry key="noLogoCBox">false</entry>
+<entry key="dbDriverPTField">/home/mkoenig/Programs/SchemaSpy/mysql-connector-java-5.1.34/mysql-connector-java-5.1.34-bin.jar</entry>
+<entry key="allSchemasCBox">false</entry>
+<entry key="highQuCBox">false</entry>
+<entry key="propertiePathTField"/>
+<entry key="colExRelCBox">false</entry>
+<entry key="charsetComBox"/>
+<entry key="noAdsCBox">false</entry>
+<entry key="schemaTField">public</entry>
+<entry key="cNameRExTField"/>
+<entry key="propertiesTField"/>
+<entry key="metaFilePathTField"/>
+<entry key="dbPortTField">3306</entry>
+<entry key="showFinishCBox">false</entry>
+<entry key="savePassCBox">true</entry>
+<entry key="fontSizeTField"/>
+<entry key="noHTMLCBox">false</entry>
+<entry key="dincFKCBox">false</entry>
+<entry key="dbPwdField">test</entry>
+<entry key="sSpyPathTField">/home/mkoenig/Programs/SchemaSpy/schemaSpy_5.0.0.jar</entry>
+<entry key="railsCBox">false</entry>
+<entry key="lowQuCBox">false</entry>
+<entry key="noRowsBox">false</entry>
+<entry key="fontNameTField"/>
+</properties>
