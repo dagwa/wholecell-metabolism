@@ -20,7 +20,7 @@ import pandas as pd
 #######################################################################
 DATA_DIR = "../../data"
 RESULTS_DIR = "../../results"
-VERSION = 1
+VERSION = 2
 sbml_raw = "{}/Metabolism.sbml".format(DATA_DIR)
 sbml_out = "{}/Metabolism_annotated_{}.sbml".format(RESULTS_DIR, VERSION)
 csv_metabolites = "{}/Table_S3G_metabolites.csv".format(DATA_DIR)
@@ -169,7 +169,7 @@ if __name__ == "__main__":
     # Load annotation data & index with ID for O(1) lookup    
     m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
     m_df = m_df.set_index(m_df.ID)
-    # print m_df.head()
+    print m_df.head()
     # m_df.ix['A23CMP']
     
     r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
