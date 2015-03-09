@@ -18,7 +18,7 @@ from django.db.models import Model, OneToOneField, CharField, IntegerField, URLF
 from django.db.models.query import EmptyQuerySet
 from django.utils.http import urlencode
 from itertools import chain
-from wholecellkb.db.templatetags.templatetags import set_time_zone
+from templatetags import set_time_zone
 import math
 import re
 import settings
