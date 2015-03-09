@@ -32,9 +32,9 @@ from openpyxl.cell import Cell, get_column_letter
 from openpyxl.shared.date_time import SharedDate, CALENDAR_WINDOWS_1900
 from openpyxl.style import NumberFormat, Border, Color, HashableObject, Protection, Alignment
 from openpyxl.writer.styles import StyleWriter
-from wholecellkb.db.templatetags.templatetags import ceil
-from wholecellkb.db.models import Entry, Species, SpeciesComponent, Reference, Chromosome, format_list_html, format_evidence, Evidence, EvidencedEntryData
-from wholecellkb.db.models import EntryData, EntryBooleanData, EntryCharData, EntryFloatData, EntryPositiveFloatData, EntryTextData
+from math import ceil
+from models import Entry, Species, SpeciesComponent, Reference, Chromosome, format_list_html, format_evidence, Evidence, EvidencedEntryData
+from models import EntryData, EntryBooleanData, EntryCharData, EntryFloatData, EntryPositiveFloatData, EntryTextData
 from StringIO import StringIO
 from subprocess import Popen, PIPE
 from xml.dom.minidom import Document
