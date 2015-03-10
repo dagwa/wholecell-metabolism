@@ -162,38 +162,59 @@ def annotate_objects(objects, o_df, o_cvdf, otype):
                 
 
 def annotate_model_sbo(m):
+    from public.models import Entry
+    from public.models import Reaction as DBReaction
+    from django.core.exceptions import ObjectDoesNotExist
     print '* Annotate SBO *'
+    
     # compartments
     for c in m.getListOfCompartments():
         sbo_id = "SBO:0000290"   # SBO:0000290 - physical compartment
         check(c.setSBOTerm(sbo_id), 'Set SBO')
     
     # species
-    for s in m.getListOfSpecies():
-        # SBO:0000247' - simple chemical (Metabolite)
-        # SBO:0000243' - gene (Gene)
-        # SBO:0000297' - protein
-        # 'ProteinComplex': 'SBO:0000418', # complex
-        sbo_dict = {
+    sbo_dict = {
             'Metabolite' : 'SBO:0000247',     # simple chemical
             'Gene' : 'SBO:0000243',           # gene
             'Protein' : 'SBO:0000245',        # macromolecule
             'ProteinMonomer' : 'SBO:0000245', # macromolecule
             'ProteinComplex' : 'SBO:0000297', # protein complex
             'Stimulus' : 'SBO:0000170'        # stimulation.
-        }
+    }
+    for s in m.getListOfSpecies():
         # lookup the Entry in the database
-        from public.models import Entry
-        from django.core.exceptions import ObjectDoesNotExist
         sid = s.getId()
-        cid = cid_from_sid(sid)
+        wid = cid_from_sid(sid)  # get wid from sid
         try:
-            e = Entry.objects.get(wid=cid)
+            e = Entry.objects.get(wid=wid)
             m_type = e.model_type
             sbo_id = sbo_dict[m_type]
             check(s.setSBOTerm(sbo_id), 'Set SBO')
         except ObjectDoesNotExist:
-            print 'Warning - Entry not existing', sid, cid
+            print 'Warning - Entry not existing in DB, no SBO', sid, wid
+    
+    # reactions
+    sbo_dict = {
+            'TransportReaction' : 'SBO:0000185',  # transport reaction (find via compartments)
+            'Reaction' : 'SBO:0000176',           # biochemical reaction
+    }
+    for r in m.getListOfReactions():
+        # lookup the Entry in the database
+        sid = r.getId()
+        wid = cid_from_rid(sid)  # get wid from sid
+        try:
+            e = Entry.objects.get(wid=wid)
+            m_type = e.model_type
+            if m_type == 'Reaction':
+                # check if multiple compartments, than transporter
+                reaction = DBReaction.objects.get(wid=wid)
+                comps = set([c.compartment for c in reaction.stoichiometry.all()])
+                if len(comps)>1:
+                    m_type = 'TransportReaction'
+            sbo_id = sbo_dict[m_type]
+            check(r.setSBOTerm(sbo_id), 'Set SBO')
+        except ObjectDoesNotExist:
+            print 'Warning - Entry not existing in DB, no SBO', sid, wid
         
         
         
