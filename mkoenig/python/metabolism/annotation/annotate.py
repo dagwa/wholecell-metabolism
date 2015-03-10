@@ -167,20 +167,29 @@ def annotate_model_sbo(m):
     from django.core.exceptions import ObjectDoesNotExist
     print '* Annotate SBO *'
     
-    # compartments
-    for c in m.getListOfCompartments():
-        sbo_id = "SBO:0000290"   # SBO:0000290 - physical compartment
-        check(c.setSBOTerm(sbo_id), 'Set SBO')
-    
-    # species
     sbo_dict = {
+            'Compartment' : "SBO:0000290",    # physical compartment
             'Metabolite' : 'SBO:0000247',     # simple chemical
             'Gene' : 'SBO:0000243',           # gene
             'Protein' : 'SBO:0000245',        # macromolecule
             'ProteinMonomer' : 'SBO:0000245', # macromolecule
             'ProteinComplex' : 'SBO:0000297', # protein complex
-            'Stimulus' : 'SBO:0000170'        # stimulation.
+            'Stimulus' : 'SBO:0000170',        # stimulation.
+    
+            'TransportReaction' : 'SBO:0000185',  # transport reaction (find via compartments)
+            'Reaction' : 'SBO:0000176',           # biochemical reaction
+            
+            'Modifier' : 'SBO:0000019',  # modifier
+            'Product' : 'SBO:0000011',   # product     
+            'Reactant' : 'SBO:0000010',  # reactant 
     }
+    
+    # compartments
+    for c in m.getListOfCompartments():
+        sbo_id = sbo_dict['Compartment']
+        check(c.setSBOTerm(sbo_id), 'Set SBO')
+    
+    # species
     for s in m.getListOfSpecies():
         # lookup the Entry in the database
         sid = s.getId()
@@ -194,10 +203,6 @@ def annotate_model_sbo(m):
             print 'Warning - Entry not existing in DB, no SBO', sid, wid
     
     # reactions
-    sbo_dict = {
-            'TransportReaction' : 'SBO:0000185',  # transport reaction (find via compartments)
-            'Reaction' : 'SBO:0000176',           # biochemical reaction
-    }
     for r in m.getListOfReactions():
         # lookup the Entry in the database
         sid = r.getId()
@@ -211,60 +216,20 @@ def annotate_model_sbo(m):
                 comps = set([c.compartment for c in reaction.stoichiometry.all()])
                 if len(comps)>1:
                     m_type = 'TransportReaction'
+                    
             sbo_id = sbo_dict[m_type]
             check(r.setSBOTerm(sbo_id), 'Set SBO')
         except ObjectDoesNotExist:
             print 'Warning - Entry not existing in DB, no SBO', sid, wid
+            
+        # set the additional information for SpeciesReferences
+        for reactant in r.getListOfReactants():
+            check(reactant.setSBOTerm(sbo_dict['Reactant']), 'Set SBO')
+        for product in r.getListOfProducts():
+            check(product.setSBOTerm(sbo_dict['Product']), 'Set SBO')    
+        for modifier in r.getListOfModifiers():
+            check(modifier.setSBOTerm(sbo_dict['Modifier']), 'Set SBO')
         
-        
-        
-
-
-def create_sbo_dict():
-    """
-    Necessary to define a dictionary of SBO.
-    """
-    pass
-    '''
-    sbo_dict = {
-                # Compartment
-                'Compartment' : 'SBO:0000290',   # physical compartment
-                
-                # Species
-                'Metabolite' : 'SBO:0000247',    # simple chemical
-                'Gene': 'SBO:0000243',
-                'Protein':'SBO:0000297',         # protein (SBO:0000420 -> macromolecule)
-                'ProteinComplex': 'SBO:0000418', # complex
-                
-                # Reactions
-                'Reaction': '',
-                # SBO:0000375 ! process
-                # SBO:0000397 - omitted process
-                # SBO:0000396 ! uncertain process.
-                # SBO:0000177 ! non-covalent binding.
-                # SBO:0000180 ! dissociation.
-                # SBO:0000394 ! consumption.
-                # SBO:0000393 ! production.
-                
-                # is spontaneuos
-                SBO:0000185 - transport reaction (find via compartments)
-                SBO:0000176 - biochemical reaction
-                # SBO:0000396 - uncertain process
-                # SBO:0000180 - dissociation
-                
-                # ? Stimulus
-                # SBO:0000170 ! stimulation.
-                # SBO:0000172 ! catalysis.
-                
-                # SpeciesReference
-                SBO:0000019 - modifier
-                # SBO:0000594 - neutral participant
-                SBO:0000011 - product
-                # SBO:0000598 - promoter
-                SBO:0000010 - reactant
-    ''' 
-    
-
 
 if __name__ == "__main__":
     check_sbml(sbml_raw)
@@ -277,7 +242,6 @@ if __name__ == "__main__":
     
     r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
     r_df = r_df.set_index(r_df.ID)
-    # print r_df.head()
     
     # read model
     doc = readSBML(sbml_raw)
@@ -289,7 +253,7 @@ if __name__ == "__main__":
     m.setName(mid)
     # annotate
     
-    # annotate_model_cv(m)
+    annotate_model_cv(m)
     annotate_model_sbo(m)
 
     # convert to 3.1
