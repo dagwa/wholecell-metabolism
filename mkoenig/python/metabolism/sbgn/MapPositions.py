@@ -9,15 +9,16 @@ MapPositions in the Knowledge Base.
 from pandas import DataFrame
 import pandas as pd
 
+import os
 from public.models import Metabolite, Reaction
 from public.models import MetaboliteMapCoordinate, ReactionMapCoordinate
+from metabolism_settings import RESULTS_DIR
 
 #######################################################################
-RESULTS_DIR = "../../../results"
-VERSION = 1
-m_out = "{}/positions_metabolites.csv".format(RESULTS_DIR)
-r_out = "{}/positions_reactions.csv".format(RESULTS_DIR)
+m_out = os.path.join(RESULTS_DIR, "positions_metabolites.csv")
+r_out = os.path.join(RESULTS_DIR, "positions_reactions.csv")
 #######################################################################
+
 #------------------------
 # Metabolite positions
 #------------------------

@@ -9,23 +9,30 @@ Annotation are divided into
 
 The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
 
+-----------------------------------
+ChangeLog:
+-----------------------------------
+v4
+- xml file ending
+- BQB_QUALIFIER better specified ( BQB_IS, BQB_IS_PROPERTY_OF,
+        BQB_IS_VERSION_OF)
+-----------------------------------
+
 @author: Matthias Koenig
 @date: 2015-03-08
 """
 from libsbml import *
-from annotate_tools import check_sbml, check
+from sbml_tools.checks import check_sbml, check
 from pandas import DataFrame
 import pandas as pd
-from metabolism_settings import BASE_DIR
+from metabolism_settings import RESULTS_DIR, DATA_DIR, VERSION
+from atk import Document
 
 #######################################################################
-DATA_DIR = "../../data"
-RESULTS_DIR = "../../results"
-VERSION = 2
-sbml_raw = "{}/Metabolism.sbml".format(DATA_DIR)
-sbml_out = "{}/Metabolism_annotated_{}.sbml".format(RESULTS_DIR, VERSION)
-csv_metabolites = "{}/Table_S3G_metabolites.csv".format(DATA_DIR)
-csv_reactions = "{}/Table_S3O_reactions.csv".format(DATA_DIR)
+sbml_raw = os.path.join(DATA_DIR, 'Metabolism.sbml')
+sbml_out = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}.xml".format(VERSION))
+csv_metabolites = os.path.join(DATA_DIR, "Table_S3G_metabolites.csv")
+csv_reactions = os.path.join(DATA_DIR, "Table_S3O_reactions.csv")
 #######################################################################
 
 def cvdf_from_resource_data(r_data):
@@ -39,45 +46,45 @@ def cvdf_from_resource_data(r_data):
 # Metabolite Resources
 m_cv_data = [
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000194
-    ['BioCyc', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/biocyc/'],
+    ['BioCyc', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/biocyc/'],
     # TODO: no resource found, official link for BiGG resources ??
-    ['BiGG', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://bigg.ucsd.edu/bigg/'],
+    ['BiGG', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://bigg.ucsd.edu/bigg/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000013
-    ['KEGG', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/kegg.compound/'],
+    ['KEGG', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/kegg.compound/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000237
-    ['CAS', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/cas/'],
+    ['CAS', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/cas/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000034
     # TODO: used pubchem.compound, there is also pubchem.substance ?? 
-    ['PubChem', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/pubchem.compound/'],
+    ['PubChem', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/pubchem.compound/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000066
-    ['3DMET', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/3dmet/'],
+    ['3DMET', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/3dmet/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000002
-    ['ChEBI', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/chebi/'],
+    ['ChEBI', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/chebi/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000113
-    ['PDB-CCD', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/pdb-ccd/'],
+    ['PDB-CCD', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/pdb-ccd/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000271
-    ['KNApSAcK', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/knapsack/'],
+    ['KNApSAcK', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/knapsack/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000052
-    ['LIPID MAPS', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/lipidmaps/'],
+    ['LIPID MAPS', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/lipidmaps/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000115
-    ['LipidBank', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/lipidbank/'],
+    ['LipidBank', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/lipidbank/'],
 ]
 m_cvdf = cvdf_from_resource_data(m_cv_data)
-print m_cvdf
+# print m_cvdf
 #######################################################################
 # Reaction Resources
 r_cv_data = [
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000194
-    ['BioCyc', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/biocyc/'],
+    ['BioCyc', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://identifiers.org/biocyc/'],
     # TODO: no resource found, official link for BiGG resources ??
-    ['BiGG', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://bigg.ucsd.edu/bigg/'],
+    ['BiGG', BIOLOGICAL_QUALIFIER, BQB_IS, 'http://bigg.ucsd.edu/bigg/'],
     # http://www.ebi.ac.uk/miriam/main/collections/MIR:00000086
     # TODO: multiple Sabio entries (Forward & Backward)
-    ['SABIO-RK ID (Forward)', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/sabiork.kineticrecord/'],
-    ['SABIO-RK ID (Backward)', BIOLOGICAL_QUALIFIER, BQB_IS_VERSION_OF, 'http://identifiers.org/sabiork.kineticrecord/'],
+    ['SABIO-RK ID (Forward)', BIOLOGICAL_QUALIFIER, BQB_IS_PROPERTY_OF, 'http://identifiers.org/sabiork.kineticrecord/'],
+    ['SABIO-RK ID (Backward)', BIOLOGICAL_QUALIFIER, BQB_IS_PROPERTY_OF, 'http://identifiers.org/sabiork.kineticrecord/'],
 ]
 r_cvdf = cvdf_from_resource_data(r_cv_data)
-print r_cvdf
+# print r_cvdf
 #######################################################################
 
 def cid_from_sid(sid):
@@ -96,25 +103,16 @@ def cid_from_rid(sid):
     tokens = sid.split('_')
     return '_'.join(tokens[1:len(tokens)])
 
-def annotate_model(filename):
+def annotate_model_cv(m):
     '''
     Annotate the model with given annotation data frames
     for metabolites and reactions.
     Uses the global cvdf datasets and the parsed table information.
     '''
-    # read original model
-    doc = readSBML(filename)
-    m = doc.getModel()
-    
-    mid = 'Metabolism_annotated_{}'.format(VERSION)
-    m.setId(mid)
-    m.setName(mid)
-    
+    # read original model    
     annotate_objects(m.getListOfSpecies(), m_df, m_cvdf, otype='SPECIES')
     annotate_objects(m.getListOfReactions(), r_df, r_cvdf, otype='REACTION')
 
-    # save
-    writeSBMLToFile(doc, sbml_out)
 
 def annotate_objects(objects, o_df, o_cvdf, otype):
         # Metabolite annotation
@@ -162,7 +160,90 @@ def annotate_objects(objects, o_df, o_cvdf, otype):
                 check(cv.addResource(uri), 'setURI')
                 check(s.addCVTerm(cv), 'addCVTerm');
                 
+
+def annotate_model_sbo(m):
+    print '* Annotate SBO *'
+    # compartments
+    for c in m.getListOfCompartments():
+        sbo_id = "SBO:0000290"   # SBO:0000290 - physical compartment
+        check(c.setSBOTerm(sbo_id), 'Set SBO')
+    
+    # species
+    for s in m.getListOfSpecies():
+        # SBO:0000247' - simple chemical (Metabolite)
+        # SBO:0000243' - gene (Gene)
+        # SBO:0000297' - protein
+        # 'ProteinComplex': 'SBO:0000418', # complex
+        sbo_dict = {
+            'Metabolite' : 'SBO:0000247',     # simple chemical
+            'Gene' : 'SBO:0000243',           # gene
+            'Protein' : 'SBO:0000245',        # macromolecule
+            'ProteinMonomer' : 'SBO:0000245', # macromolecule
+            'ProteinComplex' : 'SBO:0000297', # protein complex
+            'Stimulus' : 'SBO:0000170'        # stimulation.
+        }
+        # lookup the Entry in the database
+        from public.models import Entry
+        from django.core.exceptions import ObjectDoesNotExist
+        sid = s.getId()
+        cid = cid_from_sid(sid)
+        try:
+            e = Entry.objects.get(wid=cid)
+            m_type = e.model_type
+            sbo_id = sbo_dict[m_type]
+            check(s.setSBOTerm(sbo_id), 'Set SBO')
+        except ObjectDoesNotExist:
+            print 'Warning - Entry not existing', sid, cid
+        
+        
+        
+
+
+def create_sbo_dict():
+    """
+    Necessary to define a dictionary of SBO.
+    """
+    pass
+    '''
+    sbo_dict = {
+                # Compartment
+                'Compartment' : 'SBO:0000290',   # physical compartment
                 
+                # Species
+                'Metabolite' : 'SBO:0000247',    # simple chemical
+                'Gene': 'SBO:0000243',
+                'Protein':'SBO:0000297',         # protein (SBO:0000420 -> macromolecule)
+                'ProteinComplex': 'SBO:0000418', # complex
+                
+                # Reactions
+                'Reaction': '',
+                # SBO:0000375 ! process
+                # SBO:0000397 - omitted process
+                # SBO:0000396 ! uncertain process.
+                # SBO:0000177 ! non-covalent binding.
+                # SBO:0000180 ! dissociation.
+                # SBO:0000394 ! consumption.
+                # SBO:0000393 ! production.
+                
+                # is spontaneuos
+                SBO:0000185 - transport reaction (find via compartments)
+                SBO:0000176 - biochemical reaction
+                # SBO:0000396 - uncertain process
+                # SBO:0000180 - dissociation
+                
+                # ? Stimulus
+                # SBO:0000170 ! stimulation.
+                # SBO:0000172 ! catalysis.
+                
+                # SpeciesReference
+                SBO:0000019 - modifier
+                # SBO:0000594 - neutral participant
+                SBO:0000011 - product
+                # SBO:0000598 - promoter
+                SBO:0000010 - reactant
+    ''' 
+    
+
 
 if __name__ == "__main__":
     check_sbml(sbml_raw)
@@ -170,13 +251,38 @@ if __name__ == "__main__":
     # Load annotation data & index with ID for O(1) lookup    
     m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
     m_df = m_df.set_index(m_df.ID)
-    print m_df.head()
+    # print m_df.head()
     # m_df.ix['A23CMP']
     
     r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
     r_df = r_df.set_index(r_df.ID)
     # print r_df.head()
     
-    annotate_model(sbml_raw)    
-    check_sbml(sbml_raw)
+    # read model
+    doc = readSBML(sbml_raw)
+    doc.setLevelAndVersion(2,4,False, True)
+    # write id and name
+    m = doc.getModel()
+    mid = 'Metabolism_annotated_{}'.format(VERSION)
+    m.setId(mid)
+    m.setName(mid)
+    # annotate
+    
+    # annotate_model_cv(m)
+    annotate_model_sbo(m)
+
+    # convert to 3.1
+    convert = False
+    if convert:
+        props = ConversionProperties()
+        props.addOption("convert cobra", True, "Convert Cobra model")
+        check(doc.convert(props), 'Convert COBRA')
+
+    # save
+    writeSBMLToFile(doc, sbml_out)
+    check_sbml(sbml_out)
+    print sbml_out
+    
+    
+    
     
