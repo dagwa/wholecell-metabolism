@@ -34,6 +34,10 @@ def createSBML(model_id):
     # create compartments
     
     # create species
+    # necessary to add proteins for the reactions, i.e. all the proteins used in the model
+    
+    
+    
     
     return sbml_out
 
