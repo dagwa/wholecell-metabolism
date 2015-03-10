@@ -36,9 +36,6 @@ def createSBML(model_id):
     # create species
     # necessary to add proteins for the reactions, i.e. all the proteins used in the model
     
-    
-    
-    
     return sbml_out
 
 if __name__ == "__main__":

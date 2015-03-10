@@ -1,0 +1,320 @@
+Aas1 	acyl-[acyl-carrier-protein] synthetase  (n-C12:0)
+Aas2 	acyl-[acyl-carrier-protein] synthetase (n-C14:0)
+Aas3 	acyl-[acyl-carrier-protein] synthetase  (n-C14:1)
+Aas4 	acyl-[acyl-carrier-protein] synthetase  (n-C16:0)
+Aas5 	acyl-[acyl-carrier-protein] synthetase  (n-C16:1)
+Aas6 	acyl-[acyl-carrier-protein] synthetase  (n-C18:0)
+Aas7 	acyl-[acyl-carrier-protein] synthetase  (n-C18:1)
+AHCYSs 	adenosylhomocysteinase
+Apts_Ala 	Dipeptide import (Ala-Ala)
+Apts_Arg 	Dipeptide import (Arg-Arg)
+Apts_Asn 	Dipeptide import (Asn-Asn)
+Apts_Asp 	Dipeptide import (Asp-Asp)
+Apts_Cys 	Dipeptide import (Cys-Cys)
+Apts_Gln 	Dipeptide import (Gln-Gln)
+Apts_Glu 	Dipeptide import (Glu-Glu)
+Apts_Gly 	Dipeptide import (Gly-Gly)
+Apts_His 	Dipeptide import (His-His)
+Apts_Ile 	Dipeptide import (Ile-Ile)
+Apts_Leu 	Dipeptide import (Leu-Leu)
+Apts_Lys 	Dipeptide import (Lys-Lys)
+Apts_Met 	Dipeptide import (Met-Met)
+Apts_Phe 	Dipeptide import (Phe-Phe)
+Apts_Pro 	Dipeptide import (Pro-Pro)
+Apts_Ser 	Dipeptide import (Ser-Ser)
+Apts_Thr 	Dipeptide import (Thr-Thr)
+Apts_Trp 	Dipeptide import (Trp-Trp)
+Apts_Tyr 	Dipeptide import (Tyr-Tyr)
+Apts_Val 	Dipeptide import (Val-Val)
+ArcC 	Carbamate kinase
+ArgF 	ornithine carbamoyltransferase
+AspC1 	Aspartate aminotransferase
+AspC2 	tyrosine transaminase
+AspC3 	phenylalanine transaminase
+BPNT 	3',5'-bisphosphate nucleotidase
+Cls1 	cardiolipin synthase (periplasmic, n-C16:0)
+Cls2 	cardiolipin synthase (periplasmic, n-C16:1)
+Cls3 	cardiolipin synthase (periplasmic, n-C18:1)
+DcdK 	dCMP kinase
+Dck 	5'-nucleotidase (dCMP)
+DeoD7 	purine-nucleoside phosphorylase (Xanthosine)
+FMETHs 	formylmethionine hydrolysis
+Fre2 	Fe(III) reduction
+Fre4 	flavin reductase (NAD)
+GLNHs 	glutamine hydrolysis
+GlyA1 	D-alanine transaminase
+GlyA2 	L-alanine transaminase
+HCYSMT 	homocysteine S-methyltransferase
+HinT_AMP_Lysine_MG132 	purine nucleoside phosphoramidase AMP-Lysine
+HinT_AMP_Mor_MG132 	purine nucleoside phosphoramidase AMP-morpholidate
+HinT_AMP_NH2_MG132 	purine nucleoside phosphoramidase AMP-NH2
+HinT_GMP_Lysine_MG132 	purine nucleoside phosphoramidase GMP-Lysine
+HinT_GMP_Mor_MG132 	purine nucleoside phosphoramidase GMP-morpholidate
+hydroxyl_radical_generation_1 	hydroxyl radical generation
+hydroxyl_radical_generation_2 	hydroxyl radical generation
+LIPOYLLYSHs 	N(6)-lipoyl-lysine hydrolysis
+METHFHYD 	5,10-methenyltetrahydrofolate hydrolysis
+MetS 	methionine synthase
+MOrx 	Molybdenum reductase
+NADD1 	Nicotinate-mononucleotide adenylyltransferase
+NADD2 	Nicotinate-mononucleotide adenylyltransferase
+NH3eq 	Ammonia equilibration reaction
+Ohr_CHP 	peroxidase (cumene hydroperoxide)
+Ohr_H2O2 	peroxidase (hydrogen peroxide)
+Ohr_rx 	peroxidase reductase
+Ohr_tBHP 	peroxidase (tert-butylhydroperoxide)
+OsmC_CHP 	peroxidase (cumene hydroperoxide)
+OsmC_H2O2 	peroxidase (hydrogen peroxide)
+OsmC_rx 	peroxidase reductase
+OsmC_tBHP 	peroxidase (tert-butylhydroperoxide)
+PcbX 	oxaloacetate carboxylase
+Pdp3 	pyrimidine-nucleoside phosphorylase (uracil)
+PgpA1 	phosphatidylglycerol phosphate phosphatase (n-C16:0)
+PgpA2 	phosphatidylglycerol phosphate phosphatase (n-C16:1)
+PgpA3 	phosphatidylglycerol phosphate phosphatase (n-C18:1)
+PhnW 	2-aminoethylphosphonate aminotransferase
+PhnX 	Phosphonoacetaldehyde hydrolase
+Ppc 	phosphoenolpyruvate carboxylase
+pSERpp 	phosphoserine phosphatase
+pTHRpp 	phosphothreonine phosphatase
+pTYRpp 	Phosphotyrosine phosphatase
+PYDXK 	pyridoxal kinase
+SNGLYPOr 	sn-Glycerol-1-phosphate:NADP 2-oxidoreductase
+TalA 	transaldolase
+TMDPK 	thiamine diphosphokinase
+TXPYDX 	pyridoxal transport
+TXTHM 	thamine transport via proton symport
+TX_ACAL 	Acetylaldehyde transport
+TX_ACUP 	acetate reversible transport via proton symport
+TX_AD 	adenine transport via proton symport
+TX_AKG 	2-Oxoglutarate transport via proton symport
+TX_aza6dT 	6-aza-2'-deoxythymidine transport
+TX_aza8dA 	8-aza-2'-deoxyadenosine transport
+TX_c5dU 	5-Carbouy-2'-deoxyuridine transport
+TX_CAP 	carbamoyl phosphate transport
+TX_carbamoylmethyl6dA 	N6-carbamoylmethyl-2'-deoxyadenosine transport
+TX_CL 	chloride transport out via proton antiport (2:1)
+TX_cmnm5s2U 	5-carboxymethylaminomethyl-2-thiouridine transport
+TX_CO2 	carbon dioxide transport
+TX_COA 	coenzyme A transport
+TX_cyclobutane_dCdC 	cyclobutane 2'-deoxycytidine dimer transport
+TX_cyclobutane_dCdT 	cyclobutane 2'-deoxycytidine 2'-deoxythymidine  transport
+TX_cyclobutane_dTdC 	cyclobutane 2'-deoxythymidine 2'-deoxycytidine transport
+TX_cyclobutane_dTdT 	cyclobutane 2'-deoxythymidine dimer transport
+TX_cyclodA 	8,5'-cyclo-2'-deoxyadenosine transport
+TX_cyclodG 	8,5'-cyclo-2'-deoxyguanosine transport
+TX_CYTD 	cytidine transport via proton symport
+TX_DA 	deoxyadenosine transport via proton symport
+TX_dC64dC 	2'-deoxycytidine-[6,4]-2'-deoxycytidine transport
+TX_dC64dC_dewar 	2'-deoxycytidine-[6,4]-2'-deoxycytidine dewar product transport
+TX_dC64dT 	2'-deoxycytidine-[6,4]-2'-deoxythymidine transport
+TX_dC64dT_dewar 	2'-deoxycytidine-[6,4]-2'-deoxythymidine dewar product transport
+TX_dC_GLYC 	2-'deoxycytidine glycol transport
+TX_DDCA 	Dodecanoate (n-C12:0) transport
+TX_DHdT 	5,6-dihydro-2'-deoxythymidine transport
+TX_DHdU 	5,6-dihydroxy-2'-deoxyuridine transport
+TX_dhpdU 	5'-dihydroxypentyl-2'-deoxyuridine transport
+TX_diacylglycerolCys 	S-diacylglycerol cysteine transport
+TX_dINS 	2'-deoxyinosine transport
+TX_dT64dC 	2'-deoxythymidine-[6,4]-2'-deoxycytidine transport
+TX_dT64dC_dewar 	2'-deoxythymidine-[6,4]-2'-deoxycytidine dewar product transport
+TX_dT64dT 	2'-deoxythymidine-[6,4]-2'-deoxythymidine transport
+TX_dT64dT_dewar 	2'-deoxythymidine-[6,4]-2'-deoxythymidine dewar product transport
+TX_dT_GLYC 	2'-deoxythymidine glycol transport
+TX_dXAN 	2'-deoxyxanthosine transport
+TX_e1dA 	1-ethyl-2'-deoxyadenosine transport
+TX_e1dG 	1-ethyl-2'-deoxyguanosine transport
+TX_e3dA 	3-ethyl-2'-deoxyadenosine transport
+TX_e3dC 	3-ethyl-2'-deoxycytidine transport
+TX_e3dG 	3-ethyl-2'-deoxyguanosine transport
+TX_e3dT 	3'-ethyl-2'-deoxythymidine transport
+TX_e4dC 	4-ethyl-2'-deoxycytidine transport
+TX_e5dC 	5-ethyl-2'-deoxycytidine transport
+TX_e6dA 	6-ethyl-2'-deoxyadenosine transport
+TX_e7dA 	7-ethyl-2'-deoxyadenosine transport
+TX_e7dG 	7-ethyl-2'-deoxyguanosine transport
+TX_e8dG 	8-ethyl-2'-deoxyguanosine transport
+TX_epsilon1N2dG 	1,N2-etheno-2'-deoxyguanosine transport
+TX_epsilon1N6dA 	1,N6-etheno-2'-deoxyadenosine transport
+TX_epsilon3N4dC 	3,N4-etheno-2'-deoxycytidine transport
+TX_epsilonN23dG 	N2,3-etheno-2'-deoxyguanosine transport
+TX_f5dU 	5-formyl-2'-deoxyuridine transport
+TX_FALD 	Formaldehyde transport
+TX_FAPydA 	N4-(2-Deoxy-alpha,beta-D-erythro-pentofuranosyl)-4,6-diamino-5-formamidopyrimidine transport
+TX_FAPydG 	N6-(2-Deoxy-α,β-d-erythro-pentofuranosyl)-2,6-diamino-4-hydroxy-5-formamidopyrimidine transport
+TX_FOR 	Formate transport
+TX_glchm5dC 	beta-D-glucosylhydroxymethyl-2'-deoxycytidine transport
+TX_glchm5dU 	beta-D-glucosylhydroxymethyl-2'-deoxyuridine transport
+TX_GLNHPQ 	L-glutamine transport via ABC system
+TX_gludT 	a-glutamyl-2'-deoxythymidine transport
+TX_Gm 	2'-O-methylguanosine transport
+TX_GN 	guanine transport via proton symport
+TX_H2O 	Water transport
+TX_H2O2 	hydrogen peroxide transport
+TX_HDCA 	Hexadecanoate (n-C16:0) transport
+TX_HDCEA 	Hexadecenoate (n-C16:1) transport
+TX_hm3dC 	3'-hydroxymethyl-2'-deoxycytidine transport
+TX_hm5dC 	5'-hydroxymethyl-2'-deoxycytidine transport
+TX_hm5dU 	5-hydroxymethyl-2'-deoxyuridine transport
+TX_hm5hydantoin_dRibose 	2'-deoxy-3'-(5-hydroxy-5-methyl-hydantoin)-ribose transport
+TX_ho5dC 	5-Hydroxy-2'-deoxycytidine transport
+TX_ho5dU 	5-hydroxy-2'-deoxyuridine transport
+TX_ho5ho6dT 	5-hydroxy-6-hydroxy-2'-deoxythymidine transport
+TX_ho5ho6dU 	5-hydroxy-6-hydroxy-2'-deoxyuridine transport
+TX_ho5hydantoin_dRibose 	2'-deoxy-3'-(5-hydroxyhydantoin)-ribose transport
+TX_k2C 	lysidine transport
+TX_LIPOATE 	Lipoate transport
+TX_m1dA 	1-methyl-2'-deoxyadenosine transport
+TX_m1dG 	1-methyl-2'-deoxyguanosine transport
+TX_m1G 	1-methylguanosine transport
+TX_m2G 	N(2)-methylguanosine transport
+TX_m3dA 	3-methyl-2'-deoxyadenosine transport
+TX_m3dC 	3-methyl-2'-deoxycytidine transport
+TX_m3dG 	3-methyl-2'-deoxyguanosine transport
+TX_m3dT 	3'-methyl-2'-deoxythymidine transport
+TX_m4dC 	4-methyl-2'-deoxycytidine transport
+TX_m5C 	5-methylcytosine transport
+TX_m5dC 	5-methyl-2'-deoxycytidine transport
+TX_m62A 	N6,N6-dimethyladenine transport
+TX_m6A 	N(6)-methyladenine transport
+TX_m6dA 	6-methyl-2'-deoxyadenosine transport
+TX_m7dA 	7-methyl-2'-deoxyadenosine transport
+TX_m7dG 	7-methyl-2'-deoxyguanosine transport
+TX_m7G 	7-methylguanosine transport
+TX_m8dG 	8-methyl-2'-deoxyguanosine transport
+TX_n2dA 	2-amino-2'-deoxyadenosine transport
+TX_NAC 	nicotinate transport
+TX_NH4 	ammonia reversible transport
+TX_O2 	oxygen transport
+TX_O2edC 	2'-O-ethyl-2'-deoxycytidine transport
+TX_O2edT 	2'-O-ethyl-2'-deoxythymidine transport
+TX_O2mdC 	2'-O-methyl-2'-deoxycytidine transport
+TX_O2mdT 	2'-O-methyl-2'-deoxythymidine transport
+TX_O4edT 	4'-O-ethyl-2'-deoxythymidine transport
+TX_O4mdT 	4'-O-methyl-2'-deoxythymidine transport
+TX_O6edG 	6'-O-ethyl-2'-deoxyguanosine transport
+TX_O6mdG 	6'-O-methyl-2'-deoxyguanosine transport
+TX_OA 	oxaloacetate transport
+TX_OCDCA 	octadecanoate (n-C18:0) transport
+TX_OCDCEA 	octadecenoate (n-C18:1) transport
+TX_oxo2dA 	2-hydroxy-2'-deoxyadenosine transport
+TX_oxo8dA 	8-hydroxy-2'-deoxyadenosine transport
+TX_oxo8dG 	8-Oxo-2'-deoxyguanosine; 8-hydroxy-2'-deoxyguanosine transport
+TX_oxoethyl7dG 	7-(2'-oxoethyl)-2'-deoxyguanosine transport
+TX_PSIURI 	pseudouridine transport
+TX_putdT 	alpha-putrescinyl-2'-deoxythymidine transport
+TX_RIBFLV 	riboflavin, oxidized transport
+TX_s2U 	2-thiouridine transport
+TX_s4U 	4-thiouridine transport
+TX_SO4 	sulfate transporting ATPase
+TX_STEROL 	Sterol transport
+TX_THF 	5,6,7,8-Tetrahydrofolate transport
+TX_THY 	thymine transport via proton antiport
+TX_TTDCA 	tetradecanoate (n-C14:0) transport
+TX_TTDCEA 	tetradecenoate (n-C14:1) transport
+TX_Um 	2'-O-methyluridine transport
+TX_URA 	uracil transport via proton symport
+UshA_AMP 	5'-nucleotidase (AMP)
+UshA_aza6dTMP 	5'-nucleotidase (6-aza-2'-deoxythymidine monophosphate)
+UshA_aza8dAMP 	5'-nucleotidase (8-aza-2'-deoxyadenosine monophosphate)
+UshA_c5dUMP 	5'-nucleotidase (5-Carbouy-2'-deoxyuridine monophosphate)
+UshA_carbamoylmethyl6dAMP 	5'-nucleotidase (N6-carbamoylmethyl-2'-deoxyadenosine monophosphate)
+UshA_cmnm5s2UMP 	5'-nucleotidase (cmnm5s2UMP)
+UshA_cyclobutane_dCMPdCMP 	5'-nucleotidase (cyclobutane 2'-deoxycytidine monophosphate dimer)
+UshA_cyclobutane_dCMPdTMP 	5'-nucleotidase (cyclobutane 2'-deoxycytidine monophosphate 2'-deoxythymidine  monophosphate)
+UshA_cyclobutane_dTMPdCMP 	5'-nucleotidase (cyclobutane 2'-deoxythymidine monophosphate 2'-deoxycytidine monophosphate)
+UshA_cyclobutane_dTMPdTMP 	5'-nucleotidase (cyclobutane 2'-deoxythymidine monophosphate dimer)
+UshA_cyclodAMP 	5'-nucleotidase (8,5'-cyclo-2'-deoxyadenosine monophosphate)
+UshA_cyclodGMP 	5'-nucleotidase (8,5'-cyclo-2'-deoxyguanosine monophosphate)
+UshA_dCMP 	5'-nucleotidase (dCMP)
+UshA_dCMP64dCMP 	5'-nucleotidase (2'-deoxycytidine monophosphate-[6,4]-2'-deoxycytidine monophosphate)
+UshA_dCMP64dCMP_dewar 	5'-nucleotidase (2'-deoxycytidine monophosphate-[6,4]-2'-deoxycytidine monophosphate dewar product)
+UshA_dCMP64dTMP 	5'-nucleotidase (2'-deoxycytidine monophosphate-[6,4]-2'-deoxythymidine monophosphate)
+UshA_dCMP64dTMP_dewar 	5'-nucleotidase (2'-deoxycytidine monophosphate-[6,4]-2'-deoxythymidine monophosphate dewar product)
+UshA_dCMP_GLYC 	5'-nucleotidase (2-'deoxycytidine monophosphate glycol)
+UshA_DHdTMP 	5'-nucleotidase (5,6-dihydro-2'-deoxythymidine monophosphate)
+UshA_DHdUMP 	5'-nucleotidase (5,6-dihydroxy-2'-deoxyuridine monophosphate)
+UshA_dhpdUMP 	5'-nucleotidase (5'-dihydroxypentyl-2'-deoxyuridine monophosphate)
+UshA_dINSMP 	5'-nucleotidase (2'-deoxyinosine monophosphate)
+UshA_dTMP 	5'-nucleotidase (dTMP)
+UshA_dTMP64dCMP 	5'-nucleotidase (2'-deoxythymidine monophosphate-[6,4]-2'-deoxycytidine monophosphate)
+UshA_dTMP64dCMP_dewar 	5'-nucleotidase (2'-deoxythymidine monophosphate-[6,4]-2'-deoxycytidine monophosphate dewar product)
+UshA_dTMP64dTMP 	5'-nucleotidase (2'-deoxythymidine monophosphate-[6,4]-2'-deoxythymidine monophosphate)
+UshA_dTMP64dTMP_dewar 	5'-nucleotidase (2'-deoxythymidine monophosphate-[6,4]-2'-deoxythymidine monophosphate dewar product)
+UshA_dTMP_GLY 	5'-nucleotidase (2'-deoxythymidine monophosphate glycol)
+UshA_dUMP 	5'-nucleotidase (dUMP)
+UshA_dXANMP 	5'-nucleotidase (2'-deoxyxanthosine monophosphate)
+UshA_e1dAMP 	5'-nucleotidase (1-ethyl-2'-deoxyadenosine monophosphate)
+UshA_e1dGMP 	5'-nucleotidase (1-ethyl-2'-deoxyguanosine monophosphate)
+UshA_e3dAMP 	5'-nucleotidase (3-ethyl-2'-deoxyadenosine monophosphate)
+UshA_e3dCMP 	5'-nucleotidase (3-ethyl-2'-deoxycytidine monophosphate)
+UshA_e3dGMP 	5'-nucleotidase (3-ethyl-2'-deoxyguanosine monophosphate)
+UshA_e3dTMP 	5'-nucleotidase (3'-ethyl-2'-deoxythymidine monophosphate)
+UshA_e4dCMP 	5'-nucleotidase (4-ethyl-2'-deoxycytidine monophosphate)
+UshA_e5dCMP 	5'-nucleotidase (5-ethyl-2'-deoxycytidine monophosphate)
+UshA_e6dAMP 	5'-nucleotidase (6-ethyl-2'-deoxyadenosine monophosphate)
+UshA_e7dAMP 	5'-nucleotidase (7-ethyl-2'-deoxyadenosine monophosphate)
+UshA_e7dGMP 	5'-nucleotidase (7-ethyl-2'-deoxyguanosine monophosphate)
+UshA_e8dGMP 	5'-nucleotidase (8-ethyl-2'-deoxyguanosine monophosphate)
+UshA_epsilon1N2dGMP 	5'-nucleotidase (1,N2-etheno-2'-deoxyguanosine monophosphate)
+UshA_epsilon1N6dAMP 	5'-nucleotidase (1,N6-etheno-2'-deoxyadenosine monophosphate)
+UshA_epsilon3N4dCMP 	5'-nucleotidase (3,N4-etheno-2'-deoxycytidine monophosphate)
+UshA_epsilonN23dGMP 	5'-nucleotidase (N2,3-etheno-2'-deoxyguanosine monophosphate)
+UshA_f5dUMP 	5'-nucleotidase (5-formyl-2'-deoxyuridine monophosphate)
+UshA_FAPydAMP 	5'-nucleotidase (N4-(2-Deoxy-alpha,beta-D-erythro-pentofuranosyl)-4,6-diamino-5-formamidopyrimidine monophosphate)
+UshA_FAPydGMP 	5'-nucleotidase (N6-(2-Deoxy-α,β-d-erythro-pentofuranosyl)-2,6-diamino-4-hydroxy-5-formamidopyrimidine monophosphate)
+UshA_glchm5dCMP 	5'-nucleotidase (beta-D-glucosylhydroxymethyl-2'-deoxycytidine monophosphate)
+UshA_glchm5dUMP 	5'-nucleotidase (beta-D-glucosylhydroxymethyl-2'-deoxyuridine monophosphate)
+UshA_gludTMP 	5'-nucleotidase (a-glutamyl-2'-deoxythymidine monophosphate)
+UshA_GmMP 	5'-nucleotidase (GmMP)
+UshA_GMP 	5'-nucleotidase (GMP)
+UshA_hm3dCMP 	5'-nucleotidase (3'-hydroxymethyl-2'-deoxycytidine monophosphate)
+UshA_hm5dCMP 	5'-nucleotidase (5'-hydroxymethyl-2'-deoxycytidine monophosphate)
+UshA_hm5dUMP 	5'-nucleotidase (5-hydroxymethyl-2'-deoxyuridine monophosphate)
+UshA_hm5hydantoin_dRiboseMP 	5'-nucleotidase (2'-deoxy-3'-(5-hydroxy-5-methyl-hydantoin)-ribose monophosphate)
+UshA_ho5dCMP 	5'-nucleotidase (5-Hydroxy-2'-deoxycytidine monophosphate)
+UshA_ho5dUMP 	5'-nucleotidase (5-hydroxy-2'-deoxyuridine monophosphate)
+UshA_ho5ho6dTMP 	5'-nucleotidase (5-hydroxy-6-hydroxy-2'-deoxythymidine monophosphate)
+UshA_ho5ho6dUMP 	5'-nucleotidase (5-hydroxy-6-hydroxy-2'-deoxyuridine monophosphate)
+UshA_ho5hydantoin_dRiboseMP 	5'-nucleotidase (2'-deoxy-3'-(5-hydroxyhydantoin)-ribose monophosphate)
+UshA_IMP 	5'-nucleotidase (IMP)
+UshA_k2CMP 	5'-nucleotidase (k2CMP)
+UshA_m1dAMP 	5'-nucleotidase (1-methyl-2'-deoxyadenosine monophosphate)
+UshA_m1dGMP 	5'-nucleotidase (1-methyl-2'-deoxyguanosine monophosphate)
+UshA_m1GMP 	5'-nucleotidase (m1GMP)
+UshA_m2GMP 	5'-nucleotidase (m2GMP)
+UshA_m3dAMP 	5'-nucleotidase (3-methyl-2'-deoxyadenosine monophosphate)
+UshA_m3dCMP 	5'-nucleotidase (3-methyl-2'-deoxycytidine monophosphate)
+UshA_m3dGMP 	5'-nucleotidase (3-methyl-2'-deoxyguanosine monophosphate)
+UshA_m3dTMP 	5'-nucleotidase (3'-methyl-2'-deoxythymidine monophosphate)
+UshA_m4dCMP 	5'-nucleotidase (4-methyl-2'-deoxycytidine monophosphate)
+UshA_m5CMP 	5'-nucleotidase (m5CMP)
+UshA_m5dCMP 	5'-nucleotidase (5-methyl-2'-deoxycytidine monophosphate)
+UshA_m62AMP 	5'-nucleotidase (m62AMP)
+UshA_m6AMP 	5'-nucleotidase (m6AMP)
+UshA_m6dAMP 	5'-nucleotidase (6-methyl-2'-deoxyadenosine monophosphate)
+UshA_m7dAMP 	5'-nucleotidase (7-methyl-2'-deoxyadenosine monophosphate)
+UshA_m7dGMP 	5'-nucleotidase (7-methyl-2'-deoxyguanosine monophosphate)
+UshA_m7GMP 	5'-nucleotidase (m7GMP)
+UshA_m8dGMP 	5'-nucleotidase (8-methyl-2'-deoxyguanosine monophosphate)
+UshA_n2dAMP 	5'-nucleotidase (2-amino-2'-deoxyadenosine monophosphate)
+UshA_O2edCMP 	5'-nucleotidase (2'-O-ethyl-2'-deoxycytidine monophosphate)
+UshA_O2edTMP 	5'-nucleotidase (2'-O-ethyl-2'-deoxythymidine monophosphate)
+UshA_O2mdCMP 	5'-nucleotidase (2'-O-methyl-2'-deoxycytidine monophosphate)
+UshA_O2mdTMP 	5'-nucleotidase (2'-O-methyl-2'-deoxythymidine monophosphate)
+UshA_O4edTMP 	5'-nucleotidase (4'-O-ethyl-2'-deoxythymidine monophosphate)
+UshA_O4mdTMP 	5'-nucleotidase (4'-O-methyl-2'-deoxythymidine monophosphate)
+UshA_O6edGMP 	5'-nucleotidase (6'-O-ethyl-2'-deoxyguanosine monophosphate)
+UshA_O6mdGMP 	5'-nucleotidase (6'-O-methyl-2'-deoxyguanosine monophosphate)
+UshA_oxo2dAMP 	5'-nucleotidase (2-hydroxy-2'-deoxyadenosine monophosphate)
+UshA_oxo8dAMP 	5'-nucleotidase (8-hydroxy-2'-deoxyadenosine monophosphate)
+UshA_oxo8dGMP 	5'-nucleotidase (8-Oxo-2'-deoxyguanosine monophosphate; 8-hydroxy-2'-deoxyguanosine monophosphate)
+UshA_oxoethyl7dGMP 	5'-nucleotidase (7-(2'-oxoethyl)-2'-deoxyguanosine monophosphate)
+UshA_PSIURIMP 	5'-nucleotidase (PSIURIMP)
+UshA_putdTMP 	5'-nucleotidase (alpha-putrescinyl-2'-deoxythymidine monophosphate)
+UshA_s2UMP 	5'-nucleotidase (s2UMP)
+UshA_s4UMP 	5'-nucleotidase (s4UMP)
+UshA_UmMP 	5'-nucleotidase (UmMP)
+vinyl_chloride_activation_1 	vinyl chloride activation
+vinyl_chloride_activation_2 	vinyl chloride activation
+YicP 	adenine deaminase
