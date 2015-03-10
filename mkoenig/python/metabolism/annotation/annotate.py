@@ -16,6 +16,7 @@ from libsbml import *
 from annotate_tools import check_sbml, check
 from pandas import DataFrame
 import pandas as pd
+from metabolism_settings import BASE_DIR
 
 #######################################################################
 DATA_DIR = "../../data"

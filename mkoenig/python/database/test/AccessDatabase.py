@@ -4,56 +4,38 @@ Test the object mapping.
 @date: 2015-03-09
 '''
 
-from public.models import Metabolite, Reaction, Gene
+# import the objects you are interested in from models
+# Detailed DB schema in schema & relationships in models.py
+from public.models import Metabolite
 
-# print some metabolites
+# get first 10 metabolites
 metabolites = Metabolite.objects.all()[:10]    
 for m in metabolites: 
-    print m.pk, m.name, m.charge
-# find some genes
-Gene.objects.filter(name__contains="2")
+    # Metabolite inherits from Entry, so all fields are available
+    print m.pk, m.id, m.model_type, m.wid, m.name, m.charge
+    
+# find all genes which have a 2 in it
+from public.models import Gene
+genes = Gene.objects.filter(name__contains="2")
+print genes
 
-# find some reactions
+# find all reactions starting with A
+from public.models import Reaction
 rs = Reaction.objects.filter(name__startswith='A')
 print rs
 # print the stoichiometry of first reaction
-print rs[0].stoichiometry
 print rs[0].stoichiometry.all()
 
-from public.models import Entry, SpeciesComponent
+from public.models import Entry
 from pandas import DataFrame
 import pandas as pd
 
-# write pandas DataFrame
-
-
-entries = Entry.objects.all()[:10]
+# create pandas DataFrame for all entries
+entries = Entry.objects.all()
 entries_df = DataFrame(columns=('id', 'model_type', 'wid', 'name'))
 for k, e in enumerate(entries):
+    # Bad in place extension of DataFrame (do not do in production code)
     entries_df.loc[k] = (e.id, e.model_type, e.wid, e.name)
 entries_df = entries_df.set_index(entries_df.id)
-print entries_df
-
-scs = SpeciesComponent.objects.all()[:10]
-print scs
-print [s.parent_ptr_entry for s in scs]
-
-# Create the positions for the layouts
-from public.models import Metabolite, Reaction
-from public.models import MetaboliteMapCoordinate, ReactionMapCoordinate
-
-xys = MetaboliteMapCoordinate.objects.all()[:10]
-for xy in xys:
-    print xy.id, xy.compartment, xy.x, xy.y
-    m = xy.metabolites.all()[0]
-    print m
-    print m.id, m.model_type, m.wid, m.name
-    
-xys = ReactionMapCoordinate.objects.all()[:10]
-for xy in xys:
-    print xy.id, xy.path, xy.value_x, xy.value_y, xy.label_x, xy.label_y
-    r = xy.reactions.all()[0]
-    print r
-    print r.id, r.model_type, r.wid, r.name
-
-
+# print the first 10
+print entries_df.head(10)
