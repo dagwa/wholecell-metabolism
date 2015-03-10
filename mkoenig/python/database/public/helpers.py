@@ -190,7 +190,7 @@ class ExtinctionCoefficient:
 
 '''
 dipeptide instability weight value (DIWV)
-1. http://ca.expasy.org/tools/protparam-doc.html
+1. http://ca.expasy.org/misc/protparam-doc.html
 2. Kunchur Guruprasad, B.V.Bhasker Reddy and Madhusudan W.Pandit
    (1990). Correlation between stability of a protein and its
    dipeptide composition: a novel approach for predicting in vivo

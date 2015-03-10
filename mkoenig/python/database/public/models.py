@@ -2727,7 +2727,7 @@ class ProteinMonomer(Protein):
 	def get_half_life(self):	
 		return 20 * 60
 		
-	#http://ca.expasy.org/tools/protparam-doc.html
+	#http://ca.expasy.org/misc/protparam-doc.html
 	def get_instability(self):
 		from helpers import DipeptideInstabilityWeight
 		
@@ -2738,11 +2738,11 @@ class ProteinMonomer(Protein):
 				value += DipeptideInstabilityWeight.value[seq[i]][seq[i+1]]
 		return 10. / float(len(seq)) * value;
 		
-	#http://ca.expasy.org/tools/protparam-doc.html
+	#http://ca.expasy.org/misc/protparam-doc.html
 	def get_is_stable(self):
 		return self.get_instability() < 40.
 		
-	#http://ca.expasy.org/tools/protparam-doc.html
+	#http://ca.expasy.org/misc/protparam-doc.html
 	def get_aliphatic(self):
 		seq = self.get_sequence()
 		return 100. * ( \
@@ -2752,7 +2752,7 @@ class ProteinMonomer(Protein):
 			+ 3.9 * float(seq.count('L')) \
 			) / float(len(seq))
 		
-	#http://ca.expasy.org/tools/protparam-doc.html
+	#http://ca.expasy.org/misc/protparam-doc.html
 	def get_gravy(self):		
 		seq = self.get_sequence()
 		return \
@@ -2779,7 +2779,7 @@ class ProteinMonomer(Protein):
 			+ 4.2 * float(seq.count('V')) \
 			 ) / float(len(seq))
 		
-	#Source: http://ca.expasy.org/tools/protparam-doc.html
+	#Source: http://ca.expasy.org/misc/protparam-doc.html
 	def get_extinction_coefficient(self):
 		seq = self.get_sequence()
 		return \
