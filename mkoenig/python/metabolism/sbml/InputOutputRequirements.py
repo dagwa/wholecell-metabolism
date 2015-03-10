@@ -30,7 +30,7 @@ def calculate_requirements(m):
         try:
             # Check if entry
             e = Entry.objects.get(wid=wid)
-            info.append(['_'.join([wid, cid]), e.model_type, e.name, '-', 'x', 'x'])
+            info.append(['__'.join([wid, cid]), e.model_type, e.name, '', 'x', 'x'])
             
         except ObjectDoesNotExist:
             print 'No wid', sid, wid
@@ -50,7 +50,7 @@ def calculate_requirements(m):
             if (enzyme != None):
                 protein = enzyme.protein
                 # print protein.wid
-                info.append([protein.wid, protein.model_type, protein.name, 'x', '-', '-'])
+                info.append([protein.wid, protein.model_type, protein.name, 'x', '', ''])
             else:
                 print 'Reaction has no enzyme', wid, '\t',  db_r.name
             
@@ -73,9 +73,19 @@ if __name__ == '__main__':
     info_df = calculate_requirements(m)
     print info_df.head(10)
     info_df.to_csv(out_csv, sep='\t',encoding='UTF8')
-    print out_csv
+    
+    for name in ['Metabolite', 'ProteinMonomer', 'ProteinComplex']:
+        f_csv = os.path.join(RESULTS_DIR, 'Molecules_names_{}_Metabolism.csv'.format(name))
+        # write the subsets
+        df = info_df[info_df['model_type']==name]
+        print df.head()
+        df = df[['id', 'name', 'readonly', 'readwrite', 'requirement']]
+        df = df.drop_duplicates()
+        
+        df.to_csv(f_csv, sep='\t',encoding='UTF8', index=False)
+        
+        
+        
+        
 
-
-    # for d in info:
-    #     print d
      
