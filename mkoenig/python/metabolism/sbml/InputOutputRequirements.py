@@ -16,7 +16,7 @@ def calculate_requirements(m):
     from pandas import DataFrame
     print '*** Requirements ***'
     # list
-    cols = ['id', 'name', 'readonly', 'readwrite', 'requirement']
+    cols = ['id', 'model_type', 'name', 'readonly', 'readwrite', 'requirement']
     info = []
     
     # species
@@ -30,7 +30,7 @@ def calculate_requirements(m):
         try:
             # Check if entry
             e = Entry.objects.get(wid=wid)
-            info.append(['_'.join([wid, cid]), e.name, '-', 'x', 'x'])
+            info.append(['_'.join([wid, cid]), e.model_type, e.name, '-', 'x', 'x'])
             
         except ObjectDoesNotExist:
             print 'No wid', sid, wid
@@ -50,7 +50,7 @@ def calculate_requirements(m):
             if (enzyme != None):
                 protein = enzyme.protein
                 # print protein.wid
-                info.append([protein.wid, protein.name, 'x', '-', '-'])
+                info.append([protein.wid, protein.model_type, protein.name, 'x', '-', '-'])
             else:
                 print 'Reaction has no enzyme', wid, '\t',  db_r.name
             
@@ -65,7 +65,7 @@ def calculate_requirements(m):
 if __name__ == '__main__':
 
     sbml = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}.xml".format(VERSION))
-    out_csv = os.path.join(RESULTS_DIR, "requirements.csv".format(VERSION))
+    out_csv = os.path.join(RESULTS_DIR, "Requirements_Metabolism.csv".format(VERSION))
     
     doc = readSBML(sbml)
     m = doc.getModel()
