@@ -31,6 +31,7 @@ from atk import Document
 #######################################################################
 sbml_raw = os.path.join(DATA_DIR, 'Metabolism.sbml')
 sbml_out = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}.xml".format(VERSION))
+sbml_out_L3V1 = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
 csv_metabolites = os.path.join(DATA_DIR, "Table_S3G_metabolites.csv")
 csv_reactions = os.path.join(DATA_DIR, "Table_S3O_reactions.csv")
 #######################################################################
@@ -257,18 +258,20 @@ if __name__ == "__main__":
     annotate_model_cv(m)
     annotate_model_sbo(m)
 
-    # convert to 3.1
-    convert = False
-    if convert:
-        props = ConversionProperties()
-        props.addOption("convert cobra", True, "Convert Cobra model")
-        check(doc.convert(props), 'Convert COBRA')
-
     # save
     writeSBMLToFile(doc, sbml_out)
     check_sbml(sbml_out)
     print sbml_out
     
+        # convert to 3.1
+    convert = True
+    if convert:
+        props = ConversionProperties()
+        props.addOption("convert cobra", True, "Convert Cobra model")
+        check(doc.convert(props), 'Convert COBRA')
+        writeSBMLToFile(doc, sbml_out_L3V1)
+        print sbml_out_L3V1
+        check_sbml(sbml_out_L3V1)
     
     
     
