@@ -88,14 +88,17 @@ cellDryMass = state['cellDryMass'] # [1x1]
 #---------------------------------------
 # Indexes only defined once (copy)
 #---------------------------------------
-stepSizeSec = 1  # defined in Process
+stepSizeSec = 1                         # defined in Process
+compartmentIndexs_cytosol       = 1;    # defined in Metabolism
+compartmentIndexs_extracellular = 2;    # defined in Metabolism
+compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
 # Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
-fbaReactionStoichiometryMatrix = None
-fbaReactionCatalysisMatrix = None 
+fbaReactionStoichiometryMatrix = None  # Metabolism.property
+fbaReactionCatalysisMatrix = None      # Metabolism.property
 
-# indices in substrates
-compartmentIndexs_extracellular = None # [?]
+# defined indexes (only created once)
+# properties of the Metabolism process
 
 substrateIndexs_externalExchangedMetabolites = None  # [?]
 substrateIndexs_internalExchangedLimitedMetabolites = None  # [?]
@@ -196,9 +199,52 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     return bounds
 
 
-def calcGrowthRate(fluxBounds):
-    pass
+fbaObjective
+fbaReactionStoichiometryMatrix
+fbaRightHandside
+realmax
 
+def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiometryMatrix):
+    # import edu.stanford.covert.util.ComputationUtil;
+    # import edu.stanford.covert.util.ConstantUtil;
+
+    # flux bounds
+    loFluxBounds = fluxBounds[:, 1];
+    upFluxBounds = fluxBounds[:, 2];
+            
+    # real-valued linear programming
+    loFluxBounds = max(loFluxBounds, -realmax);
+    upFluxBounds = min(upFluxBounds,  realmax);
+
+    # perform the FBA calculation    
+    [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
+                'maximize', fbaObj, fbaSMat, 
+                fbaRightHandSide, loFluxBounds, upFluxBounds, ...
+                'S', 'C', this.linearProgrammingOptions);
+    if errFlag:
+                warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
+                fbaReactionFluxs = zeros(size(loFluxBounds));
+            end
+            
+    
+    
+    # growth
+    fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
+    growth = fbaReactionFluxs(fbaReactionIndexs_biomassProduction);
+    reactionFluxs = zeros(size(this.reactionStoichiometryMatrix, 2), 1);
+    reactionFluxs(this.reactionIndexs_fba) = fbaReactionFluxs(this.fbaReactionIndexs_metabolicConversion);
+    
+    # additional calculation of reducedCosts and Shadow prices
+            if nargout > 3
+                fbaReducedCosts = lambda.reducedCosts;
+                reducedCosts = zeros(size(this.reactionStoichiometryMatrix, 2), 1);
+                reducedCosts(this.reactionIndexs_fba) = fbaReducedCosts(this.fbaReactionIndexs_metabolicConversion);
+                
+                fbaShadowPrices = lambda.shadowPrices;
+                shadowPrices = zeros(size(this.substrates));
+                shadowPrices(this.substrateIndexs_fba) = fbaShadowPrices(this.fbaSubstrateIndexs_substrates);
+            end
+    return []
 
 def evolveState():
     # Calculate flux bounds
