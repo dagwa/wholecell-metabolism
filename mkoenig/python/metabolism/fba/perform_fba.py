@@ -80,6 +80,10 @@ fbaReactionIndexs_biomassExchange
 fbaReactionIndexs_biomassProduction
 fbaReactionIndexs_metaboliteExternalExchange
 
+reactionIndexs_fba
+proteinLimitableProteinComposition
+substrateIndexs_limitableProteins
+
 stepSizeSec = 1  # defined in Process
 
 # 
@@ -164,8 +168,8 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     if applyProteinBounds:
         # TODO: get indices for limited reactions
         limitedReactions = any(any(...
-                    reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], this.reactionIndexs_fba, :) & ...
-                    ~permute(repmat(this.proteinLimitableProteinComposition * substrates(this.substrateIndexs_limitableProteins, :), [1 1 numel(this.reactionIndexs_fba)]), [1 3 2]), 3), 1);
+                    reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], reactionIndexs_fba, :) & ...
+                    ~permute(repmat(proteinLimitableProteinComposition * substrates(substrateIndexs_limitableProteins, :), [1 1 numel(reactionIndexs_fba)]), [1 3 2]), 3), 1);
                     
         lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
         upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
@@ -174,30 +178,6 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     # TODO: create proper numpy array bound
     bounds = [lowerBounds upperBounds];
     return bounds
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def calcGrowthRate(fluxBounds):
