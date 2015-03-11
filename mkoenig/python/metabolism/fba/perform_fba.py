@@ -53,56 +53,21 @@ import scipy.io
 state = scipy.io.loadmat('/home/mkoenig/Desktop/matlab.mat')
 print state.keys()
 
+# TODO: units
 
-# Global state variables
-cellDryMass = state['cellDryMass']
+#---------------------------------------
+# Copy from current state
+#---------------------------------------
 
 # The substrate allocated for this time step
-substrates = state['substrates']   # [585, 3]
+substrates = state['substrates']   # [585x3]
+# Enzyme availability for time step
+enzymes = state['enzymes']         # [104x1]
 
-
-##############################################################################
-# Evolve state
-##############################################################################
-# Dimemsions
-N_reactions = 504
-N_compartments = 3
-N_metabolites = 585
-
-# index in substrates
-substrateIndexs_externalExchangedMetabolites = None # [?]
-substrateIndexs_internalExchangedLimitedMetabolites
-compartmentIndexs_extracellular
-
-
-# Enzyme availability
-enzymes = None      # [104x1]
-# Transport rates
-fbaReactionBounds = None
-# Enzyme kinetics
-fbaEnzymeBounds = None # [504, 2] (upper, lower)
-
-
-substrateMonomerLocalIndexs = None
-substrateComplexLocalIndexs = None
-
-# Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
-fbaReactionStoichiometryMatrix = None
-
-fbaReactionCatalysisMatrix = None ?
-
-# Index definition
-fbaReactionIndexs_metabolicConversion
-fbaReactionIndexs_metaboliteInternalExchange
-fbaReactionIndexs_biomassExchange
-fbaReactionIndexs_biomassProduction
-fbaReactionIndexs_metaboliteExternalExchange
-
-reactionIndexs_fba
-proteinLimitableProteinComposition
-substrateIndexs_limitableProteins
-
-stepSizeSec = 1  # defined in Process
+# Transport rates (upper, lower)
+fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
+# Enzyme kinetics (upper, lower)
+fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504, 2]
 
 # 
 mass = CellMass() # get the state CellMass
@@ -116,6 +81,51 @@ mass = CellMass() # get the state CellMass
 # mass.cellDry               %total dry weight of cell (g)
 # mass.media                 %total weight of media (g)
 
+# Global state variables
+# cellDryMass = sum(mass.cellDry);
+cellDryMass = state['cellDryMass'] # [1x1]
+
+#---------------------------------------
+# Indexes only defined once (copy)
+#---------------------------------------
+stepSizeSec = 1  # defined in Process
+
+# Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
+fbaReactionStoichiometryMatrix = None
+fbaReactionCatalysisMatrix = None 
+
+# indices in substrates
+compartmentIndexs_extracellular = None # [?]
+
+substrateIndexs_externalExchangedMetabolites = None  # [?]
+substrateIndexs_internalExchangedLimitedMetabolites = None  # [?]
+substrateIndexs_limitableProteins = None
+
+substrateMonomerLocalIndexs = None
+substrateComplexLocalIndexs = None
+
+fbaReactionIndexs_metabolicConversion = None
+fbaReactionIndexs_metaboliteInternalExchange = None
+fbaReactionIndexs_biomassExchange = None
+fbaReactionIndexs_biomassProduction = None
+fbaReactionIndexs_metaboliteExternalExchange = None
+
+reactionIndexs_fba = None
+
+proteinLimitableProteinComposition = None
+
+##############################################################################
+# Evolve state
+##############################################################################
+# Dimemsions
+N_reactions = fbaReactionBounds.shape[0]  # 504
+N_metabolites = substrates.shape[0]       # 585
+N_compartments = substrates.shape[1]      # 3
+
+from numpy import inf
+
+# import edu.stanford.covert.util.ConstantUtil;
+# TODO: constants imported in original code, but unclear for what?
 
 def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
                    applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
@@ -128,17 +138,10 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     4. Metabolite availability (substrates)
     5. Protein availability    (substrates)
     '''
-    
-    # import edu.stanford.covert.util.ConstantUtil;
-    # TODO: create the constant file - What needed for ?
-             
-    # numbers
-    nReactions = fbaReactionStoichiometryMatrix.shape[1]
-            
+
     # initialize
-    from numpy import inf
-    lowerBounds =  -inf * ones([nReactions, 1])
-    upperBounds =   inf * ones([nReactions, 1])
+    lowerBounds =  -inf * ones([N_Reactions, 1])
+    upperBounds =   inf * ones([N_Reactions, 1])
             
     # numbers of enzymes catalyzing each reaction, enzyme kinetics
     rxnEnzymes = fbaReactionCatalysisMatrix * enzymes;
@@ -149,7 +152,7 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     # numbers of enzymes catalyzing each reaction, unkown enzyme kinetics
     if applyEnzymeBounds:
         # some logical indexing
-        # TODO: understand
+        # TODO: understand & translate
         lowerBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
         upperBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
         
@@ -164,27 +167,24 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
             lowerBounds[index] = max(lowerBounds[index], fbaReactionBounds[index, 1]);
             upperBounds[index] = min(upperBounds[index], fbaReactionBounds[index, 2]);
                 
-        
     # external metabolite availability
     if applyExternalMetaboliteBounds:
         index = fbaReactionIndexs_metaboliteExternalExchange
         upperBounds[index] = min(upperBounds[index],
                                     substrates[substrateIndexs_externalExchangedMetabolites, compartmentIndexs_extracellular]/stepSizeSec);
                 
-        cellDryMass = sum(mass.cellDry);
         lowerBounds[index] = max(lowerBounds[index], fbaReactionBounds[index, 1]*cellDryMass);
         upperBounds[index] = min(upperBounds[index], fbaReactionBounds[index, 2]*cellDryMass);
 
     # internal metabolite availability
     if applyInternalMetaboliteBounds:
         index = fbaReactionIndexs_metaboliteInternalLimitedExchange
-        lowerBounds[index] = max(lowerBounds[index], ...
+        lowerBounds[index] = max(lowerBounds[index],
                                 - substrates[substrateIndexs_internalExchangedLimitedMetabolites]/stepSizeSec );
         
-            
     # protein monomers and complexes
     if applyProteinBounds:
-        # TODO: get indices for limited reactions
+        # TODO: calculate indices for limited reactions
         limitedReactions = any(any(...
                     reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], reactionIndexs_fba, :) & ...
                     ~permute(repmat(proteinLimitableProteinComposition * substrates(substrateIndexs_limitableProteins, :), [1 1 numel(reactionIndexs_fba)]), [1 3 2]), 3), 1);
@@ -192,9 +192,7 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
         lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
         upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
             
-            
-    # TODO: create proper numpy array bound
-    bounds = [lowerBounds upperBounds];
+    bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
     return bounds
 
 
