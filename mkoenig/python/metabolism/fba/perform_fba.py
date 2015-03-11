@@ -46,47 +46,51 @@ print '*'*80
 # This can be done with the actual content of the matlab matrices.
 
 '''
-%   Knowledge Base
-%   ===============
-%   M. genitalium metabolism was reconstructed from a variety of sources,
-%   including flux-balance analysis metabolic models of other bacterial species
-%   and the reaction kinetics database SABIO-RK, and was organized into 504
-%   reactions in the knowledge base. These reactions are loaded into this process
-%   by the initializeConstants method.
-%
-%      Object       No.
-%      ==========   ===
-%      substrates   585
-%      enzymes      104
-%      reactions    504
-%        chemical   ?
-%        transport  ?
-%
-%   Representation
-%   ===============
-%   The properties substrates and enzymes represent the counts of metabolites
-%   and metabolic enzymes.
-%
-%   fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
-%   of metabolites and biomass in each of the 641 chemical/transport reactions,
-%   exchange pseudoreactions, and biomass production pseudoreaction.
-%   fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
-%   reaction. fbaEnzymeBounds represents the foward and backward kcat of the
-%   catalyzing enzyme of each reaction. fbaReactionBounds represents the maximal
-%   import and export rates of each  metabolite. fbaObjective indicates which
-%   reaction represents the biomass production pseudoreaction. fbaRightHandSide
-%   is a vector of zeros representing the change in concentration over time of
-%   each metabolite and biomass. metabolismProduction is redundant with the
-%   biomass production reaction in fbaReactionStoichiometryMatrix.
-%   metabolismProduction is calculated by summing the metabolic demands of all
-%   the other processes over the entire cell cycle. The table below lists the
-%   units of several properties of this process.
-%
+   Knowledge Base
+   ===============
+   M. genitalium metabolism was reconstructed from a variety of sources,
+   including flux-balance analysis metabolic models of other bacterial species
+   and the reaction kinetics database SABIO-RK, and was organized into 504
+   reactions in the knowledge base. These reactions are loaded into this process
+   by the initializeConstants method.
+
+      Object       No.
+      ==========   ===
+      substrates   585
+      enzymes      104
+      reactions    504
+        chemical   ?
+        transport  ?
+
+   Representation
+   ===============
+   The properties substrates and enzymes represent the counts of metabolites
+   and metabolic enzymes.
+
+   fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+   of metabolites and biomass in each of the 641 chemical/transport reactions,
+   exchange pseudoreactions, and biomass production pseudoreaction.
+
+   fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+   reaction. 
+   fbaEnzymeBounds represents the foward and backward kcat of the
+   catalyzing enzyme of each reaction. 
+   fbaReactionBounds represents the maximal import and export rates of each
+   metabolite. 
+   fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
+   fbaRightHandSide is a vector of zeros representing the change 
+   in concentration over time of each metabolite and biomass. 
+   metabolismProduction is redundant with the
+   biomass production reaction in fbaReactionStoichiometryMatrix.
+   metabolismProduction is calculated by summing the metabolic demands of all
+   the other processes over the entire cell cycle. The table below lists the
+   units of several properties of this process.
+
 %      Property                       Units
 %      ===========================    ==============================
 %      fbaEnzymeBounds                molecules/enzyme/s
 %      fbaReactionBounds              molecules/(gram dry biomass)/s
-%      metabolites                    molecules
+%      substrates                     molecules
 %      enzymes                        molecules
 %      stepSizeSec                    s
 %      lowerBounds                    reactions/s
@@ -98,9 +102,6 @@ print '*'*80
 %      setValues                      molecules/chamber
 %      growthAssociatedMaintanence
 '''
-
-
-
 
 ##############################################################################
 # Load state data to evolve state
@@ -121,22 +122,16 @@ print state.keys()
 substrates = state['substrates']   # [585x3]
 # Enzyme availability for time step
 enzymes = state['enzymes']         # [104x1]
-
-# Transport rates (upper, lower)
-fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
-# Enzyme kinetics (upper, lower)
-fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
-
 # cellDryMass = sum(mass.cellDry);
 cellDryMass = state['cellDryMass'] # [1x1]
 
 #---------------------------------------
-# Indexes only defined once (copy)
+# Reused model data (read once)
 #---------------------------------------
 # TODO: get the names for the indices. The SEDML iteration will go 
 #       over the indices.
-
 stepSizeSec = 1                         # defined in Process
+realmax = 1e6                           # maximal flux bound
 compartmentIndexs_cytosol       = 1;    # defined in Metabolism
 compartmentIndexs_extracellular = 2;    # defined in Metabolism
 compartmentIndexs_membrane      = 3;    # defined in Metabolism
@@ -145,12 +140,26 @@ N_reactions = fbaReactionBounds.shape[0]  # 504
 N_metabolites = substrates.shape[0]       # 585
 N_compartments = substrates.shape[1]      # 3
 
+# maximal import and export rates (upper, lower)
+fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
+# enzyme kinetics kcat (upper, lower)
+fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
+
+# TODO: read once
 # Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
 # fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
 #   of metabolites and biomass in each of the 641 chemical/transport reactions,
 #   exchange pseudoreactions, and biomass production pseudoreaction.
 fbaReactionStoichiometryMatrix = None  # Metabolism.property
+# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+# reaction. 
 fbaReactionCatalysisMatrix = None      # Metabolism.property
+# fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
+fbaObjective = None
+# fbaRightHandSide is a vector of zeros representing the change 
+# in concentration over time of each metabolite and biomass. 
+fbaRightHandside = None
+
 
 # defined indexes (only created once)
 # properties of the Metabolism process
@@ -169,19 +178,10 @@ fbaReactionIndexs_metaboliteExternalExchange = None
 
 reactionIndexs_fba = None
 
+
 proteinLimitableProteinComposition = None
-
-
 metabolismNewProduction   # metabolism output represented by biomass pseudoreaction
 
-# where comes this from and what does it represent?
-# especially, what is the size of the matrices (different to the reactions)
-fbaObjective
-fbaReactionStoichiometryMatrix
-fbaRightHandside
-
-# maximal value
-realmax = 1e6;
 
 # linear programming
 # linearProgrammingOptions = struct(...
@@ -226,8 +226,7 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
         # TODO: understand & translate
         lowerBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
         upperBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
-        
-            
+                
     # reaction directionality / thermodynamics
     if applyDirectionalityBounds:
         indices = [fbaReactionIndexs_metabolicConversion, 
