@@ -7,12 +7,17 @@ import os
 from metabolism_settings import VERSION, RESULTS_DIR 
 sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
 
-#-------------------------------------
+##############################################################################
 # FBA with model
-#-------------------------------------
+##############################################################################
 import cobra
+
 # Read model
 model = cobra.io.read_sbml_model(sbml)
+model.compartments
+len(model.reactions)    # 1274  (504)
+len(model.metabolites)  # 1779  (585*3=1755)
+len(model.genes)        # 142   (104)
 
 # Perform FBA
 model.optimize()
@@ -34,30 +39,83 @@ df = DataFrame(info, columns=['id', 'lw', 'ub'])
 print df
 print '*'*80
 
+# TODO: necessary to syncronize the SBML model with the actual 
+#       FBA problem which is performed. I.e. is necessary to get the 
+#       ids of the objects.
+#       I.e. the ids of substrates, reactions and genes.
+# This can be done with the actual content of the matlab matrices.
 
-# Calculate new flux bounds
-# input copy numbers for the flux bounds
-n_Metabolite = None
-n_Protein = None
-n_ProteinComplex = None
+'''
+%   Knowledge Base
+%   ===============
+%   M. genitalium metabolism was reconstructed from a variety of sources,
+%   including flux-balance analysis metabolic models of other bacterial species
+%   and the reaction kinetics database SABIO-RK, and was organized into 504
+%   reactions in the knowledge base. These reactions are loaded into this process
+%   by the initializeConstants method.
+%
+%      Object       No.
+%      ==========   ===
+%      substrates   585
+%      enzymes      104
+%      reactions    504
+%        chemical   ?
+%        transport  ?
+%
+%   Representation
+%   ===============
+%   The properties substrates and enzymes represent the counts of metabolites
+%   and metabolic enzymes.
+%
+%   fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+%   of metabolites and biomass in each of the 641 chemical/transport reactions,
+%   exchange pseudoreactions, and biomass production pseudoreaction.
+%   fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+%   reaction. fbaEnzymeBounds represents the foward and backward kcat of the
+%   catalyzing enzyme of each reaction. fbaReactionBounds represents the maximal
+%   import and export rates of each  metabolite. fbaObjective indicates which
+%   reaction represents the biomass production pseudoreaction. fbaRightHandSide
+%   is a vector of zeros representing the change in concentration over time of
+%   each metabolite and biomass. metabolismProduction is redundant with the
+%   biomass production reaction in fbaReactionStoichiometryMatrix.
+%   metabolismProduction is calculated by summing the metabolic demands of all
+%   the other processes over the entire cell cycle. The table below lists the
+%   units of several properties of this process.
+%
+%      Property                       Units
+%      ===========================    ==============================
+%      fbaEnzymeBounds                molecules/enzyme/s
+%      fbaReactionBounds              molecules/(gram dry biomass)/s
+%      metabolites                    molecules
+%      enzymes                        molecules
+%      stepSizeSec                    s
+%      lowerBounds                    reactions/s
+%      upperBounds                    reactions/s
+%      growth                         cell/s
+%      biomassComposition             molecules/cell
+%      metabolismProduction           molecules/cell
+%      chamberVolume                  L
+%      setValues                      molecules/chamber
+%      growthAssociatedMaintanence
+'''
 
-# Reaction information necessary to set flux bounds
-# [reaction, n_Protein, n_ProteinComplex, kcat_f, kcat_b, kex_f, kex_b]
 
-# Update metabolite copy numbers
+
 
 ##############################################################################
-# Load data to evolve state
+# Load state data to evolve state
 ##############################################################################
+# TODO: units
+
 import scipy.io
 state = scipy.io.loadmat('/home/mkoenig/Desktop/matlab.mat')
 print state.keys()
 
-# TODO: units
-
 #---------------------------------------
 # Copy from current state
 #---------------------------------------
+# The properties substrates and enzymes represent the counts of metabolites
+# and metabolic enzymes.
 
 # The substrate allocated for this time step
 substrates = state['substrates']   # [585x3]
@@ -67,39 +125,35 @@ enzymes = state['enzymes']         # [104x1]
 # Transport rates (upper, lower)
 fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
 # Enzyme kinetics (upper, lower)
-fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504, 2]
+fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
 
-# 
-mass = CellMass() # get the state CellMass
-# mass.waterWt               %water weight (g)
-# mass.metaboliteWt          %metabolite weight (g)
-# mass.dnaWt                 %DNA weight (g)
-# mass.rnaWt                 %RNA weight (g)
-# mass.proteinWt             %protein weight (g)
-# mass.total                 %total weight of cell and media (g)
-# mass.cell                  %total weight of cell (g)
-# mass.cellDry               %total dry weight of cell (g)
-# mass.media                 %total weight of media (g)
-
-# Global state variables
 # cellDryMass = sum(mass.cellDry);
 cellDryMass = state['cellDryMass'] # [1x1]
 
 #---------------------------------------
 # Indexes only defined once (copy)
 #---------------------------------------
+# TODO: get the names for the indices. The SEDML iteration will go 
+#       over the indices.
+
 stepSizeSec = 1                         # defined in Process
 compartmentIndexs_cytosol       = 1;    # defined in Metabolism
 compartmentIndexs_extracellular = 2;    # defined in Metabolism
 compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
+N_reactions = fbaReactionBounds.shape[0]  # 504
+N_metabolites = substrates.shape[0]       # 585
+N_compartments = substrates.shape[1]      # 3
+
 # Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
+# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+#   of metabolites and biomass in each of the 641 chemical/transport reactions,
+#   exchange pseudoreactions, and biomass production pseudoreaction.
 fbaReactionStoichiometryMatrix = None  # Metabolism.property
 fbaReactionCatalysisMatrix = None      # Metabolism.property
 
 # defined indexes (only created once)
 # properties of the Metabolism process
-
 substrateIndexs_externalExchangedMetabolites = None  # [?]
 substrateIndexs_internalExchangedLimitedMetabolites = None  # [?]
 substrateIndexs_limitableProteins = None
@@ -117,16 +171,30 @@ reactionIndexs_fba = None
 
 proteinLimitableProteinComposition = None
 
+
+metabolismNewProduction   # metabolism output represented by biomass pseudoreaction
+
+# where comes this from and what does it represent?
+# especially, what is the size of the matrices (different to the reactions)
+fbaObjective
+fbaReactionStoichiometryMatrix
+fbaRightHandside
+
+# maximal value
+realmax = 1e6;
+
+# linear programming
+# linearProgrammingOptions = struct(...
+#            'solver', 'glpk',...
+#            'solverOptions', struct(...
+#                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
+#                'linprog', struct('Display','off'),...
+#                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
+#                'qsopt', struct()));
+
 ##############################################################################
 # Evolve state
 ##############################################################################
-# Dimemsions
-N_reactions = fbaReactionBounds.shape[0]  # 504
-N_metabolites = substrates.shape[0]       # 585
-N_compartments = substrates.shape[1]      # 3
-
-from numpy import inf
-
 # import edu.stanford.covert.util.ConstantUtil;
 # TODO: constants imported in original code, but unclear for what?
 
@@ -143,8 +211,8 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     '''
 
     # initialize
-    lowerBounds =  -inf * ones([N_Reactions, 1])
-    upperBounds =   inf * ones([N_Reactions, 1])
+    lowerBounds =  -np.inf * ones([N_Reactions, 1])
+    upperBounds =   np.inf * ones([N_Reactions, 1])
             
     # numbers of enzymes catalyzing each reaction, enzyme kinetics
     rxnEnzymes = fbaReactionCatalysisMatrix * enzymes;
@@ -200,23 +268,6 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
 
 #-------------------------------------------------------------------------------
 
-fbaObjective
-fbaReactionStoichiometryMatrix
-fbaRightHandside
-
-# maximal value
-realmax = 1e6;
-
-# linear programming
-linearProgrammingOptions = struct(...
-            'solver', 'glpk',...
-            'solverOptions', struct(...
-                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
-                'linprog', struct('Display','off'),...
-                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
-                'qsopt', struct()));
-
-
 def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiometryMatrix):
     # import edu.stanford.covert.util.ComputationUtil;
     # import edu.stanford.covert.util.ConstantUtil;
@@ -267,7 +318,7 @@ def stochasticRound(value):
     value[~roundUp] = np.floor(value[~roundUp]);
     return value
 
-metabolismNewProduction   # metabolism output represented by biomass pseudoreaction
+
 
 def evolveState(substrates, enzymes):
     '''
@@ -316,4 +367,14 @@ def evolveState(substrates, enzymes):
     # recalculate based on metabolite amount
     # geometry_calculateVolume() - state cellGeometry
 
+    mass = CellMass() # get the state CellMass
+    # mass.waterWt               %water weight (g)
+    # mass.metaboliteWt          %metabolite weight (g)
+    # mass.dnaWt                 %DNA weight (g)
+    # mass.rnaWt                 %RNA weight (g)
+    # mass.proteinWt             %protein weight (g)
+    # mass.total                 %total weight of cell and media (g)
+    # mass.cell                  %total weight of cell (g)
+    # mass.cellDry               %total dry weight of cell (g)
+    # mass.media                 %total weight of media (g)
 
