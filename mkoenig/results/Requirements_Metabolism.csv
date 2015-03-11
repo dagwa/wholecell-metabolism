@@ -1,589 +1,589 @@
 	id	model_type	name	readonly	readwrite	requirement
-0	gamma_radiation__c	Stimulus	gamma radiation (1.2 MeV)		x	x
-1	A23CMP__c	Metabolite	2',3'-Cyclic AMP		x	x
-2	A3MP__c	Metabolite	3'-AMP		x	x
-3	AC__c	Metabolite	acetate		x	x
-4	ACAL__c	Metabolite	acetaldehyde		x	x
-5	ACCOA__c	Metabolite	Acetyl-CoA		x	x
-6	acriflavine__c	Metabolite	Acriflavine		x	x
-7	ACTP__c	Metabolite	Acetyl phosphate		x	x
-8	AD__c	Metabolite	adenine		x	x
-9	ADN__c	Metabolite	adenosine		x	x
-10	ADP__c	Metabolite	ADP		x	x
-11	AEPP__c	Metabolite	2-aminoethylphosphonate		x	x
-12	AHCYS__c	Metabolite	S-Adenosyl-L-homocysteine		x	x
-13	AKG__c	Metabolite	2-Oxoglutarate		x	x
-14	ALA__c	Metabolite	L-alanine		x	x
-15	AlaAla__c	Metabolite	L-alanyl-L-alanine		x	x
-16	AMET__c	Metabolite	S-Adenosyl-L-methionine		x	x
-17	aminodimethylaniline__c	Metabolite	N,N'-dimethyl-p-phenylenediamine		x	x
-18	AMP__c	Metabolite	AMP		x	x
-19	AMP_Lysine__c	Metabolite	AMP-Lysine		x	x
-20	AMP_Mor__c	Metabolite	AMP-morpholidate		x	x
-21	AMP_NH2__c	Metabolite	AMP-NH2		x	x
-22	anthranilate__c	Metabolite	2-aminobenzoic acid		x	x
-23	ARG__c	Metabolite	L-Arginine		x	x
-24	ArgArg__c	Metabolite	L-arginyl-L-arginine		x	x
-25	ASN__c	Metabolite	L-Asparagine		x	x
-26	AsnAsn__c	Metabolite	L-asparaginyl-L-asparagine		x	x
-27	ASP__c	Metabolite	L-Aspartate		x	x
-28	AspAsp__c	Metabolite	L-aspartyl-L-aspartic Acid		x	x
-29	ATP__c	Metabolite	ATP		x	x
-30	aza6dT__c	Metabolite	6-aza-2'-deoxythymidine		x	x
-31	aza6dTMP__c	Metabolite	6-aza-2'-deoxythymidine monophosphate		x	x
-32	aza8dA__c	Metabolite	8-aza-2'-deoxyadenosine		x	x
-33	aza8dAMP__c	Metabolite	8-aza-2'-deoxyadenosine monophosphate		x	x
-34	benzalkonium__c	Metabolite	Benzalkonium		x	x
-35	berberine__c	Metabolite	Berberine		x	x
-36	BUT__c	Metabolite	butyric acid, butanoic acid		x	x
-37	C23CMP__c	Metabolite	2',3'-Cyclic CMP		x	x
-38	C3MP__c	Metabolite	3'-CMP		x	x
-39	c5dU__c	Metabolite	5-Carbouy-2'-deoxyuridine		x	x
-40	c5dUMP__c	Metabolite	5-Carbouy-2'-deoxyuridine monophosphate		x	x
-41	CA__c	Metabolite	calcium ion		x	x
-42	CAP__c	Metabolite	carbamoyl phosphate		x	x
-43	carbamoylmethyl6dA__c	Metabolite	N6-carbamoylmethyl-2'-deoxyadenosine		x	x
-44	carbamoylmethyl6dAMP__c	Metabolite	N6-carbamoylmethyl-2'-deoxyadenosine monophosphate		x	x
-45	CDP__c	Metabolite	CDP		x	x
-46	CDPDG120__c	Metabolite	CDP-1,2-didodecanoylglycerol		x	x
-47	CDPDG140__c	Metabolite	CDP-1,2-ditetradecanoylglycerol		x	x
-48	CDPDG141__c	Metabolite	CDP-1,2-ditetradec-7-enoylglycerol		x	x
-49	CDPDG160__c	Metabolite	CDP-1,2-dihexadecanoylglycerol		x	x
-50	CDPDG161__c	Metabolite	CDP-1,2-dihexadec-9-enoylglycerol		x	x
-51	CDPDG180__c	Metabolite	CDP-1,2-dioctadecanoylglycerol		x	x
-52	CDPDG181__c	Metabolite	CDP-1,2-dioctadec-11-enoylglycerol		x	x
-53	Ceramide16__c	Metabolite	Ceramide (d18:1/16:0)		x	x
-54	CH3OH__c	Metabolite	methanol		x	x
-55	chloroacetaldehyde__c	Metabolite	chloroacetaldehyde		x	x
-56	chloroethylene_oxide__c	Metabolite	chloroethylene oxide		x	x
-57	CHOL__c	Metabolite	choline		x	x
-58	CHP__c	Metabolite	cumene hydroperoxide		x	x
-59	ciprofloxacin__c	Metabolite	ciprofloxacin		x	x
-60	CITR__c	Metabolite	L-citrulline		x	x
-61	CL__c	Metabolite	chloride ion		x	x
-62	CL160__c	Metabolite	cardiolipin (tetrahexadecanoyl, n-C16:0)		x	x
-63	CL161__c	Metabolite	cardiolipin (tetrahexadec-9-enoyl, n-C16:1)		x	x
-64	CL181__c	Metabolite	cardiolipin (tetraoctadec-11-enoyl, n-C18:1)		x	x
-65	cmnm5s2U__c	Metabolite	5-carboxymethylaminomethyl-2-thiouridine		x	x
-66	cmnm5s2UMP__c	Metabolite	5-carboxymethylaminomethyl-2-thiouridine monophosphate		x	x
-67	CMP__c	Metabolite	CMP		x	x
-68	CO__c	Metabolite	cobalt ion		x	x
-69	CO2__c	Metabolite	carbon dioxide		x	x
-70	COA__c	Metabolite	coenzyme A		x	x
-71	crystalViolet__c	Metabolite	Crystal violet		x	x
-72	CTP__c	Metabolite	CTP		x	x
-73	CU__c	Metabolite	cupric ion		x	x
-74	cyclobutane_dCdC__c	Metabolite	cyclobutane 2'-deoxycytidine dimer		x	x
-75	cyclobutane_dCdT__c	Metabolite	cyclobutane 2'-deoxycytidine 2'-deoxythymidine 		x	x
-76	cyclobutane_dCMPdCMP__c	Metabolite	cyclobutane 2'-deoxycytidine monophosphate dimer		x	x
-77	cyclobutane_dCMPdTMP__c	Metabolite	cyclobutane 2'-deoxycytidine monophosphate 2'-deoxythymidine  monophosphate		x	x
-78	cyclobutane_dTdC__c	Metabolite	cyclobutane 2'-deoxythymidine 2'-deoxycytidine		x	x
-79	cyclobutane_dTdT__c	Metabolite	cyclobutane 2'-deoxythymidine dimer		x	x
-80	cyclobutane_dTMPdCMP__c	Metabolite	cyclobutane 2'-deoxythymidine monophosphate 2'-deoxycytidine monophosphate		x	x
-81	cyclobutane_dTMPdTMP__c	Metabolite	cyclobutane 2'-deoxythymidine monophosphate dimer		x	x
-82	cyclodA__c	Metabolite	8,5'-cyclo-2'-deoxyadenosine		x	x
-83	cyclodAMP__c	Metabolite	8,5'-cyclo-2'-deoxyadenosine monophosphate		x	x
-84	cyclodG__c	Metabolite	8,5'-cyclo-2'-deoxyguanosine		x	x
-85	cyclodGMP__c	Metabolite	8,5'-cyclo-2'-deoxyguanosine monophosphate		x	x
-86	CYS__c	Metabolite	L-Cysteine		x	x
-87	CysCys__c	Metabolite	L-cysteinyl-L-cysteine		x	x
-88	CYTD__c	Metabolite	cytidine		x	x
-89	c_di_AMP__c	Metabolite	Cyclic-di-adenylate		x	x
-90	DA__c	Metabolite	deoxyadenosine		x	x
-91	DADP__c	Metabolite	dADP		x	x
-92	DAG160__c	Metabolite	Diacylglycerol (n-16:0)		x	x
-93	DAG161__c	Metabolite	Diacylglycerol (n-16:1)		x	x
-94	DAG181__c	Metabolite	Diacylglycerol (n-18:1)		x	x
-95	DALA__c	Metabolite	D-alanine		x	x
-96	DAMP__c	Metabolite	dAMP		x	x
-97	dApdAp__c	Metabolite	dAp-dAp		x	x
-98	DATP__c	Metabolite	dATP		x	x
-99	DC__c	Metabolite	deoxycytidine		x	x
-100	dC64dC__c	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxycytidine		x	x
-101	dC64dC_dewar__c	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxycytidine dewar product		x	x
-102	dC64dT__c	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxythymidine		x	x
-103	dC64dT_dewar__c	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxythymidine dewar product		x	x
-104	DCDP__c	Metabolite	dCDP		x	x
-105	DCMP__c	Metabolite	dCMP		x	x
-106	dCMP64dCMP__c	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxycytidine monophosphate		x	x
-107	dCMP64dCMP_dewar__c	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxycytidine monophosphate dewar product		x	x
-108	dCMP64dTMP__c	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxythymidine monophosphate		x	x
-109	dCMP64dTMP_dewar__c	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxythymidine monophosphate dewar product		x	x
-110	dCMP_GLYC__c	Metabolite	2-'deoxycytidine monophosphate glycol		x	x
-111	dCpdCp__c	Metabolite	dCp-dCp		x	x
-112	DCTP__c	Metabolite	dCTP		x	x
-113	dC_GLYC__c	Metabolite	2-'deoxycytidine glycol		x	x
-114	DDCA__c	Metabolite	Dodecanoate (n-C12:0)		x	x
-115	DDECG3P__c	Metabolite	1-dodecanoyl-sn-glycerol 3-phosphate		x	x
-116	deoxyG6P__c	Metabolite	2-deoxy-glucose-6-phosphate		x	x
-117	deoxyGLC__c	Metabolite	2-deoxy-glucose		x	x
-118	DG__c	Metabolite	deoxyguanosine		x	x
-119	DGDP__c	Metabolite	dGDP		x	x
-120	DGMP__c	Metabolite	dGMP		x	x
-121	dGpdGp__c	Metabolite	dGp-dGp		x	x
-122	DGTP__c	Metabolite	dGTP		x	x
-123	DHA__c	Metabolite	Dihydroxyacetone		x	x
-124	DHdT__c	Metabolite	5,6-dihydro-2'-deoxythymidine		x	x
-125	DHdTMP__c	Metabolite	5,6-dihydro-2'-deoxythymidine monophosphate		x	x
-126	DHdU__c	Metabolite	5,6-dihydroxy-2'-deoxyuridine		x	x
-127	DHdUMP__c	Metabolite	5,6-dihydroxy-2'-deoxyuridine monophosphate		x	x
-128	DHF__c	Metabolite	dihydrofolate		x	x
-129	dhpdU__c	Metabolite	5'-dihydroxypentyl-2'-deoxyuridine		x	x
-130	dhpdUMP__c	Metabolite	5'-dihydroxypentyl-2'-deoxyuridine monophosphate		x	x
-131	diacylglycerolCys__c	Metabolite	S-diacylglycerol cysteine 		x	x
-132	DIBUTYRIN__c	Metabolite	dibutyrin		x	x
-133	dINS__c	Metabolite	2'-deoxyinosine		x	x
-134	dINSMP__c	Metabolite	2'-deoxyinosine monophosphate		x	x
-135	DMBA__c	Metabolite	dimethylbenzyl alcohol		x	x
-136	doxorubicin__c	Metabolite	Doxorubicin		x	x
-137	DPCOA__c	Metabolite	dephospho-CoA		x	x
-138	DPG__c	Metabolite	3-Phospho-D-glyceroyl phosphate		x	x
-139	DR1P__c	Metabolite	2-Deoxy-D-ribose 1-phosphate		x	x
-140	DR5P__c	Metabolite	2-Deoxy-D-ribose 5-phosphate		x	x
-141	DT__c	Metabolite	thymidine		x	x
-142	dT64dC__c	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxycytidine		x	x
-143	dT64dC_dewar__c	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxycytidine dewar product		x	x
-144	dT64dT__c	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxythymidine		x	x
-145	dT64dT_dewar__c	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxythymidine dewar product		x	x
-146	DTDP__c	Metabolite	dTDP		x	x
-147	DTMP__c	Metabolite	dTMP		x	x
-148	dTMP64dCMP__c	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxycytidine monophosphate		x	x
-149	dTMP64dCMP_dewar__c	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxycytidine monophosphate dewar product		x	x
-150	dTMP64dTMP__c	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxythymidine monophosphate		x	x
-151	dTMP64dTMP_dewar__c	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxythymidine monophosphate dewar product		x	x
-152	dTMP_GLYC__c	Metabolite	2'-deoxythymidine monophosphate glycol		x	x
-153	dTpdTp__c	Metabolite	dTp-dTp		x	x
-154	DTTP__c	Metabolite	dTTP		x	x
-155	dT_GLYC__c	Metabolite	2'-deoxythymidine glycol		x	x
-156	DU__c	Metabolite	deoxyuridine		x	x
-157	DUDP__c	Metabolite	dUDP		x	x
-158	DUMP__c	Metabolite	dUMP		x	x
-159	DUTP__c	Metabolite	dUTP		x	x
-160	dXAN__c	Metabolite	2'-deoxyxanthosine		x	x
-161	dXANMP__c	Metabolite	2'-deoxyxanthosine monophosphate		x	x
-162	e1dA__c	Metabolite	1-ethyl-2'-deoxyadenosine		x	x
-163	e1dAMP__c	Metabolite	1-ethyl-2'-deoxyadenosine monophosphate		x	x
-164	e1dG__c	Metabolite	1-ethyl-2'-deoxyguanosine		x	x
-165	e1dGMP__c	Metabolite	1-ethyl-2'-deoxyguanosine monophosphate		x	x
-166	e3dA__c	Metabolite	3-ethyl-2'-deoxyadenosine		x	x
-167	e3dAMP__c	Metabolite	3-ethyl-2'-deoxyadenosine monophosphate		x	x
-168	e3dC__c	Metabolite	3-ethyl-2'-deoxycytidine		x	x
-169	e3dCMP__c	Metabolite	3-ethyl-2'-deoxycytidine monophosphate		x	x
-170	e3dG__c	Metabolite	3-ethyl-2'-deoxyguanosine		x	x
-171	e3dGMP__c	Metabolite	3-ethyl-2'-deoxyguanosine monophosphate		x	x
-172	e3dT__c	Metabolite	3'-ethyl-2'-deoxythymidine		x	x
-173	e3dTMP__c	Metabolite	3'-ethyl-2'-deoxythymidine monophosphate		x	x
-174	e4dC__c	Metabolite	4-ethyl-2'-deoxycytidine		x	x
-175	e4dCMP__c	Metabolite	4-ethyl-2'-deoxycytidine monophosphate		x	x
-176	E4P__c	Metabolite	D-Erythrose 4-phosphate		x	x
-177	e5dC__c	Metabolite	5-ethyl-2'-deoxycytidine		x	x
-178	e5dCMP__c	Metabolite	5-ethyl-2'-deoxycytidine monophosphate		x	x
-179	e6dA__c	Metabolite	6-ethyl-2'-deoxyadenosine		x	x
-180	e6dAMP__c	Metabolite	6-ethyl-2'-deoxyadenosine monophosphate		x	x
-181	e7dA__c	Metabolite	7-ethyl-2'-deoxyadenosine		x	x
-182	e7dAMP__c	Metabolite	7-ethyl-2'-deoxyadenosine monophosphate		x	x
-183	e7dG__c	Metabolite	7-ethyl-2'-deoxyguanosine		x	x
-184	e7dGMP__c	Metabolite	7-ethyl-2'-deoxyguanosine monophosphate		x	x
-185	e8dG__c	Metabolite	8-ethyl-2'-deoxyguanosine		x	x
-186	e8dGMP__c	Metabolite	8-ethyl-2'-deoxyguanosine monophosphate		x	x
-187	enoxacin__c	Metabolite	Enoxacin		x	x
-188	epsilon1N2dG__c	Metabolite	1,N2-etheno-2'-deoxyguanosine		x	x
-189	epsilon1N2dGMP__c	Metabolite	1,N2-etheno-2'-deoxyguanosine monophosphate		x	x
-190	epsilon1N6dA__c	Metabolite	1,N6-etheno-2'-deoxyadenosine		x	x
-191	epsilon1N6dAMP__c	Metabolite	1,N6-etheno-2'-deoxyadenosine monophosphate		x	x
-192	epsilon3N4dC__c	Metabolite	3,N4-etheno-2'-deoxycytidine		x	x
-193	epsilon3N4dCMP__c	Metabolite	3,N4-etheno-2'-deoxycytidine monophosphate		x	x
-194	epsilonN23dG__c	Metabolite	N2,3-etheno-2'-deoxyguanosine		x	x
-195	epsilonN23dGMP__c	Metabolite	N2,3-etheno-2'-deoxyguanosine monophosphate		x	x
-196	ethidium__c	Metabolite	Ethidium		x	x
-197	ETN__c	Metabolite	ethanolamine		x	x
-198	F1P__c	Metabolite	D-Fructose 1-phosphate		x	x
-199	f5dU__c	Metabolite	5-formyl-2'-deoxyuridine		x	x
-200	f5dUMP__c	Metabolite	5-formyl-2'-deoxyuridine monophosphate		x	x
-201	F6P__c	Metabolite	D-Fructose 6-phosphate		x	x
-202	FAD__c	Metabolite	flavin adenine dinucleotide, oxidized		x	x
-203	FADH2__c	Metabolite	flavin adenine dinucleotide, reduced		x	x
-204	FALD__c	Metabolite	formaldehyde		x	x
-205	FAPydA__c	Metabolite	N4-(2-Deoxy-alpha,beta-D-erythro-pentofuranosyl)-4,6-diamino-5-formamidopyrimidine		x	x
-206	FAPydAMP__c	Metabolite	N4-(2-Deoxy-alpha,beta-D-erythro-pentofuranosyl)-4,6-diamino-5-formamidopyrimidine monophosphate		x	x
-207	FAPydG__c	Metabolite	N6-(2-Deoxy-α,β-d-erythro-pentofuranosyl)-2,6-diamino-4-hydroxy-5-formamidopyrimidine		x	x
-208	FAPydGMP__c	Metabolite	N6-(2-Deoxy-α,β-d-erythro-pentofuranosyl)-2,6-diamino-4-hydroxy-5-formamidopyrimidine monophosphate		x	x
-209	FDP__c	Metabolite	D-Fructose 1,6-bisphosphate		x	x
-210	FE2__c	Metabolite	ferrous iron		x	x
-211	FE3__c	Metabolite	ferric iron		x	x
-212	FMET__c	Metabolite	N-Formyl-L-methionine		x	x
-213	FMN__c	Metabolite	flavin mononucleotide, oxidized		x	x
-214	FMNH2__c	Metabolite	flavin mononucleotide, reduced		x	x
-215	FOR__c	Metabolite	Formate		x	x
-216	FRU__c	Metabolite	D-Fructose		x	x
-217	FTHF10__c	Metabolite	10-formyl-tetrahydrofolate		x	x
-218	FTHF5__c	Metabolite	5-formyltetrahydrofolate		x	x
-219	FUC1P__c	Metabolite	L-fucose 1-phosphate		x	x
-220	G1P__c	Metabolite	D-Glucose 1-phosphate		x	x
-221	G23CMP__c	Metabolite	2',3'-Cyclic GMP		x	x
-222	G2P__c	Metabolite	D-Glycerate 2-phosphate		x	x
-223	G3MP__c	Metabolite	3'-GMP		x	x
-224	G3P__c	Metabolite	3-Phospho-D-glycerate		x	x
-225	G6P__c	Metabolite	D-Glucose 6-phosphate		x	x
-226	GalCer16__c	Metabolite	galactosyl-β-Ceramide (d18:1/16:0)		x	x
-227	GalDAG160__c	Metabolite	galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-228	GalDAG161__c	Metabolite	galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-229	GalDAG181__c	Metabolite	galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-230	GalGalCer16__c	Metabolite	galactosyl-α1-4-galactosyl-β-Ceramide (d18:1/16:0)		x	x
-231	GalGalDAG160__c	Metabolite	galactosyl-α1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-232	GalGalDAG161__c	Metabolite	galactosyl-α1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-233	GalGalDAG181__c	Metabolite	galactosyl-α1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-234	GalGalGalDAG160__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-235	GalGalGalDAG161__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-236	GalGalGalDAG181__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-237	GalGalGlcCer16__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-Ceramide (d18:1/16:0)		x	x
-238	GalGalGlcDAG160__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-239	GalGalGlcDAG161__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-240	GalGalGlcDAG181__c	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-241	GalGlcCer16__c	Metabolite	galactosyl-β1-4-glucosyl-β-Ceramide (d18:1/16:0)		x	x
-242	GalGlcDAG160__c	Metabolite	galactosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-243	GalGlcDAG161__c	Metabolite	galactosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-244	GalGlcDAG181__c	Metabolite	galactosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-245	GDP__c	Metabolite	GDP		x	x
-246	GDPTP__c	Metabolite	Guanosine 3'-diphosphate 5'-triphosphate		x	x
-247	GL__c	Metabolite	glycerol		x	x
-248	GL2P__c	Metabolite	Glycerol 2-phosphate		x	x
-249	GL3P__c	Metabolite	Glycerol 3-phosphate		x	x
-250	GLC__c	Metabolite	D-Glucose		x	x
-251	GlcCer16__c	Metabolite	glucosyl-β-Ceramide (d18:1/16:0)		x	x
-252	GlcDAG160__c	Metabolite	glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-253	GlcDAG161__c	Metabolite	glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-254	GlcDAG181__c	Metabolite	glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-255	GlcGalCer16__c	Metabolite	glucosyl-β1-4-galactosyl-β-Ceramide (d18:1/16:0)		x	x
-256	GlcGalDAG160__c	Metabolite	glucosyl-β1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-257	GlcGalDAG161__c	Metabolite	glucosyl-β1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-258	GlcGalDAG181__c	Metabolite	glucosyl-β1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-259	GlcGalGalDAG160__c	Metabolite	glucosyl-β1-4-galactosyl-α1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-260	GlcGalGalDAG161__c	Metabolite	glucosyl-β1-4-galactosyl-α1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-261	GlcGalGalDAG181__c	Metabolite	glucosyl-β1-4-galactosyl-α1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-262	GlcGalGlcDAG160__c	Metabolite	glucosyl-β1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-263	GlcGalGlcDAG161__c	Metabolite	glucosyl-β1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-264	GlcGalGlcDAG181__c	Metabolite	glucosyl-β1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-265	GlcGlcDAG160__c	Metabolite	glucosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-266	GlcGlcDAG161__c	Metabolite	glucosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-267	GlcGlcDAG181__c	Metabolite	glucosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-268	GlcGlcGlcDAG160__c	Metabolite	glucosyl-β1-4-glucosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
-269	GlcGlcGlcDAG161__c	Metabolite	glucosyl-β1-4-glucosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
-270	GlcGlcGlcDAG181__c	Metabolite	glucosyl-β1-4-glucosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
-271	glchm5dC__c	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxycytidine		x	x
-272	glchm5dCMP__c	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxycytidine monophosphate		x	x
-273	glchm5dU__c	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxyuridine		x	x
-274	glchm5dUMP__c	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxyuridine monophosphate		x	x
-275	GLN__c	Metabolite	L-glutamine		x	x
-276	GlnGln__c	Metabolite	L-glutaminyl-L-glutamine		x	x
-277	GLU__c	Metabolite	L-Glutamate		x	x
-278	gludT__c	Metabolite	a-glutamyl-2'-deoxythymidine		x	x
-279	gludTMP__c	Metabolite	a-glutamyl-2'-deoxythymidine monophosphate		x	x
-280	GluGlu__c	Metabolite	L-glutamyl-L-glutamic acid		x	x
-281	GLY__c	Metabolite	glycine		x	x
-282	GlyGly__c	Metabolite	L-glycyl-L-glycine		x	x
-283	Gm__c	Metabolite	2'-O-methylguanosine		x	x
-284	GmMP__c	Metabolite	2'-O-methylguanosine monophosphate		x	x
-285	GMP__c	Metabolite	GMP		x	x
-286	GMP_Lysine__c	Metabolite	GMP-lysine		x	x
-287	GMP_Mor__c	Metabolite	GMP-morpholidate		x	x
-288	GN__c	Metabolite	guanine		x	x
-289	GPCH__c	Metabolite	sn-Glycero-3-phosphocholine		x	x
-290	GPE__c	Metabolite	sn-Glycero-3-phosphoethanolamine		x	x
-291	GPG__c	Metabolite	Glycerophosphoglycerol		x	x
-292	GPI__c	Metabolite	sn-Glycero-3-phospho-1-inositol		x	x
-293	GPS__c	Metabolite	Glycerophosphoserine		x	x
-294	GSN__c	Metabolite	guanosine		x	x
-295	GTP__c	Metabolite	GTP		x	x
-296	H__c	Metabolite	hydrogen ion		x	x
-297	H2O__c	Metabolite	water		x	x
-298	H2O2__c	Metabolite	hydrogen peroxide		x	x
-299	HCYS__c	Metabolite	L-homocysteine		x	x
-300	HDCA__c	Metabolite	Hexadecanoate (n-C16:0)		x	x
-301	HDCEA__c	Metabolite	Hexadecenoate (n-C16:1)		x	x
-302	HDECEG3P__c	Metabolite	1-hexadecanoyl-sn-glycerol 3-phosphate		x	x
-303	HDECG3P__c	Metabolite	1-hexadec-9-enoyl-sn-glycerol 3-phosphate		x	x
-304	HIS__c	Metabolite	L-Histidine		x	x
-305	HisHis__c	Metabolite	L-histidyl-L-histidine		x	x
-306	hm3dC__c	Metabolite	3'-hydroxymethyl-2'-deoxycytidine		x	x
-307	hm3dCMP__c	Metabolite	3'-hydroxymethyl-2'-deoxycytidine monophosphate		x	x
-308	hm5dC__c	Metabolite	5'-hydroxymethyl-2'-deoxycytidine		x	x
-309	hm5dCMP__c	Metabolite	5'-hydroxymethyl-2'-deoxycytidine monophosphate		x	x
-310	hm5dU__c	Metabolite	5-hydroxymethyl-2'-deoxyuridine		x	x
-311	hm5dUMP__c	Metabolite	5-hydroxymethyl-2'-deoxyuridine monophosphate		x	x
-312	hm5hydantoin_dRibose__c	Metabolite	2'-deoxy-3'-(5-hydroxy-5-methyl-hydantoin)-ribose		x	x
-313	hm5hydantoin_dRiboseMP__c	Metabolite	2'-deoxy-3'-(5-hydroxy-5-methyl-hydantoin)-ribose monophosphate		x	x
-314	ho5dC__c	Metabolite	5-Hydroxy-2'-deoxycytidine		x	x
-315	ho5dCMP__c	Metabolite	5-Hydroxy-2'-deoxycytidine monophosphate		x	x
-316	ho5dU__c	Metabolite	5-hydroxy-2'-deoxyuridine		x	x
-317	ho5dUMP__c	Metabolite	5-hydroxy-2'-deoxyuridine monophosphate		x	x
-318	ho5ho6dT__c	Metabolite	5-hydroxy-6-hydroxy-2'-deoxythymidine		x	x
-319	ho5ho6dTMP__c	Metabolite	5-hydroxy-6-hydroxy-2'-deoxythymidine monophosphate		x	x
-320	ho5ho6dU__c	Metabolite	5-hydroxy-6-hydroxy-2'-deoxyuridine		x	x
-321	ho5ho6dUMP__c	Metabolite	5-hydroxy-6-hydroxy-2'-deoxyuridine monophosphate		x	x
-322	ho5hydantoin_dRibose__c	Metabolite	2'-deoxy-3'-(5-hydroxyhydantoin)-ribose		x	x
-323	ho5hydantoin_dRiboseMP__c	Metabolite	2'-deoxy-3'-(5-hydroxyhydantoin)-ribose monophosphate		x	x
-324	HPHPYR__c	Metabolite	3-(4-Hydroxyphenyl)pyruvate		x	x
-325	hydride__c	Metabolite	hydride		x	x
-326	hydroxyl_radical__c	Metabolite	hydroxyl radical		x	x
-327	HYXN__c	Metabolite	hypoxanthine		x	x
-328	IDP__c	Metabolite	IDP		x	x
-329	ILE__c	Metabolite	L-Isoleucine		x	x
-330	IleIle__c	Metabolite	L-isoleucyl-L-isoleucine		x	x
-331	IMP__c	Metabolite	IMP		x	x
-332	INOS__c	Metabolite	myo-inositol		x	x
-333	INS__c	Metabolite	inosine		x	x
-334	ITP__c	Metabolite	ITP		x	x
-335	K__c	Metabolite	potassium ion		x	x
-336	k2C__c	Metabolite	lysidine		x	x
-337	k2CMP__c	Metabolite	lysidine monophosphate		x	x
-338	LAC__c	Metabolite	D-lactate		x	x
-339	LEU__c	Metabolite	L-Leucine		x	x
-340	LeuLeu__c	Metabolite	L-leucyl-L-leucine		x	x
-341	LIPOATE__c	Metabolite	lipoate		x	x
-342	LIPOYLAMP__c	Metabolite	lipoyl-AMP		x	x
-343	LIPOYLLYS__c	Metabolite	N(6)-(lipoyl)lysine		x	x
-344	lomefloxacin__c	Metabolite	Lomefloxacin		x	x
-345	LYS__c	Metabolite	L-Lysine		x	x
-346	LysLys__c	Metabolite	L-lysyl-L-lysine		x	x
-347	m1dA__c	Metabolite	1-methyl-2'-deoxyadenosine		x	x
-348	m1dAMP__c	Metabolite	1-methyl-2'-deoxyadenosine monophosphate		x	x
-349	m1dG__c	Metabolite	1-methyl-2'-deoxyguanosine		x	x
-350	m1dGMP__c	Metabolite	1-methyl-2'-deoxyguanosine monophosphate		x	x
-351	m1G__c	Metabolite	1-methylguanosine		x	x
-352	m1GMP__c	Metabolite	1-methylguanosine monophosphate		x	x
-353	m2G__c	Metabolite	N(2)-methylguanosine		x	x
-354	m2GMP__c	Metabolite	N(2)-methylguanosine monophosphate		x	x
-355	m3dA__c	Metabolite	3-methyl-2'-deoxyadenosine		x	x
-356	m3dAMP__c	Metabolite	3-methyl-2'-deoxyadenosine monophosphate		x	x
-357	m3dC__c	Metabolite	3-methyl-2'-deoxycytidine		x	x
-358	m3dCMP__c	Metabolite	3-methyl-2'-deoxycytidine monophosphate		x	x
-359	m3dG__c	Metabolite	3-methyl-2'-deoxyguanosine		x	x
-360	m3dGMP__c	Metabolite	3-methyl-2'-deoxyguanosine monophosphate		x	x
-361	m3dT__c	Metabolite	3'-methyl-2'-deoxythymidine		x	x
-362	m3dTMP__c	Metabolite	3'-methyl-2'-deoxythymidine monophosphate		x	x
-363	m4dC__c	Metabolite	4-methyl-2'-deoxycytidine		x	x
-364	m4dCMP__c	Metabolite	4-methyl-2'-deoxycytidine monophosphate		x	x
-365	m5C__c	Metabolite	5-methylcytidine		x	x
-366	m5CMP__c	Metabolite	5-methylcytidine monophosphate		x	x
-367	m5dC__c	Metabolite	5-methyl-2'-deoxycytidine		x	x
-368	m5dCMP__c	Metabolite	5-methyl-2'-deoxycytidine monophosphate		x	x
-369	m62A__c	Metabolite	N6,N6-dimethyladenosine		x	x
-370	m62AMP__c	Metabolite	N6,N6-dimethyladenosine monophosphate		x	x
-371	m6A__c	Metabolite	N(6)-methyladenine		x	x
-372	m6AMP__c	Metabolite	N(6)-methyladenine monophosphate		x	x
-373	m6dA__c	Metabolite	6-methyl-2'-deoxyadenosine		x	x
-374	m6dAMP__c	Metabolite	6-methyl-2'-deoxyadenosine monophosphate		x	x
-375	m7dA__c	Metabolite	7-methyl-2'-deoxyadenosine		x	x
-376	m7dAMP__c	Metabolite	7-methyl-2'-deoxyadenosine monophosphate		x	x
-377	m7dG__c	Metabolite	7-methyl-2'-deoxyguanosine		x	x
-378	m7dGMP__c	Metabolite	7-methyl-2'-deoxyguanosine monophosphate		x	x
-379	m7G__c	Metabolite	7-methylguanosine		x	x
-380	m7GMP__c	Metabolite	7-methylguanosine monophosphate		x	x
-381	m8dG__c	Metabolite	8-methyl-2'-deoxyguanosine		x	x
-382	m8dGMP__c	Metabolite	8-methyl-2'-deoxyguanosine monophosphate		x	x
-383	MAL__c	Metabolite	L-Malate		x	x
-384	MAN__c	Metabolite	D-Mannose		x	x
-385	MAN1P__c	Metabolite	D-Mannose 1-phosphate		x	x
-386	MAN6P__c	Metabolite	D-Mannose 6-phosphate		x	x
-387	MET__c	Metabolite	L-Methionine		x	x
-388	METHF__c	Metabolite	5,10-methyltetrahydrofolate		x	x
-389	methylRed__c	Metabolite	4′-dimethylaminoazobenzene-2-carboxylic acid		x	x
-390	METHYL_OCDCEA__c	Metabolite	methyl oleate		x	x
-391	MetMet__c	Metabolite	L-methionyl-L-methionine		x	x
-392	METSOXRL__c	Metabolite	L-Methionine-R-Sulfoxide		x	x
-393	METSOXSL__c	Metabolite	L-Methionine-S-Sulfoxide		x	x
-394	METTHF__c	Metabolite	5,10-Methylenetetrahydrofolate		x	x
-395	MG__c	Metabolite	magnesium ion		x	x
-396	MN__c	Metabolite	manganese ion		x	x
-397	MO__c	Metabolite	molybdenum ion		x	x
-398	MOBD__c	Metabolite	Molybdate		x	x
-399	MONOBUTYRIN__c	Metabolite	1-monobutyrin		x	x
-400	MOR__c	Metabolite	morpholine		x	x
-401	MTHF__c	Metabolite	5-Methyltetrahydrofolate		x	x
-402	n2dA__c	Metabolite	2-amino-2'-deoxyadenosine		x	x
-403	n2dAMP__c	Metabolite	2-amino-2'-deoxyadenosine monophosphate		x	x
-404	NA__c	Metabolite	sodium ion		x	x
-405	NAAD__c	Metabolite	nicotinic acid adenine dinucleotide		x	x
-406	NAC__c	Metabolite	nicotinate		x	x
-407	NAD__c	Metabolite	nicotinamide adenine dinucleotide, oxidized		x	x
-408	NADH__c	Metabolite	nicotinamide adenine dinucleotide, reduced		x	x
-409	NADP__c	Metabolite	nicotinamide adenine dinucleotide phosphate, oxidized		x	x
-410	NADPH__c	Metabolite	nicotinamide adenine dinucleotide phosphate, reduced		x	x
-411	NAMN__c	Metabolite	nicotinate/nicotinic acid mononucleotide		x	x
-412	NH3__c	Metabolite	ammonia		x	x
-413	NH4__c	Metabolite	ammonium		x	x
-414	NI__c	Metabolite	nickel		x	x
-415	nisin__c	Metabolite	nisin		x	x
-416	NMN__c	Metabolite	nicotinamide mononucleotide		x	x
-417	norfloxacin__c	Metabolite	Norfloxacin		x	x
-418	novobiocin__c	Metabolite	Novobiocin		x	x
-419	NR__c	Metabolite	Nicotinate D-ribonucleotide		x	x
-420	O2__c	Metabolite	oxygen		x	x
-421	O2edC__c	Metabolite	2'-O-ethyl-2'-deoxycytidine		x	x
-422	O2edCMP__c	Metabolite	2'-O-ethyl-2'-deoxycytidine monophosphate		x	x
-423	O2edT__c	Metabolite	2'-O-ethyl-2'-deoxythymidine		x	x
-424	O2edTMP__c	Metabolite	2'-O-ethyl-2'-deoxythymidine monophosphate		x	x
-425	O2mdC__c	Metabolite	2'-O-methyl-2'-deoxycytidine		x	x
-426	O2mdCMP__c	Metabolite	2'-O-methyl-2'-deoxycytidine monophosphate		x	x
-427	O2mdT__c	Metabolite	2'-O-methyl-2'-deoxythymidine		x	x
-428	O2mdTMP__c	Metabolite	2'-O-methyl-2'-deoxythymidine monophosphate		x	x
-429	O4edT__c	Metabolite	4'-O-ethyl-2'-deoxythymidine		x	x
-430	O4edTMP__c	Metabolite	4'-O-ethyl-2'-deoxythymidine monophosphate		x	x
-431	O4mdT__c	Metabolite	4'-O-methyl-2'-deoxythymidine		x	x
-432	O4mdTMP__c	Metabolite	4'-O-methyl-2'-deoxythymidine monophosphate		x	x
-433	O6edG__c	Metabolite	6'-O-ethyl-2'-deoxyguanosine		x	x
-434	O6edGMP__c	Metabolite	6'-O-ethyl-2'-deoxyguanosine monophosphate		x	x
-435	O6mdG__c	Metabolite	6'-O-methyl-2'-deoxyguanosine		x	x
-436	O6mdGMP__c	Metabolite	6'-O-methyl-2'-deoxyguanosine monophosphate		x	x
-437	OA__c	Metabolite	oxaloacetate		x	x
-438	OCDCA__c	Metabolite	octadecanoate (n-C18:0)		x	x
-439	OCDCEA__c	Metabolite	octadecenoate (n-C18:1)		x	x
-440	ODEC11GP__c	Metabolite	1-octadec-11-enoyl-sn-glycerol 3-phosphate		x	x
-441	ODECG3P__c	Metabolite	1-octadecanoyl-sn-glycerol 3-phosphate		x	x
-442	OH__c	Metabolite	hydoxide anion		x	x
-443	ORN__c	Metabolite	ornithine		x	x
-444	oxo2dA__c	Metabolite	2-hydroxy-2'-deoxyadenosine		x	x
-445	oxo2dAMP__c	Metabolite	2-hydroxy-2'-deoxyadenosine monophosphate		x	x
-446	oxo8dA__c	Metabolite	8-hydroxy-2'-deoxyadenosine		x	x
-447	oxo8dAMP__c	Metabolite	8-hydroxy-2'-deoxyadenosine monophosphate		x	x
-448	oxo8dG__c	Metabolite	8-Oxo-2'-deoxyguanosine; 8-hydroxy-2'-deoxyguanosine		x	x
-449	oxo8dGMP__c	Metabolite	8-Oxo-2'-deoxyguanosine monophosphate; 8-hydroxy-2'-deoxyguanosine monophosphate		x	x
-450	oxoethyl7dG__c	Metabolite	7-(2'-oxoethyl)-2'-deoxyguanosine		x	x
-451	oxoethyl7dGMP__c	Metabolite	7-(2'-oxoethyl)-2'-deoxyguanosine monophosphate		x	x
-452	PA120__c	Metabolite	1,2-didodecanoyl-sn-glycerol 3-phosphate		x	x
-453	PA140__c	Metabolite	1,2-ditetradecanoyl-sn-glycerol 3-phosphate		x	x
-454	PA141__c	Metabolite	1,2-ditetradec-7-enoyl-sn-glycerol 3-phosphate		x	x
-455	PA160__c	Metabolite	1,2-dihexadecanoyl-sn-glycerol 3-phosphate		x	x
-456	PA161__c	Metabolite	1,2-dihexadec-9-enoyl-sn-glycerol 3-phosphate		x	x
-457	PA180__c	Metabolite	1,2-dioctadecanoyl-sn-glycerol 3-phosphate		x	x
-458	PA181__c	Metabolite	1,2-dioctadec-11-enoyl-sn-glycerol 3-phosphate		x	x
-459	PAP__c	Metabolite	Adenosine 3',5'-bisphosphate		x	x
-460	pCHOL__c	Metabolite	phosphoryl-choline		x	x
-461	PDLA5P__c	Metabolite	Pyridoxamine 5'-phosphate		x	x
-462	PEP__c	Metabolite	phosphoenolpyruvate		x	x
-463	PG160__c	Metabolite	Phosphatidylglycerol (dihexadecanoyl, n-C16:0)		x	x
-464	PG161__c	Metabolite	Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1)		x	x
-465	PG181__c	Metabolite	Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1)		x	x
-466	PGP160__c	Metabolite	Phosphatidylglycerophosphate (dihexadecanoyl, n-C16:0)		x	x
-467	PGP161__c	Metabolite	Phosphatidylglycerophosphate (dihexadec-9-enoyl, n-C16:1)		x	x
-468	PGP181__c	Metabolite	Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)		x	x
-469	PHE__c	Metabolite	L-phenylalanine		x	x
-470	PhePhe__c	Metabolite	L-phenylalanyl-L-phenylalanine		x	x
-471	PHPYR__c	Metabolite	phenylpyruvate		x	x
-472	PI__c	Metabolite	phosphate		x	x
-473	PL5P__c	Metabolite	Pyridoxal 5'-phosphate		x	x
-474	POE_SORBITAN__c	Metabolite	Polyoxyethylene (20) sorbitan		x	x
-475	PPAA__c	Metabolite	Phosphonoacetaldehyde		x	x
-476	PPGPP__c	Metabolite	Guanosine 3',5'-bis(diphosphate)		x	x
-477	PPHG__c	Metabolite	protoporphyrinogen IX		x	x
-478	PPI__c	Metabolite	diphosphate		x	x
-479	PPIX__c	Metabolite	protoporphyrin IX		x	x
-480	PRO__c	Metabolite	L-Proline		x	x
-481	proflavine__c	Metabolite	Proflavine		x	x
-482	ProPro__c	Metabolite	L-prolyl-L-proline		x	x
-483	PRPP__c	Metabolite	5-Phospho-alpha-D-ribose 1-diphosphate		x	x
-484	pSER__c	Metabolite	phosphoserine		x	x
-485	PSIURI__c	Metabolite	pseudouridine		x	x
-486	PSIURIMP__c	Metabolite	pseudouridine monophoshate		x	x
-487	pTHR__c	Metabolite	phosphothreonine		x	x
-488	PTRC__c	Metabolite	putrescine		x	x
-489	pTYR__c	Metabolite	Phosphotyrosine		x	x
-490	putdT__c	Metabolite	alpha-putrescinyl-2'-deoxythymidine		x	x
-491	putdTMP__c	Metabolite	alpha-putrescinyl-2'-deoxythymidine monophosphate		x	x
-492	PYDX__c	Metabolite	Pyridoxal		x	x
-493	PYR__c	Metabolite	pyruvate		x	x
-494	R1P__c	Metabolite	alpha-D-Ribose 1-phosphate		x	x
-495	R5P__c	Metabolite	alpha-D-Ribose 5-phosphate		x	x
-496	RBFLVRD__c	Metabolite	riboflavin, reduced		x	x
-497	rhodamine6G__c	Metabolite	Rhodamine 6G		x	x
-498	RIB__c	Metabolite	D-ribose		x	x
-499	RIBFLV__c	Metabolite	riboflavin, oxidized		x	x
-500	RL5P__c	Metabolite	D-Ribulose 5-phosphate		x	x
-501	s2U__c	Metabolite	2-thiouridine		x	x
-502	s2UMP__c	Metabolite	2-thiouridine monophosphate		x	x
-503	s4U__c	Metabolite	4-thiouridine		x	x
-504	s4UMP__c	Metabolite	4-thiouridine monophosphate		x	x
-505	S7P__c	Metabolite	D-sedoheptulose-7-phosphate		x	x
-506	SALA__c	Metabolite	3-Sulfino-L-alanine		x	x
-507	SBT__c	Metabolite	D-Sorbitol		x	x
-508	SBT6P__c	Metabolite	D-Sorbitol 6-phosphate		x	x
-509	SER__c	Metabolite	L-Serine		x	x
-510	SerSer__c	Metabolite	L-seryl-L-serine		x	x
-511	SNGLYP__c	Metabolite	sn-glycerol-1-phosphate		x	x
-512	SO2__c	Metabolite	sulfur dioxide		x	x
-513	SO4__c	Metabolite	sulphate		x	x
-514	SPMD__c	Metabolite	spermidine		x	x
-515	STEROL__c	Metabolite	cholesterol		x	x
-516	T3P1__c	Metabolite	D-glyceraldehdye-3-phosphate		x	x
-517	T3P2__c	Metabolite	Dihydroxyacetone phosphate		x	x
-518	TAG16P__c	Metabolite	D-Tagatose 1,6-biphosphate		x	x
-519	TAG6P__c	Metabolite	D-Tagatose 6-phosphate		x	x
-520	tBHP__c	Metabolite	tert-butylhydroperoxide		x	x
-521	tBOH__c	Metabolite	tert-Butanol		x	x
-522	TDECEG3P__c	Metabolite	1-tetradec-7-enoyl-sn-glycerol 3-phosphate		x	x
-523	TDECG3P__c	Metabolite	1-tetradecanoyl-sn-glycerol 3-phosphate		x	x
-524	TDP__c	Metabolite	TDP		x	x
-525	tetraphenylphosphonium__c	Metabolite	tetraphenylphosphonium		x	x
-526	THF__c	Metabolite	5,6,7,8-Tetrahydrofolate		x	x
-527	THM__c	Metabolite	thiamine		x	x
-528	THMP__c	Metabolite	Thiamin monophosphate		x	x
-529	THR__c	Metabolite	L-Threonine		x	x
-530	ThrThr__c	Metabolite	L-threonyl-L-threonine		x	x
-531	THY__c	Metabolite	thymine		x	x
-532	TPP__c	Metabolite	thiamine diphosphate		x	x
-533	TRIBUTYRIN__c	Metabolite	tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin		x	x
-534	TRILAURIN__c	Metabolite	trilaurin		x	x
-535	TRIMYRISTIN__c	Metabolite	trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate		x	x
-536	TRIOLEIN__c	Metabolite	triolein		x	x
-537	TRIPALMITIN__c	Metabolite	tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate		x	x
-538	TRISTEARIN__c	Metabolite	Tristearin		x	x
-539	TRI_HDCEA_IN__c	Metabolite	triacylglycerol of {Hexadecenoate acid}		x	x
-540	TRI_TTDCEA_IN__c	Metabolite	triacylglycerol of {tetradecenoic acid}		x	x
-541	TRP__c	Metabolite	L-tryptophan		x	x
-542	TrpTrp__c	Metabolite	L-trytophanyl-L-trytophan		x	x
-543	TTDCA__c	Metabolite	tetradecanoate (n-C14:0)		x	x
-544	TTDCEA__c	Metabolite	tetradecenoate (n-C14:1)		x	x
-545	TTP__c	Metabolite	TTP		x	x
-546	TWEEN80__c	Metabolite	Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80		x	x
-547	TYR__c	Metabolite	L-tyrosine		x	x
-548	TyrTyr__c	Metabolite	L-tyrosyl-L-tyrosine		x	x
-549	U23CMP__c	Metabolite	2',3'-Cyclic UMP		x	x
-550	U3MP__c	Metabolite	3'-UMP		x	x
-551	UDP__c	Metabolite	UDP		x	x
-552	UDPG__c	Metabolite	UDP-glucose		x	x
-553	UDPGAL__c	Metabolite	UDP-galactose		x	x
-554	UDPGALF__c	Metabolite	UDP-D-galacto-1,4-furanose		x	x
-555	Um__c	Metabolite	2'-O-methyluridine		x	x
-556	UmMP__c	Metabolite	2'-O-methyluridine monophosphate		x	x
-557	UMP__c	Metabolite	UMP		x	x
-558	URA__c	Metabolite	uracil		x	x
-559	URI__c	Metabolite	uridine		x	x
-560	UTP__c	Metabolite	UTP		x	x
-561	VAL__c	Metabolite	L-Valine		x	x
-562	ValVal__c	Metabolite	L-valyl-L-valine		x	x
-563	vinyl_chloride__c	Metabolite	Vinylchloride		x	x
-564	X5P__c	Metabolite	D-Xylulose 5-phosphate		x	x
-565	XAN__c	Metabolite	xanthine		x	x
-566	XTSN__c	Metabolite	xanthosine		x	x
-567	ZN__c	Metabolite	zinc ion		x	x
-568	MG_124_MONOMER__c	ProteinMonomer	thioredoxin		x	x
-569	MG_287_MONOMER__c	ProteinMonomer	acyl carrier protein		x	x
-570	MG_124_MONOMER_ox__c	ProteinComplex	oxidized thioredoxin		x	x
-571	MG_229_231_TETRAMER__c	ProteinComplex	ribonucleoside-diphosphate reductase		x	x
-572	MG_229_231_TETRAMER_ox__c	ProteinComplex	oxidized ribonucleoside-diphosphate reductase		x	x
-573	MG_287_MONOMER_ACP__c	ProteinComplex	holo acyl carrier protein		x	x
-574	MG_287_MONOMER_ddcaACP__c	ProteinComplex	Dodecanoyl-ACP (n-C12:0ACP)		x	x
-575	MG_287_MONOMER_hdeACP__c	ProteinComplex	cis-hexadec-9-enoyl-[acyl-carrier protein] (n-C16:1)		x	x
-576	MG_287_MONOMER_myrsACP__c	ProteinComplex	Myristoyl-ACP (n-C14:0ACP)		x	x
-577	MG_287_MONOMER_ocdcaACP__c	ProteinComplex	Octadecanoyl-ACP (n-C18:0ACP)		x	x
-578	MG_287_MONOMER_octeACP__c	ProteinComplex	cis-octadec-11-enoyl-[acyl-carrier protein] (n-C18:1)		x	x
-579	MG_287_MONOMER_palmACP__c	ProteinComplex	Palmitoyl-ACP (n-C16:0ACP)		x	x
-580	MG_287_MONOMER_tdeACP__c	ProteinComplex	cis-tetradec-7-enoyl-[acyl-carrier protein] (n-C14:1)		x	x
-581	MG_427_DIMER__c	ProteinComplex	osmotically inducible peroxidase		x	x
-582	MG_427_DIMER_ox__c	ProteinComplex	oxidized osmotically inducible peroxidase		x	x
-583	MG_454_DIMER__c	ProteinComplex	thiol-dependent peroxidase		x	x
-584	MG_454_DIMER_ox__c	ProteinComplex	oxidized thiol-dependent peroxidase		x	x
+0	gamma_radiation	Stimulus	gamma radiation (1.2 MeV)		x	x
+1	A23CMP	Metabolite	2',3'-Cyclic AMP		x	x
+2	A3MP	Metabolite	3'-AMP		x	x
+3	AC	Metabolite	acetate		x	x
+4	ACAL	Metabolite	acetaldehyde		x	x
+5	ACCOA	Metabolite	Acetyl-CoA		x	x
+6	acriflavine	Metabolite	Acriflavine		x	x
+7	ACTP	Metabolite	Acetyl phosphate		x	x
+8	AD	Metabolite	adenine		x	x
+9	ADN	Metabolite	adenosine		x	x
+10	ADP	Metabolite	ADP		x	x
+11	AEPP	Metabolite	2-aminoethylphosphonate		x	x
+12	AHCYS	Metabolite	S-Adenosyl-L-homocysteine		x	x
+13	AKG	Metabolite	2-Oxoglutarate		x	x
+14	ALA	Metabolite	L-alanine		x	x
+15	AlaAla	Metabolite	L-alanyl-L-alanine		x	x
+16	AMET	Metabolite	S-Adenosyl-L-methionine		x	x
+17	aminodimethylaniline	Metabolite	N,N'-dimethyl-p-phenylenediamine		x	x
+18	AMP	Metabolite	AMP		x	x
+19	AMP_Lysine	Metabolite	AMP-Lysine		x	x
+20	AMP_Mor	Metabolite	AMP-morpholidate		x	x
+21	AMP_NH2	Metabolite	AMP-NH2		x	x
+22	anthranilate	Metabolite	2-aminobenzoic acid		x	x
+23	ARG	Metabolite	L-Arginine		x	x
+24	ArgArg	Metabolite	L-arginyl-L-arginine		x	x
+25	ASN	Metabolite	L-Asparagine		x	x
+26	AsnAsn	Metabolite	L-asparaginyl-L-asparagine		x	x
+27	ASP	Metabolite	L-Aspartate		x	x
+28	AspAsp	Metabolite	L-aspartyl-L-aspartic Acid		x	x
+29	ATP	Metabolite	ATP		x	x
+30	aza6dT	Metabolite	6-aza-2'-deoxythymidine		x	x
+31	aza6dTMP	Metabolite	6-aza-2'-deoxythymidine monophosphate		x	x
+32	aza8dA	Metabolite	8-aza-2'-deoxyadenosine		x	x
+33	aza8dAMP	Metabolite	8-aza-2'-deoxyadenosine monophosphate		x	x
+34	benzalkonium	Metabolite	Benzalkonium		x	x
+35	berberine	Metabolite	Berberine		x	x
+36	BUT	Metabolite	butyric acid, butanoic acid		x	x
+37	C23CMP	Metabolite	2',3'-Cyclic CMP		x	x
+38	C3MP	Metabolite	3'-CMP		x	x
+39	c5dU	Metabolite	5-Carbouy-2'-deoxyuridine		x	x
+40	c5dUMP	Metabolite	5-Carbouy-2'-deoxyuridine monophosphate		x	x
+41	CA	Metabolite	calcium ion		x	x
+42	CAP	Metabolite	carbamoyl phosphate		x	x
+43	carbamoylmethyl6dA	Metabolite	N6-carbamoylmethyl-2'-deoxyadenosine		x	x
+44	carbamoylmethyl6dAMP	Metabolite	N6-carbamoylmethyl-2'-deoxyadenosine monophosphate		x	x
+45	CDP	Metabolite	CDP		x	x
+46	CDPDG120	Metabolite	CDP-1,2-didodecanoylglycerol		x	x
+47	CDPDG140	Metabolite	CDP-1,2-ditetradecanoylglycerol		x	x
+48	CDPDG141	Metabolite	CDP-1,2-ditetradec-7-enoylglycerol		x	x
+49	CDPDG160	Metabolite	CDP-1,2-dihexadecanoylglycerol		x	x
+50	CDPDG161	Metabolite	CDP-1,2-dihexadec-9-enoylglycerol		x	x
+51	CDPDG180	Metabolite	CDP-1,2-dioctadecanoylglycerol		x	x
+52	CDPDG181	Metabolite	CDP-1,2-dioctadec-11-enoylglycerol		x	x
+53	Ceramide16	Metabolite	Ceramide (d18:1/16:0)		x	x
+54	CH3OH	Metabolite	methanol		x	x
+55	chloroacetaldehyde	Metabolite	chloroacetaldehyde		x	x
+56	chloroethylene_oxide	Metabolite	chloroethylene oxide		x	x
+57	CHOL	Metabolite	choline		x	x
+58	CHP	Metabolite	cumene hydroperoxide		x	x
+59	ciprofloxacin	Metabolite	ciprofloxacin		x	x
+60	CITR	Metabolite	L-citrulline		x	x
+61	CL	Metabolite	chloride ion		x	x
+62	CL160	Metabolite	cardiolipin (tetrahexadecanoyl, n-C16:0)		x	x
+63	CL161	Metabolite	cardiolipin (tetrahexadec-9-enoyl, n-C16:1)		x	x
+64	CL181	Metabolite	cardiolipin (tetraoctadec-11-enoyl, n-C18:1)		x	x
+65	cmnm5s2U	Metabolite	5-carboxymethylaminomethyl-2-thiouridine		x	x
+66	cmnm5s2UMP	Metabolite	5-carboxymethylaminomethyl-2-thiouridine monophosphate		x	x
+67	CMP	Metabolite	CMP		x	x
+68	CO	Metabolite	cobalt ion		x	x
+69	CO2	Metabolite	carbon dioxide		x	x
+70	COA	Metabolite	coenzyme A		x	x
+71	crystalViolet	Metabolite	Crystal violet		x	x
+72	CTP	Metabolite	CTP		x	x
+73	CU	Metabolite	cupric ion		x	x
+74	cyclobutane_dCdC	Metabolite	cyclobutane 2'-deoxycytidine dimer		x	x
+75	cyclobutane_dCdT	Metabolite	cyclobutane 2'-deoxycytidine 2'-deoxythymidine 		x	x
+76	cyclobutane_dCMPdCMP	Metabolite	cyclobutane 2'-deoxycytidine monophosphate dimer		x	x
+77	cyclobutane_dCMPdTMP	Metabolite	cyclobutane 2'-deoxycytidine monophosphate 2'-deoxythymidine  monophosphate		x	x
+78	cyclobutane_dTdC	Metabolite	cyclobutane 2'-deoxythymidine 2'-deoxycytidine		x	x
+79	cyclobutane_dTdT	Metabolite	cyclobutane 2'-deoxythymidine dimer		x	x
+80	cyclobutane_dTMPdCMP	Metabolite	cyclobutane 2'-deoxythymidine monophosphate 2'-deoxycytidine monophosphate		x	x
+81	cyclobutane_dTMPdTMP	Metabolite	cyclobutane 2'-deoxythymidine monophosphate dimer		x	x
+82	cyclodA	Metabolite	8,5'-cyclo-2'-deoxyadenosine		x	x
+83	cyclodAMP	Metabolite	8,5'-cyclo-2'-deoxyadenosine monophosphate		x	x
+84	cyclodG	Metabolite	8,5'-cyclo-2'-deoxyguanosine		x	x
+85	cyclodGMP	Metabolite	8,5'-cyclo-2'-deoxyguanosine monophosphate		x	x
+86	CYS	Metabolite	L-Cysteine		x	x
+87	CysCys	Metabolite	L-cysteinyl-L-cysteine		x	x
+88	CYTD	Metabolite	cytidine		x	x
+89	c_di_AMP	Metabolite	Cyclic-di-adenylate		x	x
+90	DA	Metabolite	deoxyadenosine		x	x
+91	DADP	Metabolite	dADP		x	x
+92	DAG160	Metabolite	Diacylglycerol (n-16:0)		x	x
+93	DAG161	Metabolite	Diacylglycerol (n-16:1)		x	x
+94	DAG181	Metabolite	Diacylglycerol (n-18:1)		x	x
+95	DALA	Metabolite	D-alanine		x	x
+96	DAMP	Metabolite	dAMP		x	x
+97	dApdAp	Metabolite	dAp-dAp		x	x
+98	DATP	Metabolite	dATP		x	x
+99	DC	Metabolite	deoxycytidine		x	x
+100	dC64dC	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxycytidine		x	x
+101	dC64dC_dewar	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxycytidine dewar product		x	x
+102	dC64dT	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxythymidine		x	x
+103	dC64dT_dewar	Metabolite	2'-deoxycytidine-[6,4]-2'-deoxythymidine dewar product		x	x
+104	DCDP	Metabolite	dCDP		x	x
+105	DCMP	Metabolite	dCMP		x	x
+106	dCMP64dCMP	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxycytidine monophosphate		x	x
+107	dCMP64dCMP_dewar	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxycytidine monophosphate dewar product		x	x
+108	dCMP64dTMP	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxythymidine monophosphate		x	x
+109	dCMP64dTMP_dewar	Metabolite	2'-deoxycytidine monophosphate-[6,4]-2'-deoxythymidine monophosphate dewar product		x	x
+110	dCMP_GLYC	Metabolite	2-'deoxycytidine monophosphate glycol		x	x
+111	dCpdCp	Metabolite	dCp-dCp		x	x
+112	DCTP	Metabolite	dCTP		x	x
+113	dC_GLYC	Metabolite	2-'deoxycytidine glycol		x	x
+114	DDCA	Metabolite	Dodecanoate (n-C12:0)		x	x
+115	DDECG3P	Metabolite	1-dodecanoyl-sn-glycerol 3-phosphate		x	x
+116	deoxyG6P	Metabolite	2-deoxy-glucose-6-phosphate		x	x
+117	deoxyGLC	Metabolite	2-deoxy-glucose		x	x
+118	DG	Metabolite	deoxyguanosine		x	x
+119	DGDP	Metabolite	dGDP		x	x
+120	DGMP	Metabolite	dGMP		x	x
+121	dGpdGp	Metabolite	dGp-dGp		x	x
+122	DGTP	Metabolite	dGTP		x	x
+123	DHA	Metabolite	Dihydroxyacetone		x	x
+124	DHdT	Metabolite	5,6-dihydro-2'-deoxythymidine		x	x
+125	DHdTMP	Metabolite	5,6-dihydro-2'-deoxythymidine monophosphate		x	x
+126	DHdU	Metabolite	5,6-dihydroxy-2'-deoxyuridine		x	x
+127	DHdUMP	Metabolite	5,6-dihydroxy-2'-deoxyuridine monophosphate		x	x
+128	DHF	Metabolite	dihydrofolate		x	x
+129	dhpdU	Metabolite	5'-dihydroxypentyl-2'-deoxyuridine		x	x
+130	dhpdUMP	Metabolite	5'-dihydroxypentyl-2'-deoxyuridine monophosphate		x	x
+131	diacylglycerolCys	Metabolite	S-diacylglycerol cysteine 		x	x
+132	DIBUTYRIN	Metabolite	dibutyrin		x	x
+133	dINS	Metabolite	2'-deoxyinosine		x	x
+134	dINSMP	Metabolite	2'-deoxyinosine monophosphate		x	x
+135	DMBA	Metabolite	dimethylbenzyl alcohol		x	x
+136	doxorubicin	Metabolite	Doxorubicin		x	x
+137	DPCOA	Metabolite	dephospho-CoA		x	x
+138	DPG	Metabolite	3-Phospho-D-glyceroyl phosphate		x	x
+139	DR1P	Metabolite	2-Deoxy-D-ribose 1-phosphate		x	x
+140	DR5P	Metabolite	2-Deoxy-D-ribose 5-phosphate		x	x
+141	DT	Metabolite	thymidine		x	x
+142	dT64dC	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxycytidine		x	x
+143	dT64dC_dewar	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxycytidine dewar product		x	x
+144	dT64dT	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxythymidine		x	x
+145	dT64dT_dewar	Metabolite	2'-deoxythymidine-[6,4]-2'-deoxythymidine dewar product		x	x
+146	DTDP	Metabolite	dTDP		x	x
+147	DTMP	Metabolite	dTMP		x	x
+148	dTMP64dCMP	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxycytidine monophosphate		x	x
+149	dTMP64dCMP_dewar	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxycytidine monophosphate dewar product		x	x
+150	dTMP64dTMP	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxythymidine monophosphate		x	x
+151	dTMP64dTMP_dewar	Metabolite	2'-deoxythymidine monophosphate-[6,4]-2'-deoxythymidine monophosphate dewar product		x	x
+152	dTMP_GLYC	Metabolite	2'-deoxythymidine monophosphate glycol		x	x
+153	dTpdTp	Metabolite	dTp-dTp		x	x
+154	DTTP	Metabolite	dTTP		x	x
+155	dT_GLYC	Metabolite	2'-deoxythymidine glycol		x	x
+156	DU	Metabolite	deoxyuridine		x	x
+157	DUDP	Metabolite	dUDP		x	x
+158	DUMP	Metabolite	dUMP		x	x
+159	DUTP	Metabolite	dUTP		x	x
+160	dXAN	Metabolite	2'-deoxyxanthosine		x	x
+161	dXANMP	Metabolite	2'-deoxyxanthosine monophosphate		x	x
+162	e1dA	Metabolite	1-ethyl-2'-deoxyadenosine		x	x
+163	e1dAMP	Metabolite	1-ethyl-2'-deoxyadenosine monophosphate		x	x
+164	e1dG	Metabolite	1-ethyl-2'-deoxyguanosine		x	x
+165	e1dGMP	Metabolite	1-ethyl-2'-deoxyguanosine monophosphate		x	x
+166	e3dA	Metabolite	3-ethyl-2'-deoxyadenosine		x	x
+167	e3dAMP	Metabolite	3-ethyl-2'-deoxyadenosine monophosphate		x	x
+168	e3dC	Metabolite	3-ethyl-2'-deoxycytidine		x	x
+169	e3dCMP	Metabolite	3-ethyl-2'-deoxycytidine monophosphate		x	x
+170	e3dG	Metabolite	3-ethyl-2'-deoxyguanosine		x	x
+171	e3dGMP	Metabolite	3-ethyl-2'-deoxyguanosine monophosphate		x	x
+172	e3dT	Metabolite	3'-ethyl-2'-deoxythymidine		x	x
+173	e3dTMP	Metabolite	3'-ethyl-2'-deoxythymidine monophosphate		x	x
+174	e4dC	Metabolite	4-ethyl-2'-deoxycytidine		x	x
+175	e4dCMP	Metabolite	4-ethyl-2'-deoxycytidine monophosphate		x	x
+176	E4P	Metabolite	D-Erythrose 4-phosphate		x	x
+177	e5dC	Metabolite	5-ethyl-2'-deoxycytidine		x	x
+178	e5dCMP	Metabolite	5-ethyl-2'-deoxycytidine monophosphate		x	x
+179	e6dA	Metabolite	6-ethyl-2'-deoxyadenosine		x	x
+180	e6dAMP	Metabolite	6-ethyl-2'-deoxyadenosine monophosphate		x	x
+181	e7dA	Metabolite	7-ethyl-2'-deoxyadenosine		x	x
+182	e7dAMP	Metabolite	7-ethyl-2'-deoxyadenosine monophosphate		x	x
+183	e7dG	Metabolite	7-ethyl-2'-deoxyguanosine		x	x
+184	e7dGMP	Metabolite	7-ethyl-2'-deoxyguanosine monophosphate		x	x
+185	e8dG	Metabolite	8-ethyl-2'-deoxyguanosine		x	x
+186	e8dGMP	Metabolite	8-ethyl-2'-deoxyguanosine monophosphate		x	x
+187	enoxacin	Metabolite	Enoxacin		x	x
+188	epsilon1N2dG	Metabolite	1,N2-etheno-2'-deoxyguanosine		x	x
+189	epsilon1N2dGMP	Metabolite	1,N2-etheno-2'-deoxyguanosine monophosphate		x	x
+190	epsilon1N6dA	Metabolite	1,N6-etheno-2'-deoxyadenosine		x	x
+191	epsilon1N6dAMP	Metabolite	1,N6-etheno-2'-deoxyadenosine monophosphate		x	x
+192	epsilon3N4dC	Metabolite	3,N4-etheno-2'-deoxycytidine		x	x
+193	epsilon3N4dCMP	Metabolite	3,N4-etheno-2'-deoxycytidine monophosphate		x	x
+194	epsilonN23dG	Metabolite	N2,3-etheno-2'-deoxyguanosine		x	x
+195	epsilonN23dGMP	Metabolite	N2,3-etheno-2'-deoxyguanosine monophosphate		x	x
+196	ethidium	Metabolite	Ethidium		x	x
+197	ETN	Metabolite	ethanolamine		x	x
+198	F1P	Metabolite	D-Fructose 1-phosphate		x	x
+199	f5dU	Metabolite	5-formyl-2'-deoxyuridine		x	x
+200	f5dUMP	Metabolite	5-formyl-2'-deoxyuridine monophosphate		x	x
+201	F6P	Metabolite	D-Fructose 6-phosphate		x	x
+202	FAD	Metabolite	flavin adenine dinucleotide, oxidized		x	x
+203	FADH2	Metabolite	flavin adenine dinucleotide, reduced		x	x
+204	FALD	Metabolite	formaldehyde		x	x
+205	FAPydA	Metabolite	N4-(2-Deoxy-alpha,beta-D-erythro-pentofuranosyl)-4,6-diamino-5-formamidopyrimidine		x	x
+206	FAPydAMP	Metabolite	N4-(2-Deoxy-alpha,beta-D-erythro-pentofuranosyl)-4,6-diamino-5-formamidopyrimidine monophosphate		x	x
+207	FAPydG	Metabolite	N6-(2-Deoxy-α,β-d-erythro-pentofuranosyl)-2,6-diamino-4-hydroxy-5-formamidopyrimidine		x	x
+208	FAPydGMP	Metabolite	N6-(2-Deoxy-α,β-d-erythro-pentofuranosyl)-2,6-diamino-4-hydroxy-5-formamidopyrimidine monophosphate		x	x
+209	FDP	Metabolite	D-Fructose 1,6-bisphosphate		x	x
+210	FE2	Metabolite	ferrous iron		x	x
+211	FE3	Metabolite	ferric iron		x	x
+212	FMET	Metabolite	N-Formyl-L-methionine		x	x
+213	FMN	Metabolite	flavin mononucleotide, oxidized		x	x
+214	FMNH2	Metabolite	flavin mononucleotide, reduced		x	x
+215	FOR	Metabolite	Formate		x	x
+216	FRU	Metabolite	D-Fructose		x	x
+217	FTHF10	Metabolite	10-formyl-tetrahydrofolate		x	x
+218	FTHF5	Metabolite	5-formyltetrahydrofolate		x	x
+219	FUC1P	Metabolite	L-fucose 1-phosphate		x	x
+220	G1P	Metabolite	D-Glucose 1-phosphate		x	x
+221	G23CMP	Metabolite	2',3'-Cyclic GMP		x	x
+222	G2P	Metabolite	D-Glycerate 2-phosphate		x	x
+223	G3MP	Metabolite	3'-GMP		x	x
+224	G3P	Metabolite	3-Phospho-D-glycerate		x	x
+225	G6P	Metabolite	D-Glucose 6-phosphate		x	x
+226	GalCer16	Metabolite	galactosyl-β-Ceramide (d18:1/16:0)		x	x
+227	GalDAG160	Metabolite	galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+228	GalDAG161	Metabolite	galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+229	GalDAG181	Metabolite	galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+230	GalGalCer16	Metabolite	galactosyl-α1-4-galactosyl-β-Ceramide (d18:1/16:0)		x	x
+231	GalGalDAG160	Metabolite	galactosyl-α1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+232	GalGalDAG161	Metabolite	galactosyl-α1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+233	GalGalDAG181	Metabolite	galactosyl-α1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+234	GalGalGalDAG160	Metabolite	galactosyl-α1-4-galactosyl-β1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+235	GalGalGalDAG161	Metabolite	galactosyl-α1-4-galactosyl-β1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+236	GalGalGalDAG181	Metabolite	galactosyl-α1-4-galactosyl-β1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+237	GalGalGlcCer16	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-Ceramide (d18:1/16:0)		x	x
+238	GalGalGlcDAG160	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+239	GalGalGlcDAG161	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+240	GalGalGlcDAG181	Metabolite	galactosyl-α1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+241	GalGlcCer16	Metabolite	galactosyl-β1-4-glucosyl-β-Ceramide (d18:1/16:0)		x	x
+242	GalGlcDAG160	Metabolite	galactosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+243	GalGlcDAG161	Metabolite	galactosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+244	GalGlcDAG181	Metabolite	galactosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+245	GDP	Metabolite	GDP		x	x
+246	GDPTP	Metabolite	Guanosine 3'-diphosphate 5'-triphosphate		x	x
+247	GL	Metabolite	glycerol		x	x
+248	GL2P	Metabolite	Glycerol 2-phosphate		x	x
+249	GL3P	Metabolite	Glycerol 3-phosphate		x	x
+250	GLC	Metabolite	D-Glucose		x	x
+251	GlcCer16	Metabolite	glucosyl-β-Ceramide (d18:1/16:0)		x	x
+252	GlcDAG160	Metabolite	glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+253	GlcDAG161	Metabolite	glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+254	GlcDAG181	Metabolite	glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+255	GlcGalCer16	Metabolite	glucosyl-β1-4-galactosyl-β-Ceramide (d18:1/16:0)		x	x
+256	GlcGalDAG160	Metabolite	glucosyl-β1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+257	GlcGalDAG161	Metabolite	glucosyl-β1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+258	GlcGalDAG181	Metabolite	glucosyl-β1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+259	GlcGalGalDAG160	Metabolite	glucosyl-β1-4-galactosyl-α1-4-galactosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+260	GlcGalGalDAG161	Metabolite	glucosyl-β1-4-galactosyl-α1-4-galactosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+261	GlcGalGalDAG181	Metabolite	glucosyl-β1-4-galactosyl-α1-4-galactosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+262	GlcGalGlcDAG160	Metabolite	glucosyl-β1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+263	GlcGalGlcDAG161	Metabolite	glucosyl-β1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+264	GlcGalGlcDAG181	Metabolite	glucosyl-β1-4-galactosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+265	GlcGlcDAG160	Metabolite	glucosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+266	GlcGlcDAG161	Metabolite	glucosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+267	GlcGlcDAG181	Metabolite	glucosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+268	GlcGlcGlcDAG160	Metabolite	glucosyl-β1-4-glucosyl-β1-4-glucosyl-β-diacylglycerol(16:0/16:1(9Z))		x	x
+269	GlcGlcGlcDAG161	Metabolite	glucosyl-β1-4-glucosyl-β1-4-glucosyl-β-diacylglycerol(16:1(9Z)/16:1(9Z))		x	x
+270	GlcGlcGlcDAG181	Metabolite	glucosyl-β1-4-glucosyl-β1-4-glucosyl-β-diacylglycerol(18:1(11Z)/18:1(11Z))		x	x
+271	glchm5dC	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxycytidine		x	x
+272	glchm5dCMP	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxycytidine monophosphate		x	x
+273	glchm5dU	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxyuridine		x	x
+274	glchm5dUMP	Metabolite	beta-D-glucosylhydroxymethyl-2'-deoxyuridine monophosphate		x	x
+275	GLN	Metabolite	L-glutamine		x	x
+276	GlnGln	Metabolite	L-glutaminyl-L-glutamine		x	x
+277	GLU	Metabolite	L-Glutamate		x	x
+278	gludT	Metabolite	a-glutamyl-2'-deoxythymidine		x	x
+279	gludTMP	Metabolite	a-glutamyl-2'-deoxythymidine monophosphate		x	x
+280	GluGlu	Metabolite	L-glutamyl-L-glutamic acid		x	x
+281	GLY	Metabolite	glycine		x	x
+282	GlyGly	Metabolite	L-glycyl-L-glycine		x	x
+283	Gm	Metabolite	2'-O-methylguanosine		x	x
+284	GmMP	Metabolite	2'-O-methylguanosine monophosphate		x	x
+285	GMP	Metabolite	GMP		x	x
+286	GMP_Lysine	Metabolite	GMP-lysine		x	x
+287	GMP_Mor	Metabolite	GMP-morpholidate		x	x
+288	GN	Metabolite	guanine		x	x
+289	GPCH	Metabolite	sn-Glycero-3-phosphocholine		x	x
+290	GPE	Metabolite	sn-Glycero-3-phosphoethanolamine		x	x
+291	GPG	Metabolite	Glycerophosphoglycerol		x	x
+292	GPI	Metabolite	sn-Glycero-3-phospho-1-inositol		x	x
+293	GPS	Metabolite	Glycerophosphoserine		x	x
+294	GSN	Metabolite	guanosine		x	x
+295	GTP	Metabolite	GTP		x	x
+296	H	Metabolite	hydrogen ion		x	x
+297	H2O	Metabolite	water		x	x
+298	H2O2	Metabolite	hydrogen peroxide		x	x
+299	HCYS	Metabolite	L-homocysteine		x	x
+300	HDCA	Metabolite	Hexadecanoate (n-C16:0)		x	x
+301	HDCEA	Metabolite	Hexadecenoate (n-C16:1)		x	x
+302	HDECEG3P	Metabolite	1-hexadecanoyl-sn-glycerol 3-phosphate		x	x
+303	HDECG3P	Metabolite	1-hexadec-9-enoyl-sn-glycerol 3-phosphate		x	x
+304	HIS	Metabolite	L-Histidine		x	x
+305	HisHis	Metabolite	L-histidyl-L-histidine		x	x
+306	hm3dC	Metabolite	3'-hydroxymethyl-2'-deoxycytidine		x	x
+307	hm3dCMP	Metabolite	3'-hydroxymethyl-2'-deoxycytidine monophosphate		x	x
+308	hm5dC	Metabolite	5'-hydroxymethyl-2'-deoxycytidine		x	x
+309	hm5dCMP	Metabolite	5'-hydroxymethyl-2'-deoxycytidine monophosphate		x	x
+310	hm5dU	Metabolite	5-hydroxymethyl-2'-deoxyuridine		x	x
+311	hm5dUMP	Metabolite	5-hydroxymethyl-2'-deoxyuridine monophosphate		x	x
+312	hm5hydantoin_dRibose	Metabolite	2'-deoxy-3'-(5-hydroxy-5-methyl-hydantoin)-ribose		x	x
+313	hm5hydantoin_dRiboseMP	Metabolite	2'-deoxy-3'-(5-hydroxy-5-methyl-hydantoin)-ribose monophosphate		x	x
+314	ho5dC	Metabolite	5-Hydroxy-2'-deoxycytidine		x	x
+315	ho5dCMP	Metabolite	5-Hydroxy-2'-deoxycytidine monophosphate		x	x
+316	ho5dU	Metabolite	5-hydroxy-2'-deoxyuridine		x	x
+317	ho5dUMP	Metabolite	5-hydroxy-2'-deoxyuridine monophosphate		x	x
+318	ho5ho6dT	Metabolite	5-hydroxy-6-hydroxy-2'-deoxythymidine		x	x
+319	ho5ho6dTMP	Metabolite	5-hydroxy-6-hydroxy-2'-deoxythymidine monophosphate		x	x
+320	ho5ho6dU	Metabolite	5-hydroxy-6-hydroxy-2'-deoxyuridine		x	x
+321	ho5ho6dUMP	Metabolite	5-hydroxy-6-hydroxy-2'-deoxyuridine monophosphate		x	x
+322	ho5hydantoin_dRibose	Metabolite	2'-deoxy-3'-(5-hydroxyhydantoin)-ribose		x	x
+323	ho5hydantoin_dRiboseMP	Metabolite	2'-deoxy-3'-(5-hydroxyhydantoin)-ribose monophosphate		x	x
+324	HPHPYR	Metabolite	3-(4-Hydroxyphenyl)pyruvate		x	x
+325	hydride	Metabolite	hydride		x	x
+326	hydroxyl_radical	Metabolite	hydroxyl radical		x	x
+327	HYXN	Metabolite	hypoxanthine		x	x
+328	IDP	Metabolite	IDP		x	x
+329	ILE	Metabolite	L-Isoleucine		x	x
+330	IleIle	Metabolite	L-isoleucyl-L-isoleucine		x	x
+331	IMP	Metabolite	IMP		x	x
+332	INOS	Metabolite	myo-inositol		x	x
+333	INS	Metabolite	inosine		x	x
+334	ITP	Metabolite	ITP		x	x
+335	K	Metabolite	potassium ion		x	x
+336	k2C	Metabolite	lysidine		x	x
+337	k2CMP	Metabolite	lysidine monophosphate		x	x
+338	LAC	Metabolite	D-lactate		x	x
+339	LEU	Metabolite	L-Leucine		x	x
+340	LeuLeu	Metabolite	L-leucyl-L-leucine		x	x
+341	LIPOATE	Metabolite	lipoate		x	x
+342	LIPOYLAMP	Metabolite	lipoyl-AMP		x	x
+343	LIPOYLLYS	Metabolite	N(6)-(lipoyl)lysine		x	x
+344	lomefloxacin	Metabolite	Lomefloxacin		x	x
+345	LYS	Metabolite	L-Lysine		x	x
+346	LysLys	Metabolite	L-lysyl-L-lysine		x	x
+347	m1dA	Metabolite	1-methyl-2'-deoxyadenosine		x	x
+348	m1dAMP	Metabolite	1-methyl-2'-deoxyadenosine monophosphate		x	x
+349	m1dG	Metabolite	1-methyl-2'-deoxyguanosine		x	x
+350	m1dGMP	Metabolite	1-methyl-2'-deoxyguanosine monophosphate		x	x
+351	m1G	Metabolite	1-methylguanosine		x	x
+352	m1GMP	Metabolite	1-methylguanosine monophosphate		x	x
+353	m2G	Metabolite	N(2)-methylguanosine		x	x
+354	m2GMP	Metabolite	N(2)-methylguanosine monophosphate		x	x
+355	m3dA	Metabolite	3-methyl-2'-deoxyadenosine		x	x
+356	m3dAMP	Metabolite	3-methyl-2'-deoxyadenosine monophosphate		x	x
+357	m3dC	Metabolite	3-methyl-2'-deoxycytidine		x	x
+358	m3dCMP	Metabolite	3-methyl-2'-deoxycytidine monophosphate		x	x
+359	m3dG	Metabolite	3-methyl-2'-deoxyguanosine		x	x
+360	m3dGMP	Metabolite	3-methyl-2'-deoxyguanosine monophosphate		x	x
+361	m3dT	Metabolite	3'-methyl-2'-deoxythymidine		x	x
+362	m3dTMP	Metabolite	3'-methyl-2'-deoxythymidine monophosphate		x	x
+363	m4dC	Metabolite	4-methyl-2'-deoxycytidine		x	x
+364	m4dCMP	Metabolite	4-methyl-2'-deoxycytidine monophosphate		x	x
+365	m5C	Metabolite	5-methylcytidine		x	x
+366	m5CMP	Metabolite	5-methylcytidine monophosphate		x	x
+367	m5dC	Metabolite	5-methyl-2'-deoxycytidine		x	x
+368	m5dCMP	Metabolite	5-methyl-2'-deoxycytidine monophosphate		x	x
+369	m62A	Metabolite	N6,N6-dimethyladenosine		x	x
+370	m62AMP	Metabolite	N6,N6-dimethyladenosine monophosphate		x	x
+371	m6A	Metabolite	N(6)-methyladenine		x	x
+372	m6AMP	Metabolite	N(6)-methyladenine monophosphate		x	x
+373	m6dA	Metabolite	6-methyl-2'-deoxyadenosine		x	x
+374	m6dAMP	Metabolite	6-methyl-2'-deoxyadenosine monophosphate		x	x
+375	m7dA	Metabolite	7-methyl-2'-deoxyadenosine		x	x
+376	m7dAMP	Metabolite	7-methyl-2'-deoxyadenosine monophosphate		x	x
+377	m7dG	Metabolite	7-methyl-2'-deoxyguanosine		x	x
+378	m7dGMP	Metabolite	7-methyl-2'-deoxyguanosine monophosphate		x	x
+379	m7G	Metabolite	7-methylguanosine		x	x
+380	m7GMP	Metabolite	7-methylguanosine monophosphate		x	x
+381	m8dG	Metabolite	8-methyl-2'-deoxyguanosine		x	x
+382	m8dGMP	Metabolite	8-methyl-2'-deoxyguanosine monophosphate		x	x
+383	MAL	Metabolite	L-Malate		x	x
+384	MAN	Metabolite	D-Mannose		x	x
+385	MAN1P	Metabolite	D-Mannose 1-phosphate		x	x
+386	MAN6P	Metabolite	D-Mannose 6-phosphate		x	x
+387	MET	Metabolite	L-Methionine		x	x
+388	METHF	Metabolite	5,10-methyltetrahydrofolate		x	x
+389	methylRed	Metabolite	4′-dimethylaminoazobenzene-2-carboxylic acid		x	x
+390	METHYL_OCDCEA	Metabolite	methyl oleate		x	x
+391	MetMet	Metabolite	L-methionyl-L-methionine		x	x
+392	METSOXRL	Metabolite	L-Methionine-R-Sulfoxide		x	x
+393	METSOXSL	Metabolite	L-Methionine-S-Sulfoxide		x	x
+394	METTHF	Metabolite	5,10-Methylenetetrahydrofolate		x	x
+395	MG	Metabolite	magnesium ion		x	x
+396	MN	Metabolite	manganese ion		x	x
+397	MO	Metabolite	molybdenum ion		x	x
+398	MOBD	Metabolite	Molybdate		x	x
+399	MONOBUTYRIN	Metabolite	1-monobutyrin		x	x
+400	MOR	Metabolite	morpholine		x	x
+401	MTHF	Metabolite	5-Methyltetrahydrofolate		x	x
+402	n2dA	Metabolite	2-amino-2'-deoxyadenosine		x	x
+403	n2dAMP	Metabolite	2-amino-2'-deoxyadenosine monophosphate		x	x
+404	NA	Metabolite	sodium ion		x	x
+405	NAAD	Metabolite	nicotinic acid adenine dinucleotide		x	x
+406	NAC	Metabolite	nicotinate		x	x
+407	NAD	Metabolite	nicotinamide adenine dinucleotide, oxidized		x	x
+408	NADH	Metabolite	nicotinamide adenine dinucleotide, reduced		x	x
+409	NADP	Metabolite	nicotinamide adenine dinucleotide phosphate, oxidized		x	x
+410	NADPH	Metabolite	nicotinamide adenine dinucleotide phosphate, reduced		x	x
+411	NAMN	Metabolite	nicotinate/nicotinic acid mononucleotide		x	x
+412	NH3	Metabolite	ammonia		x	x
+413	NH4	Metabolite	ammonium		x	x
+414	NI	Metabolite	nickel		x	x
+415	nisin	Metabolite	nisin		x	x
+416	NMN	Metabolite	nicotinamide mononucleotide		x	x
+417	norfloxacin	Metabolite	Norfloxacin		x	x
+418	novobiocin	Metabolite	Novobiocin		x	x
+419	NR	Metabolite	Nicotinate D-ribonucleotide		x	x
+420	O2	Metabolite	oxygen		x	x
+421	O2edC	Metabolite	2'-O-ethyl-2'-deoxycytidine		x	x
+422	O2edCMP	Metabolite	2'-O-ethyl-2'-deoxycytidine monophosphate		x	x
+423	O2edT	Metabolite	2'-O-ethyl-2'-deoxythymidine		x	x
+424	O2edTMP	Metabolite	2'-O-ethyl-2'-deoxythymidine monophosphate		x	x
+425	O2mdC	Metabolite	2'-O-methyl-2'-deoxycytidine		x	x
+426	O2mdCMP	Metabolite	2'-O-methyl-2'-deoxycytidine monophosphate		x	x
+427	O2mdT	Metabolite	2'-O-methyl-2'-deoxythymidine		x	x
+428	O2mdTMP	Metabolite	2'-O-methyl-2'-deoxythymidine monophosphate		x	x
+429	O4edT	Metabolite	4'-O-ethyl-2'-deoxythymidine		x	x
+430	O4edTMP	Metabolite	4'-O-ethyl-2'-deoxythymidine monophosphate		x	x
+431	O4mdT	Metabolite	4'-O-methyl-2'-deoxythymidine		x	x
+432	O4mdTMP	Metabolite	4'-O-methyl-2'-deoxythymidine monophosphate		x	x
+433	O6edG	Metabolite	6'-O-ethyl-2'-deoxyguanosine		x	x
+434	O6edGMP	Metabolite	6'-O-ethyl-2'-deoxyguanosine monophosphate		x	x
+435	O6mdG	Metabolite	6'-O-methyl-2'-deoxyguanosine		x	x
+436	O6mdGMP	Metabolite	6'-O-methyl-2'-deoxyguanosine monophosphate		x	x
+437	OA	Metabolite	oxaloacetate		x	x
+438	OCDCA	Metabolite	octadecanoate (n-C18:0)		x	x
+439	OCDCEA	Metabolite	octadecenoate (n-C18:1)		x	x
+440	ODEC11GP	Metabolite	1-octadec-11-enoyl-sn-glycerol 3-phosphate		x	x
+441	ODECG3P	Metabolite	1-octadecanoyl-sn-glycerol 3-phosphate		x	x
+442	OH	Metabolite	hydoxide anion		x	x
+443	ORN	Metabolite	ornithine		x	x
+444	oxo2dA	Metabolite	2-hydroxy-2'-deoxyadenosine		x	x
+445	oxo2dAMP	Metabolite	2-hydroxy-2'-deoxyadenosine monophosphate		x	x
+446	oxo8dA	Metabolite	8-hydroxy-2'-deoxyadenosine		x	x
+447	oxo8dAMP	Metabolite	8-hydroxy-2'-deoxyadenosine monophosphate		x	x
+448	oxo8dG	Metabolite	8-Oxo-2'-deoxyguanosine; 8-hydroxy-2'-deoxyguanosine		x	x
+449	oxo8dGMP	Metabolite	8-Oxo-2'-deoxyguanosine monophosphate; 8-hydroxy-2'-deoxyguanosine monophosphate		x	x
+450	oxoethyl7dG	Metabolite	7-(2'-oxoethyl)-2'-deoxyguanosine		x	x
+451	oxoethyl7dGMP	Metabolite	7-(2'-oxoethyl)-2'-deoxyguanosine monophosphate		x	x
+452	PA120	Metabolite	1,2-didodecanoyl-sn-glycerol 3-phosphate		x	x
+453	PA140	Metabolite	1,2-ditetradecanoyl-sn-glycerol 3-phosphate		x	x
+454	PA141	Metabolite	1,2-ditetradec-7-enoyl-sn-glycerol 3-phosphate		x	x
+455	PA160	Metabolite	1,2-dihexadecanoyl-sn-glycerol 3-phosphate		x	x
+456	PA161	Metabolite	1,2-dihexadec-9-enoyl-sn-glycerol 3-phosphate		x	x
+457	PA180	Metabolite	1,2-dioctadecanoyl-sn-glycerol 3-phosphate		x	x
+458	PA181	Metabolite	1,2-dioctadec-11-enoyl-sn-glycerol 3-phosphate		x	x
+459	PAP	Metabolite	Adenosine 3',5'-bisphosphate		x	x
+460	pCHOL	Metabolite	phosphoryl-choline		x	x
+461	PDLA5P	Metabolite	Pyridoxamine 5'-phosphate		x	x
+462	PEP	Metabolite	phosphoenolpyruvate		x	x
+463	PG160	Metabolite	Phosphatidylglycerol (dihexadecanoyl, n-C16:0)		x	x
+464	PG161	Metabolite	Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1)		x	x
+465	PG181	Metabolite	Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1)		x	x
+466	PGP160	Metabolite	Phosphatidylglycerophosphate (dihexadecanoyl, n-C16:0)		x	x
+467	PGP161	Metabolite	Phosphatidylglycerophosphate (dihexadec-9-enoyl, n-C16:1)		x	x
+468	PGP181	Metabolite	Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)		x	x
+469	PHE	Metabolite	L-phenylalanine		x	x
+470	PhePhe	Metabolite	L-phenylalanyl-L-phenylalanine		x	x
+471	PHPYR	Metabolite	phenylpyruvate		x	x
+472	PI	Metabolite	phosphate		x	x
+473	PL5P	Metabolite	Pyridoxal 5'-phosphate		x	x
+474	POE_SORBITAN	Metabolite	Polyoxyethylene (20) sorbitan		x	x
+475	PPAA	Metabolite	Phosphonoacetaldehyde		x	x
+476	PPGPP	Metabolite	Guanosine 3',5'-bis(diphosphate)		x	x
+477	PPHG	Metabolite	protoporphyrinogen IX		x	x
+478	PPI	Metabolite	diphosphate		x	x
+479	PPIX	Metabolite	protoporphyrin IX		x	x
+480	PRO	Metabolite	L-Proline		x	x
+481	proflavine	Metabolite	Proflavine		x	x
+482	ProPro	Metabolite	L-prolyl-L-proline		x	x
+483	PRPP	Metabolite	5-Phospho-alpha-D-ribose 1-diphosphate		x	x
+484	pSER	Metabolite	phosphoserine		x	x
+485	PSIURI	Metabolite	pseudouridine		x	x
+486	PSIURIMP	Metabolite	pseudouridine monophoshate		x	x
+487	pTHR	Metabolite	phosphothreonine		x	x
+488	PTRC	Metabolite	putrescine		x	x
+489	pTYR	Metabolite	Phosphotyrosine		x	x
+490	putdT	Metabolite	alpha-putrescinyl-2'-deoxythymidine		x	x
+491	putdTMP	Metabolite	alpha-putrescinyl-2'-deoxythymidine monophosphate		x	x
+492	PYDX	Metabolite	Pyridoxal		x	x
+493	PYR	Metabolite	pyruvate		x	x
+494	R1P	Metabolite	alpha-D-Ribose 1-phosphate		x	x
+495	R5P	Metabolite	alpha-D-Ribose 5-phosphate		x	x
+496	RBFLVRD	Metabolite	riboflavin, reduced		x	x
+497	rhodamine6G	Metabolite	Rhodamine 6G		x	x
+498	RIB	Metabolite	D-ribose		x	x
+499	RIBFLV	Metabolite	riboflavin, oxidized		x	x
+500	RL5P	Metabolite	D-Ribulose 5-phosphate		x	x
+501	s2U	Metabolite	2-thiouridine		x	x
+502	s2UMP	Metabolite	2-thiouridine monophosphate		x	x
+503	s4U	Metabolite	4-thiouridine		x	x
+504	s4UMP	Metabolite	4-thiouridine monophosphate		x	x
+505	S7P	Metabolite	D-sedoheptulose-7-phosphate		x	x
+506	SALA	Metabolite	3-Sulfino-L-alanine		x	x
+507	SBT	Metabolite	D-Sorbitol		x	x
+508	SBT6P	Metabolite	D-Sorbitol 6-phosphate		x	x
+509	SER	Metabolite	L-Serine		x	x
+510	SerSer	Metabolite	L-seryl-L-serine		x	x
+511	SNGLYP	Metabolite	sn-glycerol-1-phosphate		x	x
+512	SO2	Metabolite	sulfur dioxide		x	x
+513	SO4	Metabolite	sulphate		x	x
+514	SPMD	Metabolite	spermidine		x	x
+515	STEROL	Metabolite	cholesterol		x	x
+516	T3P1	Metabolite	D-glyceraldehdye-3-phosphate		x	x
+517	T3P2	Metabolite	Dihydroxyacetone phosphate		x	x
+518	TAG16P	Metabolite	D-Tagatose 1,6-biphosphate		x	x
+519	TAG6P	Metabolite	D-Tagatose 6-phosphate		x	x
+520	tBHP	Metabolite	tert-butylhydroperoxide		x	x
+521	tBOH	Metabolite	tert-Butanol		x	x
+522	TDECEG3P	Metabolite	1-tetradec-7-enoyl-sn-glycerol 3-phosphate		x	x
+523	TDECG3P	Metabolite	1-tetradecanoyl-sn-glycerol 3-phosphate		x	x
+524	TDP	Metabolite	TDP		x	x
+525	tetraphenylphosphonium	Metabolite	tetraphenylphosphonium		x	x
+526	THF	Metabolite	5,6,7,8-Tetrahydrofolate		x	x
+527	THM	Metabolite	thiamine		x	x
+528	THMP	Metabolite	Thiamin monophosphate		x	x
+529	THR	Metabolite	L-Threonine		x	x
+530	ThrThr	Metabolite	L-threonyl-L-threonine		x	x
+531	THY	Metabolite	thymine		x	x
+532	TPP	Metabolite	thiamine diphosphate		x	x
+533	TRIBUTYRIN	Metabolite	tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin		x	x
+534	TRILAURIN	Metabolite	trilaurin		x	x
+535	TRIMYRISTIN	Metabolite	trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate		x	x
+536	TRIOLEIN	Metabolite	triolein		x	x
+537	TRIPALMITIN	Metabolite	tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate		x	x
+538	TRISTEARIN	Metabolite	Tristearin		x	x
+539	TRI_HDCEA_IN	Metabolite	triacylglycerol of {Hexadecenoate acid}		x	x
+540	TRI_TTDCEA_IN	Metabolite	triacylglycerol of {tetradecenoic acid}		x	x
+541	TRP	Metabolite	L-tryptophan		x	x
+542	TrpTrp	Metabolite	L-trytophanyl-L-trytophan		x	x
+543	TTDCA	Metabolite	tetradecanoate (n-C14:0)		x	x
+544	TTDCEA	Metabolite	tetradecenoate (n-C14:1)		x	x
+545	TTP	Metabolite	TTP		x	x
+546	TWEEN80	Metabolite	Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80		x	x
+547	TYR	Metabolite	L-tyrosine		x	x
+548	TyrTyr	Metabolite	L-tyrosyl-L-tyrosine		x	x
+549	U23CMP	Metabolite	2',3'-Cyclic UMP		x	x
+550	U3MP	Metabolite	3'-UMP		x	x
+551	UDP	Metabolite	UDP		x	x
+552	UDPG	Metabolite	UDP-glucose		x	x
+553	UDPGAL	Metabolite	UDP-galactose		x	x
+554	UDPGALF	Metabolite	UDP-D-galacto-1,4-furanose		x	x
+555	Um	Metabolite	2'-O-methyluridine		x	x
+556	UmMP	Metabolite	2'-O-methyluridine monophosphate		x	x
+557	UMP	Metabolite	UMP		x	x
+558	URA	Metabolite	uracil		x	x
+559	URI	Metabolite	uridine		x	x
+560	UTP	Metabolite	UTP		x	x
+561	VAL	Metabolite	L-Valine		x	x
+562	ValVal	Metabolite	L-valyl-L-valine		x	x
+563	vinyl_chloride	Metabolite	Vinylchloride		x	x
+564	X5P	Metabolite	D-Xylulose 5-phosphate		x	x
+565	XAN	Metabolite	xanthine		x	x
+566	XTSN	Metabolite	xanthosine		x	x
+567	ZN	Metabolite	zinc ion		x	x
+568	MG_124_MONOMER	ProteinMonomer	thioredoxin		x	x
+569	MG_287_MONOMER	ProteinMonomer	acyl carrier protein		x	x
+570	MG_124_MONOMER_ox	ProteinComplex	oxidized thioredoxin		x	x
+571	MG_229_231_TETRAMER	ProteinComplex	ribonucleoside-diphosphate reductase		x	x
+572	MG_229_231_TETRAMER_ox	ProteinComplex	oxidized ribonucleoside-diphosphate reductase		x	x
+573	MG_287_MONOMER_ACP	ProteinComplex	holo acyl carrier protein		x	x
+574	MG_287_MONOMER_ddcaACP	ProteinComplex	Dodecanoyl-ACP (n-C12:0ACP)		x	x
+575	MG_287_MONOMER_hdeACP	ProteinComplex	cis-hexadec-9-enoyl-[acyl-carrier protein] (n-C16:1)		x	x
+576	MG_287_MONOMER_myrsACP	ProteinComplex	Myristoyl-ACP (n-C14:0ACP)		x	x
+577	MG_287_MONOMER_ocdcaACP	ProteinComplex	Octadecanoyl-ACP (n-C18:0ACP)		x	x
+578	MG_287_MONOMER_octeACP	ProteinComplex	cis-octadec-11-enoyl-[acyl-carrier protein] (n-C18:1)		x	x
+579	MG_287_MONOMER_palmACP	ProteinComplex	Palmitoyl-ACP (n-C16:0ACP)		x	x
+580	MG_287_MONOMER_tdeACP	ProteinComplex	cis-tetradec-7-enoyl-[acyl-carrier protein] (n-C14:1)		x	x
+581	MG_427_DIMER	ProteinComplex	osmotically inducible peroxidase		x	x
+582	MG_427_DIMER_ox	ProteinComplex	oxidized osmotically inducible peroxidase		x	x
+583	MG_454_DIMER	ProteinComplex	thiol-dependent peroxidase		x	x
+584	MG_454_DIMER_ox	ProteinComplex	oxidized thiol-dependent peroxidase		x	x
 585	gamma_radiation__e	Stimulus	gamma radiation (1.2 MeV)		x	x
 586	A23CMP__e	Metabolite	2',3'-Cyclic AMP		x	x
 587	A3MP__e	Metabolite	3'-AMP		x	x
