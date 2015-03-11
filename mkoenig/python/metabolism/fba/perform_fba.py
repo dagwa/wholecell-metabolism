@@ -7,8 +7,11 @@ import os
 from metabolism_settings import VERSION, RESULTS_DIR 
 sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
 
+#-------------------------------------
+# FBA with model
+#-------------------------------------
 import cobra
-
+# Read model
 model = cobra.io.read_sbml_model(sbml)
 
 # Perform FBA
@@ -21,7 +24,7 @@ model.solution.status
 {reaction: reaction.objective_coefficient for reaction in model.reactions
 if reaction.objective_coefficient != 0}
 
-# Print reactions & flux bounds
+# Print flux bounds for all reactions
 print '*** Reactions ***'
 info = []
 for r in model.reactions:
@@ -44,25 +47,40 @@ n_ProteinComplex = None
 # Update metabolite copy numbers
 
 ##############################################################################
+# Load data to evolve state
+##############################################################################
+import scipy.io
+state = scipy.io.loadmat('/home/mkoenig/Desktop/matlab.mat')
+print state.keys()
+
+
+# Global state variables
+cellDryMass = state['cellDryMass']
+
+# The substrate allocated for this time step
+substrates = state['substrates']   # [585, 3]
+
+
+##############################################################################
 # Evolve state
 ##############################################################################
-
-# The substrates allocated for this time step
-allocation = None
-substrates = allocation # [Nmetabolites?, Ncompartments]
+# Dimemsions
+N_reactions = 504
+N_compartments = 3
+N_metabolites = 585
 
 # index in substrates
-substrateIndexs_externalExchangedMetabolites
+substrateIndexs_externalExchangedMetabolites = None # [?]
 substrateIndexs_internalExchangedLimitedMetabolites
 compartmentIndexs_extracellular
 
 
 # Enzyme availability
-enzymes = None  # [nReactions, 1]?
+enzymes = None      # [104x1]
 # Transport rates
 fbaReactionBounds = None
 # Enzyme kinetics
-fbaEnzymeBounds = None # [nReactions, 2] (upper, lower)
+fbaEnzymeBounds = None # [504, 2] (upper, lower)
 
 
 substrateMonomerLocalIndexs = None
