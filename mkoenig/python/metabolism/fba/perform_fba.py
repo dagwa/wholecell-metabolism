@@ -198,11 +198,24 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
     return bounds
 
+#-------------------------------------------------------------------------------
 
 fbaObjective
 fbaReactionStoichiometryMatrix
 fbaRightHandside
-realmax
+
+# maximal value
+realmax = 1e6;
+
+# linear programming
+linearProgrammingOptions = struct(...
+            'solver', 'glpk',...
+            'solverOptions', struct(...
+                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
+                'linprog', struct('Display','off'),...
+                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
+                'qsopt', struct()));
+
 
 def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiometryMatrix):
     # import edu.stanford.covert.util.ComputationUtil;
@@ -220,14 +233,11 @@ def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiom
     [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
                 'maximize', fbaObj, fbaSMat, 
                 fbaRightHandSide, loFluxBounds, upFluxBounds, ...
-                'S', 'C', this.linearProgrammingOptions);
+                'S', 'C', linearProgrammingOptions);
     if errFlag:
-                warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
+        warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
                 fbaReactionFluxs = zeros(size(loFluxBounds));
-            end
             
-    
-    
     # growth
     fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
     growth = fbaReactionFluxs(fbaReactionIndexs_biomassProduction);
@@ -244,32 +254,63 @@ def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiom
                 shadowPrices = zeros(size(this.substrates));
                 shadowPrices(this.substrateIndexs_fba) = fbaShadowPrices(this.fbaSubstrateIndexs_substrates);
             end
-    return []
+    return [growth, reactionFluxs, fbaReactionFluxs, ...
+                reducedCosts, fbaReducedCosts, ...
+                shadowPrices, fbaShadowPrices] 
 
-def evolveState():
+def stochasticRound(value):
+    '''
+    Rounding of floats to integers weighted by decimal part
+    '''
+    roundUp = np.random.rand(value.size) < np.mod(value,1);
+    value[roundUp] = np.ceil(value[roundUp]);
+    value[~roundUp] = np.floor(value[~roundUp]);
+    return value
+
+metabolismNewProduction   # metabolism output represented by biomass pseudoreaction
+
+def evolveState(substrates, enzymes):
+    '''
+    Evolves the given state.
+    Check which values really are needed as input.
+    '''
     # Calculate flux bounds
     fluxBounds = calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds)
     
     # Calculate growth rate
     [metabolicReaction.growth, metabolicReaction.fluxs, fbaReactionFluxs] = calcGrowthRate(fluxBounds);
 
-    ## nutrient uptake ##
-    # TODO
+    # Compute real-valued amount of nutrient imported, biomass (DNA,
+    # RNA, protein, membrane, etc) precursors produced and consumed,
+    # and monomers modified. Stochastically round to:
+    #     1. Instantaneously, maintain integer-valued amounts of metabolites
+    #     2. Over time, maintain experimentally determined ratios of biomass
+    #        components (stored in this.metabolismProduction)
 
-    ## recycled metabolites ##
-    # TODO    
-        
-    ## new metabolites ##
-    # TODO     
+    # nutrient uptake
+    substrates[substrateIndexs_externalExchangedMetabolites, compartmentIndexs_extracellular] = 
+            substrates[substrateIndexs_externalExchangedMetabolites, compartmentIndexs_extracellular]
+            - stochasticRound(fbaReactionFluxs[fbaReactionIndexs_metaboliteExternalExchange] * stepSizeSec);
+
+    # recycled metabolites
+    substrates[substrateIndexs_internalExchangedMetabolites] =
+            substrates[substrateIndexs_internalExchangedMetabolites]
+                + stochasticRound(fbaReactionFluxs[fbaReactionIndexs_metaboliteInternalExchange]);  
     
-    ## unaccounted energy consumption ##
-    # TODO
+    # new metabolites
+    substrates = substrates
+                + stochasticRound(metabolismNewProduction * metabolicReaction.growth * stepSizeSec);
+    
+    # unaccounted energy consumption
+    substrates[substrateIndexs_atpHydrolysis] = substrates[substrateIndexs_atpHydrolysis]
+                + np.array([-1, -1, 1, 1, 1]) * stochasticRound(unaccountedEnergyConsumption * metabolicReaction.growth * stepSizeSec);
             
     ## make metabolites counts positive (in case stochastic rounding ##
     # made them slightly negative eg -1) except H2O, H+
-    # TODO
+    # TODO: find the ones smaller zero and set to zero
+    # substrates[substrateMetaboliteLocalIndexs[:, 1], :] < 0 
             
-    ## update cell volume ##
+    ## update cell mass & volume ##
     # TODO
     # mass_calcMass() - state cellMass
     # recalculate based on metabolite amount
