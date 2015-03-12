@@ -1,6 +1,7 @@
 AddSteadyState('sim1', 'KISAO:0000437')
 
 AddModel('model1', 'test-fbc.xml', 'urn:sedml:language:sbml')
+#AddComputeChange('model1', '/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id="M_gamma_radiation_c"]', 'current - flow*(Ve*ts) + 1', [['current', 'model1'], ['flow', 'model1'], ['Ve, 'model1]])
 AddChange('model1', '/sbml:sbml/sbml:model/fbc:listOfFluxBounds/fbc:fluxBound[@reaction="J5" and @operation="lessEqual" ]/@value', '5')
 
 AddTask('task0', 'sim1', 'model1')
