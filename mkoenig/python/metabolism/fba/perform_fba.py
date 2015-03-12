@@ -22,6 +22,14 @@ len(model.metabolites)  # 1779  (585*3=1755)
 len(model.genes)        # 142   (104)
 
 # Perform FBA
+# linear programming
+# linearProgrammingOptions = struct(...
+#            'solver', 'glpk',...
+#            'solverOptions', struct(...
+#                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
+#                'linprog', struct('Display','off'),...
+#                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
+#                'qsopt', struct()));
 model.optimize()
 
 # Solution status
@@ -106,33 +114,8 @@ print '*'*80
 '''
 
 ##############################################################################
-# Load state data to evolve state
+# onstant problem data
 ##############################################################################
-# TODO: units
-
-import scipy.io
-state = scipy.io.loadmat('/home/mkoenig/Desktop/matlab.mat')
-print state.keys()
-
-#---------------------------------------
-# Copy from current state
-#---------------------------------------
-# The properties substrates and enzymes represent the counts of metabolites
-# and metabolic enzymes.
-
-# The substrate allocated for this time step
-substrates = state['substrates']   # [585x3]
-# Enzyme availability for time step
-enzymes = state['enzymes']         # [104x1]
-
-# cellDryMass = sum(mass.cellDry);
-cellDryMass = state['cellDryMass'] # [1x1]
-
-#---------------------------------------
-# Reused model data (read once)
-#---------------------------------------
-# TODO: get the names for the indices. The SEDML iteration will go 
-#       over the indices.
 stepSizeSec = 1                         # defined in Process
 realmax = 1e6                           # maximal flux bound
 compartmentIndexs_cytosol       = 1;    # defined in Metabolism
@@ -143,20 +126,32 @@ N_reactions = fbaReactionBounds.shape[0]  # 504
 N_metabolites = substrates.shape[0]       # 585
 N_compartments = substrates.shape[1]      # 3
 
+# Load from model
+import scipy.io
+# state = scipy.io.loadmat('/home/mkoenig/Desktop/matlab.mat')
+state = scipy.io.loadmat('this.mat')
+for key in state.keys():
+    print key
+
+# General Ids
+reactionNames = state['reactionNames']  # [376, 504]
+reactionNames.shape
+print reactionNames
+
+# Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
+# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+#   of metabolites and biomass in each of the 641 chemical/transport reactions,
+#   exchange pseudoreactions, and biomass production pseudoreaction.
+fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376, 504]
+
 # maximal import and export rates (upper, lower)
 fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
 # enzyme kinetics kcat (upper, lower)
 fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
 
-# TODO: read once
-# Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
-# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
-#   of metabolites and biomass in each of the 641 chemical/transport reactions,
-#   exchange pseudoreactions, and biomass production pseudoreaction.
-fbaReactionStoichiometryMatrix = None  # Metabolism.property
 # fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
 # reaction. 
-fbaReactionCatalysisMatrix = None      # Metabolism.property
+fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix']  
 # fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
 fbaObjective = None
 # fbaRightHandSide is a vector of zeros representing the change 
@@ -186,14 +181,21 @@ proteinLimitableProteinComposition = None
 metabolismNewProduction   # metabolism output represented by biomass pseudoreaction
 
 
-# linear programming
-# linearProgrammingOptions = struct(...
-#            'solver', 'glpk',...
-#            'solverOptions', struct(...
-#                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
-#                'linprog', struct('Display','off'),...
-#                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
-#                'qsopt', struct()));
+##############################################################################
+# Initialize current state
+##############################################################################
+# The properties substrates and enzymes represent the counts of metabolites
+# and metabolic enzymes.
+
+# The substrate allocated for this time step
+substrates = state['substrates']   # [585x3]
+# Enzyme availability for time step
+enzymes = state['enzymes']         # [104x1]
+
+# cellDryMass = sum(mass.cellDry);
+cellDryMass = state['cellDryMass'] # [1x1]
+
+
 
 ##############################################################################
 # Evolve state
