@@ -1,61 +1,11 @@
 '''
-Created on Mar 11, 2015
+Creating the SBML based on the actual FBA performed in the Karr model
+based on the read stoichiometric matrix. 
 
-@author: mkoenig
-'''
-import os
-from metabolism_settings import VERSION, RESULTS_DIR 
-sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
+@author: Matthias Koenig
+@date: 2015-03-12
 
-##############################################################################
-# FBA with model
-##############################################################################
-import cobra
 
-# Read model
-# TODO: Encode the additional information used by COBRA in the model, i.e.
-# things like Charge and composition (-> check mass balance)
-model = cobra.io.read_sbml_model(sbml)
-model.compartments
-len(model.reactions)    # 1274  (504)
-len(model.metabolites)  # 1779  (585*3=1755)
-len(model.genes)        # 142   (104)
-
-# Perform FBA
-# linear programming
-# linearProgrammingOptions = struct(...
-#            'solver', 'glpk',...
-#            'solverOptions', struct(...
-#                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
-#                'linprog', struct('Display','off'),...
-#                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
-#                'qsopt', struct()));
-model.optimize()
-
-# Solution status
-model.solution.status
-
-# objective function
-{reaction: reaction.objective_coefficient for reaction in model.reactions
-if reaction.objective_coefficient != 0}
-
-# Print flux bounds for all reactions
-print '*** Reactions ***'
-info = []
-for r in model.reactions:
-    info.append([r.id, r.upper_bound, r.lower_bound])
-from pandas import DataFrame
-df = DataFrame(info, columns=['id', 'lw', 'ub'])
-print df
-print '*'*80
-
-# TODO: necessary to syncronize the SBML model with the actual 
-#       FBA problem which is performed. I.e. is necessary to get the 
-#       ids of the objects.
-#       I.e. the ids of substrates, reactions and genes.
-# This can be done with the actual content of the matlab matrices.
-
-'''
    Knowledge Base
    ===============
    M. genitalium metabolism was reconstructed from a variety of sources,
@@ -114,7 +64,7 @@ print '*'*80
 '''
 
 ##############################################################################
-# constant problem data
+# constant definitions in Karr model
 ##############################################################################
 stepSizeSec = 1                         # defined in Process
 realmax = 1e6                           # maximal flux bound
@@ -122,31 +72,77 @@ compartmentIndexs_cytosol       = 1;    # defined in Metabolism
 compartmentIndexs_extracellular = 2;    # defined in Metabolism
 compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
-
-
-# Load state data
+# Load state data from matlab dump
 import scipy.io
+import numpy as np
 state = scipy.io.loadmat('this.mat')
 for key, value in sorted(state.iteritems()):
     if isinstance(value, np.ndarray):
         print key, value.shape 
     else:
         print key
-    
 
-# TODO: get the ids from the names
-reactionNames = state['reactionNames']  # [645, 1]
-reactionNames.shape
-print reactionNames
-print reactionNames[0,0][0]
+###############################################
+# FULL SET
+###############################################
+# 645 Reactions
+# 585 Substrates
+# 104 Enzymes
+# 3 Compartments
+###############################################
+rids = state["reactionWholeCellModelIDs"]
+sids = state["substrateWholeCellModelIDs"]
+eids = state["enzymeWholeCellModelIDs"]
 
-substrateNames = state['substrateNames']  # [585, 1]
-substrateNames.shape 
-# substrateNames
+def cleanWholeCellIds(ids, col_id):
+    df = DataFrame(ids, columns=['rid'])
+    for k in df.index:
+        df.ix[k] = df.ix[k][0]
+    df = df.set_index(df['rid'])
+    return df
 
-enzymeNames = state['enzymeNames']  # [104, 1]
-enzymeNames.shape
+r_df = cleanWholeCellIds(rids, 'rid')
+s_df = cleanWholeCellIds(sids, 'sid')
+e_df = cleanWholeCellIds(eids, 'eid')    
+print r_df
+print s_df
+print e_df
 
+###############################################
+# FBA SET
+###############################################
+# 504 Reactions
+# 376 Substrates
+# 104 Enzymes
+
+# <Reactions>
+# 336 Conversion
+# 124 ExternalExchange
+# 42 InternalExchange
+# 1 biomassProduction
+# 1 biomassExchange
+# sum = 504
+fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] # [336x1]
+fbaReactionIndexs_metabolicConversion.shape
+fbaReactionIndexs_metaboliteExternalExchange = state['fbaReactionIndexs_metaboliteExternalExchange']  # [124x1]
+fbaReactionIndexs_metaboliteExternalExchange.shape
+fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange'] # [42x1]
+fbaReactionIndexs_metaboliteInternalExchange.shape
+fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] # [1x1] (index 503)
+fbaReactionIndexs_biomassProduction
+fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
+fbaReactionIndexs_biomassExchange
+
+# <Substrates>
+# 368 fba substrate
+# 7 internal exchange
+# 1 biomass
+# sum = 376
+
+
+
+
+# TODO: annotate the matrixes with the actual names
 
 # Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
 # fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
@@ -159,6 +155,8 @@ fbaReactionStoichiometryMatrix.shape
 # reaction. 
 fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
 fbaReactionCatalysisMatrix.shape
+
+
 
 
 # maximal import and export rates (upper, lower)
@@ -174,13 +172,14 @@ np.isnan(fbaEnzymeBounds).any()
 print fbaEnzymeBounds
 
 # fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
-fbaObjective = state['fbaObjective'] # [504x1]
+fbaObjective = state['fbaObjective']            # [504x1]
 fbaObjective.shape
 
 # fbaRightHandSide is a vector of zeros representing the change 
 # in concentration over time of each metabolite and biomass. 
 fbaRightHandSide = state['fbaRightHandSide'] # [376x1]
 fbaRightHandSide.shape
+
 
 # defined indexes (only created once)
 # properties of the Metabolism process
@@ -197,23 +196,8 @@ substrateMonomerLocalIndexs.shape
 substrateComplexLocalIndexs = state['substrateComplexLocalIndexs'] # [15x1]
 substrateComplexLocalIndexs.shape
 
-
-fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] # [336x1]
-fbaReactionIndexs_metabolicConversion.shape
-
-fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange'] # [42x1]
-fbaReactionIndexs_metaboliteInternalExchange.shape
-
-fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
-fbaReactionIndexs_biomassExchange
-
-fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] # [1x1] (index 503)
-fbaReactionIndexs_biomassProduction
-fbaReactionIndexs_metaboliteExternalExchange = state['fbaReactionIndexs_metaboliteExternalExchange']  # [124x1]
-fbaReactionIndexs_metaboliteExternalExchange.shape
 reactionIndexs_fba = state['reactionIndexs_fba'] # [336x1]
 reactionIndexs_fba.shape 
-
 
 proteinLimitableProteinComposition = state['proteinLimitableProteinComposition']  # [17x5]
 proteinLimitableProteinComposition.shape
