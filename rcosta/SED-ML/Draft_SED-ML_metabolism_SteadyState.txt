@@ -1,6 +1,6 @@
 AddSteadyState('sim1', 'KISAO:0000437')
 
-AddModel('model1', 'C:/Program Files/MATLAB/R2012a/toolbox/cobra_2.0.5/cobra/Whole-CellModel/Metabolism_annotated_4.xml', 'urn:sedml:language:sbml')
+AddModel('model1', 'Metabolism_annotated_4.xml', 'urn:sedml:language:sbml')
 #AddChange('model1', '/sbml:sbml/sbml:model/fbc:listOfFluxBounds/fbc:fluxBound[@reaction="R_Aas1_1" and @operation="lessEqual" ]/@value', '5')
 
 
