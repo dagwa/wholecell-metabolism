@@ -96,10 +96,10 @@ sids = state["substrateWholeCellModelIDs"]
 eids = state["enzymeWholeCellModelIDs"]
 
 def cleanWholeCellIds(ids, col_id):
-    df = DataFrame(ids, columns=['rid'])
+    df = DataFrame(ids, columns=[col_id])
     for k in df.index:
         df.ix[k] = df.ix[k][0]
-    df = df.set_index(df['rid'])
+    df = df.set_index(df[col_id])
     return df
 
 r_df = cleanWholeCellIds(rids, 'rid')
@@ -127,34 +127,40 @@ print e_df
 # 1 biomassExchange
 # sum = 504
 fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] # [336x1]
-fbaReactionIndexs_metabolicConversion.shape
 fbaReactionIndexs_metaboliteExternalExchange = state['fbaReactionIndexs_metaboliteExternalExchange']  # [124x1]
-fbaReactionIndexs_metaboliteExternalExchange.shape
 fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange'] # [42x1]
-fbaReactionIndexs_metaboliteInternalExchange.shape
 fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] # [1x1] (index 503)
-fbaReactionIndexs_biomassProduction
 fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
-fbaReactionIndexs_biomassExchange
 
 reactionIndexs_fba = state["reactionIndexs_fba"] # [336,1]
-r_df[reactionIndexs_fba, :]
 
 # Reaction identifier
-# metabolic conversion
 r_fba_df = DataFrame(range(0,504), columns=['rid'])
+# metabolic conversion
 for k, item in enumerate(reactionIndexs_fba):
     index = item[0]-1
     print index
     r_fba_df.loc[k] = r_df['rid'][index]
 r_fba_df
 
-# met
+# metabolite external Exchange
+for k, index in enumerate(fbaReactionIndexs_metaboliteExternalExchange):
+    index = index-1
+    r_fba_df.loc[index] = 'metaboliteExternalExchange_ex_{}'.format(k)
 
+# metabolite internal Exchange
+for k, index in enumerate(fbaReactionIndexs_metaboliteInternalExchange):
+    index = index-1
+    r_fba_df.loc[index] = 'metaboliteInternalExchange_ix_{}'.format(k)
 
+# biomass production
+index = fbaReactionIndexs_biomassProduction[0]-1
+r_fba_df.loc[index] = 'biomassProduction'.format(k)
 
+# biomass consumption
+index = fbaReactionIndexs_biomassExchange[0]-1
+r_fba_df.loc[index] = 'biomassConsumption'.format(k)
 
-reactionIndexs_fba
 
 # <Substrates>
 # 368 fba substrate
@@ -162,13 +168,44 @@ reactionIndexs_fba
 # 1 biomass
 # sum = 376
 fbaSubstrateIndexs_substrates = state['fbaSubstrateIndexs_substrates']# [368x1]
-fbaSubstrateIndexs_substrates.shape
 fbaSubstrateIndexs_metaboliteInternalExchangeConstraints = state['fbaSubstrateIndexs_metaboliteInternalExchangeConstraints'] # [7x1]
-fbaSubstrateIndexs_metaboliteInternalExchangeConstraints.shape
-fbaSubstrateIndexs_metaboliteInternalExchangeConstraints
-fbaSubstrateIndexs_biomass = state['fbaSubstrateIndexs_biomass']# [1x1]
-fbaSubstrateIndexs_biomass.shape
-fbaSubstrateIndexs_biomass
+fbaSubstrateIndexs_biomass = state['fbaSubstrateIndexs_biomass'] # [1x1]
+substrateIndexs_fba = state["substrateIndexs_fba"] # [376,1]
+
+# substrate identifier
+s_fba_df = DataFrame(range(0,376), columns=['sid'])
+s_fba_df
+# substrates
+for k, item in enumerate(substrateIndexs_fba):
+    index = item[0]-1
+    compartment = 'c'
+    if (index >= 585):
+        compartment = 'e'
+    if (index >= 2*585):
+        compartment = 'm'
+    # get the columns via modulo
+    index = index % 585
+    
+    # add the correct compartment    
+    sid ='{}_{}'.format(s_df['sid'][index], compartment)
+    
+    if compartment != 'c':
+        k = k + 8    
+    s_fba_df.loc[k] = sid
+    
+# internal exchange
+for k, index in enumerate(fbaSubstrateIndexs_metaboliteInternalExchangeConstraints):
+    index = index-1
+    s_fba_df.loc[index] = 'metaboliteInternalExchangeConstraints_ix_{}'.format(k)
+s_fba_df
+# biomass
+for k, index in enumerate(fbaSubstrateIndexs_biomass):
+    index = index-1
+    s_fba_df.loc[index] = 'biomass'.format(k)
+
+s_fba_df.set_index(s_fba_df['sid'])
+s_fba_df
+
 
 # TODO: annotate the matrixes with the actual names
 
