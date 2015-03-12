@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Created on: 3/12/2015 8:48:39 AM-->
+<!--Created on: 3/12/2015 9:32:49 AM-->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" level="3" version="1" fbc:required="false" layout:required="false">
   <model id="Metabolism_annotated_4" name="Metabolism_annotated_4" substanceUnits="substance" timeUnits="dimensionless" volumeUnits="volume" areaUnits="area" lengthUnits="metre" extentUnits="substance">
     <annotation>
@@ -49378,50 +49378,6 @@
               </speciesReferenceGlyph>
             </listOfSpeciesReferenceGlyphs>
           </reactionGlyph>
-          <reactionGlyph id="reactionGlyph_R_DeoD1" objectRole="SBO-0000167" reaction="R_DeoD1">
-            <boundingBox>
-              <position x="4506.5" y="1136" />
-              <dimensions width="10" height="10" />
-            </boundingBox>
-            <curve>
-              <listOfCurveSegments>
-                <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <start x="4511.5" y="1141" />
-                  <end x="4305" y="1176" />
-                </curveSegment>
-              </listOfCurveSegments>
-            </curve>
-            <listOfSpeciesReferenceGlyphs>
-              <speciesReferenceGlyph id="speciesReferenceGlyph_R_DeoD1_M_HYXN_c" objectRole="product" speciesReference="R_DeoD1_M_HYXN_c" speciesGlyph="speciesGlyph_M_HYXN_c" role="product">
-                <boundingBox>
-                  <position x="0" y="0" />
-                  <dimensions width="0" height="0" />
-                </boundingBox>
-                <curve>
-                  <listOfCurveSegments>
-                    <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                      <start x="4511.5" y="1141" />
-                      <end x="4305" y="1176" />
-                    </curveSegment>
-                  </listOfCurveSegments>
-                </curve>
-              </speciesReferenceGlyph>
-              <speciesReferenceGlyph id="speciesReferenceGlyph_R_DeoD1_M_INS_c" speciesReference="" speciesGlyph="speciesGlyph_M_INS_c" role="">
-                <boundingBox>
-                  <position x="0" y="0" />
-                  <dimensions width="0" height="0" />
-                </boundingBox>
-                <curve>
-                  <listOfCurveSegments>
-                    <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                      <start x="4718" y="1106" />
-                      <end x="4511.5" y="1141" />
-                    </curveSegment>
-                  </listOfCurveSegments>
-                </curve>
-              </speciesReferenceGlyph>
-            </listOfSpeciesReferenceGlyphs>
-          </reactionGlyph>
           <reactionGlyph id="reactionGlyph_R_DeoD4" objectRole="SBO-0000167" reaction="R_DeoD4">
             <boundingBox>
               <position x="4279" y="1199" />
@@ -51174,7 +51130,7 @@
           </reactionGlyph>
         </listOfReactionGlyphs>
         <listOfTextGlyphs>
-          <textGlyph id="textGlyph_M_GL_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_GL_e" text="GL">
+          <textGlyph id="textGlyph_M_GL_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_GL_e" text="GLe">
             <boundingBox>
               <position x="420" y="2100" />
               <dimensions width="70" height="70" />
@@ -51210,7 +51166,7 @@
               <dimensions width="70" height="70" />
             </boundingBox>
           </textGlyph>
-          <textGlyph id="textGlyph_M_FRU_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_FRU_e" text="FRU">
+          <textGlyph id="textGlyph_M_FRU_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_FRU_e" text="FRUe">
             <boundingBox>
               <position x="595" y="630" />
               <dimensions width="70" height="70" />
@@ -51270,7 +51226,7 @@
               <dimensions width="70" height="70" />
             </boundingBox>
           </textGlyph>
-          <textGlyph id="textGlyph_M_GLC_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_GLC_e" text="GLC">
+          <textGlyph id="textGlyph_M_GLC_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_GLC_e" text="GLCe">
             <boundingBox>
               <position x="1575" y="140" />
               <dimensions width="70" height="70" />
@@ -51498,13 +51454,13 @@
               <dimensions width="70" height="70" />
             </boundingBox>
           </textGlyph>
-          <textGlyph id="textGlyph_M_AC_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_AC_e" text="AC">
+          <textGlyph id="textGlyph_M_AC_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_AC_e" text="ACe">
             <boundingBox>
               <position x="3395" y="3920" />
               <dimensions width="70" height="70" />
             </boundingBox>
           </textGlyph>
-          <textGlyph id="textGlyph_M_PI_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_PI_e" text="PI">
+          <textGlyph id="textGlyph_M_PI_e" objectRole="defaultText" graphicalObject="speciesGlyph_M_PI_e" text="PIe">
             <boundingBox>
               <position x="3710" y="1680" />
               <dimensions width="70" height="70" />

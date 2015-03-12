@@ -46924,34 +46924,6 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="reactionGlyph_R_DeoD1" layout:reaction="R_DeoD1">
-            <layout:boundingBox>
-              <layout:position layout:x="4506.5" layout:y="1136"/>
-              <layout:dimensions layout:width="10" layout:height="10"/>
-            </layout:boundingBox>
-            <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="speciesReferenceGlyph_R_DeoD1_M_HYXN_c" layout:speciesReference="R_DeoD1_M_HYXN_c" layout:speciesGlyph="speciesGlyph_M_HYXN_c" layout:role="product">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="4511.5" layout:y="1141"/>
-                      <layout:end layout:x="4305" layout:y="1176"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="speciesReferenceGlyph_R_DeoD1_M_INS_c" layout:speciesGlyph="speciesGlyph_M_INS_c">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LineSegment">
-                      <layout:start layout:x="4718" layout:y="1106"/>
-                      <layout:end layout:x="4511.5" layout:y="1141"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-            </layout:listOfSpeciesReferenceGlyphs>
-          </layout:reactionGlyph>
           <layout:reactionGlyph layout:id="reactionGlyph_R_DeoD4" layout:reaction="R_DeoD4">
             <layout:boundingBox>
               <layout:position layout:x="4485.5" layout:y="1199"/>
@@ -48078,7 +48050,7 @@
           </layout:reactionGlyph>
         </layout:listOfReactionGlyphs>
         <layout:listOfTextGlyphs>
-          <layout:textGlyph layout:id="textGlyph_M_GL_e" layout:text="GL" layout:graphicalObject="speciesGlyph_M_GL_e">
+          <layout:textGlyph layout:id="textGlyph_M_GL_e" layout:text="GLe" layout:graphicalObject="speciesGlyph_M_GL_e">
             <layout:boundingBox>
               <layout:position layout:x="420" layout:y="2100"/>
               <layout:dimensions layout:width="70" layout:height="70"/>
@@ -48114,7 +48086,7 @@
               <layout:dimensions layout:width="70" layout:height="70"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:id="textGlyph_M_FRU_e" layout:text="FRU" layout:graphicalObject="speciesGlyph_M_FRU_e">
+          <layout:textGlyph layout:id="textGlyph_M_FRU_e" layout:text="FRUe" layout:graphicalObject="speciesGlyph_M_FRU_e">
             <layout:boundingBox>
               <layout:position layout:x="595" layout:y="630"/>
               <layout:dimensions layout:width="70" layout:height="70"/>
@@ -48174,7 +48146,7 @@
               <layout:dimensions layout:width="70" layout:height="70"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:id="textGlyph_M_GLC_e" layout:text="GLC" layout:graphicalObject="speciesGlyph_M_GLC_e">
+          <layout:textGlyph layout:id="textGlyph_M_GLC_e" layout:text="GLCe" layout:graphicalObject="speciesGlyph_M_GLC_e">
             <layout:boundingBox>
               <layout:position layout:x="1575" layout:y="140"/>
               <layout:dimensions layout:width="70" layout:height="70"/>
@@ -48402,13 +48374,13 @@
               <layout:dimensions layout:width="70" layout:height="70"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:id="textGlyph_M_AC_e" layout:text="AC" layout:graphicalObject="speciesGlyph_M_AC_e">
+          <layout:textGlyph layout:id="textGlyph_M_AC_e" layout:text="ACe" layout:graphicalObject="speciesGlyph_M_AC_e">
             <layout:boundingBox>
               <layout:position layout:x="3395" layout:y="3920"/>
               <layout:dimensions layout:width="70" layout:height="70"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:id="textGlyph_M_PI_e" layout:text="PI" layout:graphicalObject="speciesGlyph_M_PI_e">
+          <layout:textGlyph layout:id="textGlyph_M_PI_e" layout:text="PIe" layout:graphicalObject="speciesGlyph_M_PI_e">
             <layout:boundingBox>
               <layout:position layout:x="3710" layout:y="1680"/>
               <layout:dimensions layout:width="70" layout:height="70"/>
