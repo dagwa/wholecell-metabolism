@@ -1,40 +1,49 @@
+# Example SED-ML Script
+#
+#
+# define a flux balance simulation (that is the meaning of KISAO #437
 AddSteadyState('sim1', 'KISAO:0000437')
 
+# load a model
 AddModel('model1', 'test-fbc.xml', 'urn:sedml:language:sbml')
 
+# the task that performs the FBC stuff
 AddTask('task0', 'sim1', 'model1')
+
+# repeated task that demos how to change the flux bounds dynamically
 AddRepeatedTask('task1', 'index', False)
+
+# we use an indexer, that steps 10 steps from 0 to 10
 AddUniformRange('task1', 'index', 0, 10, 10, 'Linear')
+
+# the functional range computes the next value for the flux bound based on the index
 AddFunctionalRange('task1', 'current', 'index', [  'piecewise(8, index < 1, 5, index >= 1 && index < 3,0.1, index >= 4 && index < 6, 10)'])
+
+# set value now assigns that value to the bound of J0 with given operation
 AddSetValue('task1', '/sbml:sbml/sbml:model/fbc:listOfFluxBounds/fbc:fluxBound[@reaction="J0" and @operation="equal" ]/@value', 'current')
+
+# the repeated task uses task0 as subtask
 AddSubTask('task1', 'task0', 1)
 
+
+# now we collect the output: 
+# - to refer to the objective value i used the xpath expression to the active objective
 AddColumn('OBJF', [['var_OBJF_0', 'task1', '/sbml:sbml/sbml:model/fbc:listOfObjectives/@activeObjective']])
 
+# then collect the fluxes
 AddColumn('J0', [['J0_1', 'task1', 'J0']])
-
 AddColumn('J1', [['J1_1', 'task1', 'J1']])
-
 AddColumn('J2', [['J2_1', 'task1', 'J2']])
-
 AddColumn('J3', [['J3_1', 'task1', 'J3']])
-
 AddColumn('J4', [['J4_1', 'task1', 'J4']])
-
 AddColumn('J5', [['J5_1', 'task1', 'J5']])
-
 AddColumn('J6', [['J6_1', 'task1', 'J6']])
-
 AddColumn('J7', [['J7_1', 'task1', 'J7']])
-
 AddColumn('J8', [['J8_1', 'task1', 'J8']])
-
 AddColumn('J9', [['J9_1', 'task1', 'J9']])
-
 AddColumn('J10', [['J10_1', 'task1', 'J10']])
-
 AddColumn('J11', [['J11_1', 'task1', 'J11']])
-
 AddColumn('J12', [['J12_1', 'task1', 'J12']])
 
+# display the values in a report
 AddReport('report1', 'Varying FBA solutions for changing J0 bound', ['OBJF', 'J0', 'J1', 'J2', 'J3', 'J4', 'J5', 'J6', 'J7', 'J8', 'J9', 'J10', 'J11', 'J12']);
