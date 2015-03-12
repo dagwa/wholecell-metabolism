@@ -1,0 +1,57 @@
+# We have to read the following variables from breakpoints in Metabolism
+# in Matlab:
+#----------------------------------------------
+# ONCE
+#----------------------------------------------
+# @ entering evolveState (line 1201)
+this.fbaReactionBounds
+this.fbaEnzymeBounds
+this.fbaReactionStoichiometryMatrix
+this.fbaReactionCatalysisMatrix
+this.fbaObjective
+this.fbaRightHandside
+
+this.substrateIndexs_externalExchangedMetabolites
+this.substrateIndexs_internalExchangedLimitedMetabolites
+this.substrateIndexs_limitableProteins 
+this.substrateIndexs_atpHydrolysis
+
+this.substrateMonomerLocalIndexs
+this.substrateComplexLocalIndexs
+this.substrateMetaboliteLocalIndexs
+
+this.fbaReactionIndexs_metabolicConversion
+this.fbaReactionIndexs_metaboliteInternalExchange
+this.fbaReactionIndexs_biomassExchange
+this.fbaReactionIndexs_biomassProduction
+this.fbaReactionIndexs_metaboliteExternalExchange
+
+this.reactionIndexs_fba
+this.proteinLimitableProteinComposition
+this.metabolismNewProduction
+this.unaccountedEnergyConsumption
+
+#----------------------------------------------
+# FOR EVERY TIME POINT (MULTIPLE TIME POINTS)
+#----------------------------------------------
+# @ entering evolveState (line 1201)
+this.substrates
+this.enzymes
+this.mass.cellDry
+
+# @ after fluxBound and FBA calculation (line 1204)
+# rewrite code
+fluxBounds
+this.metabolicGrowth
+this.metabolicReaction.fluxs
+fbaReactionFluxs
+
+# @ after partial substrate updates (line 1221)
+# @ after partial substrate updates (line 1226)
+# @ after partial substrate updates (line 1232)
+# @ after partial substrate updates (line 1221)
+# @ after partial substrate updates (line 121)
+this.substrates
+
+
+

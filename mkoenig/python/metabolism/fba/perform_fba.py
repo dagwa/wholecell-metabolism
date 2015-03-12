@@ -13,6 +13,8 @@ sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metab
 import cobra
 
 # Read model
+# TODO: Encode the additional information used by COBRA in the model, i.e.
+# things like Charge and composition (-> check mass balance)
 model = cobra.io.read_sbml_model(sbml)
 model.compartments
 len(model.reactions)    # 1274  (504)
@@ -122,6 +124,7 @@ print state.keys()
 substrates = state['substrates']   # [585x3]
 # Enzyme availability for time step
 enzymes = state['enzymes']         # [104x1]
+
 # cellDryMass = sum(mass.cellDry);
 cellDryMass = state['cellDryMass'] # [1x1]
 
