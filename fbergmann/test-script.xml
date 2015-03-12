@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Written by libSedML v1.1.5549.1628 see http://libsedml.sf.net -->
+<sedML level="1" version="2" xmlns="http://sed-ml.org/sed-ml/level1/version2">
+  <listOfSimulations>
+    <steadyState id="sim1">
+      <algorithm kisaoID="KISAO:0000437" />
+    </steadyState>
+  </listOfSimulations>
+  <listOfModels>
+    <model id="model1" language="urn:sedml:language:sbml" source="test-fbc.xml" />
+  </listOfModels>
+  <listOfTasks>
+    <task id="task0" modelReference="model1" simulationReference="sim1" />
+    <repeatedTask id="task1" resetModel="false" range="index">
+      <listOfRanges>
+        <uniformRange id="index" start="0" end="10" numberOfPoints="10" type="linear" />
+        <functionalRange id="current" range="index">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <piecewise>
+              <piece>
+                <cn type="integer"> 8 </cn>
+                <apply>
+                  <lt />
+                  <ci> index </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </piece>
+              <piece>
+                <cn type="integer"> 5 </cn>
+                <apply>
+                  <and />
+                  <apply>
+                    <geq />
+                    <ci> index </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <lt />
+                    <ci> index </ci>
+                    <cn type="integer"> 3 </cn>
+                  </apply>
+                </apply>
+              </piece>
+              <piece>
+                <cn> 0.1 </cn>
+                <apply>
+                  <and />
+                  <apply>
+                    <geq />
+                    <ci> index </ci>
+                    <cn type="integer"> 4 </cn>
+                  </apply>
+                  <apply>
+                    <lt />
+                    <ci> index </ci>
+                    <cn type="integer"> 6 </cn>
+                  </apply>
+                </apply>
+              </piece>
+              <otherwise>
+                <cn type="integer"> 10 </cn>
+              </otherwise>
+            </piecewise>
+          </math>
+        </functionalRange>
+      </listOfRanges>
+      <listOfChanges>
+        <setValue modelReference="model1" target="/sbml:sbml/sbml:model/fbc:listOfFluxBounds/fbc:fluxBound[@reaction=&quot;J0&quot; and @operation=&quot;equal&quot; ]/@value" range="current">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> current </ci>
+          </math>
+        </setValue>
+      </listOfChanges>
+      <listOfSubTasks>
+        <subTask order="1" task="task0" />
+      </listOfSubTasks>
+    </repeatedTask>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="OBJF" name="OBJF">
+      <listOfVariables>
+        <variable id="var_OBJF_0" name="/sbml:sbml/sbml:model/fbc:listOfObjectives/@activeObjective" taskReference="task1" target="/sbml:sbml/sbml:model/fbc:listOfObjectives/@activeObjective" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> var_OBJF_0 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J0" name="J0">
+      <listOfVariables>
+        <variable id="J0_1" name="J0" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J0']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J0_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J1" name="J1">
+      <listOfVariables>
+        <variable id="J1_1" name="J1" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J1']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J1_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J2" name="J2">
+      <listOfVariables>
+        <variable id="J2_1" name="J2" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J2']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J2_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J3" name="J3">
+      <listOfVariables>
+        <variable id="J3_1" name="J3" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J3']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J3_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J4" name="J4">
+      <listOfVariables>
+        <variable id="J4_1" name="J4" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J4']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J4_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J5" name="J5">
+      <listOfVariables>
+        <variable id="J5_1" name="J5" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J5']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J5_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J6" name="J6">
+      <listOfVariables>
+        <variable id="J6_1" name="J6" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J6']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J6_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J7" name="J7">
+      <listOfVariables>
+        <variable id="J7_1" name="J7" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J7']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J7_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J8" name="J8">
+      <listOfVariables>
+        <variable id="J8_1" name="J8" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J8']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J8_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J9" name="J9">
+      <listOfVariables>
+        <variable id="J9_1" name="J9" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J9']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J9_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J10" name="J10">
+      <listOfVariables>
+        <variable id="J10_1" name="J10" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J10']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J10_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J11" name="J11">
+      <listOfVariables>
+        <variable id="J11_1" name="J11" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J11']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J11_1 </ci>
+      </math>
+    </dataGenerator>
+    <dataGenerator id="J12" name="J12">
+      <listOfVariables>
+        <variable id="J12_1" name="J12" taskReference="task1" target="/sbml:sbml/sbml:model/sbml:listOfReactions/sbml:reaction[@id='J12']" />
+      </listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> J12_1 </ci>
+      </math>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <report id="report1" name="Varying FBA solutions for changing J0 bound">
+      <listOfDataSets>
+        <dataSet id="col_0" dataReference="OBJF" label="OBJF" />
+        <dataSet id="col_1" dataReference="J0" label="J0" />
+        <dataSet id="col_2" dataReference="J1" label="J1" />
+        <dataSet id="col_3" dataReference="J2" label="J2" />
+        <dataSet id="col_4" dataReference="J3" label="J3" />
+        <dataSet id="col_5" dataReference="J4" label="J4" />
+        <dataSet id="col_6" dataReference="J5" label="J5" />
+        <dataSet id="col_7" dataReference="J6" label="J6" />
+        <dataSet id="col_8" dataReference="J7" label="J7" />
+        <dataSet id="col_9" dataReference="J8" label="J8" />
+        <dataSet id="col_10" dataReference="J9" label="J9" />
+        <dataSet id="col_11" dataReference="J10" label="J10" />
+        <dataSet id="col_12" dataReference="J11" label="J11" />
+        <dataSet id="col_13" dataReference="J12" label="J12" />
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+</sedML>
