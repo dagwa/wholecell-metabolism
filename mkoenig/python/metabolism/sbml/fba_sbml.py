@@ -91,6 +91,8 @@ for key, value in sorted(state.iteritems()):
 # 3 Compartments
 # reactionStoichiometryMatrix (585, 645, 3)
 ###############################################
+# Original identifier of the matrices used in matlab.
+# These matrices have to be broken down to 2D FBA matrix
 rids = state["reactionWholeCellModelIDs"]
 sids = state["substrateWholeCellModelIDs"]
 eids = state["enzymeWholeCellModelIDs"]
@@ -119,7 +121,9 @@ print e_df
 # It is clear where the different components are stored, but it is not clear
 # which reactions and substrates correspond to the fba substrates and reactions.
 
+#--------------------------------------------------------------------------
 # <Reactions>
+#--------------------------------------------------------------------------
 # 336 Conversion
 # 124 ExternalExchange
 # 42 InternalExchange
@@ -139,7 +143,6 @@ r_fba_df = DataFrame(range(0,504), columns=['rid'])
 # metabolic conversion
 for k, item in enumerate(reactionIndexs_fba):
     index = item[0]-1
-    print index
     r_fba_df.loc[k] = r_df['rid'][index]
 r_fba_df
 
@@ -161,8 +164,41 @@ r_fba_df.loc[index] = 'biomassProduction'.format(k)
 index = fbaReactionIndexs_biomassExchange[0]-1
 r_fba_df.loc[index] = 'biomassConsumption'.format(k)
 
+r_fba_df = r_fba_df.set_index(r_fba_df['rid'])
+r_fba_df
 
+#---------------------------------------------------------------------------
+# add additional infromation to the reaction
+# data frame necessary for the calculation of the dynamical bounds
+# --------------------------------------------------------------------------
+# maximal import and export rates (upper, lower)
+fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
+np.isnan(fbaReactionBounds).any()
+r_fba_df['lb_fbaReactionBounds'] = fbaReactionBounds[:,0]
+r_fba_df['ub_fbaReactionBounds'] = fbaReactionBounds[:,1]
+r_fba_df
+
+# enzyme kinetics kcat (upper, lower)
+fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
+np.isnan(fbaEnzymeBounds).any()
+fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,0]),0] = -np.inf
+fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,1]),1] = np.inf
+np.isnan(fbaEnzymeBounds).any()
+
+r_fba_df['lb_fbaEnzymeBounds'] = fbaReactionBounds[:,0]
+r_fba_df['ub_fbaEnzymeBounds'] = fbaReactionBounds[:,1]
+r_fba_df
+
+
+# fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
+fbaObjective = state['fbaObjective']            # [504x1]
+r_fba_df['fbaObjective'] = fbaObjective
+r_fba_df
+
+r_fba_df.to_csv('r_fba.csv', sep="\t")
+#--------------------------------------------------------------------------
 # <Substrates>
+#--------------------------------------------------------------------------
 # 368 fba substrate
 # 7 internal exchange
 # 1 biomass
@@ -203,83 +239,54 @@ for k, index in enumerate(fbaSubstrateIndexs_biomass):
     index = index-1
     s_fba_df.loc[index] = 'biomass'.format(k)
 
-s_fba_df.set_index(s_fba_df['sid'])
+s_fba_df = s_fba_df.set_index(s_fba_df['sid'])
 s_fba_df
 
-
-# TODO: annotate the matrixes with the actual names
-
-# Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
-# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
-#   of metabolites and biomass in each of the 641 chemical/transport reactions,
-#   exchange pseudoreactions, and biomass production pseudoreaction.
-fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376x504]
-fbaReactionStoichiometryMatrix.shape
-
-# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
-# reaction. 
-fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
-fbaReactionCatalysisMatrix.shape
-
-
-# maximal import and export rates (upper, lower)
-fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
-np.isnan(fbaReactionBounds).any()
-
-# enzyme kinetics kcat (upper, lower)
-fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
-np.isnan(fbaEnzymeBounds).any()
-fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,0]),0] = -np.inf
-fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,1]),1] = np.inf
-np.isnan(fbaEnzymeBounds).any()
-print fbaEnzymeBounds
-
-# fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
-fbaObjective = state['fbaObjective']            # [504x1]
-fbaObjective.shape
 
 # fbaRightHandSide is a vector of zeros representing the change 
 # in concentration over time of each metabolite and biomass. 
 fbaRightHandSide = state['fbaRightHandSide'] # [376x1]
-fbaRightHandSide.shape
+s_fba_df['fbaRightHandSide'] = fbaRightHandSide
+
+s_fba_df.to_csv('s_fba.csv', sep="\t")
+
+#----------------------------------------------
+# Reaction Stoichiometry Matrxix [376x504]
+#----------------------------------------------
+# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+#   of metabolites and biomass in each of the 641 chemical/transport reactions,
+#   exchange pseudoreactions, and biomass production pseudoreaction.
+fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376x504]
+
+mat_stoichiometry = DataFrame(fbaReactionStoichiometryMatrix, columns=r_fba_df.index)
+mat_stoichiometry = mat_stoichiometry.set_index(s_fba_df.index)
+mat_stoichiometry.to_csv('fbaReactionStoichiometryMatrix.csv', sep="\t")
+mat_stoichiometry
+
+#----------------------------------------------
+# fbaReactionCatalysisMatrix  [504x104]
+#----------------------------------------------
+# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+# reaction. 
+fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
+
+mat_catalysis = DataFrame(fbaReactionCatalysisMatrix, columns=e_df.index)
+mat_catalysis = mat_catalysis.set_index(r_fba_df.index)
+mat_catalysis.to_csv('fbaReactionCatalysisMatrix.csv', sep="\t")
+mat_catalysis
 
 
 # defined indexes (only created once)
 # properties of the Metabolism process
 substrateIndexs_externalExchangedMetabolites = state['substrateIndexs_externalExchangedMetabolites']  # [124x1]
-substrateIndexs_externalExchangedMetabolites.shape
 substrateIndexs_internalExchangedLimitedMetabolites = state['substrateIndexs_internalExchangedLimitedMetabolites']  # [35x1]
-substrateIndexs_internalExchangedLimitedMetabolites.shape
 substrateIndexs_limitableProteins = state['substrateIndexs_limitableProteins'] # [5x1]
-substrateIndexs_limitableProteins.shape
-
 substrateMonomerLocalIndexs = state['substrateMonomerLocalIndexs'] # [2x1]
-substrateMonomerLocalIndexs.shape
-
 substrateComplexLocalIndexs = state['substrateComplexLocalIndexs'] # [15x1]
-substrateComplexLocalIndexs.shape
-
-reactionIndexs_fba = state['reactionIndexs_fba'] # [336x1]
-reactionIndexs_fba.shape 
-
 proteinLimitableProteinComposition = state['proteinLimitableProteinComposition']  # [17x5]
-proteinLimitableProteinComposition.shape
 
+# for the update has to be reshaped to fit to substrates
 metabolismNewProduction = state['metabolismNewProduction'] # [585x3]
-metabolismNewProduction.shape
-print metabolismNewProduction[:,0]
-
-
-
-
-##############################################################################
-# Initialize current state
-##############################################################################
-
-
-
-
-
 
 
 ##############################################################################
@@ -288,8 +295,11 @@ print metabolismNewProduction[:,0]
 # The properties substrates and enzymes represent the counts of metabolites
 # and metabolic enzymes.
 
+# TODO: store these values
+
 # The substrate allocated for this time step
 substrates = state['substrates']   # [585x3]
+
 # Enzyme availability for time step
 enzymes = state['enzymes']         # [104x1]
 
