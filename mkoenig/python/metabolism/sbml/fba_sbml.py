@@ -89,6 +89,7 @@ for key, value in sorted(state.iteritems()):
 # 585 Substrates
 # 104 Enzymes
 # 3 Compartments
+# reactionStoichiometryMatrix (585, 645, 3)
 ###############################################
 rids = state["reactionWholeCellModelIDs"]
 sids = state["substrateWholeCellModelIDs"]
@@ -115,6 +116,9 @@ print e_df
 # 376 Substrates
 # 104 Enzymes
 
+# It is clear where the different components are stored, but it is not clear
+# which reactions and substrates correspond to the fba substrates and reactions.
+
 # <Reactions>
 # 336 Conversion
 # 124 ExternalExchange
@@ -133,14 +137,38 @@ fbaReactionIndexs_biomassProduction
 fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
 fbaReactionIndexs_biomassExchange
 
+reactionIndexs_fba = state["reactionIndexs_fba"] # [336,1]
+r_df[reactionIndexs_fba, :]
+
+# Reaction identifier
+# metabolic conversion
+r_fba_df = DataFrame(range(0,504), columns=['rid'])
+for k, item in enumerate(reactionIndexs_fba):
+    index = item[0]-1
+    print index
+    r_fba_df.loc[k] = r_df['rid'][index]
+r_fba_df
+
+# met
+
+
+
+
+reactionIndexs_fba
+
 # <Substrates>
 # 368 fba substrate
 # 7 internal exchange
 # 1 biomass
 # sum = 376
-
-
-
+fbaSubstrateIndexs_substrates = state['fbaSubstrateIndexs_substrates']# [368x1]
+fbaSubstrateIndexs_substrates.shape
+fbaSubstrateIndexs_metaboliteInternalExchangeConstraints = state['fbaSubstrateIndexs_metaboliteInternalExchangeConstraints'] # [7x1]
+fbaSubstrateIndexs_metaboliteInternalExchangeConstraints.shape
+fbaSubstrateIndexs_metaboliteInternalExchangeConstraints
+fbaSubstrateIndexs_biomass = state['fbaSubstrateIndexs_biomass']# [1x1]
+fbaSubstrateIndexs_biomass.shape
+fbaSubstrateIndexs_biomass
 
 # TODO: annotate the matrixes with the actual names
 
@@ -155,8 +183,6 @@ fbaReactionStoichiometryMatrix.shape
 # reaction. 
 fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
 fbaReactionCatalysisMatrix.shape
-
-
 
 
 # maximal import and export rates (upper, lower)
