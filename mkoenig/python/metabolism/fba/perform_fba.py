@@ -122,16 +122,20 @@ compartmentIndexs_cytosol       = 1;    # defined in Metabolism
 compartmentIndexs_extracellular = 2;    # defined in Metabolism
 compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
-N_reactions = fbaReactionBounds.shape[0]  # 504
-N_metabolites = substrates.shape[0]       # 585
-N_compartments = substrates.shape[1]      # 3
 
-# Load from model
+
+# Load state data
 import scipy.io
-# state = scipy.io.loadmat('/home/mkoenig/Desktop/matlab.mat')
 state = scipy.io.loadmat('this.mat')
-for key in state.keys():
-    print key
+for key, value in sorted(state.iteritems()):
+    if isinstance(value, np.ndarray):
+        print key, value.shape 
+    else:
+        print key
+    
+    
+    
+    
 
 # TODO: get the ids from the names
 reactionNames = state['reactionNames']  # [645, 1]
@@ -225,7 +229,7 @@ substrates = state['substrates']   # [585x3]
 # Enzyme availability for time step
 enzymes = state['enzymes']         # [104x1]
 
-# TODO: missing
+# TODO: missing (dryWieght ?)
 # cellDryMass = sum(mass.cellDry);
 cellDryMass = state['cellDryMass'] # [1x1]
 
@@ -234,6 +238,8 @@ cellDryMass = state['cellDryMass'] # [1x1]
 ##############################################################################
 # import edu.stanford.covert.util.ConstantUtil;
 # TODO: constants imported in original code, but unclear for what?
+
+import numpy as np
 
 def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
                    applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
@@ -246,17 +252,17 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
     4. Metabolite availability (substrates)
     5. Protein availability    (substrates)
     '''
-
     # initialize
-    lowerBounds =  -np.inf * ones([N_Reactions, 1])
-    upperBounds =   np.inf * ones([N_Reactions, 1])
+    N_Reactions = fbaReactionBounds.shape[0]            # 504
+    lowerBounds =  -np.inf * np.ones([N_Reactions, 1])  # 504
+    upperBounds =   np.inf * np.ones([N_Reactions, 1])  # 504
             
     # numbers of enzymes catalyzing each reaction, enzyme kinetics
     rxnEnzymes = fbaReactionCatalysisMatrix * enzymes;
     if applyEnzymeKineticBounds:
         lowerBounds = max(lowerBounds, fbaEnzymeBounds[:, 1] * rxnEnzymes);
         upperBounds = min(upperBounds, fbaEnzymeBounds[:, 2] * rxnEnzymes);
-        
+    '''    
     # numbers of enzymes catalyzing each reaction, unkown enzyme kinetics
     if applyEnzymeBounds:
         # some logical indexing
@@ -298,9 +304,12 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
                     
         lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
         upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-            
+    '''
     bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
     return bounds
+
+
+fluxBounds = calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds)
 
 #-------------------------------------------------------------------------------
 
