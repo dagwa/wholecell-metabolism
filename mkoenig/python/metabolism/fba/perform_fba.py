@@ -114,7 +114,7 @@ print '*'*80
 '''
 
 ##############################################################################
-# onstant problem data
+# constant problem data
 ##############################################################################
 stepSizeSec = 1                         # defined in Process
 realmax = 1e6                           # maximal flux bound
@@ -133,52 +133,85 @@ state = scipy.io.loadmat('this.mat')
 for key in state.keys():
     print key
 
-# General Ids
-reactionNames = state['reactionNames']  # [376, 504]
+# TODO: get the ids from the names
+reactionNames = state['reactionNames']  # [645, 1]
 reactionNames.shape
 print reactionNames
+print reactionNames[0,0][0]
+
+substrateNames = state['substrateNames']  # [585, 1]
+substrateNames.shape 
+# substrateNames
+
+enzymeNames = state['enzymeNames']  # [104, 1]
+enzymeNames.shape
+
 
 # Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
 # fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
 #   of metabolites and biomass in each of the 641 chemical/transport reactions,
 #   exchange pseudoreactions, and biomass production pseudoreaction.
-fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376, 504]
+fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376x504]
+fbaReactionStoichiometryMatrix.shape
+
+# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+# reaction. 
+fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
+fbaReactionCatalysisMatrix.shape
 
 # maximal import and export rates (upper, lower)
 fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
 # enzyme kinetics kcat (upper, lower)
 fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
 
-# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
-# reaction. 
-fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix']  
 # fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
-fbaObjective = None
+fbaObjective = state['fbaObjective'] # [504x1]
+fbaObjective.shape
+
 # fbaRightHandSide is a vector of zeros representing the change 
 # in concentration over time of each metabolite and biomass. 
-fbaRightHandside = None
-
+fbaRightHandSide = state['fbaRightHandSide'] # [376x1]
+fbaRightHandSide.shape
 
 # defined indexes (only created once)
 # properties of the Metabolism process
-substrateIndexs_externalExchangedMetabolites = None  # [?]
-substrateIndexs_internalExchangedLimitedMetabolites = None  # [?]
-substrateIndexs_limitableProteins = None
+substrateIndexs_externalExchangedMetabolites = state['substrateIndexs_externalExchangedMetabolites']  # [124x1]
+substrateIndexs_externalExchangedMetabolites.shape
+substrateIndexs_internalExchangedLimitedMetabolites = state['substrateIndexs_internalExchangedLimitedMetabolites']  # [35x1]
+substrateIndexs_internalExchangedLimitedMetabolites.shape
+substrateIndexs_limitableProteins = state['substrateIndexs_limitableProteins'] # [5x1]
+substrateIndexs_limitableProteins.shape
 
-substrateMonomerLocalIndexs = None
-substrateComplexLocalIndexs = None
+substrateMonomerLocalIndexs = state['substrateMonomerLocalIndexs'] # [2x1]
+substrateMonomerLocalIndexs.shape
 
-fbaReactionIndexs_metabolicConversion = None
-fbaReactionIndexs_metaboliteInternalExchange = None
-fbaReactionIndexs_biomassExchange = None
-fbaReactionIndexs_biomassProduction = None
-fbaReactionIndexs_metaboliteExternalExchange = None
-
-reactionIndexs_fba = None
+substrateComplexLocalIndexs = state['substrateComplexLocalIndexs'] # [15x1]
+substrateComplexLocalIndexs.shape
 
 
-proteinLimitableProteinComposition = None
-metabolismNewProduction   # metabolism output represented by biomass pseudoreaction
+fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] # [336x1]
+fbaReactionIndexs_metabolicConversion.shape
+
+fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange'] # [42x1]
+fbaReactionIndexs_metaboliteInternalExchange.shape
+
+fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
+fbaReactionIndexs_biomassExchange
+
+fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] # [1x1] (index 503)
+fbaReactionIndexs_biomassProduction
+fbaReactionIndexs_metaboliteExternalExchange = state['fbaReactionIndexs_metaboliteExternalExchange']  # [124x1]
+fbaReactionIndexs_metaboliteExternalExchange.shape
+reactionIndexs_fba = state['reactionIndexs_fba'] # [336x1]
+reactionIndexs_fba.shape 
+
+
+proteinLimitableProteinComposition = state['proteinLimitableProteinComposition']  # [17x5]
+proteinLimitableProteinComposition.shape
+
+metabolismNewProduction = state['metabolismNewProduction'] # [585x3]
+metabolismNewProduction.shape
+print metabolismNewProduction[:,0]
 
 
 ##############################################################################
@@ -192,10 +225,9 @@ substrates = state['substrates']   # [585x3]
 # Enzyme availability for time step
 enzymes = state['enzymes']         # [104x1]
 
+# TODO: missing
 # cellDryMass = sum(mass.cellDry);
 cellDryMass = state['cellDryMass'] # [1x1]
-
-
 
 ##############################################################################
 # Evolve state
