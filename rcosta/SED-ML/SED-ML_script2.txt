@@ -1,3 +1,4 @@
+# flux balance simulation
 AddSteadyState('sim1', 'KISAO:0000437')
 
 AddModel('model1', 'Metabolism_annotated_4_L3V1.xml', 'urn:sedml:language:sbml')
