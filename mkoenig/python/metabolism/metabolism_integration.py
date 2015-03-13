@@ -1,7 +1,9 @@
 '''
-Created on Mar 10, 2015
+Information for the integation group.
+Namely the input-output requirements of the Process Metabolism.
 
-@author: mkoenig
+@author: Matthias Koenig
+@date: 2015-03-12
 '''
 import os
 from libsbml import *

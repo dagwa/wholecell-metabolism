@@ -1,0 +1,287 @@
+'''
+-----------------------------------------------------------------------------
+Creating Matrices from the original matlab dump.
+These matrices are representing the actual FBA problem exactly. They are 
+calculated once at Karr model initialization and than used for the 
+FBA calculation with dynamical updated fluxBounds.
+
+@author: Matthias Koenig
+@date: 2015-03-13
+-----------------------------------------------------------------------------
+
+   Knowledge Base
+   ===============
+   M. genitalium metabolism was reconstructed from a variety of sources,
+   including flux-balance analysis metabolic models of other bacterial species
+   and the reaction kinetics database SABIO-RK, and was organized into 504
+   reactions in the knowledge base. These reactions are loaded into this process
+   by the initializeConstants method.
+
+      Object       No.
+      ==========   ===
+      substrates   585
+      enzymes      104
+      reactions    504
+        chemical   ?
+        transport  ?
+
+   Representation
+   ===============
+   The properties substrates and enzymes represent the counts of metabolites
+   and metabolic enzymes.
+
+   fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+   of metabolites and biomass in each of the 641 chemical/transport reactions,
+   exchange pseudoreactions, and biomass production pseudoreaction.
+
+   fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+   reaction. 
+   fbaEnzymeBounds represents the foward and backward kcat of the
+   catalyzing enzyme of each reaction. 
+   fbaReactionBounds represents the maximal import and export rates of each
+   metabolite. 
+   fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
+   fbaRightHandSide is a vector of zeros representing the change 
+   in concentration over time of each metabolite and biomass. 
+   metabolismProduction is redundant with the
+   biomass production reaction in fbaReactionStoichiometryMatrix.
+   metabolismProduction is calculated by summing the metabolic demands of all
+   the other processes over the entire cell cycle. The table below lists the
+   units of several properties of this process.
+
+%      Property                       Units
+%      ===========================    ==============================
+%      fbaEnzymeBounds                molecules/enzyme/s
+%      fbaReactionBounds              molecules/(gram dry biomass)/s
+%      substrates                     molecules
+%      enzymes                        molecules
+%      stepSizeSec                    s
+%      lowerBounds                    reactions/s
+%      upperBounds                    reactions/s
+%      growth                         cell/s
+%      biomassComposition             molecules/cell
+%      metabolismProduction           molecules/cell
+%      chamberVolume                  L
+%      setValues                      molecules/chamber
+%      growthAssociatedMaintanence
+'''
+
+##############################################################################
+# constant definitions in Karr model
+##############################################################################
+stepSizeSec = 1                         # defined in Process
+realmax = 1e6                           # maximal flux bound
+compartmentIndexs_cytosol       = 1;    # defined in Metabolism
+compartmentIndexs_extracellular = 2;    # defined in Metabolism
+compartmentIndexs_membrane      = 3;    # defined in Metabolism
+
+# Load state data from matlab dump (here also the constant matrices
+# and indicices are defined)
+import scipy.io
+import numpy as np
+state = scipy.io.loadmat('this.mat')
+for key, value in sorted(state.iteritems()):
+    if isinstance(value, np.ndarray):
+        print key, value.shape 
+    else:
+        print key
+
+###############################################
+# FULL SET
+###############################################
+# 645 Reactions
+# 585 Substrates
+# 104 Enzymes
+# 3 Compartments
+# reactionStoichiometryMatrix (585, 645, 3)
+###############################################
+# Original identifier of the matrices used in matlab.
+# These matrices have to be broken down to 2D FBA matrix
+rids = state["reactionWholeCellModelIDs"]
+sids = state["substrateWholeCellModelIDs"]
+eids = state["enzymeWholeCellModelIDs"]
+
+def cleanWholeCellIds(ids, col_id):
+    df = DataFrame(ids, columns=[col_id])
+    for k in df.index:
+        df.ix[k] = df.ix[k][0]
+    df = df.set_index(df[col_id])
+    return df
+
+r_df = cleanWholeCellIds(rids, 'rid')
+s_df = cleanWholeCellIds(sids, 'sid')
+e_df = cleanWholeCellIds(eids, 'eid')    
+print r_df
+print s_df
+print e_df
+
+###############################################
+# FBA SET
+###############################################
+# The full set of reactions and compounds is reduced to the information 
+# needed for the FBA calculation. 
+# Main challenge is to match the identifiers from the original larger set
+# to the subset used in the FBA.
+#
+# 504 Reactions
+# 376 Substrates
+# 104 Enzymes
+
+#--------------------------------------------------------------------------
+# <Reactions>
+#--------------------------------------------------------------------------
+# The reaction state vector consists of multiple parts, summing up to total
+# 504 reaction elements:
+#      336 Conversion
+#   +  124 ExternalExchange
+#   +   42 InternalExchange
+#   +    1 biomassProduction
+#   +    1 biomassExchange
+# ---------------------------
+#   =  504
+# Which elements in the reaction vector are what type is defined in the fbaReactionIndexs matrices
+# TODO: the naming of the external and internal exchange reactions should be adapted
+# to the ones used in the provided Karr SBML model.
+fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] # [336x1]
+fbaReactionIndexs_metaboliteExternalExchange = state['fbaReactionIndexs_metaboliteExternalExchange']  # [124x1]
+fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange'] # [42x1]
+fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] # [1x1] (index 503)
+fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
+
+# The mapping of the 336 reaction ids from the large reaction vector to the fba subset
+reactionIndexs_fba = state["reactionIndexs_fba"] # [336,1]
+
+# Reaction identifier
+r_fba_df = DataFrame(range(0,504), columns=['rid'])
+# metabolic conversion
+for k, item in enumerate(reactionIndexs_fba):
+    index = item[0]-1
+    r_fba_df.loc[k] = r_df['rid'][index]
+r_fba_df
+
+# metabolite external Exchange
+for k, index in enumerate(fbaReactionIndexs_metaboliteExternalExchange):
+    index = index-1
+    r_fba_df.loc[index] = 'metaboliteExternalExchange_ex_{}'.format(k)
+
+# metabolite internal Exchange
+for k, index in enumerate(fbaReactionIndexs_metaboliteInternalExchange):
+    index = index-1
+    r_fba_df.loc[index] = 'metaboliteInternalExchange_ix_{}'.format(k)
+
+# biomass production
+index = fbaReactionIndexs_biomassProduction[0]-1
+r_fba_df.loc[index] = 'biomassProduction'.format(k)
+
+# biomass consumption
+index = fbaReactionIndexs_biomassExchange[0]-1
+r_fba_df.loc[index] = 'biomassConsumption'.format(k)
+
+r_fba_df = r_fba_df.set_index(r_fba_df['rid'])
+r_fba_df
+
+#---------------------------------------------------------------------------
+# Add reaction bound and objective information to the reaction vector
+# --------------------------------------------------------------------------
+# maximal import and export rates (upper, lower)
+fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
+r_fba_df['lb_fbaReactionBounds'] = fbaReactionBounds[:,0]
+r_fba_df['ub_fbaReactionBounds'] = fbaReactionBounds[:,1]
+
+# enzyme kinetics kcat (upper, lower)
+fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
+np.isnan(fbaEnzymeBounds).any()
+fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,0]),0] = -np.inf
+fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,1]),1] = np.inf
+np.isnan(fbaEnzymeBounds).any()
+
+r_fba_df['lb_fbaEnzymeBounds'] = fbaReactionBounds[:,0]
+r_fba_df['ub_fbaEnzymeBounds'] = fbaReactionBounds[:,1]
+
+# fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
+fbaObjective = state['fbaObjective']            # [504x1]
+r_fba_df['fbaObjective'] = fbaObjective
+r_fba_df
+
+r_fba_df.to_csv('r_fba.csv', sep="\t")
+#--------------------------------------------------------------------------
+# <Substrates>
+#--------------------------------------------------------------------------
+# Calculation of the substrate identifier vector. Similar strategy than
+# in the reaction id vector. Necessary to get the actual identifiers of the 
+# FBA subset.
+#
+#   368 fba substrate
+# +   7 internal exchange
+# +   1 biomass
+# sum = 376
+fbaSubstrateIndexs_substrates = state['fbaSubstrateIndexs_substrates']# [368x1]
+fbaSubstrateIndexs_metaboliteInternalExchangeConstraints = state['fbaSubstrateIndexs_metaboliteInternalExchangeConstraints'] # [7x1]
+fbaSubstrateIndexs_biomass = state['fbaSubstrateIndexs_biomass'] # [1x1]
+substrateIndexs_fba = state["substrateIndexs_fba"] # [376,1]
+
+# substrate identifier
+s_fba_df = DataFrame(range(0,376), columns=['sid'])
+s_fba_df
+# substrates
+for k, item in enumerate(substrateIndexs_fba):
+    index = item[0]-1
+    compartment = 'c'
+    if (index >= 585):
+        compartment = 'e'
+    if (index >= 2*585):
+        compartment = 'm'
+    # get the columns via modulo
+    index = index % 585
+    
+    # add the correct compartment    
+    sid ='{}_{}'.format(s_df['sid'][index], compartment)
+    
+    if compartment != 'c':
+        # 8 elements (internal exchange and biomass) are out of order
+        # so offset is nedessary
+        k = k + 8    
+    s_fba_df.loc[k] = sid
+    
+# internal exchange
+for k, index in enumerate(fbaSubstrateIndexs_metaboliteInternalExchangeConstraints):
+    index = index-1
+    s_fba_df.loc[index] = 'metaboliteInternalExchangeConstraints_ix_{}'.format(k)
+s_fba_df
+# biomass
+for k, index in enumerate(fbaSubstrateIndexs_biomass):
+    index = index-1
+    s_fba_df.loc[index] = 'biomass'.format(k)
+
+s_fba_df = s_fba_df.set_index(s_fba_df['sid'])
+s_fba_df
+
+# fbaRightHandSide is a vector of zeros representing the change 
+# in concentration over time of each metabolite and biomass. 
+fbaRightHandSide = state['fbaRightHandSide'] # [376x1]
+s_fba_df['fbaRightHandSide'] = fbaRightHandSide
+
+s_fba_df.to_csv('s_fba.csv', sep="\t")
+
+#----------------------------------------------
+# Reaction Stoichiometry Matrxix [376x504]
+#----------------------------------------------
+# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
+#   of metabolites and biomass in each of the 641 chemical/transport reactions,
+#   exchange pseudoreactions, and biomass production pseudoreaction.
+fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376x504]
+
+mat_stoichiometry = DataFrame(fbaReactionStoichiometryMatrix, columns=r_fba_df.index)
+mat_stoichiometry = mat_stoichiometry.set_index(s_fba_df.index)
+mat_stoichiometry.to_csv('fbaReactionStoichiometryMatrix.csv', sep="\t")
+
+#----------------------------------------------
+# fbaReactionCatalysisMatrix  [504x104]
+#----------------------------------------------
+# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
+# reaction. 
+fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
+
+mat_catalysis = DataFrame(fbaReactionCatalysisMatrix, columns=e_df.index)
+mat_catalysis = mat_catalysis.set_index(r_fba_df.index)
+mat_catalysis.to_csv('fbaReactionCatalysisMatrix.csv', sep="\t")

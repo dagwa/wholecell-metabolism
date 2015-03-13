@@ -1,7 +1,8 @@
 '''
 Created on Mar 10, 2015
 
-@author: mkoenig
+@author: Matthias Koenig
+@date: global settings for the python scripts to write to correct folders
 '''
 import os
 VERSION = '4'

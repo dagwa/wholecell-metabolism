@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Annotation of Metabolism.sbml with information from the 
-publication supplement.
-
-Annotation are divided into
-- CV terms (annotated via CV terms)
-- annotation strings (not implemented yet)
+Annotation of SBML model with information from the publication supplement.
+Annotations consist of
+- CV terms (defined below, subset of supplementary Tables with identifiers)
+- additional annotation strings (full cross references from the knowledgebase,
+  not implemented yet)
 
 The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
 
------------------------------------
-ChangeLog:
------------------------------------
-v4
+[version 4]
 - xml file ending
 - BQB_QUALIFIER better specified ( BQB_IS, BQB_IS_PROPERTY_OF,
         BQB_IS_VERSION_OF)
------------------------------------
 
 @author: Matthias Koenig
 @date: 2015-03-08
@@ -26,7 +21,6 @@ from sbml_tools.checks import check_sbml, check
 from pandas import DataFrame
 import pandas as pd
 from metabolism_settings import RESULTS_DIR, DATA_DIR, VERSION
-from atk import Document
 
 #######################################################################
 sbml_raw = os.path.join(DATA_DIR, 'Metabolism.sbml')
@@ -230,10 +224,12 @@ def annotate_model_sbo(m):
             check(product.setSBOTerm(sbo_dict['Product']), 'Set SBO')    
         for modifier in r.getListOfModifiers():
             check(modifier.setSBOTerm(sbo_dict['Modifier']), 'Set SBO')
-        
-
-if __name__ == "__main__":
-    check_sbml(sbml_raw)
+  
+def annotate_Karr():
+    '''
+    Performs the annotations and converts the model into SBML L3V1.
+    '''
+     check_sbml(sbml_raw)
     
     # Load annotation data & index with ID for O(1) lookup    
     m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
@@ -254,7 +250,6 @@ if __name__ == "__main__":
     m.setName(mid)
     # annotate
     
-    
     annotate_model_cv(m)
     annotate_model_sbo(m)
 
@@ -263,7 +258,7 @@ if __name__ == "__main__":
     check_sbml(sbml_out)
     print sbml_out
     
-        # convert to 3.1
+    # convert to 3.1
     convert = True
     if convert:
         props = ConversionProperties()
@@ -272,6 +267,19 @@ if __name__ == "__main__":
         writeSBMLToFile(doc, sbml_out_L3V1)
         print sbml_out_L3V1
         check_sbml(sbml_out_L3V1)
+
+def annotate_sbml:
+    warning('NOT IMPLEMENTED')
+
+
+if __name__ == "__main__":
+    # Annotate the SBML provided in Karr supplement
+    annotate_Karr()
+    # Annotate the SBML generated from the FBA matrices
+    # TODO implement
+    
+    
+   
     
     
     
