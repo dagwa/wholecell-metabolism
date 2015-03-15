@@ -81,8 +81,12 @@ compartmentIndexs_membrane = 3  # defined in Metabolism
 # and indices are defined)
 import scipy.io
 import numpy as np
+import os
+from metabolism_settings import DATA_DIR, RESULTS_DIR
+matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
+matlab_data = os.path.join(DATA_DIR, 'matlab_dumps/Process_Metabolism.mat')
 
-state = scipy.io.loadmat('this.mat')
+state = scipy.io.loadmat(matlab_data)
 for key, value in sorted(state.iteritems()):
     if isinstance(value, np.ndarray):
         print key, value.shape
@@ -112,13 +116,9 @@ def clean_whole_cell_Ids(ids, col_id):
     df = df.set_index(df[col_id])
     return df
 
-
 r_df = clean_whole_cell_Ids(rids, 'rid')
 s_df = clean_whole_cell_Ids(sids, 'sid')
 e_df = clean_whole_cell_Ids(eids, 'eid')
-print r_df
-print s_df
-print e_df
 
 ###############################################
 # FBA SET
@@ -161,7 +161,6 @@ r_fba_df = DataFrame(range(0, 504), columns=['rid'])
 for k, item in enumerate(reactionIndexs_fba):
     index = item[0] - 1
     r_fba_df.loc[k] = r_df['rid'][index]
-r_fba_df
 
 # metabolite external Exchange
 for k, index in enumerate(fbaReactionIndexs_metaboliteExternalExchange):
@@ -181,9 +180,8 @@ r_fba_df.loc[index] = 'biomassProduction'.format(k)
 index = fbaReactionIndexs_biomassExchange[0] - 1
 r_fba_df.loc[index] = 'biomassConsumption'.format(k)
 
+# set index
 r_fba_df = r_fba_df.set_index(r_fba_df['rid'])
-r_fba_df
-
 
 # Add reaction bound and objective information to the reaction vector
 # maximal import and export rates (upper, lower)
@@ -204,9 +202,9 @@ r_fba_df['ub_fbaEnzymeBounds'] = fbaReactionBounds[:, 1]
 # fbaObjective indicates which reaction represents the biomass production pseudo-reaction.
 fbaObjective = state['fbaObjective']  # [504x1]
 r_fba_df['fbaObjective'] = fbaObjective
-r_fba_df
 
-r_fba_df.to_csv('r_fba.csv', sep="\t")
+# save the reaction information
+r_fba_df.to_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
 
 ##########################################################################
 # <Substrates>
@@ -267,7 +265,7 @@ s_fba_df['fbaRightHandSide'] = fbaRightHandSide
 
 # set index and save
 s_fba_df = s_fba_df.set_index(s_fba_df['sid'])
-s_fba_df.to_csv('s_fba.csv', sep="\t")
+s_fba_df.to_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t")
 
 ##########################################################################
 # Reaction Stoichiometry Matrxix [376x504]
@@ -279,7 +277,7 @@ fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376
 
 mat_stoichiometry = DataFrame(fbaReactionStoichiometryMatrix, columns=r_fba_df.index)
 mat_stoichiometry = mat_stoichiometry.set_index(s_fba_df.index)
-mat_stoichiometry.to_csv('fbaReactionStoichiometryMatrix.csv', sep="\t")
+mat_stoichiometry.to_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t")
 
 ##########################################################################
 # fbaReactionCatalysisMatrix  [504x104]
@@ -290,4 +288,4 @@ fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix']  # [504x104]
 
 mat_catalysis = DataFrame(fbaReactionCatalysisMatrix, columns=e_df.index)
 mat_catalysis = mat_catalysis.set_index(r_fba_df.index)
-mat_catalysis.to_csv('fbaReactionCatalysisMatrix.csv', sep="\t")
+mat_catalysis.to_csv(os.path.join(matrix_dir, 'fbaReactionCatalysisMatrix.csv'), sep="\t")
