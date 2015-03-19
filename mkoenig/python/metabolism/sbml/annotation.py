@@ -277,9 +277,3 @@ if __name__ == "__main__":
     annotate_Karr()
     # Annotate the SBML generated from the FBA matrices
     # TODO implement
-    
-    
-   
-    
-    
-    
