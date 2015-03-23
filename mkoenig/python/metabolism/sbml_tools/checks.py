@@ -12,12 +12,12 @@ def check_sbml(filename):
     doc = readSBML(filename)
     errors = doc.getNumErrors()
     
-    print;
+    print
     print(" filename: " + filename)
     print(" file size: " + str(os.stat(filename).st_size))
     print(" read time (ms): " + str(time.clock() - current))
     print(" validation error(s): " + str(errors))
-    print;
+    print
     doc.printErrors()
     return errors
     

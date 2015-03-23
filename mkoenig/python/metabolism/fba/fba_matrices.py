@@ -242,13 +242,11 @@ r_fba_df['ub_fbaReactionBounds'] = fbaReactionBounds[:, 1]
 
 # enzyme kinetics kcat (upper, lower)
 fbaEnzymeBounds = state['fbaEnzymeBounds']  # [504x2]
-np.isnan(fbaEnzymeBounds).any()
 fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:, 0]), 0] = -np.inf
 fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:, 1]), 1] = np.inf
 np.isnan(fbaEnzymeBounds).any()
-
-r_fba_df['lb_fbaEnzymeBounds'] = fbaReactionBounds[:, 0]
-r_fba_df['ub_fbaEnzymeBounds'] = fbaReactionBounds[:, 1]
+r_fba_df['lb_fbaEnzymeBounds'] = fbaEnzymeBounds[:, 0]
+r_fba_df['ub_fbaEnzymeBounds'] = fbaEnzymeBounds[:, 1]
 
 # fbaObjective indicates which reaction represents the biomass production pseudo-reaction.
 fbaObjective = state['fbaObjective']  # [504x1]
@@ -364,7 +362,7 @@ for sid in s_fba_df.index:
     except ObjectDoesNotExist:
         all_names.append(wid)
         all_types.append(None)
-        all_comps.append(None)
+        all_comps.append('n') # none compartment for exchange metabolites
     
 s_fba_df['name'] = Series(all_names, index=s_fba_df.index)
 s_fba_df['model_type'] = Series(all_types, index=s_fba_df.index)

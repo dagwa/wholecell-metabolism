@@ -5,7 +5,8 @@ Created on Mar 11, 2015
 '''
 import os
 from metabolism_settings import VERSION, RESULTS_DIR 
-sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
+# sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
+sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_5_L3V1.xml".format(VERSION))
 
 ##############################################################################
 # FBA with model
@@ -16,10 +17,10 @@ import cobra
 # TODO: Encode the additional information used by COBRA in the model, i.e.
 # things like Charge and composition (-> check mass balance)
 model = cobra.io.read_sbml_model(sbml)
-model.compartments
-len(model.reactions)    # 1274  (504)
-len(model.metabolites)  # 1779  (585*3=1755)
-len(model.genes)        # 142   (104)
+print model.compartments
+print len(model.reactions)    # 1274  (504)
+print len(model.metabolites)  # 1779  (585*3=1755)
+print len(model.genes)        # 142   (104)
 
 # Perform FBA
 # linear programming

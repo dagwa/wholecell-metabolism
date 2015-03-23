@@ -150,13 +150,18 @@ if __name__ == "__main__":
     e_df    
     
     mat_stoichiometry = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t")
+    mat_stoichiometry.set_index(s_fba_df.index, inplace=True)        
+        
     
     mat_catalysis = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionCatalysisMatrix.csv'), sep="\t")
+    mat_catalysis.set_index(r_fba_df.index, inplace=True)  
     
     
+    # ----------------------------------------
+    # New SBML model with FBC support
+    sbmlns = SBMLNamespaces(3,1,"fbc",1)
     
-    # new file
-    doc = SBMLDocument(3,1)
+    doc = SBMLDocument(sbmlns)
     model = doc.createModel()
 
     # history & creators
@@ -174,12 +179,97 @@ if __name__ == "__main__":
         s.setId(index)
         s.setName(row['name'])
         s.setConstant(False)
+        s.setBoundaryCondition(False)
         s.setCompartment(row['compartment'])
+        s.setHasOnlySubstanceUnits(False)
         
-    
     # <proteins>
+    for index, row in e_df.iterrows():        
+        # p = model.createParameter()
+        p = model.createSpecies()
+        p.setId(index)
+        name = row['name']
+        if not pd.isnull(name):
+            p.setName(name)
+        p.setConstant(False)
+        p.setBoundaryCondition(False)
+        # TODO: proper way to find location of reactions & proteins
+        p.setCompartment('c') # this is just fix
+        p.setHasOnlySubstanceUnits(False)
+
+    # <reactions>
+    tol = 1E-8
+    for index, row in r_fba_df.iterrows():
+        r = model.createReaction()
+        r.setId(index)
+        name = row['name']
+        if not pd.isnull(name):
+            p.setName(name)
+        r.setFast(False)
+        
+        # set proteins as modifiers from catalysis matrix       
+        row = mat_catalysis.ix[index]
+        row = row[row>tol]
+        for eid, value in row.iteritems():
+            mod = r.createModifier()
+            mod.setSpecies(eid)        
+                
+        # stoichiometry from stoichiometric matrix # [376x504]
+        # find the non-zero elements in the reaction column 
+        col = mat_stoichiometry[index]
+        col = col[abs(col)>tol]
+        # create species references depending on stoichiometry
+        for sid, stoichiometry in col.iteritems():
+            if stoichiometry < 0:
+                rt = r.createReactant()
+                rt.setSpecies(sid)
+                rt.setStoichiometry(abs(stoichiometry))
+                rt.setConstant(True)
+            if stoichiometry > 0:
+                pt = r.createProduct()
+                pt.setSpecies(sid)
+                pt.setStoichiometry(stoichiometry)
+                pt.setConstant(True)
+    
+        # reversibility from the initial reaction bounds
+        # TODO: calculate from flux bounds
+        r.setReversible(False)
+        
+        # set local parameters for calculating flux bounds
+        klaw = r.createKineticLaw()        
+        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds', 'lb_fbaEnzymeBounds', 'ub_fbaEnzymeBounds'):
+            lp = klaw.createLocalParameter()
+            lp.setId(p_name)
+            lp.setValue(r_fba_df[p_name][index])
     
     
+    # FBC package
+    # set reaction flux bounds
+    mplugin = model.getPlugin("fbc");
+ 
+    bound = mplugin.createFluxBound();
+    bound.setId("bound1");
+    bound.setReaction("J0");
+    bound.setOperation("equal");
+    bound.setValue(10);
+ 
+    # <gene associations>
+    mplugin.createGeneAssociation()
+        
+        
+    # <objective function>
+    objective = mplugin.createObjective();
+    objective.setId("obj1");
+    objective.setType("maximize");
+    mplugin.setActiveObjectiveId("obj1");
+    
+    fluxObjective = objective.createFluxObjective();
+    fluxObjective.setReaction("J8");
+    fluxObjective.setCoefficient(1);
+
+    # <chemical formulas => for balance>
+
+
     # write sbml    
     sbml_out = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
     writer = SBMLWriter()
