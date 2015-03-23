@@ -1,4 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
-  <model metaid="meta_WCM_3_10" id="WCM_3_10" name="Whole Cell 2015 - Metabolism"/>
+  <model metaid="meta_WCM_3_10" id="WCM_3_10" name="Whole Cell 2015 - Metabolism">
+    <annotation>
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+        <rdf:Description rdf:about="#meta_WCM_3_10">
+          <dc:creator>
+            <rdf:Bag>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Bergmann</vCard:Family>
+                  <vCard:Given>Frank</vCard:Given>
+                </vCard:N>
+                <vCard:EMAIL>fbergman@caltech.edu</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>Caltech</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Koenig</vCard:Family>
+                  <vCard:Given>Matthias</vCard:Given>
+                </vCard:N>
+                <vCard:EMAIL>konigmatt@googlemail.com</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>Charite Berlin</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Smallbone</vCard:Family>
+                  <vCard:Given>Kieran</vCard:Given>
+                </vCard:N>
+                <vCard:EMAIL>kieran.smallbone@manchester.ac.uk</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>University of Manchester</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Tokic</vCard:Family>
+                  <vCard:Given>Milenko</vCard:Given>
+                </vCard:N>
+                <vCard:EMAIL>milenko.tokic@epfl.ch</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>EPFL</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Costa</vCard:Family>
+                  <vCard:Given>Rafael</vCard:Given>
+                </vCard:N>
+                <vCard:EMAIL>‎rcosta@kdbio.inesc-id.pt</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>University of Lisbon</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+              <rdf:li rdf:parseType="Resource">
+                <vCard:N rdf:parseType="Resource">
+                  <vCard:Family>Baghalian</vCard:Family>
+                  <vCard:Given>Kambiz</vCard:Given>
+                </vCard:N>
+                <vCard:EMAIL>kambiz.baghalian@plants.ox.ac.uk</vCard:EMAIL>
+                <vCard:ORG rdf:parseType="Resource">
+                  <vCard:Orgname>University of Oxford</vCard:Orgname>
+                </vCard:ORG>
+              </rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+          <dcterms:created rdf:parseType="Resource">
+            <dcterms:W3CDTF>2015-03-23T10:35:15Z</dcterms:W3CDTF>
+          </dcterms:created>
+          <dcterms:modified rdf:parseType="Resource">
+            <dcterms:W3CDTF>2015-03-23T10:35:15Z</dcterms:W3CDTF>
+          </dcterms:modified>
+          <bqmodel:isDerivedFrom>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://identifiers.org/doi/10.1016/j.cell.2012.05.044"/>
+            </rdf:Bag>
+          </bqmodel:isDerivedFrom>
+          <bqmodel:isDescribedBy>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://identifiers.org/pubmed/22817898"/>
+            </rdf:Bag>
+          </bqmodel:isDescribedBy>
+          <bqmodel:is>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://identifiers.org/mamo/MAMO_0000040"/>
+              <rdf:li rdf:resource="http://identifiers.org/mamo/MAMO_0000009"/>
+            </rdf:Bag>
+          </bqmodel:is>
+          <bqbiol:hasTaxon>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://identifiers.org/taxonomy/243273"/>
+            </rdf:Bag>
+          </bqbiol:hasTaxon>
+        </rdf:Description>
+      </rdf:RDF>
+    </annotation>
+  </model>
 </sbml>
