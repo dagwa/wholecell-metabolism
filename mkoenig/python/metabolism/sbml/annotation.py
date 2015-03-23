@@ -109,6 +109,13 @@ def annotate_model_cv(m):
     annotate_objects(m.getListOfReactions(), r_df, r_cvdf, otype='REACTION')
 
 
+def create_meta_id(sid):
+    '''
+    Create meta id. 
+    Uniqueness not tested.
+    '''
+    return 'meta_{}'.format(sid)
+
 def annotate_objects(objects, o_df, o_cvdf, otype):
         # Metabolite annotation
     # no fancy things here: just take the ids of the species
@@ -126,7 +133,7 @@ def annotate_objects(objects, o_df, o_cvdf, otype):
         
         # WTF - not working without meta id, but no proper warning
         # TODO: how to properly generate meta ids
-        s.setMetaId('meta_{}'.format(sid))
+        s.setMetaId(create_meta_id(sid))
         
         # get the annotation info & create all CV terms
         # check if in index
@@ -229,7 +236,7 @@ def annotate_Karr():
     '''
     Performs the annotations and converts the model into SBML L3V1.
     '''
-     check_sbml(sbml_raw)
+    check_sbml(sbml_raw)
     
     # Load annotation data & index with ID for O(1) lookup    
     m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
@@ -268,7 +275,7 @@ def annotate_Karr():
         print sbml_out_L3V1
         check_sbml(sbml_out_L3V1)
 
-def annotate_sbml:
+def annotate_sbml():
     warning('NOT IMPLEMENTED')
 
 
