@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//sbgn/libsbgn.py=utf-8
+encoding//sbml/annotation.py=utf-8
 encoding//sbml/model_history.py=utf-8
 encoding//sbml_tools/checks.py=utf-8

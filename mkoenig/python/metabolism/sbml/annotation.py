@@ -237,16 +237,7 @@ def annotate_Karr():
     Performs the annotations and converts the model into SBML L3V1.
     '''
     check_sbml(sbml_raw)
-    
-    # Load annotation data & index with ID for O(1) lookup    
-    m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
-    m_df = m_df.set_index(m_df.ID)
-    # print m_df.head()
-    # m_df.ix['A23CMP']
-    
-    r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
-    r_df = r_df.set_index(r_df.ID)
-    
+
     # read model
     doc = readSBML(sbml_raw)
     doc.setLevelAndVersion(2,4,False, True)
@@ -259,6 +250,8 @@ def annotate_Karr():
     
     annotate_model_cv(m)
     annotate_model_sbo(m)
+    from model_history import set_history_information
+    set_history_information(m)
 
     # save
     writeSBMLToFile(doc, sbml_out)
@@ -280,6 +273,16 @@ def annotate_sbml():
 
 
 if __name__ == "__main__":
+    # Load annotation data & index with ID for O(1) lookup    
+    m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
+    m_df = m_df.set_index(m_df.ID)
+    # print m_df.head()
+    # m_df.ix['A23CMP']
+    
+    r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
+    r_df = r_df.set_index(r_df.ID)
+    
+    
     # Annotate the SBML provided in Karr supplement
     annotate_Karr()
     # Annotate the SBML generated from the FBA matrices

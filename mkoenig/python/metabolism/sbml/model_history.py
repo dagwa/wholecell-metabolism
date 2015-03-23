@@ -95,7 +95,7 @@ def set_cv_terms(model, cvterms_df):
         cv.addResource(resource)
         check(model.addCVTerm(cv), 'add cv term')
 
-def set_information(model):
+def set_history_information(model):
     set_model_id_name(model)
     set_model_history(model, creators_df)
     set_cv_terms(model, cvterms_df)
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     doc = SBMLDocument(3,1)
     model = doc.createModel()
     
-    set_information(model)
+    set_history_information(model)
     
     # write sbml    
     sbml_out = os.path.join(RESULTS_DIR, 'history_test.xml')
