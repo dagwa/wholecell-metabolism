@@ -101,6 +101,7 @@ comp_df = DataFrame(columns=['id', 'name', 'size', 'spatialDimensions', 'constan
                              ['c', 'cytosol', 1.0, 3, False],
                              ['m', 'membrane', 1.0, 2, False],
                              ['e', 'extracellular', 1.0, 3, False],
+                             ['n', 'none', 1.0, 3, False],
                             ])
 comp_df.set_index(comp_df.id, inplace=True)
 
@@ -138,29 +139,46 @@ if __name__ == "__main__":
     # Load matrix information
     matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
     
-    s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t")
+    s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", keep_default_na=False)
     s_fba_df.set_index('sid', inplace=True)
 
     r_fba_df = pd.read_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
     r_fba_df.set_index('rid', inplace=True)
 
-
+    e_df = pd.read_csv(os.path.join(matrix_dir, 'e_fba.csv'), sep="\t")
+    e_df.set_index('eid', inplace=True)
+    e_df    
     
     mat_stoichiometry = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t")
-    mat_stoichiometry.head()
     
     mat_catalysis = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionCatalysisMatrix.csv'), sep="\t")
     
     
     
-    
+    # new file
     doc = SBMLDocument(3,1)
     model = doc.createModel()
 
+    # history & creators
     from sbml.model_history import set_history_information
     set_history_information(model)
     
+    # compartments
     create_compartments(model, comp_df)    
+    
+    # species
+    # <metabolites>
+    for index, row in s_fba_df.iterrows():
+        # print index
+        s = model.createSpecies()
+        s.setId(index)
+        s.setName(row['name'])
+        s.setConstant(False)
+        s.setCompartment(row['compartment'])
+        
+    
+    # <proteins>
+    
     
     # write sbml    
     sbml_out = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
@@ -169,6 +187,7 @@ if __name__ == "__main__":
     print sbml_out   
     from sbml_tools.checks import check_sbml
     check_sbml(sbml_out) 
+    
     
     # TODO: gene associations
     

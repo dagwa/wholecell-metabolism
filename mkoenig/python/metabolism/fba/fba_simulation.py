@@ -123,7 +123,6 @@ compartmentIndexs_extracellular = 2;    # defined in Metabolism
 compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
 
-
 # Load state data
 import scipy.io
 state = scipy.io.loadmat('this.mat')

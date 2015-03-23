@@ -1,105 +1,105 @@
-eid	genes
-MG_009_MONOMER	MG_009
-MG_037_MONOMER	MG_037
-MG_050_MONOMER	MG_050
-MG_061_MONOMER	MG_061
-MG_071_MONOMER	MG_071
-MG_130_MONOMER	MG_130
-MG_145_MONOMER	MG_145
-MG_171_MONOMER	MG_171
-MG_212_MONOMER	MG_212
-MG_230_MONOMER	MG_230
-MG_245_MONOMER	MG_245
-MG_264_MONOMER	MG_264
-MG_270_MONOMER	MG_270
-MG_300_MONOMER	MG_300
-MG_310_MONOMER	MG_310
-MG_327_MONOMER	MG_327
-MG_330_MONOMER	MG_330
-MG_517_MONOMER	MG_517
-MG_342_MONOMER	MG_342
-MG_344_MONOMER	MG_344
-MG_356_MONOMER	MG_356
-MG_408_MONOMER	MG_408
-MG_430_MONOMER	MG_430
-MG_447_MONOMER	MG_447
-MG_448_MONOMER	MG_448
-MG_006_DIMER	MG_006
-MG_013_DIMER	MG_013
-MG_014_015_DIMER	MG_014,MG_015
-MG_023_DIMER	MG_023
-MG_030_TRIMER	MG_030
-MG_033_TETRAMER	MG_033
-MG_034_DIMER	MG_034
-MG_038_TETRAMER	MG_038
-MG_039_DIMER	MG_039
-MG_040_119_120_121_PENTAMER	MG_119,MG_120,MG_121,MG_040
-MG_041_062_429_PENTAMER	MG_429,MG_041,MG_062
-MG_041_069_429_PENTAMER	MG_429,MG_069,MG_041
-MG_042_043_044_045_PENTAMER	MG_045,MG_044,MG_043,MG_042
-MG_047_TETRAMER	MG_047
-MG_049_HEXAMER	MG_049
-MG_051_DIMER	MG_051
-MG_052_DIMER	MG_052
-MG_053_TRIMER	MG_053
-MG_058_HEXAMER	MG_058
-MG_063_DIMER	MG_063
-MG_066_DIMER	MG_066
-MG_077_078_079_080_321_PENTAMER	MG_077,MG_321,MG_080,MG_078,MG_079
-MG_102_DIMER	MG_102
-MG_105_OCTAMER	MG_105
-MG_107_DIMER	MG_107
-MG_111_DIMER	MG_111
-MG_112_DIMER	MG_112
-MG_114_DIMER	MG_114
-MG_118_DIMER	MG_118
-MG_123_DIMER	MG_123
-MG_128_HEXAMER	MG_128
-MG_137_DIMER	MG_137
-MG_179_180_181_TETRAMER	MG_180,MG_181,MG_179
-MG_186_187_188_189_PENTAMER	MG_188,MG_189,MG_186,MG_187
-MG_215_TETRAMER	MG_215
-MG_216_TETRAMER	MG_216
-MG_225_DIMER	MG_225
-MG_226_DIMER	MG_226
-MG_227_DIMER	MG_227
-MG_228_TETRAMER	MG_228
-MG_229_231_TETRAMER	MG_229,MG_231
-MG_240_HEXAMER	MG_240
-MG_259_TETRAMER	MG_259
-MG_265_DIMER	MG_265
-MG_271_272_273_274_192MER	MG_271,MG_272,MG_273,MG_274
-MG_275_TETRAMER	MG_275
-MG_276_DIMER	MG_276
-MG_278_DIMER	MG_278
-MG_289_290_291_PENTAMER	MG_289,MG_290,MG_291
-MG_293_DIMER	MG_293
-MG_299_DIMER	MG_299
-MG_301_TETRAMER	MG_301
-MG_302_303_304_TETRAMER	MG_302,MG_303,MG_304
-MG_316_DIMER	MG_316
-MG_322_323_TETRAMER	MG_322,MG_323
-MG_333_DIMER	MG_333
-MG_336_DIMER	MG_336
-MG_351_HEXAMER	MG_351
-MG_357_DIMER	MG_357
-MG_368_DIMER	MG_368
-MG_369_DIMER	MG_369
-MG_372_DIMER	MG_372
-MG_382_TETRAMER	MG_382
-MG_383_DIMER	MG_383
-MG_385_DIMER	MG_385
-MG_390_DIMER	MG_390
-MG_394_TETRAMER	MG_394
-MG_396_DIMER	MG_396
-MG_398_399_400_401_402_403_404_405_22MER	MG_405,MG_404,MG_403,MG_402,MG_401,MG_398,MG_399,MG_400
-MG_407_DIMER	MG_407
-MG_410_411_412_PENTAMER	MG_410,MG_411,MG_412
-MG_431_DIMER	MG_431
-MG_434_HEXAMER	MG_434
-MG_437_DIMER	MG_437
-MG_453_TETRAMER	MG_453
-MG_458_TETRAMER	MG_458
-MG_460_TETRAMER	MG_460
-MG_467_468_526_TETRAMER	MG_468,MG_526,MG_467
-MG_482_DIMER	MG_482
+eid	name	model_type	genes
+MG_009_MONOMER	deoxyribonuclease	ProteinMonomer	MG_009
+MG_037_MONOMER	nicotinate phosphoribosyltransferase	ProteinMonomer	MG_037
+MG_050_MONOMER	deoxyribose-phosphate aldolase	ProteinMonomer	MG_050
+MG_061_MONOMER	Mycoplasma MFS transporter	ProteinMonomer	MG_061
+MG_071_MONOMER	ATPase, P-type (transporting), HAD superfamily, subfamily IC	ProteinMonomer	MG_071
+MG_130_MONOMER		ProteinMonomer	MG_130
+MG_145_MONOMER	riboflavin biosynthesis protein RibF	ProteinMonomer	MG_145
+MG_171_MONOMER	adenylate kinase	ProteinMonomer	MG_171
+MG_212_MONOMER	1-acyl-sn-glycerol-3-phosphate acyltransferase, putative	ProteinMonomer	MG_212
+MG_230_MONOMER	ribonucleotide reductase stimulatory protein	ProteinMonomer	MG_230
+MG_245_MONOMER	5-formyltetrahydrofolate cyclo-ligase, putative	ProteinMonomer	MG_245
+MG_264_MONOMER	dephospho-CoA kinase	ProteinMonomer	MG_264
+MG_270_MONOMER	lipoyltransferase/lipoate-protein ligase, putative	ProteinMonomer	MG_270
+MG_300_MONOMER	phosphoglycerate kinase	ProteinMonomer	MG_300
+MG_310_MONOMER	hydrolase, Putative esterase/lipase 1	ProteinMonomer	MG_310
+MG_327_MONOMER	hydrolase, Putative esterase/lipase 2	ProteinMonomer	MG_327
+MG_330_MONOMER	cytidylate kinase	ProteinMonomer	MG_330
+MG_517_MONOMER	glycosyl transferase, group 2 family protein	ProteinMonomer	MG_517
+MG_342_MONOMER	NADPH-dependent FMN reductase domain protein	ProteinMonomer	MG_342
+MG_344_MONOMER	hydrolase, Putative esterase/lipase 3	ProteinMonomer	MG_344
+MG_356_MONOMER	choline/ethanolamine kinase, putative	ProteinMonomer	MG_356
+MG_408_MONOMER	methionine-S-sulfoxide reductase	ProteinMonomer	MG_408
+MG_430_MONOMER	2,3-bisphosphoglycerate-independent phosphoglycerate mutase	ProteinMonomer	MG_430
+MG_447_MONOMER	multidrug efflux pump	ProteinMonomer	MG_447
+MG_448_MONOMER	methionine-R-sulfoxide reductase	ProteinMonomer	MG_448
+MG_006_DIMER	thymidylate kinase	ProteinComplex	MG_006
+MG_013_DIMER	methylenetetrahydrofolate dehydrogenase/methylenetetrahydrofolate cyclohydrolase	ProteinComplex	MG_013
+MG_014_015_DIMER	multidrug ABC transporter	ProteinComplex	MG_014,MG_015
+MG_023_DIMER	fructose-1,6-bisphosphate aldolase, class II	ProteinComplex	MG_023
+MG_030_TRIMER	uracil phosphoribosyltransferase	ProteinComplex	MG_030
+MG_033_TETRAMER	glycerol uptake facilitator	ProteinComplex	MG_033
+MG_034_DIMER	thymidine kinase	ProteinComplex	MG_034
+MG_038_TETRAMER	glycerol kinase	ProteinComplex	MG_038
+MG_039_DIMER	FAD-dependent glycerol-3-phosphate dehydrogenase, putative	ProteinComplex	MG_039
+MG_040_119_120_121_PENTAMER	Monosaccharide (riboside/galactoside) ABC transporter	ProteinComplex	MG_119,MG_120,MG_121,MG_040
+MG_041_062_429_PENTAMER	PTS system, fructose-specific	ProteinComplex	MG_429,MG_041,MG_062
+MG_041_069_429_PENTAMER	PTS system, glucose-specific	ProteinComplex	MG_429,MG_069,MG_041
+MG_042_043_044_045_PENTAMER	spermidine/putrescine (polyamine) ABC transporter	ProteinComplex	MG_045,MG_044,MG_043,MG_042
+MG_047_TETRAMER	S-adenosylmethionine synthetase	ProteinComplex	MG_047
+MG_049_HEXAMER	purine nucleoside phosphorylase	ProteinComplex	MG_049
+MG_051_DIMER	pyrimidine-nucleoside phosphorylase	ProteinComplex	MG_051
+MG_052_DIMER	cytidine deaminase	ProteinComplex	MG_052
+MG_053_TRIMER	phosphoglucomutase/phosphomannomutase, putative	ProteinComplex	MG_053
+MG_058_HEXAMER	ribose-phosphate pyrophosphokinase	ProteinComplex	MG_058
+MG_063_DIMER	1-phosphofructokinase, putative	ProteinComplex	MG_063
+MG_066_DIMER	transketolase	ProteinComplex	MG_066
+MG_077_078_079_080_321_PENTAMER	oligopeptide ABC transporter	ProteinComplex	MG_077,MG_321,MG_080,MG_078,MG_079
+MG_102_DIMER	thioredoxin-disulfide reductase	ProteinComplex	MG_102
+MG_105_OCTAMER	putative DNA integrity scanning protein	ProteinComplex	MG_105
+MG_107_DIMER	guanylate kinase	ProteinComplex	MG_107
+MG_111_DIMER	glucose-6-phosphate isomerase	ProteinComplex	MG_111
+MG_112_DIMER	ribulose-phosphate 3-epimerase	ProteinComplex	MG_112
+MG_114_DIMER	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase	ProteinComplex	MG_114
+MG_118_DIMER	UDP-glucose 4-epimerase	ProteinComplex	MG_118
+MG_123_DIMER	arginine deaminase	ProteinComplex	MG_123
+MG_128_HEXAMER	inorganic polyphosphate/ATP-NAD kinase, probable	ProteinComplex	MG_128
+MG_137_DIMER	UDP-galactopyranose mutase	ProteinComplex	MG_137
+MG_179_180_181_TETRAMER	metal ion (cobalt) ABC transporter	ProteinComplex	MG_180,MG_181,MG_179
+MG_186_187_188_189_PENTAMER	Oligosaccharide or polyol ABC transporter	ProteinComplex	MG_188,MG_189,MG_186,MG_187
+MG_215_TETRAMER	6-phosphofructokinase	ProteinComplex	MG_215
+MG_216_TETRAMER	pyruvate kinase	ProteinComplex	MG_216
+MG_225_DIMER	amino acid transporter	ProteinComplex	MG_225
+MG_226_DIMER	amino acid transporter	ProteinComplex	MG_226
+MG_227_DIMER	thymidylate synthase	ProteinComplex	MG_227
+MG_228_TETRAMER	dihydrofolate reductase	ProteinComplex	MG_228
+MG_229_231_TETRAMER	ribonucleoside-diphosphate reductase	ProteinComplex	MG_229,MG_231
+MG_240_HEXAMER	nicotinamide-nucleotide adenylyltransferase/conserved hypothetical protein	ProteinComplex	MG_240
+MG_259_TETRAMER	modification methylase	ProteinComplex	MG_259
+MG_265_DIMER	sugar phosphatase	ProteinComplex	MG_265
+MG_271_272_273_274_192MER	pyruvate dehydrogenase	ProteinComplex	MG_271,MG_272,MG_273,MG_274
+MG_275_TETRAMER	NADH oxidase	ProteinComplex	MG_275
+MG_276_DIMER	adenine phosphoribosyltransferase	ProteinComplex	MG_276
+MG_278_DIMER	GTP pyrophosphokinase	ProteinComplex	MG_278
+MG_289_290_291_PENTAMER	phosphonate ABC transporter	ProteinComplex	MG_289,MG_290,MG_291
+MG_293_DIMER	glycerophosphoryl diester phosphodiesterase family protein	ProteinComplex	MG_293
+MG_299_DIMER	phosphate acetyltransferase	ProteinComplex	MG_299
+MG_301_TETRAMER	glyceraldehyde-3-phosphate dehydrogenase, type I	ProteinComplex	MG_301
+MG_302_303_304_TETRAMER	metal ion (cobalt) ABC transporter	ProteinComplex	MG_302,MG_303,MG_304
+MG_316_DIMER	DNA internalization-related competence protein ComEC/Rec2	ProteinComplex	MG_316
+MG_322_323_TETRAMER	potassium uptake protein, TrkH family, putative	ProteinComplex	MG_322,MG_323
+MG_333_DIMER	FMN-dependent NADH-azoreductase, putative	ProteinComplex	MG_333
+MG_336_DIMER	cysteine desulfurase	ProteinComplex	MG_336
+MG_351_HEXAMER	inorganic pyrophosphatase	ProteinComplex	MG_351
+MG_357_DIMER	acetate kinase	ProteinComplex	MG_357
+MG_368_DIMER	fatty acid/phospholipid synthesis protein PlsX	ProteinComplex	MG_368
+MG_369_DIMER	DAK2 phosphatase domain protein	ProteinComplex	MG_369
+MG_372_DIMER	thiamine biosynthesis/tRNA modification protein ThiI	ProteinComplex	MG_372
+MG_382_TETRAMER	uridine kinase	ProteinComplex	MG_382
+MG_383_DIMER	NH(3)-dependent NAD+ synthetase, putative	ProteinComplex	MG_383
+MG_385_DIMER	glycerophosphoryl diester phosphodiesterase family protein	ProteinComplex	MG_385
+MG_390_DIMER	toxin ABC transporter, ATP-binding/permease protein	ProteinComplex	MG_390
+MG_394_TETRAMER	serine hydroxymethyltransferase	ProteinComplex	MG_394
+MG_396_DIMER	ribose 5-phosphate isomerase B	ProteinComplex	MG_396
+MG_398_399_400_401_402_403_404_405_22MER	H(+)-transporting two-sector ATPase	ProteinComplex	MG_405,MG_404,MG_403,MG_402,MG_401,MG_398,MG_399,MG_400
+MG_407_DIMER	enolase	ProteinComplex	MG_407
+MG_410_411_412_PENTAMER	phosphate ABC transporter	ProteinComplex	MG_410,MG_411,MG_412
+MG_431_DIMER	triosephosphate isomerase	ProteinComplex	MG_431
+MG_434_HEXAMER	uridylate kinase	ProteinComplex	MG_434
+MG_437_DIMER	phosphatidate cytidylyltransferase	ProteinComplex	MG_437
+MG_453_TETRAMER	UTP-glucose-1-phosphate uridylyltransferase	ProteinComplex	MG_453
+MG_458_TETRAMER	hypoxanthine phosphoribosyltransferase	ProteinComplex	MG_458
+MG_460_TETRAMER	L-lactate dehydrogenase/malate dehydrogenase	ProteinComplex	MG_460
+MG_467_468_526_TETRAMER	salivaricin A ABC transporter	ProteinComplex	MG_468,MG_526,MG_467
+MG_482_DIMER	holo-(acyl-carrier-protein) synthase	ProteinComplex	MG_482

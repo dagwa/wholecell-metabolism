@@ -163,16 +163,25 @@ def get_genes_for_protein(p):
     return genes
         
 # find genes
+all_names = []
+all_types = []
 all_genes = []
 for eid in e_df.eid:
     p = Protein.objects.get(wid=eid)
+    all_names.append(p.name)
+    all_types.append(p.model_type)
     genes = get_genes_for_protein(p)     
     print p, '|', p.model_type, '|', p.name
     print '=>', ','.join(genes)
     all_genes.append(','.join(genes)) # string format for DataFrame
 
+e_df['name'] = Series(all_names, index=e_df.index)
+e_df['model_type'] = Series(all_types, index=e_df.index)
 e_df['genes'] = Series(all_genes, index=e_df.index)
-e_df
+
+
+e_df.head()
+e_df.to_csv(os.path.join(matrix_dir, 'e_fba.csv'), sep="\t", index=False)
 
 ##########################################################################
 # <Reactions>
@@ -245,6 +254,25 @@ r_fba_df['ub_fbaEnzymeBounds'] = fbaReactionBounds[:, 1]
 fbaObjective = state['fbaObjective']  # [504x1]
 r_fba_df['fbaObjective'] = fbaObjective
 
+# additional fields for SBML
+from public.models import Reaction
+from django.core.exceptions import ObjectDoesNotExist
+all_names = []
+all_types = []
+r_fba_df
+for wid in r_fba_df.index:
+    print wid
+    try:
+        r = Reaction.objects.get(wid=wid)
+        all_names.append(r.name)
+        all_types.append(r.model_type)
+    except ObjectDoesNotExist:
+        all_names.append(wid)
+        all_types.append(None)
+    
+r_fba_df['name'] = Series(all_names, index=r_fba_df.index)
+r_fba_df['model_type'] = Series(all_types, index=r_fba_df.index)
+
 # save the reaction information
 r_fba_df.to_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t", index=False)
 
@@ -308,8 +336,42 @@ for k, index in enumerate(fbaSubstrateIndexs_biomass):
 fbaRightHandSide = state['fbaRightHandSide']  # [376x1]
 s_fba_df['fbaRightHandSide'] = fbaRightHandSide
 
-# set index and save
+# Set index
 s_fba_df = s_fba_df.set_index(s_fba_df['sid'])
+
+
+def get_wid_from_sid(sid):
+    tokens = sid.split('__')
+    wid = tokens[0]
+    if len(tokens) == 2:
+        comp = tokens[1]
+    else:
+        comp = 'c'
+    return wid, comp
+
+from public.models import Molecule
+all_names = []
+all_types = []
+all_comps = []
+for sid in s_fba_df.index:
+    print sid
+    wid, comp = get_wid_from_sid(sid)
+    try:
+        s = Molecule.objects.get(wid=wid)
+        all_names.append(s.name)
+        all_types.append(s.model_type)
+        all_comps.append(comp)
+    except ObjectDoesNotExist:
+        all_names.append(wid)
+        all_types.append(None)
+        all_comps.append(None)
+    
+s_fba_df['name'] = Series(all_names, index=s_fba_df.index)
+s_fba_df['model_type'] = Series(all_types, index=s_fba_df.index)
+s_fba_df['compartment'] = Series(all_comps, index=s_fba_df.index)
+
+# set index and save
+
 s_fba_df.to_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", index=False)
 
 ##########################################################################

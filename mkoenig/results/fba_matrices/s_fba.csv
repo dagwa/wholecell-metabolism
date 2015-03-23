@@ -1,377 +1,377 @@
-sid	fbaRightHandSide
-AC	0
-ACAL	0
-ACCOA	0
-ACTP	0
-AD	0
-ADN	0
-ADP	0
-AEPP	0
-AHCYS	0
-AKG	0
-ALA	0
-AlaAla	0
-AMET	0
-AMP	0
-ARG	0
-ArgArg	0
-ASN	0
-AsnAsn	0
-ASP	0
-AspAsp	0
-ATP	0
-CA	0
-CAP	0
-CDP	0
-CL	0
-cmnm5s2U	0
-cmnm5s2UMP	0
-CMP	0
-CO	0
-CO2	0
-COA	0
-CTP	0
-CU	0
-CYS	0
-CysCys	0
-CYTD	0
-DA	0
-DADP	0
-DAMP	0
-dApdAp	0
-DATP	0
-DC	0
-DCDP	0
-DCMP	0
-dCpdCp	0
-DCTP	0
-DG	0
-DGDP	0
-DGMP	0
-dGpdGp	0
-DGTP	0
-DHF	0
-dINS	0
-DPG	0
-DR1P	0
-DR5P	0
-DT	0
-DTDP	0
-DTMP	0
-dTpdTp	0
-DTTP	0
-DU	0
-DUMP	0
-E4P	0
-F1P	0
-F6P	0
-FAD	0
-FADH2	0
-FDP	0
-FE2	0
-FE3	0
-FMET	0
-FMN	0
-FMNH2	0
-FOR	0
-FTHF10	0
-FTHF5	0
-G1P	0
-G2P	0
-G3P	0
-G6P	0
-GDP	0
-GL	0
-GL3P	0
-GLN	0
-GlnGln	0
-GLU	0
-GluGlu	0
-GLY	0
-GlyGly	0
-Gm	0
-GmMP	0
-GMP	0
-GN	0
-GSN	0
-GTP	0
-H	0
-H2O	0
-H2O2	0
-HCYS	0
-HDCA	0
-HDCEA	0
-HDECEG3P	0
-HDECG3P	0
-HIS	0
-HisHis	0
-HYXN	0
-IDP	0
-ILE	0
-IleIle	0
-IMP	0
-INS	0
-ITP	0
-K	0
-k2C	0
-k2CMP	0
-LEU	0
-LeuLeu	0
-LIPOATE	0
-LIPOYLAMP	0
-LIPOYLLYS	0
-LYS	0
-LysLys	0
-m1G	0
-m1GMP	0
-m2G	0
-m2GMP	0
-m62A	0
-m62AMP	0
-m7G	0
-m7GMP	0
-MET	0
-METHF	0
-MetMet	0
-METTHF	0
-MG	0
-MN	0
-MO	0
-MOBD	0
-MTHF	0
-NA	0
-NAAD	0
-NAC	0
-NAD	0
-NADH	0
-NADP	0
-NADPH	0
-NAMN	0
-NH3	0
-NH4	0
-NI	0
-NMN	0
-O2	0
-OA	0
-OCDCEA	0
-ODEC11GP	0
-PEP	0
-PHE	0
-PhePhe	0
-PI	0
-PL5P	0
-PPAA	0
-PPGPP	0
-PPI	0
-PRO	0
-ProPro	0
-PRPP	0
-pSER	0
-PSIURI	0
-PSIURIMP	0
-pTHR	0
-PTRC	0
-pTYR	0
-PYDX	0
-PYR	0
-R1P	0
-R5P	0
-RIBFLV	0
-RL5P	0
-s4U	0
-s4UMP	0
-S7P	0
-SER	0
-SerSer	0
-SNGLYP	0
-SO4	0
-SPMD	0
-T3P1	0
-T3P2	0
-THF	0
-THM	0
-THR	0
-ThrThr	0
-THY	0
-TPP	0
-TRP	0
-TrpTrp	0
-TYR	0
-TyrTyr	0
-UDP	0
-UDPG	0
-UDPGAL	0
-UDPGALF	0
-Um	0
-UmMP	0
-UMP	0
-URA	0
-URI	0
-UTP	0
-VAL	0
-ValVal	0
-X5P	0
-ZN	0
-MG_124_MONOMER	0
-MG_124_MONOMER_ox	0
-MG_229_231_TETRAMER	0
-MG_229_231_TETRAMER_ox	0
-MG_287_MONOMER_ACP	0
-MG_287_MONOMER_hdeACP	0
-MG_287_MONOMER_octeACP	0
-MG_287_MONOMER_palmACP	0
-MG_427_DIMER	0
-MG_427_DIMER_ox	0
-MG_454_DIMER	0
-MG_454_DIMER_ox	0
-metaboliteInternalExchangeConstraints_ix_0	0
-metaboliteInternalExchangeConstraints_ix_1	0
-metaboliteInternalExchangeConstraints_ix_2	0
-metaboliteInternalExchangeConstraints_ix_3	0
-metaboliteInternalExchangeConstraints_ix_4	0
-metaboliteInternalExchangeConstraints_ix_5	0
-metaboliteInternalExchangeConstraints_ix_6	0
-biomass	0
-AC__e	0
-ACAL__e	0
-AD__e	0
-AEPP__e	0
-AKG__e	0
-AlaAla__e	0
-AMP__e	0
-AMP_Lysine__e	0
-AMP_Mor__e	0
-AMP_NH2__e	0
-ArgArg__e	0
-AsnAsn__e	0
-AspAsp__e	0
-BUT__e	0
-CA__e	0
-CAP__e	0
-CH3OH__e	0
-CL__e	0
-cmnm5s2U__e	0
-CO__e	0
-CO2__e	0
-COA__e	0
-CU__e	0
-CysCys__e	0
-CYTD__e	0
-DA__e	0
-DAMP__e	0
-dApdAp__e	0
-DCMP__e	0
-dCpdCp__e	0
-DDCA__e	0
-DGMP__e	0
-dGpdGp__e	0
-DIBUTYRIN__e	0
-dINS__e	0
-DTMP__e	0
-dTpdTp__e	0
-FE2__e	0
-FE3__e	0
-FOR__e	0
-FRU__e	0
-G6P__e	0
-GL__e	0
-GL3P__e	0
-GLC__e	0
-GLN__e	0
-GlnGln__e	0
-GluGlu__e	0
-GlyGly__e	0
-Gm__e	0
-GMP__e	0
-GMP_Lysine__e	0
-GMP_Mor__e	0
-GN__e	0
-H__e	0
-H2O__e	0
-H2O2__e	0
-HDCA__e	0
-HDCEA__e	0
-HisHis__e	0
-IleIle__e	0
-K__e	0
-k2C__e	0
-LeuLeu__e	0
-LIPOATE__e	0
-LYS__e	0
-LysLys__e	0
-m1G__e	0
-m2G__e	0
-m62A__e	0
-m7G__e	0
-METHYL_OCDCEA__e	0
-MetMet__e	0
-MG__e	0
-MN__e	0
-MOBD__e	0
-MONOBUTYRIN__e	0
-MOR__e	0
-NA__e	0
-NAC__e	0
-NH3__e	0
-NH4__e	0
-NI__e	0
-O2__e	0
-OA__e	0
-OCDCA__e	0
-OCDCEA__e	0
-PHE__e	0
-PhePhe__e	0
-PI__e	0
-POE_SORBITAN__e	0
-ProPro__e	0
-PSIURI__e	0
-PTRC__e	0
-PYDX__e	0
-RIBFLV__e	0
-s4U__e	0
-SerSer__e	0
-SO4__e	0
-SPMD__e	0
-STEROL__e	0
-THF__e	0
-THM__e	0
-ThrThr__e	0
-THY__e	0
-TRIBUTYRIN__e	0
-TRILAURIN__e	0
-TRIMYRISTIN__e	0
-TRIOLEIN__e	0
-TRIPALMITIN__e	0
-TRISTEARIN__e	0
-TRI_HDCEA_IN__e	0
-TRI_TTDCEA_IN__e	0
-TRP__e	0
-TrpTrp__e	0
-TTDCA__e	0
-TTDCEA__e	0
-TWEEN80__e	0
-TYR__e	0
-TyrTyr__e	0
-Um__e	0
-URA__e	0
-ValVal__e	0
-ZN__e	0
-CDPDG160__m	0
-CDPDG161__m	0
-CDPDG181__m	0
-CL160__m	0
-CL161__m	0
-CL181__m	0
-DAG160__m	0
-DAG161__m	0
-DAG181__m	0
-PA160__m	0
-PA161__m	0
-PA181__m	0
-PG160__m	0
-PG161__m	0
-PG181__m	0
-PGP160__m	0
-PGP161__m	0
-PGP181__m	0
-STEROL__m	0
+sid	fbaRightHandSide	name	model_type	compartment
+AC	0	acetate	Metabolite	c
+ACAL	0	acetaldehyde	Metabolite	c
+ACCOA	0	Acetyl-CoA	Metabolite	c
+ACTP	0	Acetyl phosphate	Metabolite	c
+AD	0	adenine	Metabolite	c
+ADN	0	adenosine	Metabolite	c
+ADP	0	ADP	Metabolite	c
+AEPP	0	2-aminoethylphosphonate	Metabolite	c
+AHCYS	0	S-Adenosyl-L-homocysteine	Metabolite	c
+AKG	0	2-Oxoglutarate	Metabolite	c
+ALA	0	L-alanine	Metabolite	c
+AlaAla	0	L-alanyl-L-alanine	Metabolite	c
+AMET	0	S-Adenosyl-L-methionine	Metabolite	c
+AMP	0	AMP	Metabolite	c
+ARG	0	L-Arginine	Metabolite	c
+ArgArg	0	L-arginyl-L-arginine	Metabolite	c
+ASN	0	L-Asparagine	Metabolite	c
+AsnAsn	0	L-asparaginyl-L-asparagine	Metabolite	c
+ASP	0	L-Aspartate	Metabolite	c
+AspAsp	0	L-aspartyl-L-aspartic Acid	Metabolite	c
+ATP	0	ATP	Metabolite	c
+CA	0	calcium ion	Metabolite	c
+CAP	0	carbamoyl phosphate	Metabolite	c
+CDP	0	CDP	Metabolite	c
+CL	0	chloride ion	Metabolite	c
+cmnm5s2U	0	5-carboxymethylaminomethyl-2-thiouridine	Metabolite	c
+cmnm5s2UMP	0	5-carboxymethylaminomethyl-2-thiouridine monophosphate	Metabolite	c
+CMP	0	CMP	Metabolite	c
+CO	0	cobalt ion	Metabolite	c
+CO2	0	carbon dioxide	Metabolite	c
+COA	0	coenzyme A	Metabolite	c
+CTP	0	CTP	Metabolite	c
+CU	0	cupric ion	Metabolite	c
+CYS	0	L-Cysteine	Metabolite	c
+CysCys	0	L-cysteinyl-L-cysteine	Metabolite	c
+CYTD	0	cytidine	Metabolite	c
+DA	0	deoxyadenosine	Metabolite	c
+DADP	0	dADP	Metabolite	c
+DAMP	0	dAMP	Metabolite	c
+dApdAp	0	dAp-dAp	Metabolite	c
+DATP	0	dATP	Metabolite	c
+DC	0	deoxycytidine	Metabolite	c
+DCDP	0	dCDP	Metabolite	c
+DCMP	0	dCMP	Metabolite	c
+dCpdCp	0	dCp-dCp	Metabolite	c
+DCTP	0	dCTP	Metabolite	c
+DG	0	deoxyguanosine	Metabolite	c
+DGDP	0	dGDP	Metabolite	c
+DGMP	0	dGMP	Metabolite	c
+dGpdGp	0	dGp-dGp	Metabolite	c
+DGTP	0	dGTP	Metabolite	c
+DHF	0	dihydrofolate	Metabolite	c
+dINS	0	2'-deoxyinosine	Metabolite	c
+DPG	0	3-Phospho-D-glyceroyl phosphate	Metabolite	c
+DR1P	0	2-Deoxy-D-ribose 1-phosphate	Metabolite	c
+DR5P	0	2-Deoxy-D-ribose 5-phosphate	Metabolite	c
+DT	0	thymidine	Metabolite	c
+DTDP	0	dTDP	Metabolite	c
+DTMP	0	dTMP	Metabolite	c
+dTpdTp	0	dTp-dTp	Metabolite	c
+DTTP	0	dTTP	Metabolite	c
+DU	0	deoxyuridine	Metabolite	c
+DUMP	0	dUMP	Metabolite	c
+E4P	0	D-Erythrose 4-phosphate	Metabolite	c
+F1P	0	D-Fructose 1-phosphate	Metabolite	c
+F6P	0	D-Fructose 6-phosphate	Metabolite	c
+FAD	0	flavin adenine dinucleotide, oxidized	Metabolite	c
+FADH2	0	flavin adenine dinucleotide, reduced	Metabolite	c
+FDP	0	D-Fructose 1,6-bisphosphate	Metabolite	c
+FE2	0	ferrous iron	Metabolite	c
+FE3	0	ferric iron	Metabolite	c
+FMET	0	N-Formyl-L-methionine	Metabolite	c
+FMN	0	flavin mononucleotide, oxidized	Metabolite	c
+FMNH2	0	flavin mononucleotide, reduced	Metabolite	c
+FOR	0	Formate	Metabolite	c
+FTHF10	0	10-formyl-tetrahydrofolate	Metabolite	c
+FTHF5	0	5-formyltetrahydrofolate	Metabolite	c
+G1P	0	D-Glucose 1-phosphate	Metabolite	c
+G2P	0	D-Glycerate 2-phosphate	Metabolite	c
+G3P	0	3-Phospho-D-glycerate	Metabolite	c
+G6P	0	D-Glucose 6-phosphate	Metabolite	c
+GDP	0	GDP	Metabolite	c
+GL	0	glycerol	Metabolite	c
+GL3P	0	Glycerol 3-phosphate	Metabolite	c
+GLN	0	L-glutamine	Metabolite	c
+GlnGln	0	L-glutaminyl-L-glutamine	Metabolite	c
+GLU	0	L-Glutamate	Metabolite	c
+GluGlu	0	L-glutamyl-L-glutamic acid	Metabolite	c
+GLY	0	glycine	Metabolite	c
+GlyGly	0	L-glycyl-L-glycine	Metabolite	c
+Gm	0	2'-O-methylguanosine	Metabolite	c
+GmMP	0	2'-O-methylguanosine monophosphate	Metabolite	c
+GMP	0	GMP	Metabolite	c
+GN	0	guanine	Metabolite	c
+GSN	0	guanosine	Metabolite	c
+GTP	0	GTP	Metabolite	c
+H	0	hydrogen ion	Metabolite	c
+H2O	0	water	Metabolite	c
+H2O2	0	hydrogen peroxide	Metabolite	c
+HCYS	0	L-homocysteine	Metabolite	c
+HDCA	0	Hexadecanoate (n-C16:0)	Metabolite	c
+HDCEA	0	Hexadecenoate (n-C16:1)	Metabolite	c
+HDECEG3P	0	1-hexadecanoyl-sn-glycerol 3-phosphate	Metabolite	c
+HDECG3P	0	1-hexadec-9-enoyl-sn-glycerol 3-phosphate	Metabolite	c
+HIS	0	L-Histidine	Metabolite	c
+HisHis	0	L-histidyl-L-histidine	Metabolite	c
+HYXN	0	hypoxanthine	Metabolite	c
+IDP	0	IDP	Metabolite	c
+ILE	0	L-Isoleucine	Metabolite	c
+IleIle	0	L-isoleucyl-L-isoleucine	Metabolite	c
+IMP	0	IMP	Metabolite	c
+INS	0	inosine	Metabolite	c
+ITP	0	ITP	Metabolite	c
+K	0	potassium ion	Metabolite	c
+k2C	0	lysidine	Metabolite	c
+k2CMP	0	lysidine monophosphate	Metabolite	c
+LEU	0	L-Leucine	Metabolite	c
+LeuLeu	0	L-leucyl-L-leucine	Metabolite	c
+LIPOATE	0	lipoate	Metabolite	c
+LIPOYLAMP	0	lipoyl-AMP	Metabolite	c
+LIPOYLLYS	0	N(6)-(lipoyl)lysine	Metabolite	c
+LYS	0	L-Lysine	Metabolite	c
+LysLys	0	L-lysyl-L-lysine	Metabolite	c
+m1G	0	1-methylguanosine	Metabolite	c
+m1GMP	0	1-methylguanosine monophosphate	Metabolite	c
+m2G	0	N(2)-methylguanosine	Metabolite	c
+m2GMP	0	N(2)-methylguanosine monophosphate	Metabolite	c
+m62A	0	N6,N6-dimethyladenosine	Metabolite	c
+m62AMP	0	N6,N6-dimethyladenosine monophosphate	Metabolite	c
+m7G	0	7-methylguanosine	Metabolite	c
+m7GMP	0	7-methylguanosine monophosphate	Metabolite	c
+MET	0	L-Methionine	Metabolite	c
+METHF	0	5,10-methyltetrahydrofolate	Metabolite	c
+MetMet	0	L-methionyl-L-methionine	Metabolite	c
+METTHF	0	5,10-Methylenetetrahydrofolate	Metabolite	c
+MG	0	magnesium ion	Metabolite	c
+MN	0	manganese ion	Metabolite	c
+MO	0	molybdenum ion	Metabolite	c
+MOBD	0	Molybdate	Metabolite	c
+MTHF	0	5-Methyltetrahydrofolate	Metabolite	c
+NA	0	sodium ion	Metabolite	c
+NAAD	0	nicotinic acid adenine dinucleotide	Metabolite	c
+NAC	0	nicotinate	Metabolite	c
+NAD	0	nicotinamide adenine dinucleotide, oxidized	Metabolite	c
+NADH	0	nicotinamide adenine dinucleotide, reduced	Metabolite	c
+NADP	0	nicotinamide adenine dinucleotide phosphate, oxidized	Metabolite	c
+NADPH	0	nicotinamide adenine dinucleotide phosphate, reduced	Metabolite	c
+NAMN	0	nicotinate/nicotinic acid mononucleotide	Metabolite	c
+NH3	0	ammonia	Metabolite	c
+NH4	0	ammonium	Metabolite	c
+NI	0	nickel	Metabolite	c
+NMN	0	nicotinamide mononucleotide	Metabolite	c
+O2	0	oxygen	Metabolite	c
+OA	0	oxaloacetate	Metabolite	c
+OCDCEA	0	octadecenoate (n-C18:1)	Metabolite	c
+ODEC11GP	0	1-octadec-11-enoyl-sn-glycerol 3-phosphate	Metabolite	c
+PEP	0	phosphoenolpyruvate	Metabolite	c
+PHE	0	L-phenylalanine	Metabolite	c
+PhePhe	0	L-phenylalanyl-L-phenylalanine	Metabolite	c
+PI	0	phosphate	Metabolite	c
+PL5P	0	Pyridoxal 5'-phosphate	Metabolite	c
+PPAA	0	Phosphonoacetaldehyde	Metabolite	c
+PPGPP	0	Guanosine 3',5'-bis(diphosphate)	Metabolite	c
+PPI	0	diphosphate	Metabolite	c
+PRO	0	L-Proline	Metabolite	c
+ProPro	0	L-prolyl-L-proline	Metabolite	c
+PRPP	0	5-Phospho-alpha-D-ribose 1-diphosphate	Metabolite	c
+pSER	0	phosphoserine	Metabolite	c
+PSIURI	0	pseudouridine	Metabolite	c
+PSIURIMP	0	pseudouridine monophoshate	Metabolite	c
+pTHR	0	phosphothreonine	Metabolite	c
+PTRC	0	putrescine	Metabolite	c
+pTYR	0	Phosphotyrosine	Metabolite	c
+PYDX	0	Pyridoxal	Metabolite	c
+PYR	0	pyruvate	Metabolite	c
+R1P	0	alpha-D-Ribose 1-phosphate	Metabolite	c
+R5P	0	alpha-D-Ribose 5-phosphate	Metabolite	c
+RIBFLV	0	riboflavin, oxidized	Metabolite	c
+RL5P	0	D-Ribulose 5-phosphate	Metabolite	c
+s4U	0	4-thiouridine	Metabolite	c
+s4UMP	0	4-thiouridine monophosphate	Metabolite	c
+S7P	0	D-sedoheptulose-7-phosphate	Metabolite	c
+SER	0	L-Serine	Metabolite	c
+SerSer	0	L-seryl-L-serine	Metabolite	c
+SNGLYP	0	sn-glycerol-1-phosphate	Metabolite	c
+SO4	0	sulphate	Metabolite	c
+SPMD	0	spermidine	Metabolite	c
+T3P1	0	D-glyceraldehdye-3-phosphate	Metabolite	c
+T3P2	0	Dihydroxyacetone phosphate	Metabolite	c
+THF	0	5,6,7,8-Tetrahydrofolate	Metabolite	c
+THM	0	thiamine	Metabolite	c
+THR	0	L-Threonine	Metabolite	c
+ThrThr	0	L-threonyl-L-threonine	Metabolite	c
+THY	0	thymine	Metabolite	c
+TPP	0	thiamine diphosphate	Metabolite	c
+TRP	0	L-tryptophan	Metabolite	c
+TrpTrp	0	L-trytophanyl-L-trytophan	Metabolite	c
+TYR	0	L-tyrosine	Metabolite	c
+TyrTyr	0	L-tyrosyl-L-tyrosine	Metabolite	c
+UDP	0	UDP	Metabolite	c
+UDPG	0	UDP-glucose	Metabolite	c
+UDPGAL	0	UDP-galactose	Metabolite	c
+UDPGALF	0	UDP-D-galacto-1,4-furanose	Metabolite	c
+Um	0	2'-O-methyluridine	Metabolite	c
+UmMP	0	2'-O-methyluridine monophosphate	Metabolite	c
+UMP	0	UMP	Metabolite	c
+URA	0	uracil	Metabolite	c
+URI	0	uridine	Metabolite	c
+UTP	0	UTP	Metabolite	c
+VAL	0	L-Valine	Metabolite	c
+ValVal	0	L-valyl-L-valine	Metabolite	c
+X5P	0	D-Xylulose 5-phosphate	Metabolite	c
+ZN	0	zinc ion	Metabolite	c
+MG_124_MONOMER	0	thioredoxin	ProteinMonomer	c
+MG_124_MONOMER_ox	0	oxidized thioredoxin	ProteinComplex	c
+MG_229_231_TETRAMER	0	ribonucleoside-diphosphate reductase	ProteinComplex	c
+MG_229_231_TETRAMER_ox	0	oxidized ribonucleoside-diphosphate reductase	ProteinComplex	c
+MG_287_MONOMER_ACP	0	holo acyl carrier protein	ProteinComplex	c
+MG_287_MONOMER_hdeACP	0	cis-hexadec-9-enoyl-[acyl-carrier protein] (n-C16:1)	ProteinComplex	c
+MG_287_MONOMER_octeACP	0	cis-octadec-11-enoyl-[acyl-carrier protein] (n-C18:1)	ProteinComplex	c
+MG_287_MONOMER_palmACP	0	Palmitoyl-ACP (n-C16:0ACP)	ProteinComplex	c
+MG_427_DIMER	0	osmotically inducible peroxidase	ProteinComplex	c
+MG_427_DIMER_ox	0	oxidized osmotically inducible peroxidase	ProteinComplex	c
+MG_454_DIMER	0	thiol-dependent peroxidase	ProteinComplex	c
+MG_454_DIMER_ox	0	oxidized thiol-dependent peroxidase	ProteinComplex	c
+metaboliteInternalExchangeConstraints_ix_0	0	metaboliteInternalExchangeConstraints_ix_0		
+metaboliteInternalExchangeConstraints_ix_1	0	metaboliteInternalExchangeConstraints_ix_1		
+metaboliteInternalExchangeConstraints_ix_2	0	metaboliteInternalExchangeConstraints_ix_2		
+metaboliteInternalExchangeConstraints_ix_3	0	metaboliteInternalExchangeConstraints_ix_3		
+metaboliteInternalExchangeConstraints_ix_4	0	metaboliteInternalExchangeConstraints_ix_4		
+metaboliteInternalExchangeConstraints_ix_5	0	metaboliteInternalExchangeConstraints_ix_5		
+metaboliteInternalExchangeConstraints_ix_6	0	metaboliteInternalExchangeConstraints_ix_6		
+biomass	0	biomass		
+AC__e	0	acetate	Metabolite	e
+ACAL__e	0	acetaldehyde	Metabolite	e
+AD__e	0	adenine	Metabolite	e
+AEPP__e	0	2-aminoethylphosphonate	Metabolite	e
+AKG__e	0	2-Oxoglutarate	Metabolite	e
+AlaAla__e	0	L-alanyl-L-alanine	Metabolite	e
+AMP__e	0	AMP	Metabolite	e
+AMP_Lysine__e	0	AMP-Lysine	Metabolite	e
+AMP_Mor__e	0	AMP-morpholidate	Metabolite	e
+AMP_NH2__e	0	AMP-NH2	Metabolite	e
+ArgArg__e	0	L-arginyl-L-arginine	Metabolite	e
+AsnAsn__e	0	L-asparaginyl-L-asparagine	Metabolite	e
+AspAsp__e	0	L-aspartyl-L-aspartic Acid	Metabolite	e
+BUT__e	0	butyric acid, butanoic acid	Metabolite	e
+CA__e	0	calcium ion	Metabolite	e
+CAP__e	0	carbamoyl phosphate	Metabolite	e
+CH3OH__e	0	methanol	Metabolite	e
+CL__e	0	chloride ion	Metabolite	e
+cmnm5s2U__e	0	5-carboxymethylaminomethyl-2-thiouridine	Metabolite	e
+CO__e	0	cobalt ion	Metabolite	e
+CO2__e	0	carbon dioxide	Metabolite	e
+COA__e	0	coenzyme A	Metabolite	e
+CU__e	0	cupric ion	Metabolite	e
+CysCys__e	0	L-cysteinyl-L-cysteine	Metabolite	e
+CYTD__e	0	cytidine	Metabolite	e
+DA__e	0	deoxyadenosine	Metabolite	e
+DAMP__e	0	dAMP	Metabolite	e
+dApdAp__e	0	dAp-dAp	Metabolite	e
+DCMP__e	0	dCMP	Metabolite	e
+dCpdCp__e	0	dCp-dCp	Metabolite	e
+DDCA__e	0	Dodecanoate (n-C12:0)	Metabolite	e
+DGMP__e	0	dGMP	Metabolite	e
+dGpdGp__e	0	dGp-dGp	Metabolite	e
+DIBUTYRIN__e	0	dibutyrin	Metabolite	e
+dINS__e	0	2'-deoxyinosine	Metabolite	e
+DTMP__e	0	dTMP	Metabolite	e
+dTpdTp__e	0	dTp-dTp	Metabolite	e
+FE2__e	0	ferrous iron	Metabolite	e
+FE3__e	0	ferric iron	Metabolite	e
+FOR__e	0	Formate	Metabolite	e
+FRU__e	0	D-Fructose	Metabolite	e
+G6P__e	0	D-Glucose 6-phosphate	Metabolite	e
+GL__e	0	glycerol	Metabolite	e
+GL3P__e	0	Glycerol 3-phosphate	Metabolite	e
+GLC__e	0	D-Glucose	Metabolite	e
+GLN__e	0	L-glutamine	Metabolite	e
+GlnGln__e	0	L-glutaminyl-L-glutamine	Metabolite	e
+GluGlu__e	0	L-glutamyl-L-glutamic acid	Metabolite	e
+GlyGly__e	0	L-glycyl-L-glycine	Metabolite	e
+Gm__e	0	2'-O-methylguanosine	Metabolite	e
+GMP__e	0	GMP	Metabolite	e
+GMP_Lysine__e	0	GMP-lysine	Metabolite	e
+GMP_Mor__e	0	GMP-morpholidate	Metabolite	e
+GN__e	0	guanine	Metabolite	e
+H__e	0	hydrogen ion	Metabolite	e
+H2O__e	0	water	Metabolite	e
+H2O2__e	0	hydrogen peroxide	Metabolite	e
+HDCA__e	0	Hexadecanoate (n-C16:0)	Metabolite	e
+HDCEA__e	0	Hexadecenoate (n-C16:1)	Metabolite	e
+HisHis__e	0	L-histidyl-L-histidine	Metabolite	e
+IleIle__e	0	L-isoleucyl-L-isoleucine	Metabolite	e
+K__e	0	potassium ion	Metabolite	e
+k2C__e	0	lysidine	Metabolite	e
+LeuLeu__e	0	L-leucyl-L-leucine	Metabolite	e
+LIPOATE__e	0	lipoate	Metabolite	e
+LYS__e	0	L-Lysine	Metabolite	e
+LysLys__e	0	L-lysyl-L-lysine	Metabolite	e
+m1G__e	0	1-methylguanosine	Metabolite	e
+m2G__e	0	N(2)-methylguanosine	Metabolite	e
+m62A__e	0	N6,N6-dimethyladenosine	Metabolite	e
+m7G__e	0	7-methylguanosine	Metabolite	e
+METHYL_OCDCEA__e	0	methyl oleate	Metabolite	e
+MetMet__e	0	L-methionyl-L-methionine	Metabolite	e
+MG__e	0	magnesium ion	Metabolite	e
+MN__e	0	manganese ion	Metabolite	e
+MOBD__e	0	Molybdate	Metabolite	e
+MONOBUTYRIN__e	0	1-monobutyrin	Metabolite	e
+MOR__e	0	morpholine	Metabolite	e
+NA__e	0	sodium ion	Metabolite	e
+NAC__e	0	nicotinate	Metabolite	e
+NH3__e	0	ammonia	Metabolite	e
+NH4__e	0	ammonium	Metabolite	e
+NI__e	0	nickel	Metabolite	e
+O2__e	0	oxygen	Metabolite	e
+OA__e	0	oxaloacetate	Metabolite	e
+OCDCA__e	0	octadecanoate (n-C18:0)	Metabolite	e
+OCDCEA__e	0	octadecenoate (n-C18:1)	Metabolite	e
+PHE__e	0	L-phenylalanine	Metabolite	e
+PhePhe__e	0	L-phenylalanyl-L-phenylalanine	Metabolite	e
+PI__e	0	phosphate	Metabolite	e
+POE_SORBITAN__e	0	Polyoxyethylene (20) sorbitan	Metabolite	e
+ProPro__e	0	L-prolyl-L-proline	Metabolite	e
+PSIURI__e	0	pseudouridine	Metabolite	e
+PTRC__e	0	putrescine	Metabolite	e
+PYDX__e	0	Pyridoxal	Metabolite	e
+RIBFLV__e	0	riboflavin, oxidized	Metabolite	e
+s4U__e	0	4-thiouridine	Metabolite	e
+SerSer__e	0	L-seryl-L-serine	Metabolite	e
+SO4__e	0	sulphate	Metabolite	e
+SPMD__e	0	spermidine	Metabolite	e
+STEROL__e	0	cholesterol	Metabolite	e
+THF__e	0	5,6,7,8-Tetrahydrofolate	Metabolite	e
+THM__e	0	thiamine	Metabolite	e
+ThrThr__e	0	L-threonyl-L-threonine	Metabolite	e
+THY__e	0	thymine	Metabolite	e
+TRIBUTYRIN__e	0	tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin	Metabolite	e
+TRILAURIN__e	0	trilaurin	Metabolite	e
+TRIMYRISTIN__e	0	trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate	Metabolite	e
+TRIOLEIN__e	0	triolein	Metabolite	e
+TRIPALMITIN__e	0	tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate	Metabolite	e
+TRISTEARIN__e	0	Tristearin	Metabolite	e
+TRI_HDCEA_IN__e	0	triacylglycerol of {Hexadecenoate acid}	Metabolite	e
+TRI_TTDCEA_IN__e	0	triacylglycerol of {tetradecenoic acid}	Metabolite	e
+TRP__e	0	L-tryptophan	Metabolite	e
+TrpTrp__e	0	L-trytophanyl-L-trytophan	Metabolite	e
+TTDCA__e	0	tetradecanoate (n-C14:0)	Metabolite	e
+TTDCEA__e	0	tetradecenoate (n-C14:1)	Metabolite	e
+TWEEN80__e	0	Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80	Metabolite	e
+TYR__e	0	L-tyrosine	Metabolite	e
+TyrTyr__e	0	L-tyrosyl-L-tyrosine	Metabolite	e
+Um__e	0	2'-O-methyluridine	Metabolite	e
+URA__e	0	uracil	Metabolite	e
+ValVal__e	0	L-valyl-L-valine	Metabolite	e
+ZN__e	0	zinc ion	Metabolite	e
+CDPDG160__m	0	CDP-1,2-dihexadecanoylglycerol	Metabolite	m
+CDPDG161__m	0	CDP-1,2-dihexadec-9-enoylglycerol	Metabolite	m
+CDPDG181__m	0	CDP-1,2-dioctadec-11-enoylglycerol	Metabolite	m
+CL160__m	0	cardiolipin (tetrahexadecanoyl, n-C16:0)	Metabolite	m
+CL161__m	0	cardiolipin (tetrahexadec-9-enoyl, n-C16:1)	Metabolite	m
+CL181__m	0	cardiolipin (tetraoctadec-11-enoyl, n-C18:1)	Metabolite	m
+DAG160__m	0	Diacylglycerol (n-16:0)	Metabolite	m
+DAG161__m	0	Diacylglycerol (n-16:1)	Metabolite	m
+DAG181__m	0	Diacylglycerol (n-18:1)	Metabolite	m
+PA160__m	0	1,2-dihexadecanoyl-sn-glycerol 3-phosphate	Metabolite	m
+PA161__m	0	1,2-dihexadec-9-enoyl-sn-glycerol 3-phosphate	Metabolite	m
+PA181__m	0	1,2-dioctadec-11-enoyl-sn-glycerol 3-phosphate	Metabolite	m
+PG160__m	0	Phosphatidylglycerol (dihexadecanoyl, n-C16:0)	Metabolite	m
+PG161__m	0	Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1)	Metabolite	m
+PG181__m	0	Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1)	Metabolite	m
+PGP160__m	0	Phosphatidylglycerophosphate (dihexadecanoyl, n-C16:0)	Metabolite	m
+PGP161__m	0	Phosphatidylglycerophosphate (dihexadec-9-enoyl, n-C16:1)	Metabolite	m
+PGP181__m	0	Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)	Metabolite	m
+STEROL__m	0	cholesterol	Metabolite	m
