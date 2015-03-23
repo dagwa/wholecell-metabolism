@@ -67,6 +67,7 @@ FBA calculation with dynamical updated fluxBounds.
 """
 
 from pandas import DataFrame
+from pandas import Series
 
 ##############################################################################
 # constant definitions in Karr model
@@ -131,6 +132,47 @@ e_df = clean_whole_cell_Ids(eids, 'eid')
 # 504 Reactions
 # 376 Substrates
 # 104 Enzymes
+
+
+##########################################################################
+# <Enzymes>
+##########################################################################
+# Find recursively the gene associations for given proteins.
+# Every ProteinMonomer has an associated gene. Every ProteinComplex
+# consists of ProteinMonomers and/or ProteinComplexes. 
+from public.models import Protein, ProteinMonomer, ProteinComplex
+
+def get_genes_for_protein(p):
+    ''' Recursive finding of all genes for ProteinComplexes '''
+    genes = set()
+    if p.model_type == 'ProteinMonomer':
+        pm = ProteinMonomer.objects.get(wid=p.wid)
+        genes.add(pm.gene.wid)
+        # print pm, pm.model_type, '=>', pm.gene.wid
+        
+    elif p.model_type == 'ProteinComplex':
+        pc = ProteinComplex.objects.get(wid=p.wid)
+        # find all the proteinmonomers involved
+        for participant in pc.biosynthesis.all():
+            if participant.molecule_id == pc.id:
+                # do not further follow the protein we are already looking at
+                continue
+            else:
+                protein = Protein.objects.get(id=participant.molecule_id)
+                genes = genes.union(get_genes_for_protein(protein))
+    return genes
+        
+# find genes
+all_genes = []
+for eid in e_df.eid:
+    p = Protein.objects.get(wid=eid)
+    genes = get_genes_for_protein(p)     
+    print p, '|', p.model_type, '|', p.name
+    print '=>', ','.join(genes)
+    all_genes.append(','.join(genes)) # string format for DataFrame
+
+e_df['genes'] = Series(all_genes, index=e_df.index)
+e_df
 
 ##########################################################################
 # <Reactions>
@@ -204,7 +246,7 @@ fbaObjective = state['fbaObjective']  # [504x1]
 r_fba_df['fbaObjective'] = fbaObjective
 
 # save the reaction information
-r_fba_df.to_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
+r_fba_df.to_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t", index=False)
 
 ##########################################################################
 # <Substrates>
@@ -240,7 +282,10 @@ for k, item in enumerate(substrateIndexs_fba):
     index %= N_substrates
 
     # add the correct compartment    
-    sid = '{}_{}'.format(s_df['sid'][index], compartment)
+    if compartment != 'c':
+        sid = '{}__{}'.format(s_df['sid'][index], compartment)
+    else:
+        sid = '{}'.format(s_df['sid'][index])
 
     if compartment != 'c':
         # 8 elements (internal exchange and biomass) are out of order
@@ -265,7 +310,7 @@ s_fba_df['fbaRightHandSide'] = fbaRightHandSide
 
 # set index and save
 s_fba_df = s_fba_df.set_index(s_fba_df['sid'])
-s_fba_df.to_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t")
+s_fba_df.to_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", index=False)
 
 ##########################################################################
 # Reaction Stoichiometry Matrxix [376x504]
@@ -277,7 +322,7 @@ fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376
 
 mat_stoichiometry = DataFrame(fbaReactionStoichiometryMatrix, columns=r_fba_df.index)
 mat_stoichiometry = mat_stoichiometry.set_index(s_fba_df.index)
-mat_stoichiometry.to_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t")
+mat_stoichiometry.to_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t", index=False)
 
 ##########################################################################
 # fbaReactionCatalysisMatrix  [504x104]
@@ -288,4 +333,4 @@ fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix']  # [504x104]
 
 mat_catalysis = DataFrame(fbaReactionCatalysisMatrix, columns=e_df.index)
 mat_catalysis = mat_catalysis.set_index(r_fba_df.index)
-mat_catalysis.to_csv(os.path.join(matrix_dir, 'fbaReactionCatalysisMatrix.csv'), sep="\t")
+mat_catalysis.to_csv(os.path.join(matrix_dir, 'fbaReactionCatalysisMatrix.csv'), sep="\t", index=False)

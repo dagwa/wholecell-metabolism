@@ -1,377 +1,377 @@
-sid	sid	fbaRightHandSide
-AC_c	AC_c	0
-ACAL_c	ACAL_c	0
-ACCOA_c	ACCOA_c	0
-ACTP_c	ACTP_c	0
-AD_c	AD_c	0
-ADN_c	ADN_c	0
-ADP_c	ADP_c	0
-AEPP_c	AEPP_c	0
-AHCYS_c	AHCYS_c	0
-AKG_c	AKG_c	0
-ALA_c	ALA_c	0
-AlaAla_c	AlaAla_c	0
-AMET_c	AMET_c	0
-AMP_c	AMP_c	0
-ARG_c	ARG_c	0
-ArgArg_c	ArgArg_c	0
-ASN_c	ASN_c	0
-AsnAsn_c	AsnAsn_c	0
-ASP_c	ASP_c	0
-AspAsp_c	AspAsp_c	0
-ATP_c	ATP_c	0
-CA_c	CA_c	0
-CAP_c	CAP_c	0
-CDP_c	CDP_c	0
-CL_c	CL_c	0
-cmnm5s2U_c	cmnm5s2U_c	0
-cmnm5s2UMP_c	cmnm5s2UMP_c	0
-CMP_c	CMP_c	0
-CO_c	CO_c	0
-CO2_c	CO2_c	0
-COA_c	COA_c	0
-CTP_c	CTP_c	0
-CU_c	CU_c	0
-CYS_c	CYS_c	0
-CysCys_c	CysCys_c	0
-CYTD_c	CYTD_c	0
-DA_c	DA_c	0
-DADP_c	DADP_c	0
-DAMP_c	DAMP_c	0
-dApdAp_c	dApdAp_c	0
-DATP_c	DATP_c	0
-DC_c	DC_c	0
-DCDP_c	DCDP_c	0
-DCMP_c	DCMP_c	0
-dCpdCp_c	dCpdCp_c	0
-DCTP_c	DCTP_c	0
-DG_c	DG_c	0
-DGDP_c	DGDP_c	0
-DGMP_c	DGMP_c	0
-dGpdGp_c	dGpdGp_c	0
-DGTP_c	DGTP_c	0
-DHF_c	DHF_c	0
-dINS_c	dINS_c	0
-DPG_c	DPG_c	0
-DR1P_c	DR1P_c	0
-DR5P_c	DR5P_c	0
-DT_c	DT_c	0
-DTDP_c	DTDP_c	0
-DTMP_c	DTMP_c	0
-dTpdTp_c	dTpdTp_c	0
-DTTP_c	DTTP_c	0
-DU_c	DU_c	0
-DUMP_c	DUMP_c	0
-E4P_c	E4P_c	0
-F1P_c	F1P_c	0
-F6P_c	F6P_c	0
-FAD_c	FAD_c	0
-FADH2_c	FADH2_c	0
-FDP_c	FDP_c	0
-FE2_c	FE2_c	0
-FE3_c	FE3_c	0
-FMET_c	FMET_c	0
-FMN_c	FMN_c	0
-FMNH2_c	FMNH2_c	0
-FOR_c	FOR_c	0
-FTHF10_c	FTHF10_c	0
-FTHF5_c	FTHF5_c	0
-G1P_c	G1P_c	0
-G2P_c	G2P_c	0
-G3P_c	G3P_c	0
-G6P_c	G6P_c	0
-GDP_c	GDP_c	0
-GL_c	GL_c	0
-GL3P_c	GL3P_c	0
-GLN_c	GLN_c	0
-GlnGln_c	GlnGln_c	0
-GLU_c	GLU_c	0
-GluGlu_c	GluGlu_c	0
-GLY_c	GLY_c	0
-GlyGly_c	GlyGly_c	0
-Gm_c	Gm_c	0
-GmMP_c	GmMP_c	0
-GMP_c	GMP_c	0
-GN_c	GN_c	0
-GSN_c	GSN_c	0
-GTP_c	GTP_c	0
-H_c	H_c	0
-H2O_c	H2O_c	0
-H2O2_c	H2O2_c	0
-HCYS_c	HCYS_c	0
-HDCA_c	HDCA_c	0
-HDCEA_c	HDCEA_c	0
-HDECEG3P_c	HDECEG3P_c	0
-HDECG3P_c	HDECG3P_c	0
-HIS_c	HIS_c	0
-HisHis_c	HisHis_c	0
-HYXN_c	HYXN_c	0
-IDP_c	IDP_c	0
-ILE_c	ILE_c	0
-IleIle_c	IleIle_c	0
-IMP_c	IMP_c	0
-INS_c	INS_c	0
-ITP_c	ITP_c	0
-K_c	K_c	0
-k2C_c	k2C_c	0
-k2CMP_c	k2CMP_c	0
-LEU_c	LEU_c	0
-LeuLeu_c	LeuLeu_c	0
-LIPOATE_c	LIPOATE_c	0
-LIPOYLAMP_c	LIPOYLAMP_c	0
-LIPOYLLYS_c	LIPOYLLYS_c	0
-LYS_c	LYS_c	0
-LysLys_c	LysLys_c	0
-m1G_c	m1G_c	0
-m1GMP_c	m1GMP_c	0
-m2G_c	m2G_c	0
-m2GMP_c	m2GMP_c	0
-m62A_c	m62A_c	0
-m62AMP_c	m62AMP_c	0
-m7G_c	m7G_c	0
-m7GMP_c	m7GMP_c	0
-MET_c	MET_c	0
-METHF_c	METHF_c	0
-MetMet_c	MetMet_c	0
-METTHF_c	METTHF_c	0
-MG_c	MG_c	0
-MN_c	MN_c	0
-MO_c	MO_c	0
-MOBD_c	MOBD_c	0
-MTHF_c	MTHF_c	0
-NA_c	NA_c	0
-NAAD_c	NAAD_c	0
-NAC_c	NAC_c	0
-NAD_c	NAD_c	0
-NADH_c	NADH_c	0
-NADP_c	NADP_c	0
-NADPH_c	NADPH_c	0
-NAMN_c	NAMN_c	0
-NH3_c	NH3_c	0
-NH4_c	NH4_c	0
-NI_c	NI_c	0
-NMN_c	NMN_c	0
-O2_c	O2_c	0
-OA_c	OA_c	0
-OCDCEA_c	OCDCEA_c	0
-ODEC11GP_c	ODEC11GP_c	0
-PEP_c	PEP_c	0
-PHE_c	PHE_c	0
-PhePhe_c	PhePhe_c	0
-PI_c	PI_c	0
-PL5P_c	PL5P_c	0
-PPAA_c	PPAA_c	0
-PPGPP_c	PPGPP_c	0
-PPI_c	PPI_c	0
-PRO_c	PRO_c	0
-ProPro_c	ProPro_c	0
-PRPP_c	PRPP_c	0
-pSER_c	pSER_c	0
-PSIURI_c	PSIURI_c	0
-PSIURIMP_c	PSIURIMP_c	0
-pTHR_c	pTHR_c	0
-PTRC_c	PTRC_c	0
-pTYR_c	pTYR_c	0
-PYDX_c	PYDX_c	0
-PYR_c	PYR_c	0
-R1P_c	R1P_c	0
-R5P_c	R5P_c	0
-RIBFLV_c	RIBFLV_c	0
-RL5P_c	RL5P_c	0
-s4U_c	s4U_c	0
-s4UMP_c	s4UMP_c	0
-S7P_c	S7P_c	0
-SER_c	SER_c	0
-SerSer_c	SerSer_c	0
-SNGLYP_c	SNGLYP_c	0
-SO4_c	SO4_c	0
-SPMD_c	SPMD_c	0
-T3P1_c	T3P1_c	0
-T3P2_c	T3P2_c	0
-THF_c	THF_c	0
-THM_c	THM_c	0
-THR_c	THR_c	0
-ThrThr_c	ThrThr_c	0
-THY_c	THY_c	0
-TPP_c	TPP_c	0
-TRP_c	TRP_c	0
-TrpTrp_c	TrpTrp_c	0
-TYR_c	TYR_c	0
-TyrTyr_c	TyrTyr_c	0
-UDP_c	UDP_c	0
-UDPG_c	UDPG_c	0
-UDPGAL_c	UDPGAL_c	0
-UDPGALF_c	UDPGALF_c	0
-Um_c	Um_c	0
-UmMP_c	UmMP_c	0
-UMP_c	UMP_c	0
-URA_c	URA_c	0
-URI_c	URI_c	0
-UTP_c	UTP_c	0
-VAL_c	VAL_c	0
-ValVal_c	ValVal_c	0
-X5P_c	X5P_c	0
-ZN_c	ZN_c	0
-MG_124_MONOMER_c	MG_124_MONOMER_c	0
-MG_124_MONOMER_ox_c	MG_124_MONOMER_ox_c	0
-MG_229_231_TETRAMER_c	MG_229_231_TETRAMER_c	0
-MG_229_231_TETRAMER_ox_c	MG_229_231_TETRAMER_ox_c	0
-MG_287_MONOMER_ACP_c	MG_287_MONOMER_ACP_c	0
-MG_287_MONOMER_hdeACP_c	MG_287_MONOMER_hdeACP_c	0
-MG_287_MONOMER_octeACP_c	MG_287_MONOMER_octeACP_c	0
-MG_287_MONOMER_palmACP_c	MG_287_MONOMER_palmACP_c	0
-MG_427_DIMER_c	MG_427_DIMER_c	0
-MG_427_DIMER_ox_c	MG_427_DIMER_ox_c	0
-MG_454_DIMER_c	MG_454_DIMER_c	0
-MG_454_DIMER_ox_c	MG_454_DIMER_ox_c	0
-metaboliteInternalExchangeConstraints_ix_0	metaboliteInternalExchangeConstraints_ix_0	0
-metaboliteInternalExchangeConstraints_ix_1	metaboliteInternalExchangeConstraints_ix_1	0
-metaboliteInternalExchangeConstraints_ix_2	metaboliteInternalExchangeConstraints_ix_2	0
-metaboliteInternalExchangeConstraints_ix_3	metaboliteInternalExchangeConstraints_ix_3	0
-metaboliteInternalExchangeConstraints_ix_4	metaboliteInternalExchangeConstraints_ix_4	0
-metaboliteInternalExchangeConstraints_ix_5	metaboliteInternalExchangeConstraints_ix_5	0
-metaboliteInternalExchangeConstraints_ix_6	metaboliteInternalExchangeConstraints_ix_6	0
-biomass	biomass	0
-AC_e	AC_e	0
-ACAL_e	ACAL_e	0
-AD_e	AD_e	0
-AEPP_e	AEPP_e	0
-AKG_e	AKG_e	0
-AlaAla_e	AlaAla_e	0
-AMP_e	AMP_e	0
-AMP_Lysine_e	AMP_Lysine_e	0
-AMP_Mor_e	AMP_Mor_e	0
-AMP_NH2_e	AMP_NH2_e	0
-ArgArg_e	ArgArg_e	0
-AsnAsn_e	AsnAsn_e	0
-AspAsp_e	AspAsp_e	0
-BUT_e	BUT_e	0
-CA_e	CA_e	0
-CAP_e	CAP_e	0
-CH3OH_e	CH3OH_e	0
-CL_e	CL_e	0
-cmnm5s2U_e	cmnm5s2U_e	0
-CO_e	CO_e	0
-CO2_e	CO2_e	0
-COA_e	COA_e	0
-CU_e	CU_e	0
-CysCys_e	CysCys_e	0
-CYTD_e	CYTD_e	0
-DA_e	DA_e	0
-DAMP_e	DAMP_e	0
-dApdAp_e	dApdAp_e	0
-DCMP_e	DCMP_e	0
-dCpdCp_e	dCpdCp_e	0
-DDCA_e	DDCA_e	0
-DGMP_e	DGMP_e	0
-dGpdGp_e	dGpdGp_e	0
-DIBUTYRIN_e	DIBUTYRIN_e	0
-dINS_e	dINS_e	0
-DTMP_e	DTMP_e	0
-dTpdTp_e	dTpdTp_e	0
-FE2_e	FE2_e	0
-FE3_e	FE3_e	0
-FOR_e	FOR_e	0
-FRU_e	FRU_e	0
-G6P_e	G6P_e	0
-GL_e	GL_e	0
-GL3P_e	GL3P_e	0
-GLC_e	GLC_e	0
-GLN_e	GLN_e	0
-GlnGln_e	GlnGln_e	0
-GluGlu_e	GluGlu_e	0
-GlyGly_e	GlyGly_e	0
-Gm_e	Gm_e	0
-GMP_e	GMP_e	0
-GMP_Lysine_e	GMP_Lysine_e	0
-GMP_Mor_e	GMP_Mor_e	0
-GN_e	GN_e	0
-H_e	H_e	0
-H2O_e	H2O_e	0
-H2O2_e	H2O2_e	0
-HDCA_e	HDCA_e	0
-HDCEA_e	HDCEA_e	0
-HisHis_e	HisHis_e	0
-IleIle_e	IleIle_e	0
-K_e	K_e	0
-k2C_e	k2C_e	0
-LeuLeu_e	LeuLeu_e	0
-LIPOATE_e	LIPOATE_e	0
-LYS_e	LYS_e	0
-LysLys_e	LysLys_e	0
-m1G_e	m1G_e	0
-m2G_e	m2G_e	0
-m62A_e	m62A_e	0
-m7G_e	m7G_e	0
-METHYL_OCDCEA_e	METHYL_OCDCEA_e	0
-MetMet_e	MetMet_e	0
-MG_e	MG_e	0
-MN_e	MN_e	0
-MOBD_e	MOBD_e	0
-MONOBUTYRIN_e	MONOBUTYRIN_e	0
-MOR_e	MOR_e	0
-NA_e	NA_e	0
-NAC_e	NAC_e	0
-NH3_e	NH3_e	0
-NH4_e	NH4_e	0
-NI_e	NI_e	0
-O2_e	O2_e	0
-OA_e	OA_e	0
-OCDCA_e	OCDCA_e	0
-OCDCEA_e	OCDCEA_e	0
-PHE_e	PHE_e	0
-PhePhe_e	PhePhe_e	0
-PI_e	PI_e	0
-POE_SORBITAN_e	POE_SORBITAN_e	0
-ProPro_e	ProPro_e	0
-PSIURI_e	PSIURI_e	0
-PTRC_e	PTRC_e	0
-PYDX_e	PYDX_e	0
-RIBFLV_e	RIBFLV_e	0
-s4U_e	s4U_e	0
-SerSer_e	SerSer_e	0
-SO4_e	SO4_e	0
-SPMD_e	SPMD_e	0
-STEROL_e	STEROL_e	0
-THF_e	THF_e	0
-THM_e	THM_e	0
-ThrThr_e	ThrThr_e	0
-THY_e	THY_e	0
-TRIBUTYRIN_e	TRIBUTYRIN_e	0
-TRILAURIN_e	TRILAURIN_e	0
-TRIMYRISTIN_e	TRIMYRISTIN_e	0
-TRIOLEIN_e	TRIOLEIN_e	0
-TRIPALMITIN_e	TRIPALMITIN_e	0
-TRISTEARIN_e	TRISTEARIN_e	0
-TRI_HDCEA_IN_e	TRI_HDCEA_IN_e	0
-TRI_TTDCEA_IN_e	TRI_TTDCEA_IN_e	0
-TRP_e	TRP_e	0
-TrpTrp_e	TrpTrp_e	0
-TTDCA_e	TTDCA_e	0
-TTDCEA_e	TTDCEA_e	0
-TWEEN80_e	TWEEN80_e	0
-TYR_e	TYR_e	0
-TyrTyr_e	TyrTyr_e	0
-Um_e	Um_e	0
-URA_e	URA_e	0
-ValVal_e	ValVal_e	0
-ZN_e	ZN_e	0
-CDPDG160_m	CDPDG160_m	0
-CDPDG161_m	CDPDG161_m	0
-CDPDG181_m	CDPDG181_m	0
-CL160_m	CL160_m	0
-CL161_m	CL161_m	0
-CL181_m	CL181_m	0
-DAG160_m	DAG160_m	0
-DAG161_m	DAG161_m	0
-DAG181_m	DAG181_m	0
-PA160_m	PA160_m	0
-PA161_m	PA161_m	0
-PA181_m	PA181_m	0
-PG160_m	PG160_m	0
-PG161_m	PG161_m	0
-PG181_m	PG181_m	0
-PGP160_m	PGP160_m	0
-PGP161_m	PGP161_m	0
-PGP181_m	PGP181_m	0
-STEROL_m	STEROL_m	0
+sid	fbaRightHandSide
+AC	0
+ACAL	0
+ACCOA	0
+ACTP	0
+AD	0
+ADN	0
+ADP	0
+AEPP	0
+AHCYS	0
+AKG	0
+ALA	0
+AlaAla	0
+AMET	0
+AMP	0
+ARG	0
+ArgArg	0
+ASN	0
+AsnAsn	0
+ASP	0
+AspAsp	0
+ATP	0
+CA	0
+CAP	0
+CDP	0
+CL	0
+cmnm5s2U	0
+cmnm5s2UMP	0
+CMP	0
+CO	0
+CO2	0
+COA	0
+CTP	0
+CU	0
+CYS	0
+CysCys	0
+CYTD	0
+DA	0
+DADP	0
+DAMP	0
+dApdAp	0
+DATP	0
+DC	0
+DCDP	0
+DCMP	0
+dCpdCp	0
+DCTP	0
+DG	0
+DGDP	0
+DGMP	0
+dGpdGp	0
+DGTP	0
+DHF	0
+dINS	0
+DPG	0
+DR1P	0
+DR5P	0
+DT	0
+DTDP	0
+DTMP	0
+dTpdTp	0
+DTTP	0
+DU	0
+DUMP	0
+E4P	0
+F1P	0
+F6P	0
+FAD	0
+FADH2	0
+FDP	0
+FE2	0
+FE3	0
+FMET	0
+FMN	0
+FMNH2	0
+FOR	0
+FTHF10	0
+FTHF5	0
+G1P	0
+G2P	0
+G3P	0
+G6P	0
+GDP	0
+GL	0
+GL3P	0
+GLN	0
+GlnGln	0
+GLU	0
+GluGlu	0
+GLY	0
+GlyGly	0
+Gm	0
+GmMP	0
+GMP	0
+GN	0
+GSN	0
+GTP	0
+H	0
+H2O	0
+H2O2	0
+HCYS	0
+HDCA	0
+HDCEA	0
+HDECEG3P	0
+HDECG3P	0
+HIS	0
+HisHis	0
+HYXN	0
+IDP	0
+ILE	0
+IleIle	0
+IMP	0
+INS	0
+ITP	0
+K	0
+k2C	0
+k2CMP	0
+LEU	0
+LeuLeu	0
+LIPOATE	0
+LIPOYLAMP	0
+LIPOYLLYS	0
+LYS	0
+LysLys	0
+m1G	0
+m1GMP	0
+m2G	0
+m2GMP	0
+m62A	0
+m62AMP	0
+m7G	0
+m7GMP	0
+MET	0
+METHF	0
+MetMet	0
+METTHF	0
+MG	0
+MN	0
+MO	0
+MOBD	0
+MTHF	0
+NA	0
+NAAD	0
+NAC	0
+NAD	0
+NADH	0
+NADP	0
+NADPH	0
+NAMN	0
+NH3	0
+NH4	0
+NI	0
+NMN	0
+O2	0
+OA	0
+OCDCEA	0
+ODEC11GP	0
+PEP	0
+PHE	0
+PhePhe	0
+PI	0
+PL5P	0
+PPAA	0
+PPGPP	0
+PPI	0
+PRO	0
+ProPro	0
+PRPP	0
+pSER	0
+PSIURI	0
+PSIURIMP	0
+pTHR	0
+PTRC	0
+pTYR	0
+PYDX	0
+PYR	0
+R1P	0
+R5P	0
+RIBFLV	0
+RL5P	0
+s4U	0
+s4UMP	0
+S7P	0
+SER	0
+SerSer	0
+SNGLYP	0
+SO4	0
+SPMD	0
+T3P1	0
+T3P2	0
+THF	0
+THM	0
+THR	0
+ThrThr	0
+THY	0
+TPP	0
+TRP	0
+TrpTrp	0
+TYR	0
+TyrTyr	0
+UDP	0
+UDPG	0
+UDPGAL	0
+UDPGALF	0
+Um	0
+UmMP	0
+UMP	0
+URA	0
+URI	0
+UTP	0
+VAL	0
+ValVal	0
+X5P	0
+ZN	0
+MG_124_MONOMER	0
+MG_124_MONOMER_ox	0
+MG_229_231_TETRAMER	0
+MG_229_231_TETRAMER_ox	0
+MG_287_MONOMER_ACP	0
+MG_287_MONOMER_hdeACP	0
+MG_287_MONOMER_octeACP	0
+MG_287_MONOMER_palmACP	0
+MG_427_DIMER	0
+MG_427_DIMER_ox	0
+MG_454_DIMER	0
+MG_454_DIMER_ox	0
+metaboliteInternalExchangeConstraints_ix_0	0
+metaboliteInternalExchangeConstraints_ix_1	0
+metaboliteInternalExchangeConstraints_ix_2	0
+metaboliteInternalExchangeConstraints_ix_3	0
+metaboliteInternalExchangeConstraints_ix_4	0
+metaboliteInternalExchangeConstraints_ix_5	0
+metaboliteInternalExchangeConstraints_ix_6	0
+biomass	0
+AC__e	0
+ACAL__e	0
+AD__e	0
+AEPP__e	0
+AKG__e	0
+AlaAla__e	0
+AMP__e	0
+AMP_Lysine__e	0
+AMP_Mor__e	0
+AMP_NH2__e	0
+ArgArg__e	0
+AsnAsn__e	0
+AspAsp__e	0
+BUT__e	0
+CA__e	0
+CAP__e	0
+CH3OH__e	0
+CL__e	0
+cmnm5s2U__e	0
+CO__e	0
+CO2__e	0
+COA__e	0
+CU__e	0
+CysCys__e	0
+CYTD__e	0
+DA__e	0
+DAMP__e	0
+dApdAp__e	0
+DCMP__e	0
+dCpdCp__e	0
+DDCA__e	0
+DGMP__e	0
+dGpdGp__e	0
+DIBUTYRIN__e	0
+dINS__e	0
+DTMP__e	0
+dTpdTp__e	0
+FE2__e	0
+FE3__e	0
+FOR__e	0
+FRU__e	0
+G6P__e	0
+GL__e	0
+GL3P__e	0
+GLC__e	0
+GLN__e	0
+GlnGln__e	0
+GluGlu__e	0
+GlyGly__e	0
+Gm__e	0
+GMP__e	0
+GMP_Lysine__e	0
+GMP_Mor__e	0
+GN__e	0
+H__e	0
+H2O__e	0
+H2O2__e	0
+HDCA__e	0
+HDCEA__e	0
+HisHis__e	0
+IleIle__e	0
+K__e	0
+k2C__e	0
+LeuLeu__e	0
+LIPOATE__e	0
+LYS__e	0
+LysLys__e	0
+m1G__e	0
+m2G__e	0
+m62A__e	0
+m7G__e	0
+METHYL_OCDCEA__e	0
+MetMet__e	0
+MG__e	0
+MN__e	0
+MOBD__e	0
+MONOBUTYRIN__e	0
+MOR__e	0
+NA__e	0
+NAC__e	0
+NH3__e	0
+NH4__e	0
+NI__e	0
+O2__e	0
+OA__e	0
+OCDCA__e	0
+OCDCEA__e	0
+PHE__e	0
+PhePhe__e	0
+PI__e	0
+POE_SORBITAN__e	0
+ProPro__e	0
+PSIURI__e	0
+PTRC__e	0
+PYDX__e	0
+RIBFLV__e	0
+s4U__e	0
+SerSer__e	0
+SO4__e	0
+SPMD__e	0
+STEROL__e	0
+THF__e	0
+THM__e	0
+ThrThr__e	0
+THY__e	0
+TRIBUTYRIN__e	0
+TRILAURIN__e	0
+TRIMYRISTIN__e	0
+TRIOLEIN__e	0
+TRIPALMITIN__e	0
+TRISTEARIN__e	0
+TRI_HDCEA_IN__e	0
+TRI_TTDCEA_IN__e	0
+TRP__e	0
+TrpTrp__e	0
+TTDCA__e	0
+TTDCEA__e	0
+TWEEN80__e	0
+TYR__e	0
+TyrTyr__e	0
+Um__e	0
+URA__e	0
+ValVal__e	0
+ZN__e	0
+CDPDG160__m	0
+CDPDG161__m	0
+CDPDG181__m	0
+CL160__m	0
+CL161__m	0
+CL181__m	0
+DAG160__m	0
+DAG161__m	0
+DAG181__m	0
+PA160__m	0
+PA161__m	0
+PA181__m	0
+PG160__m	0
+PG161__m	0
+PG181__m	0
+PGP160__m	0
+PGP161__m	0
+PGP181__m	0
+STEROL__m	0

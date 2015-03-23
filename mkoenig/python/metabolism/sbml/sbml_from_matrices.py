@@ -139,10 +139,10 @@ if __name__ == "__main__":
     matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
     
     s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t")
-    s_fba_df.head(10)
+    s_fba_df.set_index('sid', inplace=True)
 
     r_fba_df = pd.read_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
-    r_fba_df.head(10)
+    r_fba_df.set_index('rid', inplace=True)
 
 
     
