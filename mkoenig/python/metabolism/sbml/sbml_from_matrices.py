@@ -193,8 +193,11 @@ if __name__ == "__main__":
         p.setCompartment('c') # this is just fix
         p.setHasOnlySubstanceUnits(False)
 
+
+    mplugin = model.getPlugin("fbc");
+    
     # <reactions>
-    tol = 1E-8
+    tol = 1E-12
     for index, row in r_fba_df.iterrows():
         r = model.createReaction()
         r.setId(index)
@@ -208,8 +211,18 @@ if __name__ == "__main__":
         row = row[row>tol]
         for eid, value in row.iteritems():
             mod = r.createModifier()
-            mod.setSpecies(eid)        
-                
+            mod.setSpecies(eid) 
+
+            # gene associations
+            gene_str = e_df['genes'][eid]
+            genes = [g.strip() for g in gene_str.split(',')]
+            for g in genes:
+                # <gene associations>
+                ga = mplugin.createGeneAssociation()
+                ga.setId('ga__{}__{}'.format(index, g))
+                ga.setReaction(index)
+            
+
         # stoichiometry from stoichiometric matrix # [376x504]
         # find the non-zero elements in the reaction column 
         col = mat_stoichiometry[index]
@@ -244,32 +257,26 @@ if __name__ == "__main__":
             par.setValue(r_fba_df[p_name][index])
             par.setConstant(True)
     
-    # FBC package
-    # set reaction flux bounds
-    mplugin = model.getPlugin("fbc");
- 
+         
     # bound = mplugin.createFluxBound();
     # bound.setId("bound1");
     # bound.setReaction("J0");
     # bound.setOperation("equal");
     # bound.setValue(10);
  
-    # <gene associations>
-    # mplugin.createGeneAssociation()
-        
         
     # <objective function>
-    # objective = mplugin.createObjective();
-    # objective.setId("obj1");
-    # objective.setType("maximize");
-    # mplugin.setActiveObjectiveId("obj1");
+    objective = mplugin.createObjective();
+    objective.setId("growth")
+    objective.setType("maximize");
+    mplugin.setActiveObjectiveId("growth");
     
-    # fluxObjective = objective.createFluxObjective();
-    # fluxObjective.setReaction("J8");
-    # fluxObjective.setCoefficient(1);
-
-    
-
+    for index, row in r_fba_df.iterrows():
+        coeff = row['fbaObjective']
+        if (not pd.isnull(coeff) and abs(coeff)>tol):
+            fluxObjective = objective.createFluxObjective();
+            fluxObjective.setReaction(index);
+            fluxObjective.setCoefficient(coeff);
 
     # write sbml    
     sbml_out = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
@@ -280,8 +287,6 @@ if __name__ == "__main__":
     check_sbml(sbml_out) 
     
     
-    validator = SBMLValidator(True)
+    validator = SBMLValidator(False)
     print validator.validate(sbml_out)
-    
-    
     
