@@ -7,6 +7,7 @@ import os
 from metabolism_settings import VERSION, RESULTS_DIR 
 # sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
 sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_5_L3V1.xml".format(VERSION))
+# sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
 
 ##############################################################################
 # FBA with model
@@ -14,13 +15,53 @@ sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metab
 import cobra
 
 # Read model
-# TODO: Encode the additional information used by COBRA in the model, i.e.
-# things like Charge and composition (-> check mass balance)
 model = cobra.io.read_sbml_model(sbml)
+
 print model.compartments
-print len(model.reactions)    # 1274  (504)
-print len(model.metabolites)  # 1779  (585*3=1755)
+print len(model.reactions)    # 504
+print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
 print len(model.genes)        # 142   (104)
+
+
+# parse the genes from FBC and set the reaction
+
+
+
+
+
+
+def set_gene_associations_from_fbc(model_cobra, sbml):
+    from libsbml import readSBML
+    # sbml with the fbc information
+    doc = readSBML(sbml)
+    if (doc.getPlugin("fbc") != None):
+        model_sbml = doc.getModel()
+        mplugin = model_sbml.getPlugin("fbc");
+        for ga in mplugin.getListOfGeneAssociations():
+            
+            reaction_id = ga.getReaction() 
+            ass = ga.getAssociation()
+            print ass
+            # get the rule string for cobray
+            rule = ass.toInfix()
+            print ga.toSBML()
+            print ass.toSBML()
+            print '*{}*'.format(rule)
+            rule = rule.replace('(', '')
+            rule = rule.replace('(', '')
+    
+            reaction = model_cobra.reactions.get_by_id(reaction_id)
+            # the property takes care of all the logic
+            reaction.gene_reaction_rule = rule    
+    return model_cobra
+
+set_gene_associations_from_fbc(model, sbml)
+print len(model.genes)        # 142   (104)
+
+
+
+
+print(model.compartments)
 
 # Perform FBA
 # linear programming

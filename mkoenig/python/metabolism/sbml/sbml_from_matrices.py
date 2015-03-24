@@ -109,7 +109,6 @@ def create_species(model):
     ''' Creates species for metabolite and protein counts '''
     pass
 
-import numpy as np
 
 if __name__ == "__main__":
     # Load matrix information
@@ -193,7 +192,7 @@ if __name__ == "__main__":
         p.setCompartment('c') # this is just fix
         p.setHasOnlySubstanceUnits(False)
 
-
+    # FBC support
     mplugin = model.getPlugin("fbc");
     
     # <reactions>
@@ -216,12 +215,24 @@ if __name__ == "__main__":
             # gene associations
             gene_str = e_df['genes'][eid]
             genes = [g.strip() for g in gene_str.split(',')]
-            for g in genes:
-                # <gene associations>
-                ga = mplugin.createGeneAssociation()
-                ga.setId('ga__{}__{}'.format(index, g))
-                ga.setReaction(index)
+            genes_formula = '*'.join(genes)
             
+            # <gene associations>
+            ga = mplugin.createGeneAssociation()
+            ga.setId('ga__{}__{}'.format(index, eid))
+            ga.setReaction(index)
+            
+            # ast_node = parseL3Formula('*'.join(genes))
+            ass = Association_parseInfixAssociation(genes_formula)            
+            # ass = Association(ast_node)
+            ga.setAssociation(ass)
+            # "GENE_ASSOCIATION: MG_271 and MG_272 and MG_273 and MG_274"    
+            infix = ass.toInfix()
+            print infix     
+            ass = ga.getAssociation()
+            infix = ass.toInfix()
+            print infix
+                
 
         # stoichiometry from stoichiometric matrix # [376x504]
         # find the non-zero elements in the reaction column 
@@ -286,7 +297,19 @@ if __name__ == "__main__":
     from sbml_tools.checks import check_sbml
     check_sbml(sbml_out) 
     
+    # ---------
     
     validator = SBMLValidator(False)
     print validator.validate(sbml_out)
+    
+    from libsbml import ConversionProperties, LIBSBML_OPERATION_SUCCESS
+    conversion_properties = ConversionProperties()
+    conversion_properties.addOption("convert fbc to cobra", True, "Convert FBC model to Cobra model")
+    result = doc.convert(conversion_properties)
+    if result != LIBSBML_OPERATION_SUCCESS:
+        raise(Exception("Conversion of SBML+fbc to COBRA failed"))    
+    sbml_cobra = os.path.join(RESULTS_DIR, "Metabolism_matrices_cobra_{}_L3V1.xml".format(VERSION))
+    writer = SBMLWriter()
+    writer.writeSBML(doc, sbml_cobra)
+    
     
