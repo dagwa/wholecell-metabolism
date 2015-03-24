@@ -347,10 +347,13 @@ def get_wid_from_sid(sid):
         comp = 'c'
     return wid, comp
 
-from public.models import Molecule
+# Get additional information for the SBML
+from public.models import Molecule, Metabolite
 all_names = []
 all_types = []
 all_comps = []
+all_formulas = []
+all_charges = []
 for sid in s_fba_df.index:
     print sid
     wid, comp = get_wid_from_sid(sid)
@@ -363,10 +366,20 @@ for sid in s_fba_df.index:
         all_names.append(wid)
         all_types.append(None)
         all_comps.append('n') # none compartment for exchange metabolites
+    # formulas and charge if Metabolite
+    try:
+        s = Metabolite.objects.get(wid=wid)
+        all_formulas.append(s.empirical_formula)
+        all_charges.append(s.charge)
+    except ObjectDoesNotExist:
+        all_formulas.append(None)
+        all_charges.append(None)
     
 s_fba_df['name'] = Series(all_names, index=s_fba_df.index)
 s_fba_df['model_type'] = Series(all_types, index=s_fba_df.index)
 s_fba_df['compartment'] = Series(all_comps, index=s_fba_df.index)
+s_fba_df['formula'] = Series(all_formulas, index=s_fba_df.index)
+s_fba_df['charge'] = Series(all_charges, index=s_fba_df.index)
 
 # set index and save
 

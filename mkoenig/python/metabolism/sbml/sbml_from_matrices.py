@@ -47,31 +47,6 @@ units['m3'] = [(UNIT_KIND_METRE, 3.0, 0)]
 units['per_s'] = [(UNIT_KIND_SECOND, -1.0, 0)]
 units['mole_per_s'] = [(UNIT_KIND_MOLE, 1.0, 0), 
                        (UNIT_KIND_SECOND, -1.0, 0)]
-units['mole_per_s_per_mM'] = [(UNIT_KIND_METRE, 3.0, 0),
-                       (UNIT_KIND_SECOND, -1.0, 0) ]
-units['mole_per_s_per_mM2'] = [(UNIT_KIND_MOLE, -1.0, 0), (UNIT_KIND_METRE, 6.0, 0), 
-                       (UNIT_KIND_SECOND, -1.0, 0) ]
-
-units['m_per_s'] = [(UNIT_KIND_METRE, 1.0, 0), 
-                    (UNIT_KIND_SECOND, -1.0, 0)]
-units['m2_per_s'] = [(UNIT_KIND_METRE, 2.0, 0), 
-                    (UNIT_KIND_SECOND, -1.0, 0)]
-units['m3_per_s'] = [(UNIT_KIND_METRE, 3.0, 0), 
-                    (UNIT_KIND_SECOND, -1.0, 0)]
-units['mM']       = [(UNIT_KIND_MOLE, 1.0, 0), 
-                    (UNIT_KIND_METRE, -3.0, 0)]
-units['mM_s']       = [(UNIT_KIND_MOLE, 1.0, 0), (UNIT_KIND_SECOND, 1.0, 0),
-                    (UNIT_KIND_METRE, -3.0, 0)]
-
-units['per_mM']   = [(UNIT_KIND_METRE, 3.0, 0), 
-                    (UNIT_KIND_MOLE, -1.0, 0)]
-units['per_m2']   = [(UNIT_KIND_METRE, -2.0, 0)]
-units['per_m3']   = [(UNIT_KIND_METRE, -3.0, 0)]
-units['kg_per_m3']   = [(UNIT_KIND_KILOGRAM, 1.0, 0), 
-                    (UNIT_KIND_METRE, -3.0, 0)]
-units['m3_per_skg']   = [(UNIT_KIND_METRE, 3.0, 0), 
-                    (UNIT_KIND_KILOGRAM, -1.0, 0), (UNIT_KIND_SECOND, -1.0, 0)]
-
 ##########################################################################
 # Parameters
 ########################################################################## 
@@ -134,12 +109,15 @@ def create_species(model):
     ''' Creates species for metabolite and protein counts '''
     pass
 
+import numpy as np
 
 if __name__ == "__main__":
     # Load matrix information
     matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
-    
-    s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", keep_default_na=False)
+
+    # handle the sodium NA id (not parsing as NaN)    
+    s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", 
+                           keep_default_na=False, na_values=('nan'))
     s_fba_df.set_index('sid', inplace=True)
 
     r_fba_df = pd.read_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
@@ -157,11 +135,12 @@ if __name__ == "__main__":
     mat_catalysis.set_index(r_fba_df.index, inplace=True)  
     
     
-    # ----------------------------------------
+    ###########################################################################
     # New SBML model with FBC support
     sbmlns = SBMLNamespaces(3,1,"fbc",1)
     
     doc = SBMLDocument(sbmlns)
+    doc.setPackageRequired("fbc", False)
     model = doc.createModel()
 
     # history & creators
@@ -183,9 +162,26 @@ if __name__ == "__main__":
         s.setCompartment(row['compartment'])
         s.setHasOnlySubstanceUnits(False)
         
+        # chemical formula and charge => for balance
+        splugin = s.getPlugin("fbc");
+        formula = row['formula']
+        if not pd.isnull(formula):
+            splugin.setChemicalFormula(formula)
+        charge = row['charge']
+
+        # string to int desaster due to NA        
+        if not pd.isnull(charge) and len(charge)!=0:            
+            splugin.setCharge(int(float(charge)))
+    
     # <proteins>
     for index, row in e_df.iterrows():        
         # p = model.createParameter()
+        # check if the protein is already a species (due to involvment in reaction)
+        s = model.getSpecies(index)
+        if (s is not None):
+            print index, 'is already species.'
+            continue
+    
         p = model.createSpecies()
         p.setId(index)
         name = row['name']
@@ -233,41 +229,46 @@ if __name__ == "__main__":
     
         # reversibility from the initial reaction bounds
         # TODO: calculate from flux bounds
+        # Manage if reversible in backward direction
         r.setReversible(False)
         
-        # set local parameters for calculating flux bounds
-        klaw = r.createKineticLaw()        
+        # not possible to set local parameters (math is required)
+        # prefix with reaction to get the actual parameters
+        # klaw = r.createKineticLaw()        
         for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds', 'lb_fbaEnzymeBounds', 'ub_fbaEnzymeBounds'):
-            lp = klaw.createLocalParameter()
-            lp.setId(p_name)
-            lp.setValue(r_fba_df[p_name][index])
-    
+            # lp = klaw.createLocalParameter()
+            # lp.setId(p_name)
+            # lp.setValue(r_fba_df[p_name][index])
+            par = model.createParameter()
+            par.setId('{}__{}'.format(index, p_name))
+            par.setValue(r_fba_df[p_name][index])
+            par.setConstant(True)
     
     # FBC package
     # set reaction flux bounds
     mplugin = model.getPlugin("fbc");
  
-    bound = mplugin.createFluxBound();
-    bound.setId("bound1");
-    bound.setReaction("J0");
-    bound.setOperation("equal");
-    bound.setValue(10);
+    # bound = mplugin.createFluxBound();
+    # bound.setId("bound1");
+    # bound.setReaction("J0");
+    # bound.setOperation("equal");
+    # bound.setValue(10);
  
     # <gene associations>
-    mplugin.createGeneAssociation()
+    # mplugin.createGeneAssociation()
         
         
     # <objective function>
-    objective = mplugin.createObjective();
-    objective.setId("obj1");
-    objective.setType("maximize");
-    mplugin.setActiveObjectiveId("obj1");
+    # objective = mplugin.createObjective();
+    # objective.setId("obj1");
+    # objective.setType("maximize");
+    # mplugin.setActiveObjectiveId("obj1");
     
-    fluxObjective = objective.createFluxObjective();
-    fluxObjective.setReaction("J8");
-    fluxObjective.setCoefficient(1);
+    # fluxObjective = objective.createFluxObjective();
+    # fluxObjective.setReaction("J8");
+    # fluxObjective.setCoefficient(1);
 
-    # <chemical formulas => for balance>
+    
 
 
     # write sbml    
@@ -279,13 +280,8 @@ if __name__ == "__main__":
     check_sbml(sbml_out) 
     
     
-    # TODO: gene associations
-    
-    
-    
-    
-    # validator = SBMLValidator()
-    # validator.validate(doc)
+    validator = SBMLValidator(True)
+    print validator.validate(sbml_out)
     
     
     
