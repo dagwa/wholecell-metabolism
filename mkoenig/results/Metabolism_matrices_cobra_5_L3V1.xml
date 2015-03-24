@@ -897,10 +897,10 @@
             </rdf:Bag>
           </dc:creator>
           <dcterms:created rdf:parseType="Resource">
-            <dcterms:W3CDTF>2015-03-24T14:15:07Z</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2015-03-24T15:55:10Z</dcterms:W3CDTF>
           </dcterms:created>
           <dcterms:modified rdf:parseType="Resource">
-            <dcterms:W3CDTF>2015-03-24T14:15:07Z</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2015-03-24T15:55:10Z</dcterms:W3CDTF>
           </dcterms:modified>
           <bqmodel:isDerivedFrom>
             <rdf:Bag>
@@ -5568,7 +5568,7 @@
       <parameter id="biomassConsumption__ub_fbaEnzymeBounds" value="INF" constant="true"/>
     </listOfParameters>
     <listOfReactions>
-      <reaction id="Aas4" reversible="false" fast="false">
+      <reaction id="Aas4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="HDCA" stoichiometry="1"/>
@@ -5589,7 +5589,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Aas5" reversible="false" fast="false">
+      <reaction id="Aas5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="HDCEA" stoichiometry="1"/>
@@ -5610,7 +5610,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Aas7" reversible="false" fast="false">
+      <reaction id="Aas7" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="OCDCEA" stoichiometry="1"/>
@@ -5631,7 +5631,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="AceE" reversible="false" fast="false">
+      <reaction id="AceE" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="COA" stoichiometry="1"/>
           <speciesReference species="NAD" stoichiometry="1"/>
@@ -5655,7 +5655,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="AckA" reversible="false" fast="false">
+      <reaction id="AckA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ACTP" stoichiometry="1"/>
           <speciesReference species="ADP" stoichiometry="1"/>
@@ -5677,7 +5677,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Adk1" reversible="false" fast="false">
+      <reaction id="Adk1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP" stoichiometry="1"/>
           <speciesReference species="ATP" stoichiometry="1"/>
@@ -5698,7 +5698,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Adk2" reversible="false" fast="false">
+      <reaction id="Adk2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP" stoichiometry="1"/>
           <speciesReference species="GTP" stoichiometry="1"/>
@@ -5720,7 +5720,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Adk3" reversible="false" fast="false">
+      <reaction id="Adk3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP" stoichiometry="1"/>
           <speciesReference species="ITP" stoichiometry="1"/>
@@ -5742,7 +5742,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Adk4" reversible="false" fast="false">
+      <reaction id="Adk4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DAMP" stoichiometry="1"/>
@@ -5764,7 +5764,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="AHCYSs" reversible="false" fast="false">
+      <reaction id="AHCYSs" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AHCYS" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5783,7 +5783,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apt" reversible="false" fast="false">
+      <reaction id="Apt" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AD" stoichiometry="1"/>
           <speciesReference species="PRPP" stoichiometry="1"/>
@@ -5805,7 +5805,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Ala" reversible="false" fast="false">
+      <reaction id="Apts_Ala" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AlaAla" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5823,7 +5823,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Arg" reversible="false" fast="false">
+      <reaction id="Apts_Arg" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ArgArg" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5841,7 +5841,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Asn" reversible="false" fast="false">
+      <reaction id="Apts_Asn" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AsnAsn" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5859,7 +5859,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Asp" reversible="false" fast="false">
+      <reaction id="Apts_Asp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AspAsp" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5877,7 +5877,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Cys" reversible="false" fast="false">
+      <reaction id="Apts_Cys" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CysCys" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5895,7 +5895,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Gln" reversible="false" fast="false">
+      <reaction id="Apts_Gln" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GlnGln" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5913,7 +5913,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Glu" reversible="false" fast="false">
+      <reaction id="Apts_Glu" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GluGlu" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5931,7 +5931,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Gly" reversible="false" fast="false">
+      <reaction id="Apts_Gly" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GlyGly" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -5949,7 +5949,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_His" reversible="false" fast="false">
+      <reaction id="Apts_His" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="HisHis" stoichiometry="1"/>
@@ -5967,7 +5967,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Ile" reversible="false" fast="false">
+      <reaction id="Apts_Ile" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="IleIle" stoichiometry="1"/>
@@ -5985,7 +5985,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Leu" reversible="false" fast="false">
+      <reaction id="Apts_Leu" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="LeuLeu" stoichiometry="1"/>
@@ -6003,7 +6003,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Lys" reversible="false" fast="false">
+      <reaction id="Apts_Lys" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="LysLys" stoichiometry="1"/>
@@ -6021,7 +6021,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Met" reversible="false" fast="false">
+      <reaction id="Apts_Met" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="MetMet" stoichiometry="1"/>
@@ -6039,7 +6039,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Phe" reversible="false" fast="false">
+      <reaction id="Apts_Phe" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PhePhe" stoichiometry="1"/>
@@ -6057,7 +6057,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Pro" reversible="false" fast="false">
+      <reaction id="Apts_Pro" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="ProPro" stoichiometry="1"/>
@@ -6075,7 +6075,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Ser" reversible="false" fast="false">
+      <reaction id="Apts_Ser" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="SerSer" stoichiometry="1"/>
@@ -6093,7 +6093,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Thr" reversible="false" fast="false">
+      <reaction id="Apts_Thr" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="ThrThr" stoichiometry="1"/>
@@ -6111,7 +6111,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Trp" reversible="false" fast="false">
+      <reaction id="Apts_Trp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="TrpTrp" stoichiometry="1"/>
@@ -6129,7 +6129,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Tyr" reversible="false" fast="false">
+      <reaction id="Apts_Tyr" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="TyrTyr" stoichiometry="1"/>
@@ -6147,7 +6147,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Apts_Val" reversible="false" fast="false">
+      <reaction id="Apts_Val" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="ValVal" stoichiometry="1"/>
@@ -6165,7 +6165,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="ArcC" reversible="false" fast="false">
+      <reaction id="ArcC" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="CO2" stoichiometry="1"/>
@@ -6186,7 +6186,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="AspC1" reversible="false" fast="false">
+      <reaction id="AspC1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GLU" stoichiometry="1"/>
           <speciesReference species="OA" stoichiometry="1"/>
@@ -6205,7 +6205,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="AtpA" reversible="false" fast="false">
+      <reaction id="AtpA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ADP" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -6229,7 +6229,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Cdd1" reversible="false" fast="false">
+      <reaction id="Cdd1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CYTD" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -6251,7 +6251,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Cdd2" reversible="false" fast="false">
+      <reaction id="Cdd2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DC" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -6273,7 +6273,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="CdsA4" reversible="false" fast="false">
+      <reaction id="CdsA4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CTP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6296,7 +6296,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="CdsA5" reversible="false" fast="false">
+      <reaction id="CdsA5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CTP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6319,7 +6319,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="CdsA7" reversible="false" fast="false">
+      <reaction id="CdsA7" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CTP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6342,7 +6342,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Cls1" reversible="false" fast="false">
+      <reaction id="Cls1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PG160__m" stoichiometry="2"/>
         </listOfReactants>
@@ -6360,7 +6360,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Cls2" reversible="false" fast="false">
+      <reaction id="Cls2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PG161__m" stoichiometry="2"/>
         </listOfReactants>
@@ -6378,7 +6378,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Cls3" reversible="false" fast="false">
+      <reaction id="Cls3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PG181__m" stoichiometry="2"/>
         </listOfReactants>
@@ -6396,7 +6396,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="CmkA1" reversible="false" fast="false">
+      <reaction id="CmkA1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DCMP" stoichiometry="1"/>
@@ -6418,7 +6418,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="CmkA2" reversible="false" fast="false">
+      <reaction id="CmkA2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="CMP" stoichiometry="1"/>
@@ -6440,7 +6440,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="CmkB3" reversible="false" fast="false">
+      <reaction id="CmkB3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="UMP" stoichiometry="1"/>
@@ -6462,7 +6462,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Dak1" reversible="false" fast="false">
+      <reaction id="Dak1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DA" stoichiometry="1"/>
@@ -6485,7 +6485,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DcdK" reversible="false" fast="false">
+      <reaction id="DcdK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DCMP" stoichiometry="1"/>
           <speciesReference species="DCTP" stoichiometry="1"/>
@@ -6503,7 +6503,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Dck" reversible="false" fast="false">
+      <reaction id="Dck" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DC" stoichiometry="1"/>
@@ -6523,7 +6523,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoC" reversible="false" fast="false">
+      <reaction id="DeoC" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DR5P" stoichiometry="1"/>
         </listOfReactants>
@@ -6544,7 +6544,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD1" reversible="false" fast="false">
+      <reaction id="DeoD1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dINS" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -6566,7 +6566,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD2" reversible="false" fast="false">
+      <reaction id="DeoD2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DA" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -6588,7 +6588,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD3" reversible="false" fast="false">
+      <reaction id="DeoD3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DG" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -6610,7 +6610,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD4" reversible="false" fast="false">
+      <reaction id="DeoD4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="HYXN" stoichiometry="1"/>
           <speciesReference species="R1P" stoichiometry="1"/>
@@ -6633,7 +6633,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD5" reversible="false" fast="false">
+      <reaction id="DeoD5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AD" stoichiometry="1"/>
           <speciesReference species="R1P" stoichiometry="1"/>
@@ -6656,7 +6656,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD6" reversible="false" fast="false">
+      <reaction id="DeoD6" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GN" stoichiometry="1"/>
           <speciesReference species="R1P" stoichiometry="1"/>
@@ -6679,7 +6679,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DeoD8" reversible="false" fast="false">
+      <reaction id="DeoD8" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DU" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -6701,7 +6701,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Dgk1" reversible="false" fast="false">
+      <reaction id="Dgk1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DG" stoichiometry="1"/>
@@ -6724,7 +6724,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="DhfR1" reversible="false" fast="false">
+      <reaction id="DhfR1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DHF" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6747,7 +6747,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Eno" reversible="false" fast="false">
+      <reaction id="Eno" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="G2P" stoichiometry="1"/>
         </listOfReactants>
@@ -6768,7 +6768,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Fba" reversible="false" fast="false">
+      <reaction id="Fba" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FDP" stoichiometry="1"/>
         </listOfReactants>
@@ -6789,7 +6789,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="FMETHs" reversible="false" fast="false">
+      <reaction id="FMETHs" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FMET" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -6809,7 +6809,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="FolD1" reversible="false" fast="false">
+      <reaction id="FolD1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="METTHF" stoichiometry="1"/>
           <speciesReference species="NADP" stoichiometry="1"/>
@@ -6832,7 +6832,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="FolD2" reversible="false" fast="false">
+      <reaction id="FolD2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="METHF" stoichiometry="1"/>
@@ -6854,7 +6854,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Fre1" reversible="false" fast="false">
+      <reaction id="Fre1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FAD" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6877,7 +6877,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Fre2" reversible="false" fast="false">
+      <reaction id="Fre2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FADH2" stoichiometry="1"/>
           <speciesReference species="FE3" stoichiometry="2"/>
@@ -6897,7 +6897,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Fre5" reversible="false" fast="false">
+      <reaction id="Fre5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FMN" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6920,7 +6920,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Fre6" reversible="false" fast="false">
+      <reaction id="Fre6" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FMN" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -6943,7 +6943,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="FruK1" reversible="false" fast="false">
+      <reaction id="FruK1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="F1P" stoichiometry="1"/>
@@ -6966,7 +6966,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="FthC" reversible="false" fast="false">
+      <reaction id="FthC" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="FTHF10" stoichiometry="1"/>
@@ -6990,7 +6990,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="FTHFS" reversible="false" fast="false">
+      <reaction id="FTHFS" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="FOR" stoichiometry="1"/>
@@ -7014,7 +7014,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GalE" reversible="false" fast="false">
+      <reaction id="GalE" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="UDPGAL" stoichiometry="1"/>
         </listOfReactants>
@@ -7034,7 +7034,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GalU1" reversible="false" fast="false">
+      <reaction id="GalU1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="G1P" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -7057,7 +7057,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GapA" reversible="false" fast="false">
+      <reaction id="GapA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="NAD" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -7081,7 +7081,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Glf" reversible="false" fast="false">
+      <reaction id="Glf" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="UDPGAL" stoichiometry="1"/>
         </listOfReactants>
@@ -7101,7 +7101,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GLNHs" reversible="false" fast="false">
+      <reaction id="GLNHs" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GLN" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -7121,7 +7121,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GlpK" reversible="false" fast="false">
+      <reaction id="GlpK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="GL" stoichiometry="1"/>
@@ -7143,7 +7143,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GlyA3" reversible="false" fast="false">
+      <reaction id="GlyA3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="2"/>
           <speciesReference species="SER" stoichiometry="1"/>
@@ -7167,7 +7167,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GlyA4" reversible="false" fast="false">
+      <reaction id="GlyA4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="THR" stoichiometry="1"/>
         </listOfReactants>
@@ -7188,7 +7188,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="glycosyltransferase_PG160_DAG160" reversible="false" fast="false">
+      <reaction id="glycosyltransferase_PG160_DAG160" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PG160__m" stoichiometry="1"/>
@@ -7211,7 +7211,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="glycosyltransferase_PG161_DAG161" reversible="false" fast="false">
+      <reaction id="glycosyltransferase_PG161_DAG161" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PG161__m" stoichiometry="1"/>
@@ -7233,7 +7233,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="glycosyltransferase_PG181_DAG181" reversible="false" fast="false">
+      <reaction id="glycosyltransferase_PG181_DAG181" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PG181__m" stoichiometry="1"/>
@@ -7255,7 +7255,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Gmk1" reversible="false" fast="false">
+      <reaction id="Gmk1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="GMP" stoichiometry="1"/>
@@ -7277,7 +7277,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Gmk2" reversible="false" fast="false">
+      <reaction id="Gmk2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DGMP" stoichiometry="1"/>
@@ -7299,7 +7299,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Gmk3" reversible="false" fast="false">
+      <reaction id="Gmk3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DATP" stoichiometry="1"/>
           <speciesReference species="GMP" stoichiometry="1"/>
@@ -7321,7 +7321,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Gmk4" reversible="false" fast="false">
+      <reaction id="Gmk4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DATP" stoichiometry="1"/>
           <speciesReference species="DGMP" stoichiometry="1"/>
@@ -7343,7 +7343,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GpmA" reversible="false" fast="false">
+      <reaction id="GpmA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="G3P" stoichiometry="1"/>
         </listOfReactants>
@@ -7363,7 +7363,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="GpsA" reversible="false" fast="false">
+      <reaction id="GpsA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FADH2" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -7386,7 +7386,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="HCYSMT" reversible="false" fast="false">
+      <reaction id="HCYSMT" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMET" stoichiometry="1"/>
           <speciesReference species="HCYS" stoichiometry="1"/>
@@ -7406,7 +7406,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="HinT_AMP_Lysine_MG132" reversible="false" fast="false">
+      <reaction id="HinT_AMP_Lysine_MG132" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP_Lysine__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -7426,7 +7426,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="HinT_AMP_Mor_MG132" reversible="false" fast="false">
+      <reaction id="HinT_AMP_Mor_MG132" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP_Mor__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -7446,7 +7446,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="HinT_AMP_NH2_MG132" reversible="false" fast="false">
+      <reaction id="HinT_AMP_NH2_MG132" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP_NH2__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -7466,7 +7466,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="HinT_GMP_Lysine_MG132" reversible="false" fast="false">
+      <reaction id="HinT_GMP_Lysine_MG132" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GMP_Lysine__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -7486,7 +7486,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="HinT_GMP_Mor_MG132" reversible="false" fast="false">
+      <reaction id="HinT_GMP_Mor_MG132" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GMP_Mor__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -7506,7 +7506,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Hpt1" reversible="false" fast="false">
+      <reaction id="Hpt1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="HYXN" stoichiometry="1"/>
           <speciesReference species="PRPP" stoichiometry="1"/>
@@ -7528,7 +7528,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Hpt2" reversible="false" fast="false">
+      <reaction id="Hpt2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GN" stoichiometry="1"/>
           <speciesReference species="PRPP" stoichiometry="1"/>
@@ -7550,7 +7550,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_DIBUTYRIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_DIBUTYRIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DIBUTYRIN__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="2"/>
@@ -7572,7 +7572,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_DIBUTYRIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_DIBUTYRIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DIBUTYRIN__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="2"/>
@@ -7594,7 +7594,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_DIBUTYRIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_DIBUTYRIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DIBUTYRIN__e" stoichiometry="1"/>
           <speciesReference species="H2O__e" stoichiometry="2"/>
@@ -7616,7 +7616,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_METHYL_OCDCEA_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_METHYL_OCDCEA_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="METHYL_OCDCEA__e" stoichiometry="1"/>
@@ -7639,7 +7639,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_METHYL_OCDCEA_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_METHYL_OCDCEA_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="METHYL_OCDCEA__e" stoichiometry="1"/>
@@ -7662,7 +7662,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_METHYL_OCDCEA_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_METHYL_OCDCEA_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="METHYL_OCDCEA__e" stoichiometry="1"/>
@@ -7685,7 +7685,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_MONOBUTYRIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_MONOBUTYRIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="MONOBUTYRIN__e" stoichiometry="1"/>
@@ -7707,7 +7707,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_MONOBUTYRIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_MONOBUTYRIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="MONOBUTYRIN__e" stoichiometry="1"/>
@@ -7729,7 +7729,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_MONOBUTYRIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_MONOBUTYRIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="MONOBUTYRIN__e" stoichiometry="1"/>
@@ -7751,7 +7751,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIBUTYRIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIBUTYRIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIBUTYRIN__e" stoichiometry="1"/>
@@ -7773,7 +7773,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIBUTYRIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIBUTYRIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIBUTYRIN__e" stoichiometry="1"/>
@@ -7795,7 +7795,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIBUTYRIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIBUTYRIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIBUTYRIN__e" stoichiometry="1"/>
@@ -7817,7 +7817,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRILAURIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRILAURIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRILAURIN__e" stoichiometry="1"/>
@@ -7840,7 +7840,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRILAURIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRILAURIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRILAURIN__e" stoichiometry="1"/>
@@ -7863,7 +7863,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRILAURIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRILAURIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRILAURIN__e" stoichiometry="1"/>
@@ -7886,7 +7886,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIMYRISTIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIMYRISTIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIMYRISTIN__e" stoichiometry="1"/>
@@ -7909,7 +7909,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIMYRISTIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIMYRISTIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIMYRISTIN__e" stoichiometry="1"/>
@@ -7932,7 +7932,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIMYRISTIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIMYRISTIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIMYRISTIN__e" stoichiometry="1"/>
@@ -7955,7 +7955,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIOLEIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIOLEIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIOLEIN__e" stoichiometry="1"/>
@@ -7978,7 +7978,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIOLEIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIOLEIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIOLEIN__e" stoichiometry="1"/>
@@ -8001,7 +8001,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIOLEIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIOLEIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIOLEIN__e" stoichiometry="1"/>
@@ -8024,7 +8024,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIPALMITIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIPALMITIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIPALMITIN__e" stoichiometry="1"/>
@@ -8047,7 +8047,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIPALMITIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIPALMITIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIPALMITIN__e" stoichiometry="1"/>
@@ -8070,7 +8070,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRIPALMITIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRIPALMITIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRIPALMITIN__e" stoichiometry="1"/>
@@ -8093,7 +8093,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRISTEARIN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRISTEARIN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRISTEARIN__e" stoichiometry="1"/>
@@ -8116,7 +8116,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRISTEARIN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRISTEARIN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRISTEARIN__e" stoichiometry="1"/>
@@ -8139,7 +8139,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRISTEARIN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRISTEARIN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRISTEARIN__e" stoichiometry="1"/>
@@ -8162,7 +8162,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRI_HDCEA_IN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRI_HDCEA_IN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRI_HDCEA_IN__e" stoichiometry="1"/>
@@ -8185,7 +8185,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRI_HDCEA_IN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRI_HDCEA_IN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRI_HDCEA_IN__e" stoichiometry="1"/>
@@ -8208,7 +8208,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRI_HDCEA_IN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRI_HDCEA_IN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRI_HDCEA_IN__e" stoichiometry="1"/>
@@ -8231,7 +8231,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRI_TTDCEA_IN_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TRI_TTDCEA_IN_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRI_TTDCEA_IN__e" stoichiometry="1"/>
@@ -8254,7 +8254,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRI_TTDCEA_IN_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TRI_TTDCEA_IN_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRI_TTDCEA_IN__e" stoichiometry="1"/>
@@ -8277,7 +8277,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TRI_TTDCEA_IN_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TRI_TTDCEA_IN_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="3"/>
           <speciesReference species="TRI_TTDCEA_IN__e" stoichiometry="1"/>
@@ -8300,7 +8300,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TWEEN80_MG310" reversible="false" fast="false">
+      <reaction id="LIPASE_TWEEN80_MG310" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="TWEEN80__e" stoichiometry="1"/>
@@ -8323,7 +8323,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TWEEN80_MG327" reversible="false" fast="false">
+      <reaction id="LIPASE_TWEEN80_MG327" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="TWEEN80__e" stoichiometry="1"/>
@@ -8346,7 +8346,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPASE_TWEEN80_MG344" reversible="false" fast="false">
+      <reaction id="LIPASE_TWEEN80_MG344" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
           <speciesReference species="TWEEN80__e" stoichiometry="1"/>
@@ -8369,7 +8369,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LIPOYLLYSHs" reversible="false" fast="false">
+      <reaction id="LIPOYLLYSHs" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="LIPOYLLYS" stoichiometry="1"/>
@@ -8388,7 +8388,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="LplA" reversible="false" fast="false">
+      <reaction id="LplA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -8411,7 +8411,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="MetF" reversible="false" fast="false">
+      <reaction id="MetF" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="METTHF" stoichiometry="1"/>
           <speciesReference species="NADH" stoichiometry="1"/>
@@ -8433,7 +8433,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="METHFHYD" reversible="false" fast="false">
+      <reaction id="METHFHYD" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -8452,7 +8452,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="MetK" reversible="false" fast="false">
+      <reaction id="MetK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -8476,7 +8476,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="MetS" reversible="false" fast="false">
+      <reaction id="MetS" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="HCYS" stoichiometry="1"/>
           <speciesReference species="MTHF" stoichiometry="1"/>
@@ -8496,7 +8496,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="MOrx" reversible="false" fast="false">
+      <reaction id="MOrx" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="MOBD" stoichiometry="1"/>
         </listOfReactants>
@@ -8514,7 +8514,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NADD1" reversible="false" fast="false">
+      <reaction id="NADD1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -8534,7 +8534,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NADD2" reversible="false" fast="false">
+      <reaction id="NADD2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -8554,7 +8554,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NadE" reversible="false" fast="false">
+      <reaction id="NadE" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="NAAD" stoichiometry="1"/>
@@ -8579,7 +8579,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NadK" reversible="false" fast="false">
+      <reaction id="NadK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="NAD" stoichiometry="1"/>
@@ -8601,7 +8601,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NADR1" reversible="false" fast="false">
+      <reaction id="NADR1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -8624,7 +8624,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NH3eq" reversible="false" fast="false">
+      <reaction id="NH3eq" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="NH3" stoichiometry="1"/>
@@ -8642,7 +8642,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NOX" reversible="false" fast="false">
+      <reaction id="NOX" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="NADH" stoichiometry="1"/>
@@ -8665,7 +8665,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NrdEF_ADP" reversible="false" fast="false">
+      <reaction id="NrdEF_ADP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ADP" stoichiometry="2"/>
           <speciesReference species="O2" stoichiometry="1"/>
@@ -8689,7 +8689,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NrdEF_CDP" reversible="false" fast="false">
+      <reaction id="NrdEF_CDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CDP" stoichiometry="2"/>
           <speciesReference species="O2" stoichiometry="1"/>
@@ -8713,7 +8713,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NrdEF_GDP" reversible="false" fast="false">
+      <reaction id="NrdEF_GDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GDP" stoichiometry="2"/>
           <speciesReference species="O2" stoichiometry="1"/>
@@ -8737,7 +8737,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="NrdEF_maintenance" reversible="false" fast="false">
+      <reaction id="NrdEF_maintenance" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FMNH2" stoichiometry="2"/>
           <speciesReference species="MG_124_MONOMER" stoichiometry="2"/>
@@ -8762,7 +8762,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Ohr_H2O2" reversible="false" fast="false">
+      <reaction id="Ohr_H2O2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O2" stoichiometry="2"/>
           <speciesReference species="MG_454_DIMER" stoichiometry="1"/>
@@ -8781,7 +8781,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Ohr_rx" reversible="false" fast="false">
+      <reaction id="Ohr_rx" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="MG_124_MONOMER" stoichiometry="2"/>
           <speciesReference species="MG_454_DIMER_ox" stoichiometry="1"/>
@@ -8800,7 +8800,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="OsmC_H2O2" reversible="false" fast="false">
+      <reaction id="OsmC_H2O2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O2" stoichiometry="2"/>
           <speciesReference species="MG_427_DIMER" stoichiometry="1"/>
@@ -8819,7 +8819,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="OsmC_rx" reversible="false" fast="false">
+      <reaction id="OsmC_rx" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="MG_124_MONOMER" stoichiometry="2"/>
           <speciesReference species="MG_427_DIMER_ox" stoichiometry="1"/>
@@ -8838,7 +8838,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PcbX" reversible="false" fast="false">
+      <reaction id="PcbX" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="CO2" stoichiometry="1"/>
@@ -8861,7 +8861,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pdp1" reversible="false" fast="false">
+      <reaction id="Pdp1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DU" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -8883,7 +8883,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pdp2" reversible="false" fast="false">
+      <reaction id="Pdp2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DT" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -8905,7 +8905,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pdp3" reversible="false" fast="false">
+      <reaction id="Pdp3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="2"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -8925,7 +8925,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PfkA1" reversible="false" fast="false">
+      <reaction id="PfkA1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="F6P" stoichiometry="1"/>
@@ -8948,7 +8948,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PfkA2" reversible="false" fast="false">
+      <reaction id="PfkA2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="F6P" stoichiometry="1"/>
           <speciesReference species="GTP" stoichiometry="1"/>
@@ -8971,7 +8971,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PfkA3" reversible="false" fast="false">
+      <reaction id="PfkA3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DATP" stoichiometry="1"/>
           <speciesReference species="F6P" stoichiometry="1"/>
@@ -8994,7 +8994,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PfkA4" reversible="false" fast="false">
+      <reaction id="PfkA4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="F6P" stoichiometry="1"/>
           <speciesReference species="ITP" stoichiometry="1"/>
@@ -9017,7 +9017,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PfkA5" reversible="false" fast="false">
+      <reaction id="PfkA5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="F6P" stoichiometry="1"/>
           <speciesReference species="UTP" stoichiometry="1"/>
@@ -9040,7 +9040,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgi" reversible="false" fast="false">
+      <reaction id="Pgi" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="G6P" stoichiometry="1"/>
         </listOfReactants>
@@ -9060,7 +9060,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgk1" reversible="false" fast="false">
+      <reaction id="Pgk1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ADP" stoichiometry="1"/>
           <speciesReference species="DPG" stoichiometry="1"/>
@@ -9082,7 +9082,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgk2" reversible="false" fast="false">
+      <reaction id="Pgk2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DPG" stoichiometry="1"/>
           <speciesReference species="GDP" stoichiometry="1"/>
@@ -9104,7 +9104,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgk3" reversible="false" fast="false">
+      <reaction id="Pgk3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DADP" stoichiometry="1"/>
           <speciesReference species="DPG" stoichiometry="1"/>
@@ -9126,7 +9126,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgk4" reversible="false" fast="false">
+      <reaction id="Pgk4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DPG" stoichiometry="1"/>
           <speciesReference species="IDP" stoichiometry="1"/>
@@ -9148,7 +9148,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgk5" reversible="false" fast="false">
+      <reaction id="Pgk5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DGDP" stoichiometry="1"/>
           <speciesReference species="DPG" stoichiometry="1"/>
@@ -9170,7 +9170,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pgm" reversible="false" fast="false">
+      <reaction id="Pgm" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="G1P" stoichiometry="1"/>
         </listOfReactants>
@@ -9190,7 +9190,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PgpA1" reversible="false" fast="false">
+      <reaction id="PgpA1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PGP160__m" stoichiometry="1"/>
@@ -9209,7 +9209,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PgpA2" reversible="false" fast="false">
+      <reaction id="PgpA2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PGP161__m" stoichiometry="1"/>
@@ -9228,7 +9228,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PgpA3" reversible="false" fast="false">
+      <reaction id="PgpA3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PGP181__m" stoichiometry="1"/>
@@ -9247,7 +9247,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PgsA1" reversible="false" fast="false">
+      <reaction id="PgsA1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL3P" stoichiometry="1"/>
           <speciesReference species="CDPDG160__m" stoichiometry="1"/>
@@ -9270,7 +9270,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PgsA2" reversible="false" fast="false">
+      <reaction id="PgsA2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL3P" stoichiometry="1"/>
           <speciesReference species="CDPDG161__m" stoichiometry="1"/>
@@ -9293,7 +9293,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PgsA3" reversible="false" fast="false">
+      <reaction id="PgsA3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL3P" stoichiometry="1"/>
           <speciesReference species="CDPDG181__m" stoichiometry="1"/>
@@ -9316,7 +9316,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PhnW" reversible="false" fast="false">
+      <reaction id="PhnW" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AEPP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -9336,7 +9336,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PhnX" reversible="false" fast="false">
+      <reaction id="PhnX" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PPAA" stoichiometry="1"/>
@@ -9356,7 +9356,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PlsC4" reversible="false" fast="false">
+      <reaction id="PlsC4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="2"/>
           <speciesReference species="HDECG3P" stoichiometry="1"/>
@@ -9379,7 +9379,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PlsC5" reversible="false" fast="false">
+      <reaction id="PlsC5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="HDECEG3P" stoichiometry="1"/>
           <speciesReference species="MG_287_MONOMER_hdeACP" stoichiometry="1"/>
@@ -9402,7 +9402,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PlsC7" reversible="false" fast="false">
+      <reaction id="PlsC7" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ODEC11GP" stoichiometry="1"/>
           <speciesReference species="MG_287_MONOMER_octeACP" stoichiometry="1"/>
@@ -9424,7 +9424,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PlsX4" reversible="false" fast="false">
+      <reaction id="PlsX4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL3P" stoichiometry="1"/>
           <speciesReference species="MG_287_MONOMER_palmACP" stoichiometry="1"/>
@@ -9447,7 +9447,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PlsX5" reversible="false" fast="false">
+      <reaction id="PlsX5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL3P" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9470,7 +9470,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PlsX7" reversible="false" fast="false">
+      <reaction id="PlsX7" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL3P" stoichiometry="1"/>
           <speciesReference species="MG_287_MONOMER_octeACP" stoichiometry="1"/>
@@ -9493,7 +9493,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PncB" reversible="false" fast="false">
+      <reaction id="PncB" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="3"/>
@@ -9520,7 +9520,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Ppa" reversible="false" fast="false">
+      <reaction id="Ppa" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PPI" stoichiometry="1"/>
@@ -9542,7 +9542,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Ppc" reversible="false" fast="false">
+      <reaction id="Ppc" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CO2" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -9563,7 +9563,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PrsA" reversible="false" fast="false">
+      <reaction id="PrsA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="R5P" stoichiometry="1"/>
@@ -9586,7 +9586,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="pSERpp" reversible="false" fast="false">
+      <reaction id="pSERpp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="pSER" stoichiometry="1"/>
@@ -9605,7 +9605,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pta" reversible="false" fast="false">
+      <reaction id="Pta" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ACCOA" stoichiometry="1"/>
           <speciesReference species="PI" stoichiometry="1"/>
@@ -9627,7 +9627,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="pTHRpp" reversible="false" fast="false">
+      <reaction id="pTHRpp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="pTHR" stoichiometry="1"/>
@@ -9646,7 +9646,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="pTYRpp" reversible="false" fast="false">
+      <reaction id="pTYRpp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="pTYR" stoichiometry="1"/>
@@ -9665,7 +9665,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="PYDXK" reversible="false" fast="false">
+      <reaction id="PYDXK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="PYDX" stoichiometry="1"/>
@@ -9685,7 +9685,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_ADP" reversible="false" fast="false">
+      <reaction id="Pyk_ADP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ADP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9708,7 +9708,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_CDP" reversible="false" fast="false">
+      <reaction id="Pyk_CDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CDP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9731,7 +9731,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_DADP" reversible="false" fast="false">
+      <reaction id="Pyk_DADP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DADP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9754,7 +9754,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_DCDP" reversible="false" fast="false">
+      <reaction id="Pyk_DCDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DCDP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9777,7 +9777,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_DGDP" reversible="false" fast="false">
+      <reaction id="Pyk_DGDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DGDP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9800,7 +9800,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_DTDP" reversible="false" fast="false">
+      <reaction id="Pyk_DTDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DTDP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9823,7 +9823,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_GDP" reversible="false" fast="false">
+      <reaction id="Pyk_GDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GDP" stoichiometry="1"/>
           <speciesReference species="H" stoichiometry="1"/>
@@ -9846,7 +9846,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_IDP" reversible="false" fast="false">
+      <reaction id="Pyk_IDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="IDP" stoichiometry="1"/>
@@ -9869,7 +9869,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Pyk_UDP" reversible="false" fast="false">
+      <reaction id="Pyk_UDP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="PEP" stoichiometry="1"/>
@@ -9892,7 +9892,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="RelA1" reversible="false" fast="false">
+      <reaction id="RelA1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="GDP" stoichiometry="1"/>
@@ -9915,7 +9915,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="RibF1" reversible="false" fast="false">
+      <reaction id="RibF1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="RIBFLV" stoichiometry="1"/>
@@ -9938,7 +9938,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="RibF2" reversible="false" fast="false">
+      <reaction id="RibF2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="FMN" stoichiometry="1"/>
@@ -9961,7 +9961,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Rpe" reversible="false" fast="false">
+      <reaction id="Rpe" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="RL5P" stoichiometry="1"/>
         </listOfReactants>
@@ -9981,7 +9981,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="RpiB" reversible="false" fast="false">
+      <reaction id="RpiB" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="RL5P" stoichiometry="1"/>
         </listOfReactants>
@@ -10001,7 +10001,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="SNGLYPOr" reversible="false" fast="false">
+      <reaction id="SNGLYPOr" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="NADP" stoichiometry="1"/>
           <speciesReference species="SNGLYP" stoichiometry="1"/>
@@ -10021,7 +10021,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TalA" reversible="false" fast="false">
+      <reaction id="TalA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="S7P" stoichiometry="1"/>
           <speciesReference species="T3P1" stoichiometry="1"/>
@@ -10040,7 +10040,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TatD_dAMP" reversible="false" fast="false">
+      <reaction id="TatD_dAMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dApdAp" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10062,7 +10062,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TatD_dCMP" reversible="false" fast="false">
+      <reaction id="TatD_dCMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dCpdCp" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10084,7 +10084,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TatD_dGMP" reversible="false" fast="false">
+      <reaction id="TatD_dGMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dGpdGp" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10106,7 +10106,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TatD_dTMP" reversible="false" fast="false">
+      <reaction id="TatD_dTMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dTpdTp" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10128,7 +10128,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Tdk1" reversible="false" fast="false">
+      <reaction id="Tdk1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DU" stoichiometry="1"/>
@@ -10151,7 +10151,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Tdk2" reversible="false" fast="false">
+      <reaction id="Tdk2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DT" stoichiometry="1"/>
@@ -10174,7 +10174,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="ThyA" reversible="false" fast="false">
+      <reaction id="ThyA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DUMP" stoichiometry="1"/>
           <speciesReference species="METTHF" stoichiometry="1"/>
@@ -10197,7 +10197,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Tkt1" reversible="false" fast="false">
+      <reaction id="Tkt1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="R5P" stoichiometry="1"/>
           <speciesReference species="X5P" stoichiometry="1"/>
@@ -10219,7 +10219,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Tkt2" reversible="false" fast="false">
+      <reaction id="Tkt2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="E4P" stoichiometry="1"/>
           <speciesReference species="X5P" stoichiometry="1"/>
@@ -10241,7 +10241,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TMDPK" reversible="false" fast="false">
+      <reaction id="TMDPK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="THM" stoichiometry="1"/>
@@ -10261,7 +10261,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Tmk" reversible="false" fast="false">
+      <reaction id="Tmk" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="DTMP" stoichiometry="1"/>
@@ -10283,7 +10283,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TpiA" reversible="false" fast="false">
+      <reaction id="TpiA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="T3P2" stoichiometry="1"/>
         </listOfReactants>
@@ -10303,7 +10303,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TrxB" reversible="false" fast="false">
+      <reaction id="TrxB" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="NADPH" stoichiometry="1"/>
@@ -10326,7 +10326,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TXPYDX" reversible="false" fast="false">
+      <reaction id="TXPYDX" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PYDX__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10343,7 +10343,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TXTHM" reversible="false" fast="false">
+      <reaction id="TXTHM" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="THM__e" stoichiometry="1"/>
@@ -10362,7 +10362,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_ACAL" reversible="false" fast="false">
+      <reaction id="TX_ACAL" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ACAL" stoichiometry="1"/>
         </listOfReactants>
@@ -10379,7 +10379,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_ACUP" reversible="false" fast="false">
+      <reaction id="TX_ACUP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AC__e" stoichiometry="1"/>
           <speciesReference species="H__e" stoichiometry="1"/>
@@ -10398,7 +10398,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AD" reversible="false" fast="false">
+      <reaction id="TX_AD" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AD__e" stoichiometry="1"/>
           <speciesReference species="H__e" stoichiometry="1"/>
@@ -10417,7 +10417,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AKG" reversible="false" fast="false">
+      <reaction id="TX_AKG" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AKG__e" stoichiometry="1"/>
           <speciesReference species="H__e" stoichiometry="1"/>
@@ -10436,7 +10436,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AROP11" reversible="false" fast="false">
+      <reaction id="TX_AROP11" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="TRP__e" stoichiometry="1"/>
@@ -10458,7 +10458,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AROP12" reversible="false" fast="false">
+      <reaction id="TX_AROP12" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="PHE__e" stoichiometry="1"/>
@@ -10480,7 +10480,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AROP13" reversible="false" fast="false">
+      <reaction id="TX_AROP13" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="TYR__e" stoichiometry="1"/>
@@ -10502,7 +10502,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AROP21" reversible="false" fast="false">
+      <reaction id="TX_AROP21" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="TRP__e" stoichiometry="1"/>
@@ -10524,7 +10524,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AROP22" reversible="false" fast="false">
+      <reaction id="TX_AROP22" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="PHE__e" stoichiometry="1"/>
@@ -10546,7 +10546,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_AROP23" reversible="false" fast="false">
+      <reaction id="TX_AROP23" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="TYR__e" stoichiometry="1"/>
@@ -10568,7 +10568,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_CAP" reversible="false" fast="false">
+      <reaction id="TX_CAP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CAP__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10585,7 +10585,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_Cbi_Co" reversible="false" fast="false">
+      <reaction id="TX_Cbi_Co" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10610,7 +10610,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_Cbi_Ni" reversible="false" fast="false">
+      <reaction id="TX_Cbi_Ni" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10635,7 +10635,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_CL" reversible="false" fast="false">
+      <reaction id="TX_CL" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="2"/>
           <speciesReference species="CL__e" stoichiometry="1"/>
@@ -10654,7 +10654,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_cmnm5s2U" reversible="false" fast="false">
+      <reaction id="TX_cmnm5s2U" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="cmnm5s2U__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10671,7 +10671,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_CO2" reversible="false" fast="false">
+      <reaction id="TX_CO2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CO2__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10688,7 +10688,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_COA" reversible="false" fast="false">
+      <reaction id="TX_COA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="COA__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10705,7 +10705,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_ComEC_dApdAp" reversible="false" fast="false">
+      <reaction id="TX_ComEC_dApdAp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dApdAp__e" stoichiometry="2"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -10728,7 +10728,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_ComEC_dCpdCp" reversible="false" fast="false">
+      <reaction id="TX_ComEC_dCpdCp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dCpdCp__e" stoichiometry="2"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -10751,7 +10751,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_ComEC_dGpdGp" reversible="false" fast="false">
+      <reaction id="TX_ComEC_dGpdGp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dGpdGp__e" stoichiometry="2"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -10774,7 +10774,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_ComEC_dTpdTp" reversible="false" fast="false">
+      <reaction id="TX_ComEC_dTpdTp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dTpdTp__e" stoichiometry="2"/>
           <speciesReference species="H2O__e" stoichiometry="1"/>
@@ -10797,7 +10797,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_CYTD" reversible="false" fast="false">
+      <reaction id="TX_CYTD" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CYTD__e" stoichiometry="1"/>
           <speciesReference species="H__e" stoichiometry="1"/>
@@ -10816,7 +10816,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_DA" reversible="false" fast="false">
+      <reaction id="TX_DA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DA__e" stoichiometry="1"/>
           <speciesReference species="H__e" stoichiometry="1"/>
@@ -10835,7 +10835,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_dINS" reversible="false" fast="false">
+      <reaction id="TX_dINS" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="dINS__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10852,7 +10852,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_FOR" reversible="false" fast="false">
+      <reaction id="TX_FOR" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FOR__e" stoichiometry="1"/>
         </listOfReactants>
@@ -10869,7 +10869,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_FRUPTS" reversible="false" fast="false">
+      <reaction id="TX_FRUPTS" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PEP" stoichiometry="1"/>
           <speciesReference species="FRU__e" stoichiometry="1"/>
@@ -10891,7 +10891,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_GL" reversible="false" fast="false">
+      <reaction id="TX_GL" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10916,7 +10916,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_GL3P" reversible="false" fast="false">
+      <reaction id="TX_GL3P" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10941,7 +10941,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_GLCPTS" reversible="false" fast="false">
+      <reaction id="TX_GLCPTS" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PEP" stoichiometry="1"/>
           <speciesReference species="GLC__e" stoichiometry="1"/>
@@ -10963,7 +10963,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_GLNHPQ" reversible="false" fast="false">
+      <reaction id="TX_GLNHPQ" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -10985,7 +10985,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_GLUP" reversible="false" fast="false">
+      <reaction id="TX_GLUP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GL__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11005,7 +11005,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_Gm" reversible="false" fast="false">
+      <reaction id="TX_Gm" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="Gm__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11022,7 +11022,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_GN" reversible="false" fast="false">
+      <reaction id="TX_GN" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GN__e" stoichiometry="1"/>
           <speciesReference species="H__e" stoichiometry="1"/>
@@ -11041,7 +11041,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_H2O" reversible="false" fast="false">
+      <reaction id="TX_H2O" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11058,7 +11058,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_H2O2" reversible="false" fast="false">
+      <reaction id="TX_H2O2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O2__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11075,7 +11075,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_HDCA" reversible="false" fast="false">
+      <reaction id="TX_HDCA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="HDCA__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11092,7 +11092,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_HDCEA" reversible="false" fast="false">
+      <reaction id="TX_HDCEA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="HDCEA__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11109,7 +11109,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_k2C" reversible="false" fast="false">
+      <reaction id="TX_k2C" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="k2C__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11126,7 +11126,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_LIPOATE" reversible="false" fast="false">
+      <reaction id="TX_LIPOATE" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="LIPOATE__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11143,7 +11143,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_m1G" reversible="false" fast="false">
+      <reaction id="TX_m1G" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m1G__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11160,7 +11160,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_m2G" reversible="false" fast="false">
+      <reaction id="TX_m2G" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m2G__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11177,7 +11177,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_m62A" reversible="false" fast="false">
+      <reaction id="TX_m62A" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m62A__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11194,7 +11194,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_m7G" reversible="false" fast="false">
+      <reaction id="TX_m7G" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m7G__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11211,7 +11211,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_CA" reversible="false" fast="false">
+      <reaction id="TX_MGTA_CA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11236,7 +11236,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_CU" reversible="false" fast="false">
+      <reaction id="TX_MGTA_CU" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11261,7 +11261,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_FE2" reversible="false" fast="false">
+      <reaction id="TX_MGTA_FE2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11286,7 +11286,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_FE3" reversible="false" fast="false">
+      <reaction id="TX_MGTA_FE3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11311,7 +11311,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_MG" reversible="false" fast="false">
+      <reaction id="TX_MGTA_MG" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11336,7 +11336,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_MN" reversible="false" fast="false">
+      <reaction id="TX_MGTA_MN" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11361,7 +11361,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_MOBD" reversible="false" fast="false">
+      <reaction id="TX_MGTA_MOBD" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11386,7 +11386,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_MGTA_ZN" reversible="false" fast="false">
+      <reaction id="TX_MGTA_ZN" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11411,7 +11411,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_NAC" reversible="false" fast="false">
+      <reaction id="TX_NAC" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="NAC__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11428,7 +11428,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_NAUP2" reversible="false" fast="false">
+      <reaction id="TX_NAUP2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="NA__e" stoichiometry="1"/>
@@ -11450,7 +11450,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_NH4" reversible="false" fast="false">
+      <reaction id="TX_NH4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="NH4__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11467,7 +11467,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_O2" reversible="false" fast="false">
+      <reaction id="TX_O2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="O2__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11484,7 +11484,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OA" reversible="false" fast="false">
+      <reaction id="TX_OA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="OA__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11501,7 +11501,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OCDCEA" reversible="false" fast="false">
+      <reaction id="TX_OCDCEA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="OCDCEA__e" stoichiometry="1"/>
         </listOfReactants>
@@ -11518,7 +11518,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Ala" reversible="false" fast="false">
+      <reaction id="TX_OppB_Ala" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11543,7 +11543,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Arg" reversible="false" fast="false">
+      <reaction id="TX_OppB_Arg" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11568,7 +11568,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Asn" reversible="false" fast="false">
+      <reaction id="TX_OppB_Asn" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11593,7 +11593,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Asp" reversible="false" fast="false">
+      <reaction id="TX_OppB_Asp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11618,7 +11618,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Cys" reversible="false" fast="false">
+      <reaction id="TX_OppB_Cys" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11643,7 +11643,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Gln" reversible="false" fast="false">
+      <reaction id="TX_OppB_Gln" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11668,7 +11668,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Glu" reversible="false" fast="false">
+      <reaction id="TX_OppB_Glu" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11693,7 +11693,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Gly" reversible="false" fast="false">
+      <reaction id="TX_OppB_Gly" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11718,7 +11718,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_His" reversible="false" fast="false">
+      <reaction id="TX_OppB_His" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11743,7 +11743,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Ile" reversible="false" fast="false">
+      <reaction id="TX_OppB_Ile" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11768,7 +11768,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Leu" reversible="false" fast="false">
+      <reaction id="TX_OppB_Leu" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11793,7 +11793,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Lys" reversible="false" fast="false">
+      <reaction id="TX_OppB_Lys" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11818,7 +11818,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Met" reversible="false" fast="false">
+      <reaction id="TX_OppB_Met" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11843,7 +11843,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Phe" reversible="false" fast="false">
+      <reaction id="TX_OppB_Phe" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11868,7 +11868,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Pro" reversible="false" fast="false">
+      <reaction id="TX_OppB_Pro" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11893,7 +11893,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Ser" reversible="false" fast="false">
+      <reaction id="TX_OppB_Ser" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11918,7 +11918,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Thr" reversible="false" fast="false">
+      <reaction id="TX_OppB_Thr" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11943,7 +11943,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Trp" reversible="false" fast="false">
+      <reaction id="TX_OppB_Trp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11968,7 +11968,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Tyr" reversible="false" fast="false">
+      <reaction id="TX_OppB_Tyr" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -11993,7 +11993,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_OppB_Val" reversible="false" fast="false">
+      <reaction id="TX_OppB_Val" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12018,7 +12018,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_PHNT" reversible="false" fast="false">
+      <reaction id="TX_PHNT" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12043,7 +12043,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_PIUP1" reversible="false" fast="false">
+      <reaction id="TX_PIUP1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12067,7 +12067,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_PSIURI" reversible="false" fast="false">
+      <reaction id="TX_PSIURI" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PSIURI__e" stoichiometry="1"/>
         </listOfReactants>
@@ -12084,7 +12084,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_RIBFLV" reversible="false" fast="false">
+      <reaction id="TX_RIBFLV" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="RIBFLV__e" stoichiometry="1"/>
         </listOfReactants>
@@ -12101,7 +12101,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_s4U" reversible="false" fast="false">
+      <reaction id="TX_s4U" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="s4U__e" stoichiometry="1"/>
         </listOfReactants>
@@ -12118,7 +12118,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_SO4" reversible="false" fast="false">
+      <reaction id="TX_SO4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12140,7 +12140,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_SPMDUP1" reversible="false" fast="false">
+      <reaction id="TX_SPMDUP1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12165,7 +12165,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_SPRDUP2" reversible="false" fast="false">
+      <reaction id="TX_SPRDUP2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12190,7 +12190,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_STEROL" reversible="false" fast="false">
+      <reaction id="TX_STEROL" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="STEROL__e" stoichiometry="1"/>
         </listOfReactants>
@@ -12207,7 +12207,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_THF" reversible="false" fast="false">
+      <reaction id="TX_THF" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="THF__e" stoichiometry="1"/>
         </listOfReactants>
@@ -12224,7 +12224,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_THY" reversible="false" fast="false">
+      <reaction id="TX_THY" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
           <speciesReference species="THY__e" stoichiometry="1"/>
@@ -12243,7 +12243,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_TRK" reversible="false" fast="false">
+      <reaction id="TX_TRK" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="K__e" stoichiometry="1"/>
@@ -12265,7 +12265,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_UHPT1" reversible="false" fast="false">
+      <reaction id="TX_UHPT1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PI" stoichiometry="2"/>
           <speciesReference species="G6P__e" stoichiometry="1"/>
@@ -12287,7 +12287,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_Um" reversible="false" fast="false">
+      <reaction id="TX_Um" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="Um__e" stoichiometry="1"/>
         </listOfReactants>
@@ -12304,7 +12304,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="TX_URA" reversible="false" fast="false">
+      <reaction id="TX_URA" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H__e" stoichiometry="1"/>
           <speciesReference species="URA__e" stoichiometry="1"/>
@@ -12323,7 +12323,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Udk1" reversible="false" fast="false">
+      <reaction id="Udk1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GTP" stoichiometry="1"/>
           <speciesReference species="URI" stoichiometry="1"/>
@@ -12346,7 +12346,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Udk2" reversible="false" fast="false">
+      <reaction id="Udk2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CYTD" stoichiometry="1"/>
           <speciesReference species="GTP" stoichiometry="1"/>
@@ -12369,7 +12369,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="Upp" reversible="false" fast="false">
+      <reaction id="Upp" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PRPP" stoichiometry="1"/>
           <speciesReference species="URA" stoichiometry="1"/>
@@ -12391,7 +12391,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_AMP" reversible="false" fast="false">
+      <reaction id="UshA_AMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12410,7 +12410,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_cmnm5s2UMP" reversible="false" fast="false">
+      <reaction id="UshA_cmnm5s2UMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="cmnm5s2UMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12429,7 +12429,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_dCMP" reversible="false" fast="false">
+      <reaction id="UshA_dCMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DCMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12448,7 +12448,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_dTMP" reversible="false" fast="false">
+      <reaction id="UshA_dTMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DTMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12467,7 +12467,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_dUMP" reversible="false" fast="false">
+      <reaction id="UshA_dUMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DUMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12486,7 +12486,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_GmMP" reversible="false" fast="false">
+      <reaction id="UshA_GmMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GmMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12505,7 +12505,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_GMP" reversible="false" fast="false">
+      <reaction id="UshA_GMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GMP" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12524,7 +12524,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_IMP" reversible="false" fast="false">
+      <reaction id="UshA_IMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="IMP" stoichiometry="1"/>
@@ -12543,7 +12543,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_k2CMP" reversible="false" fast="false">
+      <reaction id="UshA_k2CMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="k2CMP" stoichiometry="1"/>
@@ -12562,7 +12562,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_m1GMP" reversible="false" fast="false">
+      <reaction id="UshA_m1GMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="m1GMP" stoichiometry="1"/>
@@ -12581,7 +12581,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_m2GMP" reversible="false" fast="false">
+      <reaction id="UshA_m2GMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="m2GMP" stoichiometry="1"/>
@@ -12600,7 +12600,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_m62AMP" reversible="false" fast="false">
+      <reaction id="UshA_m62AMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="m62AMP" stoichiometry="1"/>
@@ -12619,7 +12619,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_m7GMP" reversible="false" fast="false">
+      <reaction id="UshA_m7GMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="m7GMP" stoichiometry="1"/>
@@ -12638,7 +12638,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_PSIURIMP" reversible="false" fast="false">
+      <reaction id="UshA_PSIURIMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="PSIURIMP" stoichiometry="1"/>
@@ -12657,7 +12657,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_s4UMP" reversible="false" fast="false">
+      <reaction id="UshA_s4UMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="s4UMP" stoichiometry="1"/>
@@ -12676,7 +12676,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="UshA_UmMP" reversible="false" fast="false">
+      <reaction id="UshA_UmMP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="UmMP" stoichiometry="1"/>
@@ -12695,7 +12695,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="YbiV_SNGLYP" reversible="false" fast="false">
+      <reaction id="YbiV_SNGLYP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
           <speciesReference species="SNGLYP" stoichiometry="1"/>
@@ -12717,7 +12717,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="YicP" reversible="false" fast="false">
+      <reaction id="YicP" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AD" stoichiometry="1"/>
           <speciesReference species="H2O" stoichiometry="1"/>
@@ -12736,7 +12736,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_0" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_0" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AC__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12750,7 +12750,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_1" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_1" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="ACAL__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12764,7 +12764,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_2" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_2" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AD__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12778,7 +12778,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_3" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_3" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AEPP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12792,7 +12792,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_4" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_4" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AKG__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12806,7 +12806,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_5" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_5" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AlaAla__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12820,7 +12820,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_6" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_6" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AMP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12834,7 +12834,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_7" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_7" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AMP_Lysine__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12848,7 +12848,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_8" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_8" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AMP_Mor__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12862,7 +12862,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_9" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_9" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AMP_NH2__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12876,7 +12876,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_10" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_10" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="ArgArg__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12890,7 +12890,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_11" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_11" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AsnAsn__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12904,7 +12904,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_12" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_12" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="AspAsp__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12918,7 +12918,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_13" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_13" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="BUT__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12932,7 +12932,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_14" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_14" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12946,7 +12946,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_15" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_15" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CAP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12960,7 +12960,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_16" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_16" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CH3OH__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12974,7 +12974,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_17" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_17" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CL__e" stoichiometry="1"/>
         </listOfProducts>
@@ -12988,7 +12988,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_18" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_18" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="cmnm5s2U__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13002,7 +13002,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_19" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_19" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CO__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13016,7 +13016,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_20" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_20" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CO2__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13030,7 +13030,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_21" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_21" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="COA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13044,7 +13044,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_22" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_22" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CU__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13058,7 +13058,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_23" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_23" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CysCys__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13072,7 +13072,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_24" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_24" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="CYTD__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13086,7 +13086,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_25" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_25" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13100,7 +13100,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_26" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_26" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DAMP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13114,7 +13114,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_27" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_27" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="dApdAp__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13128,7 +13128,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_28" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_28" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DCMP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13142,7 +13142,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_29" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_29" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="dCpdCp__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13156,7 +13156,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_30" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_30" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DDCA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13170,7 +13170,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_31" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_31" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DGMP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13184,7 +13184,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_32" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_32" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="dGpdGp__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13198,7 +13198,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_33" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_33" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DIBUTYRIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13212,7 +13212,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_34" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_34" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="dINS__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13226,7 +13226,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_35" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_35" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="DTMP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13240,7 +13240,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_36" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_36" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="dTpdTp__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13254,7 +13254,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_37" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_37" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="FE2__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13268,7 +13268,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_38" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_38" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="FE3__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13282,7 +13282,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_39" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_39" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="FOR__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13296,7 +13296,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_40" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_40" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="FRU__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13310,7 +13310,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_41" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_41" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="G6P__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13324,7 +13324,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_42" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_42" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GL__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13338,7 +13338,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_43" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_43" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GL3P__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13352,7 +13352,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_44" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_44" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GLC__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13366,7 +13366,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_45" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_45" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GLN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13380,7 +13380,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_46" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_46" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GlnGln__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13394,7 +13394,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_47" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_47" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GluGlu__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13408,7 +13408,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_48" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_48" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GlyGly__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13422,7 +13422,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_49" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_49" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="Gm__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13436,7 +13436,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_50" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_50" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GMP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13450,7 +13450,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_51" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_51" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GMP_Lysine__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13464,7 +13464,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_52" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_52" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GMP_Mor__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13478,7 +13478,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_53" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_53" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="GN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13492,7 +13492,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_54" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_54" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="H__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13506,7 +13506,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_55" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_55" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="H2O__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13520,7 +13520,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_56" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_56" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="H2O2__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13534,7 +13534,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_57" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_57" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="HDCA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13548,7 +13548,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_58" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_58" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="HDCEA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13562,7 +13562,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_59" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_59" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="HisHis__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13576,7 +13576,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_60" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_60" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="IleIle__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13590,7 +13590,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_61" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_61" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="K__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13604,7 +13604,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_62" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_62" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="k2C__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13618,7 +13618,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_63" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_63" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="LeuLeu__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13632,7 +13632,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_64" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_64" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="LIPOATE__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13646,7 +13646,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_65" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_65" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="LYS__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13660,7 +13660,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_66" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_66" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="LysLys__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13674,7 +13674,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_67" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_67" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="m1G__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13688,7 +13688,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_68" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_68" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="m2G__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13702,7 +13702,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_69" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_69" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="m62A__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13716,7 +13716,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_70" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_70" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="m7G__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13730,7 +13730,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_71" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_71" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="METHYL_OCDCEA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13744,7 +13744,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_72" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_72" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="MetMet__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13758,7 +13758,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_73" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_73" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="MG__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13772,7 +13772,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_74" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_74" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="MN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13786,7 +13786,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_75" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_75" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="MOBD__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13800,7 +13800,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_76" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_76" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="MONOBUTYRIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13814,7 +13814,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_77" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_77" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="MOR__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13828,7 +13828,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_78" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_78" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="NA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13842,7 +13842,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_79" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_79" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="NAC__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13856,7 +13856,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_80" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_80" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="NH3__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13870,7 +13870,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_81" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_81" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="NH4__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13884,7 +13884,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_82" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_82" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="NI__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13898,7 +13898,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_83" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_83" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="O2__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13912,7 +13912,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_84" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_84" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="OA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13926,7 +13926,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_85" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_85" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="OCDCA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13940,7 +13940,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_86" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_86" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="OCDCEA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13954,7 +13954,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_87" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_87" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="PHE__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13968,7 +13968,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_88" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_88" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="PhePhe__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13982,7 +13982,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_89" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_89" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="PI__e" stoichiometry="1"/>
         </listOfProducts>
@@ -13996,7 +13996,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_90" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_90" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="POE_SORBITAN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14010,7 +14010,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_91" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_91" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="ProPro__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14024,7 +14024,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_92" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_92" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="PSIURI__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14038,7 +14038,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_93" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_93" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="PTRC__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14052,7 +14052,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_94" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_94" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="PYDX__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14066,7 +14066,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_95" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_95" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="RIBFLV__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14080,7 +14080,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_96" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_96" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="s4U__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14094,7 +14094,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_97" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_97" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="SerSer__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14108,7 +14108,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_98" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_98" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="SO4__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14122,7 +14122,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_99" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_99" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="SPMD__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14136,7 +14136,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_100" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_100" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="STEROL__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14150,7 +14150,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_101" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_101" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="THF__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14164,7 +14164,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_102" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_102" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="THM__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14178,7 +14178,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_103" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_103" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="ThrThr__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14192,7 +14192,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_104" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_104" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="THY__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14206,7 +14206,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_105" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_105" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRIBUTYRIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14220,7 +14220,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_106" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_106" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRILAURIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14234,7 +14234,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_107" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_107" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRIMYRISTIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14248,7 +14248,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_108" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_108" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRIOLEIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14262,7 +14262,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_109" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_109" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRIPALMITIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14276,7 +14276,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_110" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_110" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRISTEARIN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14290,7 +14290,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_111" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_111" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRI_HDCEA_IN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14304,7 +14304,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_112" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_112" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRI_TTDCEA_IN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14318,7 +14318,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_113" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_113" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TRP__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14332,7 +14332,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_114" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_114" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TrpTrp__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14346,7 +14346,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_115" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_115" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TTDCA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14360,7 +14360,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_116" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_116" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TTDCEA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14374,7 +14374,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_117" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_117" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TWEEN80__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14388,7 +14388,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_118" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_118" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TYR__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14402,7 +14402,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_119" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_119" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="TyrTyr__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14416,7 +14416,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_120" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_120" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="Um__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14430,7 +14430,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_121" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_121" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="URA__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14444,7 +14444,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_122" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_122" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="ValVal__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14458,7 +14458,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteExternalExchange_ex_123" reversible="false" fast="false">
+      <reaction id="metaboliteExternalExchange_ex_123" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="ZN__e" stoichiometry="1"/>
         </listOfProducts>
@@ -14472,7 +14472,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_0" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_0" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AD" stoichiometry="1"/>
         </listOfReactants>
@@ -14486,7 +14486,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_1" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_1" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ADP" stoichiometry="1"/>
         </listOfReactants>
@@ -14503,7 +14503,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_2" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_2" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AHCYS" stoichiometry="1"/>
         </listOfReactants>
@@ -14517,7 +14517,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_3" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_3" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="AMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14534,7 +14534,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_4" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_4" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ATP" stoichiometry="1"/>
         </listOfReactants>
@@ -14551,7 +14551,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_5" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_5" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="cmnm5s2UMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14565,7 +14565,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_6" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_6" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14582,7 +14582,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_7" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_7" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="CTP" stoichiometry="1"/>
         </listOfReactants>
@@ -14599,7 +14599,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_8" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_8" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="DR5P" stoichiometry="1"/>
         </listOfReactants>
@@ -14613,7 +14613,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_9" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_9" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FMET" stoichiometry="1"/>
         </listOfReactants>
@@ -14631,7 +14631,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_10" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_10" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FOR" stoichiometry="1"/>
         </listOfReactants>
@@ -14648,7 +14648,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_11" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_11" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="FTHF10" stoichiometry="1"/>
         </listOfReactants>
@@ -14666,7 +14666,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_12" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_12" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GDP" stoichiometry="1"/>
         </listOfReactants>
@@ -14683,7 +14683,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_13" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_13" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GmMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14697,7 +14697,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_14" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_14" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14714,7 +14714,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_15" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_15" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GN" stoichiometry="1"/>
         </listOfReactants>
@@ -14728,7 +14728,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_16" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_16" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="GTP" stoichiometry="1"/>
         </listOfReactants>
@@ -14745,7 +14745,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_17" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_17" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H" stoichiometry="1"/>
         </listOfReactants>
@@ -14759,7 +14759,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_18" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_18" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="H2O" stoichiometry="1"/>
         </listOfReactants>
@@ -14773,7 +14773,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_19" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_19" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="k2CMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14787,7 +14787,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_20" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_20" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="LIPOYLLYS" stoichiometry="1"/>
         </listOfReactants>
@@ -14801,7 +14801,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_21" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_21" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m1GMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14815,7 +14815,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_22" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_22" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m2GMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14829,7 +14829,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_23" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_23" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m62AMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14843,7 +14843,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_24" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_24" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="m7GMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14857,7 +14857,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_25" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_25" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="MET" stoichiometry="1"/>
         </listOfReactants>
@@ -14874,7 +14874,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_26" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_26" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="NH3" stoichiometry="1"/>
         </listOfReactants>
@@ -14888,7 +14888,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_27" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_27" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="NMN" stoichiometry="1"/>
         </listOfReactants>
@@ -14902,7 +14902,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_28" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_28" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PI" stoichiometry="1"/>
         </listOfReactants>
@@ -14916,7 +14916,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_29" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_29" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PPI" stoichiometry="1"/>
         </listOfReactants>
@@ -14930,7 +14930,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_30" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_30" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="pSER" stoichiometry="1"/>
         </listOfReactants>
@@ -14944,7 +14944,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_31" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_31" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="PSIURIMP" stoichiometry="1"/>
         </listOfReactants>
@@ -14958,7 +14958,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_32" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_32" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="pTHR" stoichiometry="1"/>
         </listOfReactants>
@@ -14972,7 +14972,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_33" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_33" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="pTYR" stoichiometry="1"/>
         </listOfReactants>
@@ -14986,7 +14986,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_34" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_34" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="s4UMP" stoichiometry="1"/>
         </listOfReactants>
@@ -15000,7 +15000,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_35" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_35" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="SNGLYP" stoichiometry="1"/>
         </listOfReactants>
@@ -15014,7 +15014,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_36" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_36" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="THF" stoichiometry="1"/>
         </listOfReactants>
@@ -15031,7 +15031,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_37" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_37" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="THY" stoichiometry="1"/>
         </listOfReactants>
@@ -15045,7 +15045,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_38" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_38" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="UmMP" stoichiometry="1"/>
         </listOfReactants>
@@ -15059,7 +15059,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_39" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_39" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="UMP" stoichiometry="1"/>
         </listOfReactants>
@@ -15076,7 +15076,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_40" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_40" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="URA" stoichiometry="1"/>
         </listOfReactants>
@@ -15090,7 +15090,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="metaboliteInternalExchange_ix_41" reversible="false" fast="false">
+      <reaction id="metaboliteInternalExchange_ix_41" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="UTP" stoichiometry="1"/>
         </listOfReactants>
@@ -15107,7 +15107,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="biomassProduction" reversible="false" fast="false">
+      <reaction id="biomassProduction" reversible="true" fast="false">
         <listOfReactants>
           <speciesReference species="ACCOA" stoichiometry="3581.1677973408"/>
           <speciesReference species="ALA" stoichiometry="786393.089973227"/>
@@ -15201,7 +15201,7 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="biomassConsumption" reversible="false" fast="false">
+      <reaction id="biomassConsumption" reversible="true" fast="false">
         <listOfProducts>
           <speciesReference species="biomass" stoichiometry="1"/>
         </listOfProducts>

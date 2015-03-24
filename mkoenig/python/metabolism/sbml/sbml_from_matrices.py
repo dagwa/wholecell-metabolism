@@ -227,12 +227,9 @@ if __name__ == "__main__":
             # ass = Association(ast_node)
             ga.setAssociation(ass)
             # "GENE_ASSOCIATION: MG_271 and MG_272 and MG_273 and MG_274"    
-            infix = ass.toInfix()
-            print infix     
-            ass = ga.getAssociation()
-            infix = ass.toInfix()
-            print infix
-                
+            # infix = ass.toInfix()
+            # print infix     
+       
 
         # stoichiometry from stoichiometric matrix # [376x504]
         # find the non-zero elements in the reaction column 
@@ -251,10 +248,10 @@ if __name__ == "__main__":
                 pt.setStoichiometry(stoichiometry)
                 pt.setConstant(True)
     
-        # reversibility from the initial reaction bounds
-        # TODO: calculate from flux bounds
-        # Manage if reversible in backward direction
-        r.setReversible(False)
+        
+        # TODO: calculate from the reaction bounds (necessary to handle reversibility 
+        #   in backward direction)
+        r.setReversible(True)
         
         # not possible to set local parameters (math is required)
         # prefix with reaction to get the actual parameters
@@ -268,7 +265,7 @@ if __name__ == "__main__":
             par.setValue(r_fba_df[p_name][index])
             par.setConstant(True)
     
-         
+    # <fluxBounds>     
     # bound = mplugin.createFluxBound();
     # bound.setId("bound1");
     # bound.setReaction("J0");

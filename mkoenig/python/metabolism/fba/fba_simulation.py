@@ -10,58 +10,102 @@ sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metab
 # sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
 
 ##############################################################################
-# FBA with model
+# Read model, FBA and fluxbound information
 ##############################################################################
 import cobra
+from libsbml import readSBML
 
 # Read model
 model = cobra.io.read_sbml_model(sbml)
 
-print model.compartments
-print len(model.reactions)    # 504
-print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
-print len(model.genes)        # 142   (104)
-
-
-# parse the genes from FBC and set the reaction
-
-
-
-
-
-
+# Read GeneAssociations
 def set_gene_associations_from_fbc(model_cobra, sbml):
-    from libsbml import readSBML
-    # sbml with the fbc information
+    ''' Parse the GeneAssociations from FBC v1. '''
     doc = readSBML(sbml)
     if (doc.getPlugin("fbc") != None):
         model_sbml = doc.getModel()
         mplugin = model_sbml.getPlugin("fbc");
-        for ga in mplugin.getListOfGeneAssociations():
-            
-            reaction_id = ga.getReaction() 
+        for ga in mplugin.getListOfGeneAssociations():        
+            # get the rule string for cobrapy        
             ass = ga.getAssociation()
-            print ass
-            # get the rule string for cobray
             rule = ass.toInfix()
-            print ga.toSBML()
-            print ass.toSBML()
-            print '*{}*'.format(rule)
             rule = rule.replace('(', '')
             rule = rule.replace('(', '')
-    
+            # get reaction and set gene rules
+            reaction_id = ga.getReaction() 
             reaction = model_cobra.reactions.get_by_id(reaction_id)
-            # the property takes care of all the logic
-            reaction.gene_reaction_rule = rule    
+            reaction.gene_reaction_rule = rule # property takes care of all the logic
     return model_cobra
 
+# how many genes are really associated ?
+# TODO: Check the numbers (should be 142 not 115) ?
 set_gene_associations_from_fbc(model, sbml)
-print len(model.genes)        # 142   (104)
+
+
+print len(model.reactions)    # 504
+print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
+print len(model.genes)        # 142  (104)
+print model.compartments
+
+###############################################################################
+# Objective coefficients
+###############################################################################
+# Read the objective coefficients
+def get_active_objective_from_fbc(sbml):
+    ''' Read the active objective from fbc model. '''
+    obj_coefs = {}
+    doc = readSBML(sbml)
+    if (doc.getPlugin("fbc") != None):
+        model_sbml = doc.getModel()
+        mplugin = model_sbml.getPlugin("fbc");
+        # read the active objective        
+        objective = mplugin.getActiveObjective()
+        for fluxobj in objective.getListOfFluxObjectives():
+            obj_coefs[fluxobj.getReaction()] = fluxobj.getCoefficient()
+    return obj_coefs
+
+
+def clear_objective_coefficients():
+    for reaction in model.reactions:
+        reaction.objective_coefficient = 0.0
+    return None
+    
+def set_objective_coefficients(model, obj_coefs):
+    clear_objective_coefficients()
+    for rid, coef in obj_coefs.iteritems():
+        reaction = model.reactions.get_by_id(rid)
+        reaction.objective_coefficient = coef
+    
+def get_objective_coefficients():
+    # objective function
+    return {reaction: reaction.objective_coefficient for reaction in model.reactions if reaction.objective_coefficient != 0}
+
+obj_coefs = get_active_objective_from_fbc(sbml)
+set_objective_coefficients(model, obj_coefs)    
+for key, value in get_objective_coefficients().iteritems():
+    print key, value
+
+
+def get_flux_bounds_from_fbc():
+    pass
+
+
+# mass balance & charge balance
+# looks good for all reactions
+# ix and ex are not balanced, also reactions involving proteins are not balanced
+for r in model.reactions:
+    mb = r.check_mass_balance()
+    if mb:
+        print mb
+        print r.reaction
+
+# Read the flux parameters for updating the bounds
+# TODO
+# Update the flux bounds
 
 
 
 
-print(model.compartments)
 
 # Perform FBA
 # linear programming
@@ -72,14 +116,12 @@ print(model.compartments)
 #                'linprog', struct('Display','off'),...
 #                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
 #                'qsopt', struct()));
-model.optimize()
 
 # Solution status
+model.optimize()
 model.solution.status
 
-# objective function
-{reaction: reaction.objective_coefficient for reaction in model.reactions
-if reaction.objective_coefficient != 0}
+
 
 # Print flux bounds for all reactions
 print '*** Reactions ***'

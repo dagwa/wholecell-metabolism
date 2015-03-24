@@ -1,9 +1,10 @@
+import libsbml
+print libsbml.getLibSBMLVersionString()
 
 
 def read_gene_associations_from_fbc(sbml):
     ''' Reading all the GeneAssociations from FBC '''
-    from libsbml import readSBML
-    doc = readSBML(sbml)
+    doc = libsbml.readSBML(sbml)
     
     if (doc.getPlugin("fbc") != None):
         model_sbml = doc.getModel()
