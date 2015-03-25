@@ -201,13 +201,18 @@ if __name__ == "__main__":
             par.setConstant(True) 
         # The reaction flux bounds are set as hard upper and lower flux bounds
         # These are NOT the dynamical flux bounds.
-            
         
-        # bound = mplugin.createFluxBound();
-        # bound.setId("bound1");
-        # bound.setReaction("J0");
-        # bound.setOperation("equal");
-        # bound.setValue(10);
+        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds'):
+            # "lessEqual", "greaterEqual", "equal"
+            bound = mplugin.createFluxBound();            
+            bound.setReaction(index);
+            bound.setValue(r_fba_df[p_name][index])
+            if p_name.startswith('lb'):
+                bound.setId('lb__{}'.format(index))
+                bound.setOperation("greaterEqual")
+            if p_name.startswith('ub'):
+                bound.setId('ub__{}'.format(index))
+                bound.setOperation("lessEqual")                
         
     # <objective function>
     objective = mplugin.createObjective();

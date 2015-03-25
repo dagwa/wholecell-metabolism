@@ -6,6 +6,7 @@ Reading the FBC v1 information in cobrapy.
 '''
 import cobra
 from libsbml import readSBML
+from pandas import DataFrame
 
 # -----------------------------------------------------------------------------
 # Objectives & coefficients
@@ -43,13 +44,33 @@ def get_objective_coefficients(model):
     ''' Returns objective coefficents != 0. '''
     return {reaction: reaction.objective_coefficient for reaction in model.reactions if reaction.objective_coefficient != 0}
 
+
 # -----------------------------------------------------------------------------
 # FluxBounds
 # -----------------------------------------------------------------------------
-def get_flux_bounds_from_fbc():
-    # TODO: implement
-    pass
-
+def get_flux_bounds_from_fbc(sbml):
+    bound_ids = []
+    reaction_ids = []
+    operations = []
+    values = []
+    
+    doc = readSBML(sbml)
+    if (doc.getPlugin("fbc") != None):
+        model_sbml = doc.getModel()
+        mplugin = model_sbml.getPlugin("fbc");
+    
+        # read flux bounds
+        for fb in mplugin.getListOfFluxBounds():
+            bound_ids.append(fb.getId())
+            reaction_ids.append(fb.getReaction())
+            operations.append(fb.getOperation())
+            values.append(fb.getValue())
+                
+    # create pandas
+    return DataFrame({'reaction': reaction_ids, 
+                      'operation': operations, 
+                      'value' :values}, index=bound_ids)
+    
 
 # -----------------------------------------------------------------------------
 # GeneAssociations
@@ -103,3 +124,7 @@ if __name__ == '__main__':
 
     for key, value in get_objective_coefficients(model).iteritems():
         print key, value    
+        
+        
+    bounds_df = get_flux_bounds_from_fbc(sbml)
+    print bounds_df

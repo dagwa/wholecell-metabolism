@@ -6,7 +6,7 @@ Created on Mar 11, 2015
 import os
 from metabolism_settings import VERSION, RESULTS_DIR 
 # sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
-sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_5_L3V1.xml".format(VERSION))
+sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
 # sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
 
 ##############################################################################
@@ -15,7 +15,7 @@ sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metab
 # objective functions, gene associations, flux bounds
 
 import cobra
-import fba.cobra_tools as ct
+import fba.cobra.cobra_tools as ct
 
 # model = cobra.io.read_sbml_model(sbml)
 model = ct.read_sbml_fbc_model(sbml) # with additional FBC v1 information
@@ -55,8 +55,6 @@ for r in model.reactions:
 # Solution status
 model.optimize()
 model.solution.status
-
-
 
 # Print flux bounds for all reactions
 print '*** Reactions ***'
