@@ -1,505 +1,505 @@
-rid	lb_fbaReactionBounds	ub_fbaReactionBounds	lb_fbaEnzymeBounds	ub_fbaEnzymeBounds	fbaObjective	name	model_type
-Aas4	0.0	inf	-inf	inf	0.0	acyl-[acyl-carrier-protein] synthetase  (n-C16:0)	Reaction
-Aas5	0.0	inf	-inf	inf	0.0	acyl-[acyl-carrier-protein] synthetase  (n-C16:1)	Reaction
-Aas7	0.0	inf	-inf	inf	0.0	acyl-[acyl-carrier-protein] synthetase  (n-C18:1)	Reaction
-AceE	-inf	inf	-inf	1128.3115796394943	0.0	pyruvate dehydrogenase	Reaction
-AckA	-inf	inf	-103.54349203333332	100.58510654666665	0.0	acetate kinase	Reaction
-Adk1	-inf	inf	-inf	504.6601310166665	0.0	adenylate kinase (ATP)	Reaction
-Adk2	-inf	inf	-inf	inf	0.0	adentylate kinase (GTP)	Reaction
-Adk3	-inf	inf	-inf	inf	0.0	adentylate kinase (ITP)	Reaction
-Adk4	-inf	inf	-354.11196041666665	inf	0.0	deoxyadenylate kinase (dADP)	Reaction
-AHCYSs	0.0	inf	-inf	inf	0.0	adenosylhomocysteinase	Reaction
-Apt	0.0	inf	-inf	6.388401585723552	0.0	adenine phosphoribosyltransferase	Reaction
-Apts_Ala	0.0	inf	-inf	inf	0.0	Dipeptide import (Ala-Ala)	Reaction
-Apts_Arg	0.0	inf	-inf	inf	0.0	Dipeptide import (Arg-Arg)	Reaction
-Apts_Asn	0.0	inf	-inf	inf	0.0	Dipeptide import (Asn-Asn)	Reaction
-Apts_Asp	0.0	inf	-inf	inf	0.0	Dipeptide import (Asp-Asp)	Reaction
-Apts_Cys	0.0	inf	-inf	inf	0.0	Dipeptide import (Cys-Cys)	Reaction
-Apts_Gln	0.0	inf	-inf	inf	0.0	Dipeptide import (Gln-Gln)	Reaction
-Apts_Glu	0.0	inf	-inf	inf	0.0	Dipeptide import (Glu-Glu)	Reaction
-Apts_Gly	0.0	inf	-inf	inf	0.0	Dipeptide import (Gly-Gly)	Reaction
-Apts_His	0.0	inf	-inf	inf	0.0	Dipeptide import (His-His)	Reaction
-Apts_Ile	0.0	inf	-inf	inf	0.0	Dipeptide import (Ile-Ile)	Reaction
-Apts_Leu	0.0	inf	-inf	inf	0.0	Dipeptide import (Leu-Leu)	Reaction
-Apts_Lys	0.0	inf	-inf	inf	0.0	Dipeptide import (Lys-Lys)	Reaction
-Apts_Met	0.0	inf	-inf	inf	0.0	Dipeptide import (Met-Met)	Reaction
-Apts_Phe	0.0	inf	-inf	inf	0.0	Dipeptide import (Phe-Phe)	Reaction
-Apts_Pro	0.0	inf	-inf	inf	0.0	Dipeptide import (Pro-Pro)	Reaction
-Apts_Ser	0.0	inf	-inf	inf	0.0	Dipeptide import (Ser-Ser)	Reaction
-Apts_Thr	0.0	inf	-inf	inf	0.0	Dipeptide import (Thr-Thr)	Reaction
-Apts_Trp	0.0	inf	-inf	inf	0.0	Dipeptide import (Trp-Trp)	Reaction
-Apts_Tyr	0.0	inf	-inf	inf	0.0	Dipeptide import (Tyr-Tyr)	Reaction
-Apts_Val	0.0	inf	-inf	inf	0.0	Dipeptide import (Val-Val)	Reaction
-ArcC	-inf	inf	-inf	inf	0.0	Carbamate kinase	Reaction
-AspC1	-inf	inf	-inf	inf	0.0	Aspartate aminotransferase	Reaction
-AtpA	-inf	inf	-4.9	inf	0.0	ATP synthase (four protons for one ATP) (periplasm)	Reaction
-Cdd1	0.0	inf	-inf	59.18357849999999	0.0	cytidine deaminase	Reaction
-Cdd2	0.0	inf	-inf	59.18357849999999	0.0	deoxycytidine deaminase	Reaction
-CdsA4	-inf	inf	-inf	inf	0.0	CDP-diacylglycerol synthetase (n-C16:0)	Reaction
-CdsA5	-inf	inf	-inf	inf	0.0	CDP-diacylglycerol synthetase (n-C16:1)	Reaction
-CdsA7	-inf	inf	-inf	inf	0.0	CDP-diacylglycerol synthetase (n-C18:1)	Reaction
-Cls1	-inf	inf	-inf	inf	0.0	cardiolipin synthase (periplasmic, n-C16:0)	Reaction
-Cls2	-inf	inf	-inf	inf	0.0	cardiolipin synthase (periplasmic, n-C16:1)	Reaction
-Cls3	-inf	inf	-inf	inf	0.0	cardiolipin synthase (periplasmic, n-C18:1)	Reaction
-CmkA1	-inf	inf	-inf	108.62059465666667	0.0	cytidylate kinase (dCMP)	Reaction
-CmkA2	-inf	inf	-inf	103.25151583333334	0.0	cytidylate kinase (CMP)	Reaction
-CmkB3	-inf	inf	-inf	1066.8608034	0.0	UMP kinase	Reaction
-Dak1	0.0	inf	-inf	6.137670995838674	0.0	deoxyadenylate kinase (dA:ATP)	Reaction
-DcdK	-inf	inf	-inf	inf	0.0	dCMP kinase	Reaction
-Dck	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dCMP)	Reaction
-DeoC	0.0	inf	-inf	24.00840239348214	0.0	deoxyribose-phosphate aldolase	Reaction
-DeoD1	-inf	inf	-inf	0.03737724104621783	0.0	purine-nucleoside phosphorylase (Deoxyinosine)	Reaction
-DeoD2	-inf	inf	-inf	12.061450406112964	0.0	purine-nucleoside phosphorylase (Deoxyadenosine)	Reaction
-DeoD3	-inf	inf	-inf	0.03737724104621783	0.0	purine-nucleoside phosphorylase (Deoxyguanosine)	Reaction
-DeoD4	-inf	inf	-0.03737724104621783	inf	0.0	purine-nucleoside phosphorylase (Inosine)	Reaction
-DeoD5	-inf	inf	-3.3	inf	0.0	purine-nucleoside phosphorylase (Adenosine)	Reaction
-DeoD6	-inf	inf	-0.03737724104621783	inf	0.0	purine-nucleoside phosphorylase (Guanosine)	Reaction
-DeoD8	-inf	inf	-inf	0.010171381237566678	0.0	purine-nucleoside phosphorylase (Deoxyuridine)	Reaction
-Dgk1	0.0	inf	-inf	2.7074006252207345	0.0	deoxyguanylate kinase (dG:ATP)	Reaction
-DhfR1	-inf	inf	-inf	6.179999796549479	0.0	dihydrofolate reductase	Reaction
-Eno	-inf	inf	-inf	300.8671428	0.0	enolase	Reaction
-Fba	-inf	inf	-inf	23.33933894383544	0.0	fructose-bisphosphate aldolase	Reaction
-FMETHs	-inf	inf	-inf	inf	0.0	formylmethionine hydrolysis	Reaction
-FolD1	-inf	inf	-inf	162.4696373333333	0.0	methylenetetrahydrofolate dehydrogenase (NADP)	Reaction
-FolD2	-inf	inf	-inf	31.47849223333333	0.0	methenyltetrahydrofolate cyclohydrolase	Reaction
-Fre1	0.0	inf	-inf	255.0	0.0	FAD reductase	Reaction
-Fre2	0.0	inf	-inf	inf	0.0	Fe(III) reduction	Reaction
-Fre5	0.0	inf	-inf	28.0	0.0	FMN reductase	Reaction
-Fre6	0.0	inf	-inf	41.50869731666666	0.0	FMN reductase	Reaction
-FruK1	0.0	inf	-inf	53.18773611999999	0.0	fructose-1-phosphate kinase	Reaction
-FthC	-inf	inf	-inf	11.954222576666666	0.0	methylenetetrahydrofolate cyclohydrase	Reaction
-FTHFS	0.0	inf	-inf	6.079999796549479	0.0	formate-tetrahydrofolate ligase	Reaction
-GalE	-inf	inf	-inf	500.0	0.0	UDPglucose 4-epimerase	Reaction
-GalU1	-inf	inf	-inf	inf	0.0	UTP-glucose-1-phosphate uridylyltransferase (irreversible)	Reaction
-GapA	-inf	inf	-502.83344328000004	554.5957095	0.0	glyceraldehyde-3-phosphate dehydrogenase	Reaction
-Glf	0.0	inf	-inf	inf	0.0	FAD reductase	Reaction
-GLNHs	0.0	inf	-inf	inf	0.0	glutamine hydrolysis	Reaction
-GlpK	0.0	inf	-inf	440.2528225866666	0.0	glycerol kinase	Reaction
-GlyA3	0.0	inf	-inf	40.64453092671502	0.0	glycine hydroxymethyltransferase, reversible	Reaction
-GlyA4	0.0	inf	-inf	5.080566365839378	0.0	Threonine aldolase	Reaction
-glycosyltransferase_PG160_DAG160	0.0	inf	-inf	inf	0.0	glycosyltransferase (Phosphatidylglycerol (dihexadecanoyl, n-C16:0) ==> Diacylglycerol (n-16:0))	Reaction
-glycosyltransferase_PG161_DAG161	0.0	inf	-inf	inf	0.0	glycosyltransferase (Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1) ==> Diacylglycerol (n-16:1))	Reaction
-glycosyltransferase_PG181_DAG181	0.0	inf	-inf	inf	0.0	glycosyltransferase (Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1) ==> Diacylglycerol (n-18:1))	Reaction
-Gmk1	-inf	inf	-inf	1167.5942492200002	0.0	guanylate kinase (GMP:ATP)	Reaction
-Gmk2	-inf	inf	-inf	138.10254560666667	0.0	deoxyguanylate kinase (dGMP:ATP)	Reaction
-Gmk3	-inf	inf	-inf	138.10254560666667	0.0	guanylate kinase (GMP:dATP)	Reaction
-Gmk4	-inf	inf	-inf	8.123679153333335	0.0	deoxyguanylate kinase (dGMP:dATP)	Reaction
-GpmA	-inf	inf	-inf	950.0	0.0	phosphoglycerate mutase	Reaction
-GpsA	-inf	inf	-4.077902327597683	inf	0.0	glycerol-3-phosphate dehydrogenase (NAD)	Reaction
-HCYSMT	0.0	inf	-inf	inf	0.0	homocysteine S-methyltransferase	Reaction
-HinT_AMP_Lysine_MG132	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase AMP-Lysine	Reaction
-HinT_AMP_Mor_MG132	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase AMP-morpholidate	Reaction
-HinT_AMP_NH2_MG132	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase AMP-NH2	Reaction
-HinT_GMP_Lysine_MG132	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase GMP-Lysine	Reaction
-HinT_GMP_Mor_MG132	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase GMP-morpholidate	Reaction
-Hpt1	0.0	inf	-inf	15.9	0.0	hypoxanthine phosphoribosyltransferase (Hypoxanthine)	Reaction
-Hpt2	0.0	inf	-inf	8.160000101725261	0.0	guanine phosphoribosyltransferase	Reaction
-LIPASE_DIBUTYRIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (dibutyrin) (MG_310)	Reaction
-LIPASE_DIBUTYRIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (dibutyrin) (MG_327)	Reaction
-LIPASE_DIBUTYRIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (dibutyrin) (MG_344)	Reaction
-LIPASE_METHYL_OCDCEA_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (methyl_ocdcea) (MG_310)	Reaction
-LIPASE_METHYL_OCDCEA_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (methyl_ocdcea) (MG_327)	Reaction
-LIPASE_METHYL_OCDCEA_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (methyl_ocdcea) (MG_344)	Reaction
-LIPASE_MONOBUTYRIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (1-monobutyrin) (MG_310)	Reaction
-LIPASE_MONOBUTYRIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (1-monobutyrin) (MG_327)	Reaction
-LIPASE_MONOBUTYRIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (1-monobutyrin) (MG_344)	Reaction
-LIPASE_TRIBUTYRIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tributyrin) (MG_310)	Reaction
-LIPASE_TRIBUTYRIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tributyrin) (MG_327)	Reaction
-LIPASE_TRIBUTYRIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tributyrin) (MG_344)	Reaction
-LIPASE_TRILAURIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trilaurin) (MG_310)	Reaction
-LIPASE_TRILAURIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trilaurin) (MG_327)	Reaction
-LIPASE_TRILAURIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trilaurin) (MG_344)	Reaction
-LIPASE_TRIMYRISTIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trimyristin) (MG_310)	Reaction
-LIPASE_TRIMYRISTIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trimyristin) (MG_327)	Reaction
-LIPASE_TRIMYRISTIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trimyristin) (MG_344)	Reaction
-LIPASE_TRIOLEIN_MG310	-inf	inf	-inf	inf	0.0	 Triacylglycerol lipase (triolein) (MG_310)	Reaction
-LIPASE_TRIOLEIN_MG327	-inf	inf	-inf	inf	0.0	 Triacylglycerol lipase (triolein) (MG_327)	Reaction
-LIPASE_TRIOLEIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (triolein) (MG_344)	Reaction
-LIPASE_TRIPALMITIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tripalmitin) (MG_310)	Reaction
-LIPASE_TRIPALMITIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tripalmitin) (MG_310)	Reaction
-LIPASE_TRIPALMITIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tripalmitin) (MG_344)	Reaction
-LIPASE_TRISTEARIN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (octadecanoate) (MG_310)	Reaction
-LIPASE_TRISTEARIN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (octadecanoate) (MG_327)	Reaction
-LIPASE_TRISTEARIN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (octadecanoate) (MG_344)	Reaction
-LIPASE_TRI_HDCEA_IN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_hdcea_in) (MG_310)	Reaction
-LIPASE_TRI_HDCEA_IN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_hdcea_in) (MG_327)	Reaction
-LIPASE_TRI_HDCEA_IN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_hdcea_in) (MG_344)	Reaction
-LIPASE_TRI_TTDCEA_IN_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_ttdcea_in) (MG_310)	Reaction
-LIPASE_TRI_TTDCEA_IN_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_ttdcea_in) (MG_327)	Reaction
-LIPASE_TRI_TTDCEA_IN_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_ttdcea_in) (MG_344)	Reaction
-LIPASE_TWEEN80_MG310	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (Tween 80) (MG_310)	Reaction
-LIPASE_TWEEN80_MG327	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (Tween 80) (MG_327)	Reaction
-LIPASE_TWEEN80_MG344	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (Tween 80) (MG_344)	Reaction
-LIPOYLLYSHs	0.0	inf	-inf	inf	0.0	N(6)-lipoyl-lysine hydrolysis	Reaction
-LplA	0.0	inf	-inf	inf	0.0	ATP:lipoate adenylyltransferase	Reaction
-MetF	0.0	inf	-inf	inf	0.0	5,10-methylenetetrahydrofolate reductase (NADH)	Reaction
-METHFHYD	0.0	inf	-inf	inf	0.0	5,10-methenyltetrahydrofolate hydrolysis	Reaction
-MetK	0.0	inf	-inf	0.11093863398892766	0.0	methionine adenosyltransferase	Reaction
-MetS	0.0	inf	-inf	inf	0.0	methionine synthase	Reaction
-MOrx	0.0	inf	-inf	inf	0.0	Molybdenum reductase	Reaction
-NADD1	0.0	inf	-inf	inf	0.0	Nicotinate-mononucleotide adenylyltransferase	Reaction
-NADD2	0.0	inf	-inf	inf	0.0	Nicotinate-mononucleotide adenylyltransferase	Reaction
-NadE	0.0	inf	-inf	6.495410976775457	0.0	NAD synthase (nh3)	Reaction
-NadK	-inf	inf	-inf	11.164511956092253	0.0	NAD kinase	Reaction
-NADR1	0.0	inf	-inf	10.0	0.0	nicotinamide-nucleotide adenylyltransferase	Reaction
-NH3eq	-inf	inf	-inf	inf	0.0	Ammonia equilibration reaction	Reaction
-NOX	0.0	inf	-inf	inf	0.0	NADH dehydrogenase	Reaction
-NrdEF_ADP	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase (ADP)	Reaction
-NrdEF_CDP	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase (CDP)	Reaction
-NrdEF_GDP	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase (GDP)	Reaction
-NrdEF_maintenance	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase maintenance	Reaction
-Ohr_H2O2	0.0	inf	-inf	inf	0.0	peroxidase (hydrogen peroxide)	Reaction
-Ohr_rx	0.0	inf	-inf	inf	0.0	peroxidase reductase	Reaction
-OsmC_H2O2	0.0	inf	-inf	inf	0.0	peroxidase (hydrogen peroxide)	Reaction
-OsmC_rx	0.0	inf	-inf	inf	0.0	peroxidase reductase	Reaction
-PcbX	-inf	inf	-inf	inf	0.0	oxaloacetate carboxylase	Reaction
-Pdp1	-inf	inf	-inf	0.005930418734251388	0.0	deoxyuridine phosphorylase	Reaction
-Pdp2	-inf	inf	-inf	0.0022689221940619276	0.0	thymidine phosphorylase	Reaction
-Pdp3	-inf	inf	-inf	inf	0.0	pyrimidine-nucleoside phosphorylase (uracil)	Reaction
-PfkA1	0.0	inf	-inf	72.76202465507546	0.0	phosphofructokinase	Reaction
-PfkA2	0.0	inf	-inf	72.76202465507546	0.0	phosphofructokinase	Reaction
-PfkA3	0.0	inf	-inf	inf	0.0	phosphofructokinase	Reaction
-PfkA4	0.0	inf	-inf	72.76202465507546	0.0	phosphofructokinase	Reaction
-PfkA5	-inf	inf	-inf	28.53412696	0.0	phosphofructokinase	Reaction
-Pgi	-inf	inf	-inf	1218.7897975999997	0.0	glucose-6-phosphate isomerase	Reaction
-Pgk1	-inf	inf	-1.1220628124999998	7.48041875	0.0	phosphoglycerate kinase	Reaction
-Pgk2	-inf	inf	-10.472586249999999	33.66188437499999	0.0	phosphoglycerate kinase	Reaction
-Pgk3	-inf	inf	-0.029999999205271403	844.5	0.0	phosphoglycerate kinase	Reaction
-Pgk4	-inf	inf	-9.724544374999999	30.669716875	0.0	phosphoglycerate kinase	Reaction
-Pgk5	-inf	inf	-inf	inf	0.0	phosphoglycerate kinase	Reaction
-Pgm	-inf	inf	-inf	207.0819973498572	0.0	phosphoglucomutase	Reaction
-PgpA1	0.0	inf	-inf	inf	0.0	phosphatidylglycerol phosphate phosphatase (n-C16:0)	Reaction
-PgpA2	0.0	inf	-inf	inf	0.0	phosphatidylglycerol phosphate phosphatase (n-C16:1)	Reaction
-PgpA3	0.0	inf	-inf	inf	0.0	phosphatidylglycerol phosphate phosphatase (n-C18:1)	Reaction
-PgsA1	-inf	inf	-inf	inf	0.0	Phosphatidylglycerol synthase (n-C16:0)	Reaction
-PgsA2	-inf	inf	-inf	inf	0.0	Phosphatidylglycerol synthase (n-C16:1)	Reaction
-PgsA3	-inf	inf	-inf	inf	0.0	Phosphatidylglycerol synthase (n-C18:1)	Reaction
-PhnW	0.0	inf	-inf	inf	0.0	2-aminoethylphosphonate aminotransferase	Reaction
-PhnX	0.0	inf	-inf	inf	0.0	Phosphonoacetaldehyde hydrolase	Reaction
-PlsC4	0.0	inf	-inf	inf	0.0	1-hexadecanoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C16:0)	Reaction
-PlsC5	0.0	inf	-inf	inf	0.0	1-hexadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C16:1)	Reaction
-PlsC7	0.0	inf	-inf	inf	0.0	1-octadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C18:1)	Reaction
-PlsX4	0.0	inf	-inf	inf	0.0	glycerol-3-phosphate acyltransferase (C16:0)	Reaction
-PlsX5	0.0	inf	-inf	inf	0.0	glycerol-3-phosphate acyltransferase (C16:1)	Reaction
-PlsX7	0.0	inf	-inf	inf	0.0	glycerol-3-phosphate acyltransferase (C18:1)	Reaction
-PncB	0.0	inf	-inf	2.592157205	0.0	nicotinic acid mononucleotide pyrophosphorylase	Reaction
-Ppa	0.0	inf	-inf	inf	0.0	inorganic diphosphatase	Reaction
-Ppc	0.0	inf	-inf	inf	0.0	phosphoenolpyruvate carboxylase	Reaction
-PrsA	-inf	inf	-inf	713.2866836000002	0.0	phosphoribosylpyrophosphate synthetase	Reaction
-pSERpp	0.0	inf	-inf	inf	0.0	phosphoserine phosphatase	Reaction
-Pta	-inf	inf	-inf	1620.90801876	0.0	phosphotransacetylase	Reaction
-pTHRpp	0.0	inf	-inf	inf	0.0	phosphothreonine phosphatase	Reaction
-pTYRpp	0.0	inf	-inf	inf	0.0	Phosphotyrosine phosphatase	Reaction
-PYDXK	0.0	inf	-inf	inf	0.0	pyridoxal kinase	Reaction
-Pyk_ADP	-inf	inf	-inf	375.4094512933333	0.0	pyruvate kinase	Reaction
-Pyk_CDP	-inf	inf	-inf	900.2165413666665	0.0	pyruvate kinase	Reaction
-Pyk_DADP	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
-Pyk_DCDP	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
-Pyk_DGDP	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
-Pyk_DTDP	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
-Pyk_GDP	-inf	inf	-inf	856.5464857194569	0.0	pyruvate kinase	Reaction
-Pyk_IDP	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
-Pyk_UDP	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
-RelA1	0.0	inf	-inf	inf	0.0	GDP diphosphokinase	Reaction
-RibF1	0.0	inf	-inf	0.30607787556122246	0.0	riboflavin kinase	Reaction
-RibF2	0.0	inf	-inf	0.30607787556122246	0.0	FMN adenylyltransferase	Reaction
-Rpe	-inf	inf	-inf	inf	0.0	ribulose 5-phosphate 3-epimerase	Reaction
-RpiB	-inf	inf	-653.0	inf	0.0	ribose-5-phosphate isomerase	Reaction
-SNGLYPOr	0.0	inf	-inf	inf	0.0	sn-Glycerol-1-phosphate:NADP 2-oxidoreductase	Reaction
-TalA	-inf	inf	-inf	inf	0.0	transaldolase	Reaction
-TatD_dAMP	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dAMP)	Reaction
-TatD_dCMP	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dCMP)	Reaction
-TatD_dGMP	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dGMP)	Reaction
-TatD_dTMP	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dTMP)	Reaction
-Tdk1	0.0	inf	-inf	3.498821488793419	0.0	deoxyuridine kinase (ATP:Deoxyuridine)	Reaction
-Tdk2	0.0	inf	-inf	3.498821488793419	0.0	thymidine kinase (ATP:thymidine)	Reaction
-ThyA	0.0	inf	-inf	0.21299999554951984	0.0	thymidylate synthase	Reaction
-Tkt1	-inf	inf	-inf	123.99632470603514	0.0	transketolase	Reaction
-Tkt2	-inf	inf	-inf	123.99632470603514	0.0	transketolase	Reaction
-TMDPK	0.0	inf	-inf	inf	0.0	thiamine diphosphokinase	Reaction
-Tmk	-inf	inf	-inf	0.06740657091374441	0.0	thiamine kinase	Reaction
-TpiA	-inf	inf	-inf	816.6666666666666	0.0	triose-phosphate isomerase	Reaction
-TrxB	-inf	inf	-inf	20.833333333333332	0.0	thioredoxin reductase (NADPH)	Reaction
-TXPYDX	0.0	inf	-inf	inf	0.0	pyridoxal transport	Reaction
-TXTHM	0.0	inf	-inf	inf	0.0	thamine transport via proton symport	Reaction
-TX_ACAL	-inf	inf	-inf	inf	0.0	Acetylaldehyde transport	Reaction
-TX_ACUP	-inf	inf	-inf	inf	0.0	acetate reversible transport via proton symport	Reaction
-TX_AD	-inf	inf	-inf	inf	0.0	adenine transport via proton symport	Reaction
-TX_AKG	-inf	inf	-inf	inf	0.0	2-Oxoglutarate transport via proton symport	Reaction
-TX_AROP11	-inf	inf	-inf	inf	0.0	L-phenylalanine reversible transport via proton symport	Reaction
-TX_AROP12	-inf	inf	-inf	inf	0.0	L-tryptophan reversible transport via proton symport	Reaction
-TX_AROP13	-inf	inf	-inf	inf	0.0	L-tyrosine reversible transport via proton symport	Reaction
-TX_AROP21	-inf	inf	-inf	inf	0.0	L-phenylalanine reversible transport via proton symport	Reaction
-TX_AROP22	-inf	inf	-inf	inf	0.0	L-tryptophan reversible transport via proton symport	Reaction
-TX_AROP23	-inf	inf	-inf	inf	0.0	L-tyrosine reversible transport via proton symport	Reaction
-TX_CAP	-inf	inf	-inf	inf	0.0	carbamoyl phosphate transport	Reaction
-TX_Cbi_Co	0.0	inf	-inf	inf	0.0	cobalt transport via ABC system	Reaction
-TX_Cbi_Ni	0.0	inf	-inf	inf	0.0	nickel transport via ABC system	Reaction
-TX_CL	0.0	inf	-inf	inf	0.0	chloride transport out via proton antiport (2:1)	Reaction
-TX_cmnm5s2U	-inf	inf	-inf	inf	0.0	5-carboxymethylaminomethyl-2-thiouridine transport	Reaction
-TX_CO2	-inf	inf	-inf	inf	0.0	carbon dioxide transport	Reaction
-TX_COA	-inf	inf	-inf	inf	0.0	coenzyme A transport	Reaction
-TX_ComEC_dApdAp	0.0	inf	-inf	inf	0.0	DNA internalization (dApdAp)	Reaction
-TX_ComEC_dCpdCp	0.0	inf	-inf	inf	0.0	DNA internalization (dCpdCp)	Reaction
-TX_ComEC_dGpdGp	0.0	inf	-inf	inf	0.0	DNA internalization (dGpdGp)	Reaction
-TX_ComEC_dTpdTp	0.0	inf	-inf	inf	0.0	DNA internalization (dTpdTp)	Reaction
-TX_CYTD	-inf	inf	-inf	inf	0.0	cytidine transport via proton symport	Reaction
-TX_DA	0.0	inf	-inf	inf	0.0	deoxyadenosine transport via proton symport	Reaction
-TX_dINS	-inf	inf	-inf	inf	0.0	2'-deoxyinosine transport	Reaction
-TX_FOR	-inf	inf	-inf	inf	0.0	Formate transport	Reaction
-TX_FRUPTS	0.0	inf	-inf	inf	0.0	D-fructose transport via PEP:Pyr PTS	Reaction
-TX_GL	0.0	inf	-inf	inf	0.0	glycerol transport via ABC system	Reaction
-TX_GL3P	0.0	inf	-inf	inf	0.0	glycerol transport via ABC system	Reaction
-TX_GLCPTS	0.0	inf	-inf	inf	0.0	D-glucose transport via PEP:Pyr PTS	Reaction
-TX_GLNHPQ	0.0	inf	-inf	inf	0.0	L-glutamine transport via ABC system	Reaction
-TX_GLUP	0.0	inf	-inf	inf	0.0	glycerol transport via diffusion	Reaction
-TX_Gm	-inf	inf	-inf	inf	0.0	2'-O-methylguanosine transport	Reaction
-TX_GN	0.0	inf	-inf	inf	0.0	guanine transport via proton symport	Reaction
-TX_H2O	-inf	inf	-inf	inf	0.0	Water transport	Reaction
-TX_H2O2	-inf	inf	-inf	inf	0.0	hydrogen peroxide transport	Reaction
-TX_HDCA	-inf	inf	-inf	inf	0.0	Hexadecanoate (n-C16:0) transport	Reaction
-TX_HDCEA	-inf	inf	-inf	inf	0.0	Hexadecenoate (n-C16:1) transport	Reaction
-TX_k2C	-inf	inf	-inf	inf	0.0	lysidine transport	Reaction
-TX_LIPOATE	-inf	inf	-inf	inf	0.0	Lipoate transport	Reaction
-TX_m1G	-inf	inf	-inf	inf	0.0	1-methylguanosine transport	Reaction
-TX_m2G	-inf	inf	-inf	inf	0.0	N(2)-methylguanosine transport	Reaction
-TX_m62A	-inf	inf	-inf	inf	0.0	N6,N6-dimethyladenine transport	Reaction
-TX_m7G	-inf	inf	-inf	inf	0.0	7-methylguanosine transport	Reaction
-TX_MGTA_CA	0.0	inf	-inf	inf	0.0	calcium-transporting ATPase	Reaction
-TX_MGTA_CU	0.0	inf	-inf	inf	0.0	copper-transporting ATPase	Reaction
-TX_MGTA_FE2	0.0	inf	-inf	inf	0.0	iron (II) transporting ATPase	Reaction
-TX_MGTA_FE3	0.0	inf	-inf	inf	0.0	iron (III) transporting ATPase	Reaction
-TX_MGTA_MG	0.0	inf	-inf	inf	0.0	Magnesium-transporting ATPase	Reaction
-TX_MGTA_MN	0.0	inf	-inf	inf	0.0	Manganese-transporting ATPase	Reaction
-TX_MGTA_MOBD	0.0	inf	-inf	inf	0.0	molybdate transporting ATPase	Reaction
-TX_MGTA_ZN	0.0	inf	-inf	inf	0.0	zinc-transporting ATPase	Reaction
-TX_NAC	0.0	inf	-inf	inf	0.0	nicotinate transport	Reaction
-TX_NAUP2	-inf	inf	-inf	inf	0.0	sodium transport out via proton antiport	Reaction
-TX_NH4	-inf	inf	-inf	inf	0.0	ammonia reversible transport	Reaction
-TX_O2	-inf	inf	-inf	inf	0.0	oxygen transport	Reaction
-TX_OA	-inf	inf	-inf	inf	0.0	oxaloacetate transport	Reaction
-TX_OCDCEA	-inf	inf	-inf	inf	0.0	octadecenoate (n-C18:1) transport	Reaction
-TX_OppB_Ala	0.0	inf	-inf	inf	0.0	oligopeptide (Ala) transport via ABC system	Reaction
-TX_OppB_Arg	0.0	inf	-inf	inf	0.0	oligopeptide (Arg) transport via ABC system	Reaction
-TX_OppB_Asn	0.0	inf	-inf	inf	0.0	oligopeptide (Asn) transport via ABC system	Reaction
-TX_OppB_Asp	0.0	inf	-inf	inf	0.0	oligopeptide (Asp) transport via ABC system	Reaction
-TX_OppB_Cys	0.0	inf	-inf	inf	0.0	oligopeptide (Cys) transport via ABC system	Reaction
-TX_OppB_Gln	0.0	inf	-inf	inf	0.0	oligopeptide (Gln) transport via ABC system	Reaction
-TX_OppB_Glu	0.0	inf	-inf	inf	0.0	oligopeptide (Glu) transport via ABC system	Reaction
-TX_OppB_Gly	0.0	inf	-inf	inf	0.0	oligopeptide (Gly) transport via ABC system	Reaction
-TX_OppB_His	0.0	inf	-inf	inf	0.0	oligopeptide (His) transport via ABC system	Reaction
-TX_OppB_Ile	0.0	inf	-inf	inf	0.0	oligopeptide (Ile) transport via ABC system	Reaction
-TX_OppB_Leu	0.0	inf	-inf	inf	0.0	oligopeptide (Leu) transport via ABC system	Reaction
-TX_OppB_Lys	0.0	inf	-inf	inf	0.0	oligopeptide (Lys) transport via ABC system	Reaction
-TX_OppB_Met	0.0	inf	-inf	inf	0.0	oligopeptide (Met) transport via ABC system	Reaction
-TX_OppB_Phe	0.0	inf	-inf	inf	0.0	oligopeptide (Phe) transport via ABC system	Reaction
-TX_OppB_Pro	0.0	inf	-inf	inf	0.0	oligopeptide (Pro) transport via ABC system	Reaction
-TX_OppB_Ser	0.0	inf	-inf	inf	0.0	oligopeptide (Ser) transport via ABC system	Reaction
-TX_OppB_Thr	0.0	inf	-inf	inf	0.0	oligopeptide (Thr) transport via ABC system	Reaction
-TX_OppB_Trp	0.0	inf	-inf	inf	0.0	oligopeptide (Trp) transport via ABC system	Reaction
-TX_OppB_Tyr	0.0	inf	-inf	inf	0.0	oligopeptide (Tyr) transport via ABC system	Reaction
-TX_OppB_Val	0.0	inf	-inf	inf	0.0	oligopeptide (Val) transport via ABC system	Reaction
-TX_PHNT	0.0	inf	-inf	inf	0.0	2-aminoethylphosphonate transport via ABC system	Reaction
-TX_PIUP1	0.0	inf	-inf	inf	0.0	phosphate transport via ABC system	Reaction
-TX_PSIURI	-inf	inf	-inf	inf	0.0	pseudouridine transport	Reaction
-TX_RIBFLV	-inf	inf	-inf	inf	0.0	riboflavin, oxidized transport	Reaction
-TX_s4U	-inf	inf	-inf	inf	0.0	4-thiouridine transport	Reaction
-TX_SO4	0.0	inf	-inf	inf	0.0	sulfate transporting ATPase	Reaction
-TX_SPMDUP1	0.0	inf	-inf	inf	0.0	spermidine transport via ABC system	Reaction
-TX_SPRDUP2	0.0	inf	-inf	inf	0.0	putrescine transport via ABC system	Reaction
-TX_STEROL	-inf	inf	-inf	inf	0.0	Sterol transport	Reaction
-TX_THF	-inf	inf	-inf	inf	0.0	5,6,7,8-Tetrahydrofolate transport	Reaction
-TX_THY	0.0	inf	-inf	inf	0.0	thymine transport via proton antiport	Reaction
-TX_TRK	-inf	inf	-inf	inf	0.0	potassium transport in via proton symport	Reaction
-TX_UHPT1	0.0	inf	-inf	inf	0.0	Glucose-6-phosphate transport via phosphate antiport	Reaction
-TX_Um	-inf	inf	-inf	inf	0.0	2'-O-methyluridine transport	Reaction
-TX_URA	-inf	inf	-inf	inf	0.0	uracil transport via proton symport	Reaction
-Udk1	0.0	inf	-inf	332.7609173333333	0.0	uridine kinase (GTP:Uridine)	Reaction
-Udk2	0.0	inf	-inf	332.7609173333333	0.0	cytidine kinase (GTP)	Reaction
-Upp	0.0	inf	-inf	0.08051431429278763	0.0	uracil phosphoribosyltransferase	Reaction
-UshA_AMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (AMP)	Reaction
-UshA_cmnm5s2UMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (cmnm5s2UMP)	Reaction
-UshA_dCMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dCMP)	Reaction
-UshA_dTMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dTMP)	Reaction
-UshA_dUMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dUMP)	Reaction
-UshA_GmMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (GmMP)	Reaction
-UshA_GMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (GMP)	Reaction
-UshA_IMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (IMP)	Reaction
-UshA_k2CMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (k2CMP)	Reaction
-UshA_m1GMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m1GMP)	Reaction
-UshA_m2GMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m2GMP)	Reaction
-UshA_m62AMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m62AMP)	Reaction
-UshA_m7GMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m7GMP)	Reaction
-UshA_PSIURIMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (PSIURIMP)	Reaction
-UshA_s4UMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (s4UMP)	Reaction
-UshA_UmMP	0.0	inf	-inf	inf	0.0	5'-nucleotidase (UmMP)	Reaction
-YbiV_SNGLYP	0.0	inf	-inf	0.9	0.0	sugar phosphatase (sn-glycerol-1-phosphate)	Reaction
-YicP	0.0	inf	-inf	inf	0.0	adenine deaminase	Reaction
-metaboliteExternalExchange_ex_0	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_0	
-metaboliteExternalExchange_ex_1	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_1	
-metaboliteExternalExchange_ex_2	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_2	
-metaboliteExternalExchange_ex_3	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_3	
-metaboliteExternalExchange_ex_4	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_4	
-metaboliteExternalExchange_ex_5	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_5	
-metaboliteExternalExchange_ex_6	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_6	
-metaboliteExternalExchange_ex_7	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_7	
-metaboliteExternalExchange_ex_8	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_8	
-metaboliteExternalExchange_ex_9	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_9	
-metaboliteExternalExchange_ex_10	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_10	
-metaboliteExternalExchange_ex_11	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_11	
-metaboliteExternalExchange_ex_12	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_12	
-metaboliteExternalExchange_ex_13	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_13	
-metaboliteExternalExchange_ex_14	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_14	
-metaboliteExternalExchange_ex_15	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_15	
-metaboliteExternalExchange_ex_16	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_16	
-metaboliteExternalExchange_ex_17	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_17	
-metaboliteExternalExchange_ex_18	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_18	
-metaboliteExternalExchange_ex_19	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_19	
-metaboliteExternalExchange_ex_20	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_20	
-metaboliteExternalExchange_ex_21	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_21	
-metaboliteExternalExchange_ex_22	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_22	
-metaboliteExternalExchange_ex_23	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_23	
-metaboliteExternalExchange_ex_24	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_24	
-metaboliteExternalExchange_ex_25	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_25	
-metaboliteExternalExchange_ex_26	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_26	
-metaboliteExternalExchange_ex_27	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_27	
-metaboliteExternalExchange_ex_28	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_28	
-metaboliteExternalExchange_ex_29	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_29	
-metaboliteExternalExchange_ex_30	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_30	
-metaboliteExternalExchange_ex_31	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_31	
-metaboliteExternalExchange_ex_32	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_32	
-metaboliteExternalExchange_ex_33	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_33	
-metaboliteExternalExchange_ex_34	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_34	
-metaboliteExternalExchange_ex_35	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_35	
-metaboliteExternalExchange_ex_36	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_36	
-metaboliteExternalExchange_ex_37	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_37	
-metaboliteExternalExchange_ex_38	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_38	
-metaboliteExternalExchange_ex_39	0.0	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_39	
-metaboliteExternalExchange_ex_40	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_40	
-metaboliteExternalExchange_ex_41	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_41	
-metaboliteExternalExchange_ex_42	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_42	
-metaboliteExternalExchange_ex_43	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_43	
-metaboliteExternalExchange_ex_44	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_44	
-metaboliteExternalExchange_ex_45	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_45	
-metaboliteExternalExchange_ex_46	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_46	
-metaboliteExternalExchange_ex_47	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_47	
-metaboliteExternalExchange_ex_48	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_48	
-metaboliteExternalExchange_ex_49	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_49	
-metaboliteExternalExchange_ex_50	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_50	
-metaboliteExternalExchange_ex_51	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_51	
-metaboliteExternalExchange_ex_52	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_52	
-metaboliteExternalExchange_ex_53	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_53	
-metaboliteExternalExchange_ex_54	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_54	
-metaboliteExternalExchange_ex_55	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_55	
-metaboliteExternalExchange_ex_56	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_56	
-metaboliteExternalExchange_ex_57	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_57	
-metaboliteExternalExchange_ex_58	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_58	
-metaboliteExternalExchange_ex_59	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_59	
-metaboliteExternalExchange_ex_60	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_60	
-metaboliteExternalExchange_ex_61	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_61	
-metaboliteExternalExchange_ex_62	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_62	
-metaboliteExternalExchange_ex_63	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_63	
-metaboliteExternalExchange_ex_64	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_64	
-metaboliteExternalExchange_ex_65	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_65	
-metaboliteExternalExchange_ex_66	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_66	
-metaboliteExternalExchange_ex_67	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_67	
-metaboliteExternalExchange_ex_68	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_68	
-metaboliteExternalExchange_ex_69	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_69	
-metaboliteExternalExchange_ex_70	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_70	
-metaboliteExternalExchange_ex_71	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_71	
-metaboliteExternalExchange_ex_72	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_72	
-metaboliteExternalExchange_ex_73	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_73	
-metaboliteExternalExchange_ex_74	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_74	
-metaboliteExternalExchange_ex_75	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_75	
-metaboliteExternalExchange_ex_76	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_76	
-metaboliteExternalExchange_ex_77	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_77	
-metaboliteExternalExchange_ex_78	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_78	
-metaboliteExternalExchange_ex_79	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_79	
-metaboliteExternalExchange_ex_80	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_80	
-metaboliteExternalExchange_ex_81	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_81	
-metaboliteExternalExchange_ex_82	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_82	
-metaboliteExternalExchange_ex_83	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_83	
-metaboliteExternalExchange_ex_84	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_84	
-metaboliteExternalExchange_ex_85	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_85	
-metaboliteExternalExchange_ex_86	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_86	
-metaboliteExternalExchange_ex_87	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_87	
-metaboliteExternalExchange_ex_88	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_88	
-metaboliteExternalExchange_ex_89	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_89	
-metaboliteExternalExchange_ex_90	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_90	
-metaboliteExternalExchange_ex_91	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_91	
-metaboliteExternalExchange_ex_92	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_92	
-metaboliteExternalExchange_ex_93	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_93	
-metaboliteExternalExchange_ex_94	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_94	
-metaboliteExternalExchange_ex_95	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_95	
-metaboliteExternalExchange_ex_96	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_96	
-metaboliteExternalExchange_ex_97	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_97	
-metaboliteExternalExchange_ex_98	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_98	
-metaboliteExternalExchange_ex_99	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_99	
-metaboliteExternalExchange_ex_100	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_100	
-metaboliteExternalExchange_ex_101	0.0	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_101	
-metaboliteExternalExchange_ex_102	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_102	
-metaboliteExternalExchange_ex_103	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_103	
-metaboliteExternalExchange_ex_104	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_104	
-metaboliteExternalExchange_ex_105	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_105	
-metaboliteExternalExchange_ex_106	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_106	
-metaboliteExternalExchange_ex_107	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_107	
-metaboliteExternalExchange_ex_108	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_108	
-metaboliteExternalExchange_ex_109	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_109	
-metaboliteExternalExchange_ex_110	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_110	
-metaboliteExternalExchange_ex_111	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_111	
-metaboliteExternalExchange_ex_112	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_112	
-metaboliteExternalExchange_ex_113	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_113	
-metaboliteExternalExchange_ex_114	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_114	
-metaboliteExternalExchange_ex_115	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_115	
-metaboliteExternalExchange_ex_116	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_116	
-metaboliteExternalExchange_ex_117	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_117	
-metaboliteExternalExchange_ex_118	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_118	
-metaboliteExternalExchange_ex_119	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_119	
-metaboliteExternalExchange_ex_120	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_120	
-metaboliteExternalExchange_ex_121	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_121	
-metaboliteExternalExchange_ex_122	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_122	
-metaboliteExternalExchange_ex_123	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metaboliteExternalExchange_ex_123	
-metaboliteInternalExchange_ix_0	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_0	
-metaboliteInternalExchange_ix_1	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_1	
-metaboliteInternalExchange_ix_2	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_2	
-metaboliteInternalExchange_ix_3	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_3	
-metaboliteInternalExchange_ix_4	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_4	
-metaboliteInternalExchange_ix_5	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_5	
-metaboliteInternalExchange_ix_6	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_6	
-metaboliteInternalExchange_ix_7	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_7	
-metaboliteInternalExchange_ix_8	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_8	
-metaboliteInternalExchange_ix_9	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_9	
-metaboliteInternalExchange_ix_10	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_10	
-metaboliteInternalExchange_ix_11	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_11	
-metaboliteInternalExchange_ix_12	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_12	
-metaboliteInternalExchange_ix_13	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_13	
-metaboliteInternalExchange_ix_14	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_14	
-metaboliteInternalExchange_ix_15	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_15	
-metaboliteInternalExchange_ix_16	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_16	
-metaboliteInternalExchange_ix_17	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_17	
-metaboliteInternalExchange_ix_18	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_18	
-metaboliteInternalExchange_ix_19	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_19	
-metaboliteInternalExchange_ix_20	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_20	
-metaboliteInternalExchange_ix_21	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_21	
-metaboliteInternalExchange_ix_22	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_22	
-metaboliteInternalExchange_ix_23	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_23	
-metaboliteInternalExchange_ix_24	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_24	
-metaboliteInternalExchange_ix_25	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_25	
-metaboliteInternalExchange_ix_26	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_26	
-metaboliteInternalExchange_ix_27	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_27	
-metaboliteInternalExchange_ix_28	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_28	
-metaboliteInternalExchange_ix_29	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_29	
-metaboliteInternalExchange_ix_30	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_30	
-metaboliteInternalExchange_ix_31	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_31	
-metaboliteInternalExchange_ix_32	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_32	
-metaboliteInternalExchange_ix_33	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_33	
-metaboliteInternalExchange_ix_34	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_34	
-metaboliteInternalExchange_ix_35	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_35	
-metaboliteInternalExchange_ix_36	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_36	
-metaboliteInternalExchange_ix_37	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_37	
-metaboliteInternalExchange_ix_38	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_38	
-metaboliteInternalExchange_ix_39	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_39	
-metaboliteInternalExchange_ix_40	-inf	0.0	-inf	inf	-5.31207208652336e-09	metaboliteInternalExchange_ix_40	
-metaboliteInternalExchange_ix_41	0.0	inf	-inf	inf	0.0	metaboliteInternalExchange_ix_41	
-biomassProduction	0.0	inf	-inf	inf	1000.0	biomassProduction	
-biomassConsumption	-inf	0.0	-inf	inf	0.0	biomassConsumption	
+rid	type	lb_fbaReactionBounds	ub_fbaReactionBounds	lb_fbaEnzymeBounds	ub_fbaEnzymeBounds	fbaObjective	name	model_type
+Aas4	metabolicConversion	0.0	inf	-inf	inf	0.0	acyl-[acyl-carrier-protein] synthetase  (n-C16:0)	Reaction
+Aas5	metabolicConversion	0.0	inf	-inf	inf	0.0	acyl-[acyl-carrier-protein] synthetase  (n-C16:1)	Reaction
+Aas7	metabolicConversion	0.0	inf	-inf	inf	0.0	acyl-[acyl-carrier-protein] synthetase  (n-C18:1)	Reaction
+AceE	metabolicConversion	-inf	inf	-inf	1128.3115796394943	0.0	pyruvate dehydrogenase	Reaction
+AckA	metabolicConversion	-inf	inf	-103.54349203333332	100.58510654666665	0.0	acetate kinase	Reaction
+Adk1	metabolicConversion	-inf	inf	-inf	504.6601310166665	0.0	adenylate kinase (ATP)	Reaction
+Adk2	metabolicConversion	-inf	inf	-inf	inf	0.0	adentylate kinase (GTP)	Reaction
+Adk3	metabolicConversion	-inf	inf	-inf	inf	0.0	adentylate kinase (ITP)	Reaction
+Adk4	metabolicConversion	-inf	inf	-354.11196041666665	inf	0.0	deoxyadenylate kinase (dADP)	Reaction
+AHCYSs	metabolicConversion	0.0	inf	-inf	inf	0.0	adenosylhomocysteinase	Reaction
+Apt	metabolicConversion	0.0	inf	-inf	6.388401585723552	0.0	adenine phosphoribosyltransferase	Reaction
+Apts_Ala	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Ala-Ala)	Reaction
+Apts_Arg	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Arg-Arg)	Reaction
+Apts_Asn	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Asn-Asn)	Reaction
+Apts_Asp	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Asp-Asp)	Reaction
+Apts_Cys	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Cys-Cys)	Reaction
+Apts_Gln	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Gln-Gln)	Reaction
+Apts_Glu	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Glu-Glu)	Reaction
+Apts_Gly	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Gly-Gly)	Reaction
+Apts_His	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (His-His)	Reaction
+Apts_Ile	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Ile-Ile)	Reaction
+Apts_Leu	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Leu-Leu)	Reaction
+Apts_Lys	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Lys-Lys)	Reaction
+Apts_Met	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Met-Met)	Reaction
+Apts_Phe	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Phe-Phe)	Reaction
+Apts_Pro	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Pro-Pro)	Reaction
+Apts_Ser	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Ser-Ser)	Reaction
+Apts_Thr	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Thr-Thr)	Reaction
+Apts_Trp	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Trp-Trp)	Reaction
+Apts_Tyr	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Tyr-Tyr)	Reaction
+Apts_Val	metabolicConversion	0.0	inf	-inf	inf	0.0	Dipeptide import (Val-Val)	Reaction
+ArcC	metabolicConversion	-inf	inf	-inf	inf	0.0	Carbamate kinase	Reaction
+AspC1	metabolicConversion	-inf	inf	-inf	inf	0.0	Aspartate aminotransferase	Reaction
+AtpA	metabolicConversion	-inf	inf	-4.9	inf	0.0	ATP synthase (four protons for one ATP) (periplasm)	Reaction
+Cdd1	metabolicConversion	0.0	inf	-inf	59.18357849999999	0.0	cytidine deaminase	Reaction
+Cdd2	metabolicConversion	0.0	inf	-inf	59.18357849999999	0.0	deoxycytidine deaminase	Reaction
+CdsA4	metabolicConversion	-inf	inf	-inf	inf	0.0	CDP-diacylglycerol synthetase (n-C16:0)	Reaction
+CdsA5	metabolicConversion	-inf	inf	-inf	inf	0.0	CDP-diacylglycerol synthetase (n-C16:1)	Reaction
+CdsA7	metabolicConversion	-inf	inf	-inf	inf	0.0	CDP-diacylglycerol synthetase (n-C18:1)	Reaction
+Cls1	metabolicConversion	-inf	inf	-inf	inf	0.0	cardiolipin synthase (periplasmic, n-C16:0)	Reaction
+Cls2	metabolicConversion	-inf	inf	-inf	inf	0.0	cardiolipin synthase (periplasmic, n-C16:1)	Reaction
+Cls3	metabolicConversion	-inf	inf	-inf	inf	0.0	cardiolipin synthase (periplasmic, n-C18:1)	Reaction
+CmkA1	metabolicConversion	-inf	inf	-inf	108.62059465666667	0.0	cytidylate kinase (dCMP)	Reaction
+CmkA2	metabolicConversion	-inf	inf	-inf	103.25151583333334	0.0	cytidylate kinase (CMP)	Reaction
+CmkB3	metabolicConversion	-inf	inf	-inf	1066.8608034	0.0	UMP kinase	Reaction
+Dak1	metabolicConversion	0.0	inf	-inf	6.137670995838674	0.0	deoxyadenylate kinase (dA:ATP)	Reaction
+DcdK	metabolicConversion	-inf	inf	-inf	inf	0.0	dCMP kinase	Reaction
+Dck	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dCMP)	Reaction
+DeoC	metabolicConversion	0.0	inf	-inf	24.00840239348214	0.0	deoxyribose-phosphate aldolase	Reaction
+DeoD1	metabolicConversion	-inf	inf	-inf	0.03737724104621783	0.0	purine-nucleoside phosphorylase (Deoxyinosine)	Reaction
+DeoD2	metabolicConversion	-inf	inf	-inf	12.061450406112964	0.0	purine-nucleoside phosphorylase (Deoxyadenosine)	Reaction
+DeoD3	metabolicConversion	-inf	inf	-inf	0.03737724104621783	0.0	purine-nucleoside phosphorylase (Deoxyguanosine)	Reaction
+DeoD4	metabolicConversion	-inf	inf	-0.03737724104621783	inf	0.0	purine-nucleoside phosphorylase (Inosine)	Reaction
+DeoD5	metabolicConversion	-inf	inf	-3.3	inf	0.0	purine-nucleoside phosphorylase (Adenosine)	Reaction
+DeoD6	metabolicConversion	-inf	inf	-0.03737724104621783	inf	0.0	purine-nucleoside phosphorylase (Guanosine)	Reaction
+DeoD8	metabolicConversion	-inf	inf	-inf	0.010171381237566678	0.0	purine-nucleoside phosphorylase (Deoxyuridine)	Reaction
+Dgk1	metabolicConversion	0.0	inf	-inf	2.7074006252207345	0.0	deoxyguanylate kinase (dG:ATP)	Reaction
+DhfR1	metabolicConversion	-inf	inf	-inf	6.179999796549479	0.0	dihydrofolate reductase	Reaction
+Eno	metabolicConversion	-inf	inf	-inf	300.8671428	0.0	enolase	Reaction
+Fba	metabolicConversion	-inf	inf	-inf	23.33933894383544	0.0	fructose-bisphosphate aldolase	Reaction
+FMETHs	metabolicConversion	-inf	inf	-inf	inf	0.0	formylmethionine hydrolysis	Reaction
+FolD1	metabolicConversion	-inf	inf	-inf	162.4696373333333	0.0	methylenetetrahydrofolate dehydrogenase (NADP)	Reaction
+FolD2	metabolicConversion	-inf	inf	-inf	31.47849223333333	0.0	methenyltetrahydrofolate cyclohydrolase	Reaction
+Fre1	metabolicConversion	0.0	inf	-inf	255.0	0.0	FAD reductase	Reaction
+Fre2	metabolicConversion	0.0	inf	-inf	inf	0.0	Fe(III) reduction	Reaction
+Fre5	metabolicConversion	0.0	inf	-inf	28.0	0.0	FMN reductase	Reaction
+Fre6	metabolicConversion	0.0	inf	-inf	41.50869731666666	0.0	FMN reductase	Reaction
+FruK1	metabolicConversion	0.0	inf	-inf	53.18773611999999	0.0	fructose-1-phosphate kinase	Reaction
+FthC	metabolicConversion	-inf	inf	-inf	11.954222576666666	0.0	methylenetetrahydrofolate cyclohydrase	Reaction
+FTHFS	metabolicConversion	0.0	inf	-inf	6.079999796549479	0.0	formate-tetrahydrofolate ligase	Reaction
+GalE	metabolicConversion	-inf	inf	-inf	500.0	0.0	UDPglucose 4-epimerase	Reaction
+GalU1	metabolicConversion	-inf	inf	-inf	inf	0.0	UTP-glucose-1-phosphate uridylyltransferase (irreversible)	Reaction
+GapA	metabolicConversion	-inf	inf	-502.83344328000004	554.5957095	0.0	glyceraldehyde-3-phosphate dehydrogenase	Reaction
+Glf	metabolicConversion	0.0	inf	-inf	inf	0.0	FAD reductase	Reaction
+GLNHs	metabolicConversion	0.0	inf	-inf	inf	0.0	glutamine hydrolysis	Reaction
+GlpK	metabolicConversion	0.0	inf	-inf	440.2528225866666	0.0	glycerol kinase	Reaction
+GlyA3	metabolicConversion	0.0	inf	-inf	40.64453092671502	0.0	glycine hydroxymethyltransferase, reversible	Reaction
+GlyA4	metabolicConversion	0.0	inf	-inf	5.080566365839378	0.0	Threonine aldolase	Reaction
+glycosyltransferase_PG160_DAG160	metabolicConversion	0.0	inf	-inf	inf	0.0	glycosyltransferase (Phosphatidylglycerol (dihexadecanoyl, n-C16:0) ==> Diacylglycerol (n-16:0))	Reaction
+glycosyltransferase_PG161_DAG161	metabolicConversion	0.0	inf	-inf	inf	0.0	glycosyltransferase (Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1) ==> Diacylglycerol (n-16:1))	Reaction
+glycosyltransferase_PG181_DAG181	metabolicConversion	0.0	inf	-inf	inf	0.0	glycosyltransferase (Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1) ==> Diacylglycerol (n-18:1))	Reaction
+Gmk1	metabolicConversion	-inf	inf	-inf	1167.5942492200002	0.0	guanylate kinase (GMP:ATP)	Reaction
+Gmk2	metabolicConversion	-inf	inf	-inf	138.10254560666667	0.0	deoxyguanylate kinase (dGMP:ATP)	Reaction
+Gmk3	metabolicConversion	-inf	inf	-inf	138.10254560666667	0.0	guanylate kinase (GMP:dATP)	Reaction
+Gmk4	metabolicConversion	-inf	inf	-inf	8.123679153333335	0.0	deoxyguanylate kinase (dGMP:dATP)	Reaction
+GpmA	metabolicConversion	-inf	inf	-inf	950.0	0.0	phosphoglycerate mutase	Reaction
+GpsA	metabolicConversion	-inf	inf	-4.077902327597683	inf	0.0	glycerol-3-phosphate dehydrogenase (NAD)	Reaction
+HCYSMT	metabolicConversion	0.0	inf	-inf	inf	0.0	homocysteine S-methyltransferase	Reaction
+HinT_AMP_Lysine_MG132	metabolicConversion	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase AMP-Lysine	Reaction
+HinT_AMP_Mor_MG132	metabolicConversion	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase AMP-morpholidate	Reaction
+HinT_AMP_NH2_MG132	metabolicConversion	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase AMP-NH2	Reaction
+HinT_GMP_Lysine_MG132	metabolicConversion	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase GMP-Lysine	Reaction
+HinT_GMP_Mor_MG132	metabolicConversion	-inf	inf	-inf	inf	0.0	purine nucleoside phosphoramidase GMP-morpholidate	Reaction
+Hpt1	metabolicConversion	0.0	inf	-inf	15.9	0.0	hypoxanthine phosphoribosyltransferase (Hypoxanthine)	Reaction
+Hpt2	metabolicConversion	0.0	inf	-inf	8.160000101725261	0.0	guanine phosphoribosyltransferase	Reaction
+LIPASE_DIBUTYRIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (dibutyrin) (MG_310)	Reaction
+LIPASE_DIBUTYRIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (dibutyrin) (MG_327)	Reaction
+LIPASE_DIBUTYRIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (dibutyrin) (MG_344)	Reaction
+LIPASE_METHYL_OCDCEA_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (methyl_ocdcea) (MG_310)	Reaction
+LIPASE_METHYL_OCDCEA_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (methyl_ocdcea) (MG_327)	Reaction
+LIPASE_METHYL_OCDCEA_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (methyl_ocdcea) (MG_344)	Reaction
+LIPASE_MONOBUTYRIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (1-monobutyrin) (MG_310)	Reaction
+LIPASE_MONOBUTYRIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (1-monobutyrin) (MG_327)	Reaction
+LIPASE_MONOBUTYRIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (1-monobutyrin) (MG_344)	Reaction
+LIPASE_TRIBUTYRIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tributyrin) (MG_310)	Reaction
+LIPASE_TRIBUTYRIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tributyrin) (MG_327)	Reaction
+LIPASE_TRIBUTYRIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tributyrin) (MG_344)	Reaction
+LIPASE_TRILAURIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trilaurin) (MG_310)	Reaction
+LIPASE_TRILAURIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trilaurin) (MG_327)	Reaction
+LIPASE_TRILAURIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trilaurin) (MG_344)	Reaction
+LIPASE_TRIMYRISTIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trimyristin) (MG_310)	Reaction
+LIPASE_TRIMYRISTIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trimyristin) (MG_327)	Reaction
+LIPASE_TRIMYRISTIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (trimyristin) (MG_344)	Reaction
+LIPASE_TRIOLEIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	 Triacylglycerol lipase (triolein) (MG_310)	Reaction
+LIPASE_TRIOLEIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	 Triacylglycerol lipase (triolein) (MG_327)	Reaction
+LIPASE_TRIOLEIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (triolein) (MG_344)	Reaction
+LIPASE_TRIPALMITIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tripalmitin) (MG_310)	Reaction
+LIPASE_TRIPALMITIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tripalmitin) (MG_310)	Reaction
+LIPASE_TRIPALMITIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tripalmitin) (MG_344)	Reaction
+LIPASE_TRISTEARIN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (octadecanoate) (MG_310)	Reaction
+LIPASE_TRISTEARIN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (octadecanoate) (MG_327)	Reaction
+LIPASE_TRISTEARIN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (octadecanoate) (MG_344)	Reaction
+LIPASE_TRI_HDCEA_IN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_hdcea_in) (MG_310)	Reaction
+LIPASE_TRI_HDCEA_IN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_hdcea_in) (MG_327)	Reaction
+LIPASE_TRI_HDCEA_IN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_hdcea_in) (MG_344)	Reaction
+LIPASE_TRI_TTDCEA_IN_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_ttdcea_in) (MG_310)	Reaction
+LIPASE_TRI_TTDCEA_IN_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_ttdcea_in) (MG_327)	Reaction
+LIPASE_TRI_TTDCEA_IN_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (tri_ttdcea_in) (MG_344)	Reaction
+LIPASE_TWEEN80_MG310	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (Tween 80) (MG_310)	Reaction
+LIPASE_TWEEN80_MG327	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (Tween 80) (MG_327)	Reaction
+LIPASE_TWEEN80_MG344	metabolicConversion	-inf	inf	-inf	inf	0.0	Triacylglycerol lipase (Tween 80) (MG_344)	Reaction
+LIPOYLLYSHs	metabolicConversion	0.0	inf	-inf	inf	0.0	N(6)-lipoyl-lysine hydrolysis	Reaction
+LplA	metabolicConversion	0.0	inf	-inf	inf	0.0	ATP:lipoate adenylyltransferase	Reaction
+MetF	metabolicConversion	0.0	inf	-inf	inf	0.0	5,10-methylenetetrahydrofolate reductase (NADH)	Reaction
+METHFHYD	metabolicConversion	0.0	inf	-inf	inf	0.0	5,10-methenyltetrahydrofolate hydrolysis	Reaction
+MetK	metabolicConversion	0.0	inf	-inf	0.11093863398892766	0.0	methionine adenosyltransferase	Reaction
+MetS	metabolicConversion	0.0	inf	-inf	inf	0.0	methionine synthase	Reaction
+MOrx	metabolicConversion	0.0	inf	-inf	inf	0.0	Molybdenum reductase	Reaction
+NADD1	metabolicConversion	0.0	inf	-inf	inf	0.0	Nicotinate-mononucleotide adenylyltransferase	Reaction
+NADD2	metabolicConversion	0.0	inf	-inf	inf	0.0	Nicotinate-mononucleotide adenylyltransferase	Reaction
+NadE	metabolicConversion	0.0	inf	-inf	6.495410976775457	0.0	NAD synthase (nh3)	Reaction
+NadK	metabolicConversion	-inf	inf	-inf	11.164511956092253	0.0	NAD kinase	Reaction
+NADR1	metabolicConversion	0.0	inf	-inf	10.0	0.0	nicotinamide-nucleotide adenylyltransferase	Reaction
+NH3eq	metabolicConversion	-inf	inf	-inf	inf	0.0	Ammonia equilibration reaction	Reaction
+NOX	metabolicConversion	0.0	inf	-inf	inf	0.0	NADH dehydrogenase	Reaction
+NrdEF_ADP	metabolicConversion	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase (ADP)	Reaction
+NrdEF_CDP	metabolicConversion	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase (CDP)	Reaction
+NrdEF_GDP	metabolicConversion	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase (GDP)	Reaction
+NrdEF_maintenance	metabolicConversion	0.0	inf	-inf	inf	0.0	ribonucleoside-diphosphate reductase maintenance	Reaction
+Ohr_H2O2	metabolicConversion	0.0	inf	-inf	inf	0.0	peroxidase (hydrogen peroxide)	Reaction
+Ohr_rx	metabolicConversion	0.0	inf	-inf	inf	0.0	peroxidase reductase	Reaction
+OsmC_H2O2	metabolicConversion	0.0	inf	-inf	inf	0.0	peroxidase (hydrogen peroxide)	Reaction
+OsmC_rx	metabolicConversion	0.0	inf	-inf	inf	0.0	peroxidase reductase	Reaction
+PcbX	metabolicConversion	-inf	inf	-inf	inf	0.0	oxaloacetate carboxylase	Reaction
+Pdp1	metabolicConversion	-inf	inf	-inf	0.005930418734251388	0.0	deoxyuridine phosphorylase	Reaction
+Pdp2	metabolicConversion	-inf	inf	-inf	0.0022689221940619276	0.0	thymidine phosphorylase	Reaction
+Pdp3	metabolicConversion	-inf	inf	-inf	inf	0.0	pyrimidine-nucleoside phosphorylase (uracil)	Reaction
+PfkA1	metabolicConversion	0.0	inf	-inf	72.76202465507546	0.0	phosphofructokinase	Reaction
+PfkA2	metabolicConversion	0.0	inf	-inf	72.76202465507546	0.0	phosphofructokinase	Reaction
+PfkA3	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphofructokinase	Reaction
+PfkA4	metabolicConversion	0.0	inf	-inf	72.76202465507546	0.0	phosphofructokinase	Reaction
+PfkA5	metabolicConversion	-inf	inf	-inf	28.53412696	0.0	phosphofructokinase	Reaction
+Pgi	metabolicConversion	-inf	inf	-inf	1218.7897975999997	0.0	glucose-6-phosphate isomerase	Reaction
+Pgk1	metabolicConversion	-inf	inf	-1.1220628124999998	7.48041875	0.0	phosphoglycerate kinase	Reaction
+Pgk2	metabolicConversion	-inf	inf	-10.472586249999999	33.66188437499999	0.0	phosphoglycerate kinase	Reaction
+Pgk3	metabolicConversion	-inf	inf	-0.029999999205271403	844.5	0.0	phosphoglycerate kinase	Reaction
+Pgk4	metabolicConversion	-inf	inf	-9.724544374999999	30.669716875	0.0	phosphoglycerate kinase	Reaction
+Pgk5	metabolicConversion	-inf	inf	-inf	inf	0.0	phosphoglycerate kinase	Reaction
+Pgm	metabolicConversion	-inf	inf	-inf	207.0819973498572	0.0	phosphoglucomutase	Reaction
+PgpA1	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphatidylglycerol phosphate phosphatase (n-C16:0)	Reaction
+PgpA2	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphatidylglycerol phosphate phosphatase (n-C16:1)	Reaction
+PgpA3	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphatidylglycerol phosphate phosphatase (n-C18:1)	Reaction
+PgsA1	metabolicConversion	-inf	inf	-inf	inf	0.0	Phosphatidylglycerol synthase (n-C16:0)	Reaction
+PgsA2	metabolicConversion	-inf	inf	-inf	inf	0.0	Phosphatidylglycerol synthase (n-C16:1)	Reaction
+PgsA3	metabolicConversion	-inf	inf	-inf	inf	0.0	Phosphatidylglycerol synthase (n-C18:1)	Reaction
+PhnW	metabolicConversion	0.0	inf	-inf	inf	0.0	2-aminoethylphosphonate aminotransferase	Reaction
+PhnX	metabolicConversion	0.0	inf	-inf	inf	0.0	Phosphonoacetaldehyde hydrolase	Reaction
+PlsC4	metabolicConversion	0.0	inf	-inf	inf	0.0	1-hexadecanoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C16:0)	Reaction
+PlsC5	metabolicConversion	0.0	inf	-inf	inf	0.0	1-hexadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C16:1)	Reaction
+PlsC7	metabolicConversion	0.0	inf	-inf	inf	0.0	1-octadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C18:1)	Reaction
+PlsX4	metabolicConversion	0.0	inf	-inf	inf	0.0	glycerol-3-phosphate acyltransferase (C16:0)	Reaction
+PlsX5	metabolicConversion	0.0	inf	-inf	inf	0.0	glycerol-3-phosphate acyltransferase (C16:1)	Reaction
+PlsX7	metabolicConversion	0.0	inf	-inf	inf	0.0	glycerol-3-phosphate acyltransferase (C18:1)	Reaction
+PncB	metabolicConversion	0.0	inf	-inf	2.592157205	0.0	nicotinic acid mononucleotide pyrophosphorylase	Reaction
+Ppa	metabolicConversion	0.0	inf	-inf	inf	0.0	inorganic diphosphatase	Reaction
+Ppc	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphoenolpyruvate carboxylase	Reaction
+PrsA	metabolicConversion	-inf	inf	-inf	713.2866836000002	0.0	phosphoribosylpyrophosphate synthetase	Reaction
+pSERpp	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphoserine phosphatase	Reaction
+Pta	metabolicConversion	-inf	inf	-inf	1620.90801876	0.0	phosphotransacetylase	Reaction
+pTHRpp	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphothreonine phosphatase	Reaction
+pTYRpp	metabolicConversion	0.0	inf	-inf	inf	0.0	Phosphotyrosine phosphatase	Reaction
+PYDXK	metabolicConversion	0.0	inf	-inf	inf	0.0	pyridoxal kinase	Reaction
+Pyk_ADP	metabolicConversion	-inf	inf	-inf	375.4094512933333	0.0	pyruvate kinase	Reaction
+Pyk_CDP	metabolicConversion	-inf	inf	-inf	900.2165413666665	0.0	pyruvate kinase	Reaction
+Pyk_DADP	metabolicConversion	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
+Pyk_DCDP	metabolicConversion	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
+Pyk_DGDP	metabolicConversion	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
+Pyk_DTDP	metabolicConversion	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
+Pyk_GDP	metabolicConversion	-inf	inf	-inf	856.5464857194569	0.0	pyruvate kinase	Reaction
+Pyk_IDP	metabolicConversion	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
+Pyk_UDP	metabolicConversion	-inf	inf	-inf	inf	0.0	pyruvate kinase	Reaction
+RelA1	metabolicConversion	0.0	inf	-inf	inf	0.0	GDP diphosphokinase	Reaction
+RibF1	metabolicConversion	0.0	inf	-inf	0.30607787556122246	0.0	riboflavin kinase	Reaction
+RibF2	metabolicConversion	0.0	inf	-inf	0.30607787556122246	0.0	FMN adenylyltransferase	Reaction
+Rpe	metabolicConversion	-inf	inf	-inf	inf	0.0	ribulose 5-phosphate 3-epimerase	Reaction
+RpiB	metabolicConversion	-inf	inf	-653.0	inf	0.0	ribose-5-phosphate isomerase	Reaction
+SNGLYPOr	metabolicConversion	0.0	inf	-inf	inf	0.0	sn-Glycerol-1-phosphate:NADP 2-oxidoreductase	Reaction
+TalA	metabolicConversion	-inf	inf	-inf	inf	0.0	transaldolase	Reaction
+TatD_dAMP	metabolicConversion	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dAMP)	Reaction
+TatD_dCMP	metabolicConversion	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dCMP)	Reaction
+TatD_dGMP	metabolicConversion	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dGMP)	Reaction
+TatD_dTMP	metabolicConversion	0.0	inf	-inf	inf	0.0	deoxyribonuclease (dTMP)	Reaction
+Tdk1	metabolicConversion	0.0	inf	-inf	3.498821488793419	0.0	deoxyuridine kinase (ATP:Deoxyuridine)	Reaction
+Tdk2	metabolicConversion	0.0	inf	-inf	3.498821488793419	0.0	thymidine kinase (ATP:thymidine)	Reaction
+ThyA	metabolicConversion	0.0	inf	-inf	0.21299999554951984	0.0	thymidylate synthase	Reaction
+Tkt1	metabolicConversion	-inf	inf	-inf	123.99632470603514	0.0	transketolase	Reaction
+Tkt2	metabolicConversion	-inf	inf	-inf	123.99632470603514	0.0	transketolase	Reaction
+TMDPK	metabolicConversion	0.0	inf	-inf	inf	0.0	thiamine diphosphokinase	Reaction
+Tmk	metabolicConversion	-inf	inf	-inf	0.06740657091374441	0.0	thiamine kinase	Reaction
+TpiA	metabolicConversion	-inf	inf	-inf	816.6666666666666	0.0	triose-phosphate isomerase	Reaction
+TrxB	metabolicConversion	-inf	inf	-inf	20.833333333333332	0.0	thioredoxin reductase (NADPH)	Reaction
+TXPYDX	metabolicConversion	0.0	inf	-inf	inf	0.0	pyridoxal transport	Reaction
+TXTHM	metabolicConversion	0.0	inf	-inf	inf	0.0	thamine transport via proton symport	Reaction
+TX_ACAL	metabolicConversion	-inf	inf	-inf	inf	0.0	Acetylaldehyde transport	Reaction
+TX_ACUP	metabolicConversion	-inf	inf	-inf	inf	0.0	acetate reversible transport via proton symport	Reaction
+TX_AD	metabolicConversion	-inf	inf	-inf	inf	0.0	adenine transport via proton symport	Reaction
+TX_AKG	metabolicConversion	-inf	inf	-inf	inf	0.0	2-Oxoglutarate transport via proton symport	Reaction
+TX_AROP11	metabolicConversion	-inf	inf	-inf	inf	0.0	L-phenylalanine reversible transport via proton symport	Reaction
+TX_AROP12	metabolicConversion	-inf	inf	-inf	inf	0.0	L-tryptophan reversible transport via proton symport	Reaction
+TX_AROP13	metabolicConversion	-inf	inf	-inf	inf	0.0	L-tyrosine reversible transport via proton symport	Reaction
+TX_AROP21	metabolicConversion	-inf	inf	-inf	inf	0.0	L-phenylalanine reversible transport via proton symport	Reaction
+TX_AROP22	metabolicConversion	-inf	inf	-inf	inf	0.0	L-tryptophan reversible transport via proton symport	Reaction
+TX_AROP23	metabolicConversion	-inf	inf	-inf	inf	0.0	L-tyrosine reversible transport via proton symport	Reaction
+TX_CAP	metabolicConversion	-inf	inf	-inf	inf	0.0	carbamoyl phosphate transport	Reaction
+TX_Cbi_Co	metabolicConversion	0.0	inf	-inf	inf	0.0	cobalt transport via ABC system	Reaction
+TX_Cbi_Ni	metabolicConversion	0.0	inf	-inf	inf	0.0	nickel transport via ABC system	Reaction
+TX_CL	metabolicConversion	0.0	inf	-inf	inf	0.0	chloride transport out via proton antiport (2:1)	Reaction
+TX_cmnm5s2U	metabolicConversion	-inf	inf	-inf	inf	0.0	5-carboxymethylaminomethyl-2-thiouridine transport	Reaction
+TX_CO2	metabolicConversion	-inf	inf	-inf	inf	0.0	carbon dioxide transport	Reaction
+TX_COA	metabolicConversion	-inf	inf	-inf	inf	0.0	coenzyme A transport	Reaction
+TX_ComEC_dApdAp	metabolicConversion	0.0	inf	-inf	inf	0.0	DNA internalization (dApdAp)	Reaction
+TX_ComEC_dCpdCp	metabolicConversion	0.0	inf	-inf	inf	0.0	DNA internalization (dCpdCp)	Reaction
+TX_ComEC_dGpdGp	metabolicConversion	0.0	inf	-inf	inf	0.0	DNA internalization (dGpdGp)	Reaction
+TX_ComEC_dTpdTp	metabolicConversion	0.0	inf	-inf	inf	0.0	DNA internalization (dTpdTp)	Reaction
+TX_CYTD	metabolicConversion	-inf	inf	-inf	inf	0.0	cytidine transport via proton symport	Reaction
+TX_DA	metabolicConversion	0.0	inf	-inf	inf	0.0	deoxyadenosine transport via proton symport	Reaction
+TX_dINS	metabolicConversion	-inf	inf	-inf	inf	0.0	2'-deoxyinosine transport	Reaction
+TX_FOR	metabolicConversion	-inf	inf	-inf	inf	0.0	Formate transport	Reaction
+TX_FRUPTS	metabolicConversion	0.0	inf	-inf	inf	0.0	D-fructose transport via PEP:Pyr PTS	Reaction
+TX_GL	metabolicConversion	0.0	inf	-inf	inf	0.0	glycerol transport via ABC system	Reaction
+TX_GL3P	metabolicConversion	0.0	inf	-inf	inf	0.0	glycerol transport via ABC system	Reaction
+TX_GLCPTS	metabolicConversion	0.0	inf	-inf	inf	0.0	D-glucose transport via PEP:Pyr PTS	Reaction
+TX_GLNHPQ	metabolicConversion	0.0	inf	-inf	inf	0.0	L-glutamine transport via ABC system	Reaction
+TX_GLUP	metabolicConversion	0.0	inf	-inf	inf	0.0	glycerol transport via diffusion	Reaction
+TX_Gm	metabolicConversion	-inf	inf	-inf	inf	0.0	2'-O-methylguanosine transport	Reaction
+TX_GN	metabolicConversion	0.0	inf	-inf	inf	0.0	guanine transport via proton symport	Reaction
+TX_H2O	metabolicConversion	-inf	inf	-inf	inf	0.0	Water transport	Reaction
+TX_H2O2	metabolicConversion	-inf	inf	-inf	inf	0.0	hydrogen peroxide transport	Reaction
+TX_HDCA	metabolicConversion	-inf	inf	-inf	inf	0.0	Hexadecanoate (n-C16:0) transport	Reaction
+TX_HDCEA	metabolicConversion	-inf	inf	-inf	inf	0.0	Hexadecenoate (n-C16:1) transport	Reaction
+TX_k2C	metabolicConversion	-inf	inf	-inf	inf	0.0	lysidine transport	Reaction
+TX_LIPOATE	metabolicConversion	-inf	inf	-inf	inf	0.0	Lipoate transport	Reaction
+TX_m1G	metabolicConversion	-inf	inf	-inf	inf	0.0	1-methylguanosine transport	Reaction
+TX_m2G	metabolicConversion	-inf	inf	-inf	inf	0.0	N(2)-methylguanosine transport	Reaction
+TX_m62A	metabolicConversion	-inf	inf	-inf	inf	0.0	N6,N6-dimethyladenine transport	Reaction
+TX_m7G	metabolicConversion	-inf	inf	-inf	inf	0.0	7-methylguanosine transport	Reaction
+TX_MGTA_CA	metabolicConversion	0.0	inf	-inf	inf	0.0	calcium-transporting ATPase	Reaction
+TX_MGTA_CU	metabolicConversion	0.0	inf	-inf	inf	0.0	copper-transporting ATPase	Reaction
+TX_MGTA_FE2	metabolicConversion	0.0	inf	-inf	inf	0.0	iron (II) transporting ATPase	Reaction
+TX_MGTA_FE3	metabolicConversion	0.0	inf	-inf	inf	0.0	iron (III) transporting ATPase	Reaction
+TX_MGTA_MG	metabolicConversion	0.0	inf	-inf	inf	0.0	Magnesium-transporting ATPase	Reaction
+TX_MGTA_MN	metabolicConversion	0.0	inf	-inf	inf	0.0	Manganese-transporting ATPase	Reaction
+TX_MGTA_MOBD	metabolicConversion	0.0	inf	-inf	inf	0.0	molybdate transporting ATPase	Reaction
+TX_MGTA_ZN	metabolicConversion	0.0	inf	-inf	inf	0.0	zinc-transporting ATPase	Reaction
+TX_NAC	metabolicConversion	0.0	inf	-inf	inf	0.0	nicotinate transport	Reaction
+TX_NAUP2	metabolicConversion	-inf	inf	-inf	inf	0.0	sodium transport out via proton antiport	Reaction
+TX_NH4	metabolicConversion	-inf	inf	-inf	inf	0.0	ammonia reversible transport	Reaction
+TX_O2	metabolicConversion	-inf	inf	-inf	inf	0.0	oxygen transport	Reaction
+TX_OA	metabolicConversion	-inf	inf	-inf	inf	0.0	oxaloacetate transport	Reaction
+TX_OCDCEA	metabolicConversion	-inf	inf	-inf	inf	0.0	octadecenoate (n-C18:1) transport	Reaction
+TX_OppB_Ala	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Ala) transport via ABC system	Reaction
+TX_OppB_Arg	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Arg) transport via ABC system	Reaction
+TX_OppB_Asn	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Asn) transport via ABC system	Reaction
+TX_OppB_Asp	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Asp) transport via ABC system	Reaction
+TX_OppB_Cys	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Cys) transport via ABC system	Reaction
+TX_OppB_Gln	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Gln) transport via ABC system	Reaction
+TX_OppB_Glu	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Glu) transport via ABC system	Reaction
+TX_OppB_Gly	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Gly) transport via ABC system	Reaction
+TX_OppB_His	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (His) transport via ABC system	Reaction
+TX_OppB_Ile	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Ile) transport via ABC system	Reaction
+TX_OppB_Leu	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Leu) transport via ABC system	Reaction
+TX_OppB_Lys	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Lys) transport via ABC system	Reaction
+TX_OppB_Met	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Met) transport via ABC system	Reaction
+TX_OppB_Phe	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Phe) transport via ABC system	Reaction
+TX_OppB_Pro	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Pro) transport via ABC system	Reaction
+TX_OppB_Ser	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Ser) transport via ABC system	Reaction
+TX_OppB_Thr	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Thr) transport via ABC system	Reaction
+TX_OppB_Trp	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Trp) transport via ABC system	Reaction
+TX_OppB_Tyr	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Tyr) transport via ABC system	Reaction
+TX_OppB_Val	metabolicConversion	0.0	inf	-inf	inf	0.0	oligopeptide (Val) transport via ABC system	Reaction
+TX_PHNT	metabolicConversion	0.0	inf	-inf	inf	0.0	2-aminoethylphosphonate transport via ABC system	Reaction
+TX_PIUP1	metabolicConversion	0.0	inf	-inf	inf	0.0	phosphate transport via ABC system	Reaction
+TX_PSIURI	metabolicConversion	-inf	inf	-inf	inf	0.0	pseudouridine transport	Reaction
+TX_RIBFLV	metabolicConversion	-inf	inf	-inf	inf	0.0	riboflavin, oxidized transport	Reaction
+TX_s4U	metabolicConversion	-inf	inf	-inf	inf	0.0	4-thiouridine transport	Reaction
+TX_SO4	metabolicConversion	0.0	inf	-inf	inf	0.0	sulfate transporting ATPase	Reaction
+TX_SPMDUP1	metabolicConversion	0.0	inf	-inf	inf	0.0	spermidine transport via ABC system	Reaction
+TX_SPRDUP2	metabolicConversion	0.0	inf	-inf	inf	0.0	putrescine transport via ABC system	Reaction
+TX_STEROL	metabolicConversion	-inf	inf	-inf	inf	0.0	Sterol transport	Reaction
+TX_THF	metabolicConversion	-inf	inf	-inf	inf	0.0	5,6,7,8-Tetrahydrofolate transport	Reaction
+TX_THY	metabolicConversion	0.0	inf	-inf	inf	0.0	thymine transport via proton antiport	Reaction
+TX_TRK	metabolicConversion	-inf	inf	-inf	inf	0.0	potassium transport in via proton symport	Reaction
+TX_UHPT1	metabolicConversion	0.0	inf	-inf	inf	0.0	Glucose-6-phosphate transport via phosphate antiport	Reaction
+TX_Um	metabolicConversion	-inf	inf	-inf	inf	0.0	2'-O-methyluridine transport	Reaction
+TX_URA	metabolicConversion	-inf	inf	-inf	inf	0.0	uracil transport via proton symport	Reaction
+Udk1	metabolicConversion	0.0	inf	-inf	332.7609173333333	0.0	uridine kinase (GTP:Uridine)	Reaction
+Udk2	metabolicConversion	0.0	inf	-inf	332.7609173333333	0.0	cytidine kinase (GTP)	Reaction
+Upp	metabolicConversion	0.0	inf	-inf	0.08051431429278763	0.0	uracil phosphoribosyltransferase	Reaction
+UshA_AMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (AMP)	Reaction
+UshA_cmnm5s2UMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (cmnm5s2UMP)	Reaction
+UshA_dCMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dCMP)	Reaction
+UshA_dTMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dTMP)	Reaction
+UshA_dUMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (dUMP)	Reaction
+UshA_GmMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (GmMP)	Reaction
+UshA_GMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (GMP)	Reaction
+UshA_IMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (IMP)	Reaction
+UshA_k2CMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (k2CMP)	Reaction
+UshA_m1GMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m1GMP)	Reaction
+UshA_m2GMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m2GMP)	Reaction
+UshA_m62AMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m62AMP)	Reaction
+UshA_m7GMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (m7GMP)	Reaction
+UshA_PSIURIMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (PSIURIMP)	Reaction
+UshA_s4UMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (s4UMP)	Reaction
+UshA_UmMP	metabolicConversion	0.0	inf	-inf	inf	0.0	5'-nucleotidase (UmMP)	Reaction
+YbiV_SNGLYP	metabolicConversion	0.0	inf	-inf	0.9	0.0	sugar phosphatase (sn-glycerol-1-phosphate)	Reaction
+YicP	metabolicConversion	0.0	inf	-inf	inf	0.0	adenine deaminase	Reaction
+metabolite_ex_0	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_0	
+metabolite_ex_1	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_1	
+metabolite_ex_2	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_2	
+metabolite_ex_3	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_3	
+metabolite_ex_4	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_4	
+metabolite_ex_5	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_5	
+metabolite_ex_6	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_6	
+metabolite_ex_7	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_7	
+metabolite_ex_8	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_8	
+metabolite_ex_9	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_9	
+metabolite_ex_10	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_10	
+metabolite_ex_11	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_11	
+metabolite_ex_12	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_12	
+metabolite_ex_13	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_13	
+metabolite_ex_14	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_14	
+metabolite_ex_15	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_15	
+metabolite_ex_16	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_16	
+metabolite_ex_17	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_17	
+metabolite_ex_18	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_18	
+metabolite_ex_19	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_19	
+metabolite_ex_20	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_20	
+metabolite_ex_21	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_21	
+metabolite_ex_22	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_22	
+metabolite_ex_23	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_23	
+metabolite_ex_24	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_24	
+metabolite_ex_25	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_25	
+metabolite_ex_26	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_26	
+metabolite_ex_27	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_27	
+metabolite_ex_28	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_28	
+metabolite_ex_29	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_29	
+metabolite_ex_30	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_30	
+metabolite_ex_31	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_31	
+metabolite_ex_32	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_32	
+metabolite_ex_33	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_33	
+metabolite_ex_34	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_34	
+metabolite_ex_35	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_35	
+metabolite_ex_36	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_36	
+metabolite_ex_37	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_37	
+metabolite_ex_38	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_38	
+metabolite_ex_39	metaboliteExternalExchange	0.0	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_39	
+metabolite_ex_40	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_40	
+metabolite_ex_41	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_41	
+metabolite_ex_42	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_42	
+metabolite_ex_43	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_43	
+metabolite_ex_44	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_44	
+metabolite_ex_45	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_45	
+metabolite_ex_46	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_46	
+metabolite_ex_47	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_47	
+metabolite_ex_48	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_48	
+metabolite_ex_49	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_49	
+metabolite_ex_50	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_50	
+metabolite_ex_51	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_51	
+metabolite_ex_52	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_52	
+metabolite_ex_53	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_53	
+metabolite_ex_54	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_54	
+metabolite_ex_55	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_55	
+metabolite_ex_56	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_56	
+metabolite_ex_57	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_57	
+metabolite_ex_58	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_58	
+metabolite_ex_59	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_59	
+metabolite_ex_60	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_60	
+metabolite_ex_61	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_61	
+metabolite_ex_62	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_62	
+metabolite_ex_63	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_63	
+metabolite_ex_64	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_64	
+metabolite_ex_65	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_65	
+metabolite_ex_66	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_66	
+metabolite_ex_67	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_67	
+metabolite_ex_68	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_68	
+metabolite_ex_69	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_69	
+metabolite_ex_70	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_70	
+metabolite_ex_71	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_71	
+metabolite_ex_72	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_72	
+metabolite_ex_73	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_73	
+metabolite_ex_74	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_74	
+metabolite_ex_75	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_75	
+metabolite_ex_76	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_76	
+metabolite_ex_77	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_77	
+metabolite_ex_78	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_78	
+metabolite_ex_79	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_79	
+metabolite_ex_80	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_80	
+metabolite_ex_81	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_81	
+metabolite_ex_82	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_82	
+metabolite_ex_83	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_83	
+metabolite_ex_84	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_84	
+metabolite_ex_85	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_85	
+metabolite_ex_86	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_86	
+metabolite_ex_87	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_87	
+metabolite_ex_88	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_88	
+metabolite_ex_89	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_89	
+metabolite_ex_90	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_90	
+metabolite_ex_91	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_91	
+metabolite_ex_92	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_92	
+metabolite_ex_93	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_93	
+metabolite_ex_94	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_94	
+metabolite_ex_95	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_95	
+metabolite_ex_96	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_96	
+metabolite_ex_97	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_97	
+metabolite_ex_98	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_98	
+metabolite_ex_99	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_99	
+metabolite_ex_100	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_100	
+metabolite_ex_101	metaboliteExternalExchange	0.0	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_101	
+metabolite_ex_102	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_102	
+metabolite_ex_103	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_103	
+metabolite_ex_104	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_104	
+metabolite_ex_105	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_105	
+metabolite_ex_106	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_106	
+metabolite_ex_107	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_107	
+metabolite_ex_108	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_108	
+metabolite_ex_109	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_109	
+metabolite_ex_110	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_110	
+metabolite_ex_111	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_111	
+metabolite_ex_112	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_112	
+metabolite_ex_113	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_113	
+metabolite_ex_114	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_114	
+metabolite_ex_115	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_115	
+metabolite_ex_116	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_116	
+metabolite_ex_117	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_117	
+metabolite_ex_118	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_118	
+metabolite_ex_119	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_119	
+metabolite_ex_120	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_120	
+metabolite_ex_121	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_121	
+metabolite_ex_122	metaboliteExternalExchange	-2.0073805976666668e+18	2.0073805976666668e+18	-inf	inf	0.0	metabolite_ex_122	
+metabolite_ex_123	metaboliteExternalExchange	-3.3456343294444447e+18	3.3456343294444447e+18	-inf	inf	0.0	metabolite_ex_123	
+metabolite_ix_0	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_0	
+metabolite_ix_1	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_1	
+metabolite_ix_2	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_2	
+metabolite_ix_3	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_3	
+metabolite_ix_4	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_4	
+metabolite_ix_5	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_5	
+metabolite_ix_6	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_6	
+metabolite_ix_7	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_7	
+metabolite_ix_8	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_8	
+metabolite_ix_9	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_9	
+metabolite_ix_10	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_10	
+metabolite_ix_11	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_11	
+metabolite_ix_12	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_12	
+metabolite_ix_13	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_13	
+metabolite_ix_14	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_14	
+metabolite_ix_15	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_15	
+metabolite_ix_16	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_16	
+metabolite_ix_17	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_17	
+metabolite_ix_18	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_18	
+metabolite_ix_19	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_19	
+metabolite_ix_20	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_20	
+metabolite_ix_21	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_21	
+metabolite_ix_22	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_22	
+metabolite_ix_23	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_23	
+metabolite_ix_24	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_24	
+metabolite_ix_25	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_25	
+metabolite_ix_26	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_26	
+metabolite_ix_27	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_27	
+metabolite_ix_28	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_28	
+metabolite_ix_29	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_29	
+metabolite_ix_30	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_30	
+metabolite_ix_31	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_31	
+metabolite_ix_32	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_32	
+metabolite_ix_33	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_33	
+metabolite_ix_34	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_34	
+metabolite_ix_35	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_35	
+metabolite_ix_36	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_36	
+metabolite_ix_37	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_37	
+metabolite_ix_38	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_38	
+metabolite_ix_39	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_39	
+metabolite_ix_40	metaboliteInternalExchange	-inf	0.0	-inf	inf	-5.31207208652336e-09	metabolite_ix_40	
+metabolite_ix_41	metaboliteInternalExchange	0.0	inf	-inf	inf	0.0	metabolite_ix_41	
+biomassProduction	biomassProduction	0.0	inf	-inf	inf	1000.0	biomassProduction	
+biomassConsumption	biomassConsumption	-inf	0.0	-inf	inf	0.0	biomassConsumption	

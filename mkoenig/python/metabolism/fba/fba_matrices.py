@@ -69,8 +69,11 @@ initialization.
       growthAssociatedMaintanence
 """
 
-from pandas import DataFrame
-from pandas import Series
+import os
+import numpy as np
+from pandas import DataFrame, Series
+from metabolism_settings import DATA_DIR, RESULTS_DIR
+from fba.matlab.state_tools import read_state, print_state
 
 ##############################################################################
 # constant definitions in Karr model
@@ -83,19 +86,10 @@ compartmentIndexs_membrane = 3  # defined in Metabolism
 
 # Load state data from matlab dump (here also the constant matrices
 # and indices are defined)
-import scipy.io
-import numpy as np
-import os
-from metabolism_settings import DATA_DIR, RESULTS_DIR
 matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
-matlab_data = os.path.join(DATA_DIR, 'matlab_dumps/Process_Metabolism.mat')
-
-state = scipy.io.loadmat(matlab_data)
-for key, value in sorted(state.iteritems()):
-    if isinstance(value, np.ndarray):
-        print key, value.shape
-    else:
-        print key
+state_file = os.path.join(DATA_DIR, 'matlab_dumps/Process_Metabolism.mat')
+state = read_state(state_file)
+print_state(state)
 
 ###############################################
 # FULL SET
@@ -169,11 +163,13 @@ def get_genes_for_protein(p):
 all_names = []
 all_types = []
 all_genes = []
+full_genes = []
 for eid in e_df.eid:
     p = Protein.objects.get(wid=eid)
     all_names.append(p.name)
     all_types.append(p.model_type)
     genes = get_genes_for_protein(p)     
+    full_genes.extend(genes)
     print p, '|', p.model_type, '|', p.name
     print '=>', ','.join(genes)
     all_genes.append(','.join(genes)) # string format for DataFrame
@@ -181,6 +177,14 @@ for eid in e_df.eid:
 e_df['name'] = Series(all_names, index=e_df.index)
 e_df['model_type'] = Series(all_types, index=e_df.index)
 e_df['genes'] = Series(all_genes, index=e_df.index)
+
+# This are the maximum number of defined gene associations.
+# Some proteins do not have reactions associated in the reaction_catalysis
+# matrix so that the corresponding genes are not part of the GeneAssociations
+# for the network. The upper bound of unique genes is 142 (115 are used in the 
+# FBA network)
+# print full_genes
+print 'Number of gene associations: {}, unique: {}'.format(len(full_genes), len(set(full_genes)))
 
 
 e_df.head()
@@ -211,28 +215,31 @@ reactionIndexs_fba = state["reactionIndexs_fba"]  # [336,1]
 
 # Reaction identifier
 r_fba_df = DataFrame(range(0, 504), columns=['rid'])
+r_fba_df['type'] = None     # type is important for the calculation of flux bounds
+
 # metabolic conversion
 for k, item in enumerate(reactionIndexs_fba):
     index = item[0] - 1
-    r_fba_df.loc[k] = r_df['rid'][index]
-
+    r_fba_df.loc[k] = (r_df['rid'][index], 'metabolicConversion')
+    
 # metabolite external Exchange
 for k, index in enumerate(fbaReactionIndexs_metaboliteExternalExchange):
     index -= 1
-    r_fba_df.loc[index] = 'metaboliteExternalExchange_ex_{}'.format(k)
+    r_fba_df.loc[index,] = ('metabolite_ex_{}'.format(k), 'metaboliteExternalExchange')
+r_fba_df
 
 # metabolite internal Exchange
 for k, index in enumerate(fbaReactionIndexs_metaboliteInternalExchange):
     index -= 1
-    r_fba_df.loc[index] = 'metaboliteInternalExchange_ix_{}'.format(k)
+    r_fba_df.loc[index, ] = ('metabolite_ix_{}'.format(k), 'metaboliteInternalExchange')
 
 # biomass production
 index = fbaReactionIndexs_biomassProduction[0] - 1
-r_fba_df.loc[index] = 'biomassProduction'.format(k)
+r_fba_df.loc[index, ] = ('biomassProduction'.format(k), 'biomassProduction')
 
 # biomass consumption
 index = fbaReactionIndexs_biomassExchange[0] - 1
-r_fba_df.loc[index] = 'biomassConsumption'.format(k)
+r_fba_df.loc[index, ] = ('biomassConsumption'.format(k), 'biomassConsumption')
 
 # set index
 r_fba_df = r_fba_df.set_index(r_fba_df['rid'])
@@ -260,9 +267,7 @@ from public.models import Reaction
 from django.core.exceptions import ObjectDoesNotExist
 all_names = []
 all_types = []
-r_fba_df
 for wid in r_fba_df.index:
-    print wid
     try:
         r = Reaction.objects.get(wid=wid)
         all_names.append(r.name)
@@ -283,6 +288,7 @@ r_fba_df.to_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t", index=False)
 # Calculation of the substrate identifier vector. Similar strategy than
 # in the reaction id vector. Necessary to get the actual identifiers of the 
 # FBA subset.
+# Store the type for the fluxbound calculation
 #
 #   368 fba substrate
 # +   7 internal exchange
@@ -296,6 +302,7 @@ substrateIndexs_fba = state["substrateIndexs_fba"]                       # [376x
 
 # substrate identifier
 s_fba_df = DataFrame(range(0, 376), columns=['sid'])
+s_fba_df['type'] = None
 
 # substrates
 N_substrates = 585
@@ -320,7 +327,8 @@ for k, item in enumerate(substrateIndexs_fba):
         # 8 elements (internal exchange and biomass) are out of order
         # so offset is nedessary
         k += index_offset
-    s_fba_df.loc[k] = sid
+    s_fba_df.loc[k] = (sid, 'substrate')
+    
 
 # internal exchange
 for k, index in enumerate(fbaSubstrateIndexs_metaboliteInternalExchangeConstraints):

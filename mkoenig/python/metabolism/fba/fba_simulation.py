@@ -17,14 +17,24 @@ from metabolism_settings import VERSION, RESULTS_DIR, DATA_DIR
 sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
 # sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
 
+reload(ct)
 model = cobra.io.read_sbml_model(sbml)
 model = ct.read_sbml_fbc_model(sbml) # with additional FBC v1 information
 
 
 print len(model.reactions)    # 504
 print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
-print len(model.genes)        # 142  (104)
+print len(model.genes)        # 142  (115)
 print model.compartments
+
+# Count the genes
+full_genes = []
+for reaction in model.reactions:
+    full_genes.extend([g.id for g in reaction.genes])
+print full_genes
+print len(full_genes)
+print len(set(full_genes))
+
 
 for key, value in ct.get_objective_coefficients(model).iteritems():
     print key, value
@@ -94,115 +104,43 @@ compartmentIndexs_cytosol       = 1;    # defined in Metabolism
 compartmentIndexs_extracellular = 2;    # defined in Metabolism
 compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
-
 # Load state data
 import scipy.io
+import numpy as np
+from fba.matlab.state_tools import read_state, print_state
 
 state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
-state = scipy.io.loadmat(state_file)
-for key, value in sorted(state.iteritems()):
-    if isinstance(value, np.ndarray):
-        print key, value.shape 
-    else:
-        print key
-    
-reactionNames = state['reactionNames']  # [645, 1]
-reactionNames.shape
-print reactionNames
-print reactionNames[0,0][0]
-
-substrateNames = state['substrateNames']  # [585, 1]
-substrateNames.shape 
-# substrateNames
-
-enzymeNames = state['enzymeNames']  # [104, 1]
-enzymeNames.shape
-
-
-# Reaction Stoichiometry Matrxix [nMetabolites?, nReactions]
-# fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
-#   of metabolites and biomass in each of the 641 chemical/transport reactions,
-#   exchange pseudoreactions, and biomass production pseudoreaction.
-fbaReactionStoichiometryMatrix = state['fbaReactionStoichiometryMatrix']  # [376x504]
-fbaReactionStoichiometryMatrix.shape
-
-# fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
-# reaction. 
-fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix'] # [504x104]
-fbaReactionCatalysisMatrix.shape
-
-
-# maximal import and export rates (upper, lower)
-fbaReactionBounds = state['fbaReactionBounds'] # [504x2]
-np.isnan(fbaReactionBounds).any()
-
-# enzyme kinetics kcat (upper, lower)
-fbaEnzymeBounds = state['fbaEnzymeBounds']     # [504x2]
-np.isnan(fbaEnzymeBounds).any()
-fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,0]),0] = -np.inf
-fbaEnzymeBounds[np.isnan(fbaEnzymeBounds[:,1]),1] = np.inf
-np.isnan(fbaEnzymeBounds).any()
-print fbaEnzymeBounds
-
-# fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
-fbaObjective = state['fbaObjective'] # [504x1]
-fbaObjective.shape
-
-# fbaRightHandSide is a vector of zeros representing the change 
-# in concentration over time of each metabolite and biomass. 
-fbaRightHandSide = state['fbaRightHandSide'] # [376x1]
-fbaRightHandSide.shape
-
-# defined indexes (only created once)
-# properties of the Metabolism process
-substrateIndexs_externalExchangedMetabolites = state['substrateIndexs_externalExchangedMetabolites']  # [124x1]
-substrateIndexs_externalExchangedMetabolites.shape
-substrateIndexs_internalExchangedLimitedMetabolites = state['substrateIndexs_internalExchangedLimitedMetabolites']  # [35x1]
-substrateIndexs_internalExchangedLimitedMetabolites.shape
-substrateIndexs_limitableProteins = state['substrateIndexs_limitableProteins'] # [5x1]
-substrateIndexs_limitableProteins.shape
-
-substrateMonomerLocalIndexs = state['substrateMonomerLocalIndexs'] # [2x1]
-substrateMonomerLocalIndexs.shape
-
-substrateComplexLocalIndexs = state['substrateComplexLocalIndexs'] # [15x1]
-substrateComplexLocalIndexs.shape
-
-
-fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] # [336x1]
-fbaReactionIndexs_metabolicConversion.shape
-
-fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange'] # [42x1]
-fbaReactionIndexs_metaboliteInternalExchange.shape
-
-fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange'] # [1x1] (index 504)
-fbaReactionIndexs_biomassExchange
-
-fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] # [1x1] (index 503)
-fbaReactionIndexs_biomassProduction
-fbaReactionIndexs_metaboliteExternalExchange = state['fbaReactionIndexs_metaboliteExternalExchange']  # [124x1]
-fbaReactionIndexs_metaboliteExternalExchange.shape
-reactionIndexs_fba = state['reactionIndexs_fba'] # [336x1]
-reactionIndexs_fba.shape 
-
-
-proteinLimitableProteinComposition = state['proteinLimitableProteinComposition']  # [17x5]
-proteinLimitableProteinComposition.shape
-
-metabolismNewProduction = state['metabolismNewProduction'] # [585x3]
-metabolismNewProduction.shape
-print metabolismNewProduction[:,0]
+state = read_state(state_file)
+print_state(state)
 
 
 ##############################################################################
-# Initialize current state
+# Constant global variables for indexing
+##############################################################################
+
+fbaReactionBounds = state['fbaReactionBounds']
+fbaEnzymeBounds = state['fbaEnzymeBounds']
+
+# defined indexes (only created once)
+substrateIndexs_externalExchangedMetabolites = state['substrateIndexs_externalExchangedMetabolites']  # [124x1]
+substrateIndexs_internalExchangedLimitedMetabolites = state['substrateIndexs_internalExchangedLimitedMetabolites']  # [35x1]
+substrateIndexs_limitableProteins = state['substrateIndexs_limitableProteins'] # [5x1]
+substrateMonomerLocalIndexs = state['substrateMonomerLocalIndexs'] # [2x1]
+substrateComplexLocalIndexs = state['substrateComplexLocalIndexs'] # [15x1]
+proteinLimitableProteinComposition = state['proteinLimitableProteinComposition']  # [17x5]
+
+# for the update has to be reshaped to fit to substrates
+metabolismNewProduction = state['metabolismNewProduction'] # [585x3]
+
+##############################################################################
+# Initialize state
 ##############################################################################
 # The properties substrates and enzymes represent the counts of metabolites
 # and metabolic enzymes.
 
-# The substrate allocated for this time step
+# substrates (metabolite counts) allocated for time step
 substrates = state['substrates']   # [585x3]
-# Enzyme availability for time step
+# enzymes (protein counts) available for time step
 enzymes = state['enzymes']         # [104x1]
 
 # TODO: missing (dryWieght ?)
@@ -210,88 +148,17 @@ enzymes = state['enzymes']         # [104x1]
 cellDryMass = state['cellDryMass'] # [1x1]
 
 ##############################################################################
-# Evolve state
+# Flux Bounds
 ##############################################################################
-# import edu.stanford.covert.util.ConstantUtil;
-# TODO: constants imported in original code, but unclear for what?
 
-import numpy as np
-
-def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
-                   applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
-                   applyExternalMetaboliteBounds=True, applyInternalMetaboliteBounds=True, applyProteinBounds=True):
-    '''
-    Compute reaction flux upper and lower bounds based on
-    1. Enzyme kinetics         (fbaEnzymeBounds)
-    2. Enzyme availability     (enzymes)
-    3. Transport rates         (fbaReactionBounds)
-    4. Metabolite availability (substrates)
-    5. Protein availability    (substrates)
-    '''
-
-    # initialize
-    Nr = fbaReactionBounds.shape[0]            # 504
-    lowerBounds =  -np.inf * np.ones([Nr, 1])  # 504
-    upperBounds =   np.inf * np.ones([Nr, 1])  # 504
-    print lowerBounds.shape
-    print upperBounds.shape    
-    lowerBounds
-    
-    # numbers of enzymes catalyzing each reaction, enzyme kinetics
-    rxnEnzymes = np.dot(fbaReactionCatalysisMatrix, enzymes);  # [504x104]*[104x1]=[504x1]
-    print rxnEnzymes.shape
-    print np.isnan(rxnEnzymes).any()
-    if applyEnzymeKineticBounds:
-        lowerBounds = np.maximum(lowerBounds, np.multiply(fbaEnzymeBounds[:, 0].reshape(Nr,1), rxnEnzymes));
-        upperBounds = np.minimum(upperBounds, np.multiply(fbaEnzymeBounds[:, 1].reshape(Nr,1), rxnEnzymes));
-    '''    
-    # numbers of enzymes catalyzing each reaction, unkown enzyme kinetics
-    if applyEnzymeBounds:
-        # some logical indexing
-        # TODO: understand & translate
-        lowerBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
-        upperBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
-                
-    # reaction directionality / thermodynamics
-    if applyDirectionalityBounds:
-        indices = [fbaReactionIndexs_metabolicConversion, 
-                      fbaReactionIndexs_metaboliteInternalExchange,
-                      fbaReactionIndexs_biomassExchange,
-                      fbaReactionIndexs_biomassProduction]
-        for index in indices:
-            lowerBounds[index] = max(lowerBounds[index], fbaReactionBounds[index, 0]);
-            upperBounds[index] = min(upperBounds[index], fbaReactionBounds[index, 1]);
-                
-    # external metabolite availability
-    if applyExternalMetaboliteBounds:
-        index = fbaReactionIndexs_metaboliteExternalExchange
-        upperBounds[index] = min(upperBounds[index],
-                                    substrates[substrateIndexs_externalExchangedMetabolites, compartmentIndexs_extracellular]/stepSizeSec);
-                
-        lowerBounds[index] = max(lowerBounds[index], fbaReactionBounds[index, 0]*cellDryMass);
-        upperBounds[index] = min(upperBounds[index], fbaReactionBounds[index, 1]*cellDryMass);
-
-    # internal metabolite availability
-    if applyInternalMetaboliteBounds:
-        index = fbaReactionIndexs_metaboliteInternalLimitedExchange
-        lowerBounds[index] = max(lowerBounds[index],
-                                - substrates[substrateIndexs_internalExchangedLimitedMetabolites]/stepSizeSec );
-        
-    # protein monomers and complexes
-    if applyProteinBounds:
-        # TODO: calculate indices for limited reactions
-        limitedReactions = any(any(...
-                    reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], reactionIndexs_fba, :) & ...
-                    ~permute(repmat(proteinLimitableProteinComposition * substrates(substrateIndexs_limitableProteins, :), [1 1 numel(reactionIndexs_fba)]), [1 3 2]), 3), 1);
-                    
-        lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-        upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-    '''
-    bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
-    return bounds
-
-
+# new flux bounds
 fluxBounds = calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds)
+
+# calc growth rate
+
+# full evolution of state
+
+
 
 #-------------------------------------------------------------------------------
 

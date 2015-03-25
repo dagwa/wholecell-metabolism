@@ -122,10 +122,11 @@ def _set_gene_associations_from_fbc(model_cobra, sbml):
             ass = ga.getAssociation()
             rule = ass.toInfix()
             rule = rule.replace('(', '')
-            rule = rule.replace('(', '')
+            rule = rule.replace(')', '')
             # get reaction and set gene rules
             reaction_id = ga.getReaction() 
             reaction = model_cobra.reactions.get_by_id(reaction_id)
+            # print reaction_id, ':', rule
             reaction.gene_reaction_rule = rule # property takes care of all the logic
     return model_cobra
 
