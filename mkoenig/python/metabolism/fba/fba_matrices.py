@@ -5,6 +5,9 @@ These matrices are representing the actual FBA problem exactly. They are
 calculated once at Karr model initialization and than used for the 
 FBA calculation with dynamical updated fluxBounds.
 
+The SBML is created from the stored information based on Matlab dump after
+initialization.
+
 @author: Matthias Koenig
 @date: 2015-03-13
 -----------------------------------------------------------------------------

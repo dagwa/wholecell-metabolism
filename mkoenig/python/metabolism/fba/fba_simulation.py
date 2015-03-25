@@ -10,85 +10,23 @@ sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metab
 # sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
 
 ##############################################################################
-# Read model, FBA and fluxbound information
+# Read FBC Model
 ##############################################################################
+# objective functions, gene associations, flux bounds
+
 import cobra
-from libsbml import readSBML
+import fba.cobra_tools as ct
 
-# Read model
-model = cobra.io.read_sbml_model(sbml)
-
-# Read GeneAssociations
-def set_gene_associations_from_fbc(model_cobra, sbml):
-    ''' Parse the GeneAssociations from FBC v1. '''
-    doc = readSBML(sbml)
-    if (doc.getPlugin("fbc") != None):
-        model_sbml = doc.getModel()
-        mplugin = model_sbml.getPlugin("fbc");
-        for ga in mplugin.getListOfGeneAssociations():        
-            # get the rule string for cobrapy        
-            ass = ga.getAssociation()
-            rule = ass.toInfix()
-            rule = rule.replace('(', '')
-            rule = rule.replace('(', '')
-            # get reaction and set gene rules
-            reaction_id = ga.getReaction() 
-            reaction = model_cobra.reactions.get_by_id(reaction_id)
-            reaction.gene_reaction_rule = rule # property takes care of all the logic
-    return model_cobra
-
-# how many genes are really associated ?
-# TODO: Check the numbers (should be 142 not 115) ?
-set_gene_associations_from_fbc(model, sbml)
-
+# model = cobra.io.read_sbml_model(sbml)
+model = ct.read_sbml_fbc_model(sbml) # with additional FBC v1 information
 
 print len(model.reactions)    # 504
 print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
 print len(model.genes)        # 142  (104)
 print model.compartments
 
-###############################################################################
-# Objective coefficients
-###############################################################################
-# Read the objective coefficients
-def get_active_objective_from_fbc(sbml):
-    ''' Read the active objective from fbc model. '''
-    obj_coefs = {}
-    doc = readSBML(sbml)
-    if (doc.getPlugin("fbc") != None):
-        model_sbml = doc.getModel()
-        mplugin = model_sbml.getPlugin("fbc");
-        # read the active objective        
-        objective = mplugin.getActiveObjective()
-        for fluxobj in objective.getListOfFluxObjectives():
-            obj_coefs[fluxobj.getReaction()] = fluxobj.getCoefficient()
-    return obj_coefs
-
-
-def clear_objective_coefficients():
-    for reaction in model.reactions:
-        reaction.objective_coefficient = 0.0
-    return None
-    
-def set_objective_coefficients(model, obj_coefs):
-    clear_objective_coefficients()
-    for rid, coef in obj_coefs.iteritems():
-        reaction = model.reactions.get_by_id(rid)
-        reaction.objective_coefficient = coef
-    
-def get_objective_coefficients():
-    # objective function
-    return {reaction: reaction.objective_coefficient for reaction in model.reactions if reaction.objective_coefficient != 0}
-
-obj_coefs = get_active_objective_from_fbc(sbml)
-set_objective_coefficients(model, obj_coefs)    
-for key, value in get_objective_coefficients().iteritems():
+for key, value in ct.get_objective_coefficients(model).iteritems():
     print key, value
-
-
-def get_flux_bounds_from_fbc():
-    pass
-
 
 # mass balance & charge balance
 # looks good for all reactions
@@ -102,9 +40,6 @@ for r in model.reactions:
 # Read the flux parameters for updating the bounds
 # TODO
 # Update the flux bounds
-
-
-
 
 
 # Perform FBA
@@ -139,63 +74,6 @@ print '*'*80
 #       I.e. the ids of substrates, reactions and genes.
 # This can be done with the actual content of the matlab matrices.
 
-'''
-   Knowledge Base
-   ===============
-   M. genitalium metabolism was reconstructed from a variety of sources,
-   including flux-balance analysis metabolic models of other bacterial species
-   and the reaction kinetics database SABIO-RK, and was organized into 504
-   reactions in the knowledge base. These reactions are loaded into this process
-   by the initializeConstants method.
-
-      Object       No.
-      ==========   ===
-      substrates   585
-      enzymes      104
-      reactions    504
-        chemical   ?
-        transport  ?
-
-   Representation
-   ===============
-   The properties substrates and enzymes represent the counts of metabolites
-   and metabolic enzymes.
-
-   fbaReactionStoichiometryMatrix represents the stoichiometry and compartments
-   of metabolites and biomass in each of the 641 chemical/transport reactions,
-   exchange pseudoreactions, and biomass production pseudoreaction.
-
-   fbaReactionCatalysisMatrix represents the enzyme which catalyzes each
-   reaction. 
-   fbaEnzymeBounds represents the foward and backward kcat of the
-   catalyzing enzyme of each reaction. 
-   fbaReactionBounds represents the maximal import and export rates of each
-   metabolite. 
-   fbaObjective indicates which reaction represents the biomass production pseudoreaction. 
-   fbaRightHandSide is a vector of zeros representing the change 
-   in concentration over time of each metabolite and biomass. 
-   metabolismProduction is redundant with the
-   biomass production reaction in fbaReactionStoichiometryMatrix.
-   metabolismProduction is calculated by summing the metabolic demands of all
-   the other processes over the entire cell cycle. The table below lists the
-   units of several properties of this process.
-
-%      Property                       Units
-%      ===========================    ==============================
-%      fbaEnzymeBounds                molecules/enzyme/s
-%      fbaReactionBounds              molecules/(gram dry biomass)/s
-%      substrates                     molecules
-%      enzymes                        molecules
-%      stepSizeSec                    s
-%      lowerBounds                    reactions/s
-%      upperBounds                    reactions/s
-%      growth                         cell/s
-%      biomassComposition             molecules/cell
-%      metabolismProduction           molecules/cell
-%      chamberVolume                  L
-%      setValues                      molecules/chamber
-%      growthAssociatedMaintanence
-'''
 
 ##############################################################################
 # constant problem data
@@ -302,18 +180,6 @@ proteinLimitableProteinComposition.shape
 metabolismNewProduction = state['metabolismNewProduction'] # [585x3]
 metabolismNewProduction.shape
 print metabolismNewProduction[:,0]
-
-
-
-
-##############################################################################
-# Initialize current state
-##############################################################################
-
-
-
-
-
 
 
 ##############################################################################
