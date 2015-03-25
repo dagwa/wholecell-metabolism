@@ -4,21 +4,22 @@ Created on Mar 11, 2015
 @author: mkoenig
 '''
 import os
-from metabolism_settings import VERSION, RESULTS_DIR 
-# sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
-sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
-# sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
+import cobra
+import fba.cobra.cobra_tools as ct
+from metabolism_settings import VERSION, RESULTS_DIR, DATA_DIR
 
 ##############################################################################
 # Read FBC Model
 ##############################################################################
 # objective functions, gene associations, flux bounds
 
-import cobra
-import fba.cobra.cobra_tools as ct
+# sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
+sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
+# sbml = os.path.join('/home/mkoenig/wholecell-metabolism/mkoenig/results', "Metabolism_annotated_4-l3-fbc.xml".format(VERSION))
 
-# model = cobra.io.read_sbml_model(sbml)
+model = cobra.io.read_sbml_model(sbml)
 model = ct.read_sbml_fbc_model(sbml) # with additional FBC v1 information
+
 
 print len(model.reactions)    # 504
 print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
@@ -36,6 +37,7 @@ for r in model.reactions:
     if mb:
         print mb
         print r.reaction
+        
 
 # Read the flux parameters for updating the bounds
 # TODO
@@ -53,18 +55,28 @@ for r in model.reactions:
 #                'qsopt', struct()));
 
 # Solution status
+
 model.optimize()
 model.solution.status
+model.solution
 
-# Print flux bounds for all reactions
-print '*** Reactions ***'
-info = []
-for r in model.reactions:
-    info.append([r.id, r.upper_bound, r.lower_bound])
-from pandas import DataFrame
-df = DataFrame(info, columns=['id', 'lw', 'ub'])
-print df
-print '*'*80
+# This cuts off some of the flux bounds
+maxreal = 1E6
+ct.set_max_bound(model, maxreal)
+ct.print_flux_bounds(model)
+model.optimize()
+model.solution.status
+sol = model.solution.x
+# The Model.optimize() function will return a Solution object, which will also be stored at model.solution. A solution object has several attributes:
+#    f: the objective value
+#    status: the status from the linear programming solver
+#    x_dict: a dictionary of {reaction_id: flux_value} (also called "primal")
+#    x: a list for x_dict
+#    y_dict: a dictionary of {metabolite_id: dual_value}.
+#    y: a list for y_dict
+
+
+
 
 # TODO: necessary to syncronize the SBML model with the actual 
 #       FBA problem which is performed. I.e. is necessary to get the 
@@ -85,7 +97,9 @@ compartmentIndexs_membrane      = 3;    # defined in Metabolism
 
 # Load state data
 import scipy.io
-state = scipy.io.loadmat('this.mat')
+
+state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
+state = scipy.io.loadmat(state_file)
 for key, value in sorted(state.iteritems()):
     if isinstance(value, np.ndarray):
         print key, value.shape 

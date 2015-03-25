@@ -6,12 +6,13 @@ Reading the FBC v1 information in cobrapy.
 '''
 import cobra
 from libsbml import readSBML
+import pandas as pd
 from pandas import DataFrame
+import warnings
 
 # -----------------------------------------------------------------------------
 # Objectives & coefficients
 # -----------------------------------------------------------------------------
-
 def _get_active_objective_from_fbc(sbml):
     ''' Read the active objective from fbc model. '''
     obj_coefs = {}
@@ -70,7 +71,42 @@ def get_flux_bounds_from_fbc(sbml):
     return DataFrame({'reaction': reaction_ids, 
                       'operation': operations, 
                       'value' :values}, index=bound_ids)
+
+def _set_flux_bounds_from_fbc(model, sbml):
+    ''' Sets all the lower and upper fluxbounds from the FBC. '''
     
+    bounds_df = get_flux_bounds_from_fbc(sbml)
+    for index, row in bounds_df.iterrows():
+        reaction_id = row.reaction
+        reaction = model.reactions.get_by_id(reaction_id)
+        if row.operation in ['less', 'lessEqual']:
+            reaction.upper_bound = row.value
+        elif row.operation in ['greater', 'greaterEqual']:
+            reaction.lower_bound = row.value
+        else:
+            warnings.warn('Operation not supported on FluxBound: {}'.format(row.operation))
+
+def set_max_bound(model, max_value):
+    for reaction in model.reactions:
+        reaction.upper_bound = min(reaction.upper_bound, max_value)
+        reaction.lower_bound = max(reaction.lower_bound, -max_value)
+    
+
+def print_full_df(x):
+    pd.set_option('display.max_rows', len(x))
+    print(x)
+    pd.reset_option('display.max_rows')
+
+def print_flux_bounds(model):
+    ''' Prints flux bounds for all reactions. '''
+    print '*'*80
+    info = []
+    for r in model.reactions:
+        info.append([r.id, r.lower_bound, r.upper_bound])
+        df = DataFrame(info, columns=['id', 'lw', 'ub'])
+    print_full_df(df)
+    print '*'*80
+
 
 # -----------------------------------------------------------------------------
 # GeneAssociations
@@ -105,6 +141,7 @@ def read_sbml_fbc_model(sbml):
     obj_coefs = _get_active_objective_from_fbc(sbml)
     set_objective_coefficients(model, obj_coefs)
     # flux bounds
+    _set_flux_bounds_from_fbc(model, sbml)
     
     return model
     
@@ -124,7 +161,6 @@ if __name__ == '__main__':
 
     for key, value in get_objective_coefficients(model).iteritems():
         print key, value    
-        
         
     bounds_df = get_flux_bounds_from_fbc(sbml)
     print bounds_df
