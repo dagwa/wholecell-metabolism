@@ -101,36 +101,23 @@ e_df = pd.read_csv(os.path.join(matrix_dir, 'e_fba.csv'), sep="\t")
 e_df.set_index('eid', inplace=True)
 
 ##############################################################################
-# constant problem data
-##############################################################################
-# Load state data
-state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
-state = state_tools.read_state(state_file)
-
-##############################################################################
 # Data for fluxbound and growth calculation
 ##############################################################################
 # The properties substrates and enzymes represent the counts of metabolites
 # and metabolic enzymes.
+state_input = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'input.mat'))
 
 # substrates (metabolite counts) allocated for time step
-substrates = state.substrates   # [585x3]
+substrates = state_input.substrates   # [585x3]
 # enzymes (protein counts) available for time step
-enzymes = state.enzymes         # [104x1]
-
-# TODO: missing (dryWeight ?)
-# cellDryMass = sum(mass.cellDry);
-# cellDryMass = sum(this.mass.cellDry);
-# dryWeight = state['dryWeight']
-# state_tools.print_state(state)
-# cellDryMass = state['cellDryMass'] # [1x1]
-cellDryMass = 1.0
+enzymes = state_input.enzymes         # [104x1]
+# cellDryMass
+cellDryMass = state_input.cellDryMass
 
 ##############################################################################
 # Flux Bounds
 ##############################################################################
 # init once
-
 from pandas import DataFrame
 import pandas as pd
 Nr = len(r_fba_df)
@@ -140,11 +127,30 @@ reaction_index = DataFrame(range(Nr), index=r_fba_df.index, columns=['k'])
 species_index = DataFrame(range(Ns), index=s_fba_df.index, columns=['k'])
 enzymes_index = DataFrame(range(Ne), index=e_df.index, columns=['k'])
 
+# this object from Process Metabolism
+state = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'this.mat'))
+
 import fba.fba_evolveState as evolve 
 reload(evolve)
 fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, state)
+
+
+# Normal calculation
 fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
 
+# Debug calculation against matlab dump
+# Matlab dumps for flux
+state_fb = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'fluxbounds.mat'))
+np.sum(state_input.substrates - state_fb.substrates) # check that same inputs
+state_fb.keys()
+fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass, state_fb)
+
+
+reload(ct)
+ct.set_flux_bounds(model, fluxBounds)
+model.optimize()
+model.solution.status
+model.solution
 
 
 
@@ -196,6 +202,7 @@ def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiom
     return [growth, reactionFluxs, fbaReactionFluxs, ...
                 reducedCosts, fbaReducedCosts, ...
                 shadowPrices, fbaShadowPrices] 
+
 
 def stochasticRound(value):
     '''

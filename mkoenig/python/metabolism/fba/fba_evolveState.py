@@ -5,6 +5,8 @@ Reproducing the Matlab evolveState logic.
 @date: 2015-03-26
 '''
 import numpy as np
+from pandas import DataFrame
+import pandas as pd
 from libsbml import readSBML
 
 class FluxBoundCalculator(object):
@@ -236,5 +238,6 @@ class FluxBoundCalculator(object):
                     
         
         # return bounds
-        bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
-        return bounds
+        bounds = np.concatenate((lowerBounds, upperBounds), axis=1)     # [504x2]
+        bounds_df = DataFrame(bounds, index=self.r_index.index, columns=['lowerBounds', 'upperBounds'])
+        return bounds_df

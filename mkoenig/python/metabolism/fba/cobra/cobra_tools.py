@@ -86,6 +86,15 @@ def _set_flux_bounds_from_fbc(model, sbml):
         else:
             warnings.warn('Operation not supported on FluxBound: {}'.format(row.operation))
 
+
+def set_flux_bounds(model, bounds_df):
+    for reaction_id, row in bounds_df.iterrows():
+        reaction = model.reactions.get_by_id(reaction_id)
+        
+        reaction.upper_bound = row.upperBounds
+        reaction.lower_bound = row.lowerBounds
+
+
 def set_max_bound(model, max_value):
     for reaction in model.reactions:
         reaction.upper_bound = min(reaction.upper_bound, max_value)
