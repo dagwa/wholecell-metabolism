@@ -116,25 +116,6 @@ e_df.set_index('eid', inplace=True)
 
 
 ##############################################################################
-# Constant global variables for indexing
-##############################################################################
-
-# available from SBML & matrix & state
-
-
-# defined indexes (only created once)
-# ?
-substrateIndexs_externalExchangedMetabolites = state['substrateIndexs_externalExchangedMetabolites']  # [124x1]
-substrateIndexs_internalExchangedLimitedMetabolites = state['substrateIndexs_internalExchangedLimitedMetabolites']  # [35x1]
-substrateIndexs_limitableProteins = state['substrateIndexs_limitableProteins'] # [5x1]
-substrateMonomerLocalIndexs = state['substrateMonomerLocalIndexs'] # [2x1]
-substrateComplexLocalIndexs = state['substrateComplexLocalIndexs'] # [15x1]
-proteinLimitableProteinComposition = state['proteinLimitableProteinComposition']  # [17x5]
-
-# for the update has to be reshaped to fit to substrates
-metabolismNewProduction = state['metabolismNewProduction'] # [585x3]
-
-##############################################################################
 # Initialize state
 ##############################################################################
 # The properties substrates and enzymes represent the counts of metabolites
@@ -147,9 +128,12 @@ enzymes = state['enzymes']         # [104x1]
 
 # TODO: missing (dryWeight ?)
 # cellDryMass = sum(mass.cellDry);
+
+# cellDryMass = sum(this.mass.cellDry);
 dryWeight = state['dryWeight']
 print_state(state)
 cellDryMass = state['cellDryMass'] # [1x1]
+cellDryMass = 1.0
 
 ##############################################################################
 # Flux Bounds
@@ -159,10 +143,10 @@ cellDryMass = state['cellDryMass'] # [1x1]
 import fba.fba_evolveState as evolve 
 
 reload(evolve)
-fb_calc = evolve.FluxBoundCalculator(state)
+fb_calc = evolve.FluxBoundCalculator(sbml, state)
 
-fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes)
-rx
+fluxBounds, rxnEnzymes = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
+rxnEnzymes.transpose()
 enzymes
 
 # calc growth rate
