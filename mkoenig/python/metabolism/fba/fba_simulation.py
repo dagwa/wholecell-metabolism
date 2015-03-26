@@ -7,6 +7,10 @@ import os
 import cobra
 import fba.cobra.cobra_tools as ct
 from metabolism_settings import VERSION, RESULTS_DIR, DATA_DIR
+import scipy.io
+import numpy as np
+import pandas as pd
+import fba.matlab.state_tools as state_tools
 
 ##############################################################################
 # Read FBC Model
@@ -100,11 +104,6 @@ e_df.set_index('eid', inplace=True)
 # constant problem data
 ##############################################################################
 # Load state data
-import scipy.io
-import numpy as np
-import pandas as pd
-import fba.matlab.state_tools as state_tools
-
 state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
 state = state_tools.read_state(state_file)
 
@@ -122,34 +121,37 @@ enzymes = state.enzymes         # [104x1]
 # TODO: missing (dryWeight ?)
 # cellDryMass = sum(mass.cellDry);
 # cellDryMass = sum(this.mass.cellDry);
-dryWeight = state['dryWeight']
-print_state(state)
-cellDryMass = state['cellDryMass'] # [1x1]
+# dryWeight = state['dryWeight']
+# state_tools.print_state(state)
+# cellDryMass = state['cellDryMass'] # [1x1]
 cellDryMass = 1.0
-
 
 ##############################################################################
 # Flux Bounds
 ##############################################################################
-
 # init once
+
+from pandas import DataFrame
+import pandas as pd
+Nr = len(r_fba_df)
+Ns = len(s_fba_df)
+Ne = len(e_df)
+reaction_index = DataFrame(range(Nr), index=r_fba_df.index, columns=['k'])
+species_index = DataFrame(range(Ns), index=s_fba_df.index, columns=['k'])
+enzymes_index = DataFrame(range(Ne), index=e_df.index, columns=['k'])
+
 import fba.fba_evolveState as evolve 
-
 reload(evolve)
-fb_calc = evolve.FluxBoundCalculator(sbml, state)
+fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, state)
+fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
 
-fluxBounds, rxnEnzymes = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
-rxnEnzymes.transpose()
-enzymes
+
+
 
 # calc growth rate
 
 # full evolution of state
 
-import re
-re_protein = re.compile("^MG_\d+_")
-m = re_protein.match('MG_124_MONOMER_ox')
-m
 
 
 #-------------------------------------------------------------------------------

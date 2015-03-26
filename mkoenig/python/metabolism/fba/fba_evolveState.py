@@ -9,11 +9,20 @@ from libsbml import readSBML
 
 class FluxBoundCalculator(object):
     
-    def __init__(self, sbml, state):
+    def __init__(self, sbml, reaction_index, species_index, enzymes_index,
+                        state):
         '''
             In the end the full calculation has to be possible solely 
             based on the given SBML.
         '''
+        # necessary to have the species/reaction/enzymes to index mapping for lookup
+        # and mapping between ids and indices
+        # this will later be created from the sbml
+        self.r_index = reaction_index
+        self.s_index = species_index
+        self.e_index = enzymes_index
+        self.s_acp_index = 569;         # handle Acetyl-Carrier Protein
+        
         doc = readSBML(sbml)
         self.model = doc.getModel()
         self.protein_reactions = self.find_protein_reactions()
@@ -42,6 +51,7 @@ class FluxBoundCalculator(object):
                     # substrate for reactions (in SBML)
                     'substrateIndexs_externalExchangedMetabolites',
                     'substrateIndexs_internalExchangedLimitedMetabolites',
+                    'substrateIndexs_limitableProteins',
                     
                     ]:
             setattr(self, key, state[key])
@@ -96,6 +106,7 @@ class FluxBoundCalculator(object):
         5. Protein availability    (enzymes)
         '''
         # initialize bounds
+        
         lowerBounds =  -np.inf * np.ones([self.Nr, 1])       # 504
         upperBounds =   np.inf * np.ones([self.Nr, 1])       # 504
     
@@ -148,8 +159,8 @@ class FluxBoundCalculator(object):
         
         # internal metabolite availability
         if applyInternalMetaboliteBounds:
-            for k in self.fbaReactionIndexs_metaboliteInternalLimitedExchange:
-                reaction_k = k-1
+            for (k, reaction_k) in enumerate(self.fbaReactionIndexs_metaboliteInternalLimitedExchange):
+                reaction_k = reaction_k-1
                 substrate_k = self.substrateIndexs_internalExchangedLimitedMetabolites[k]-1
                 compartment_k = self.compartmentIndexs_cytosol
                 lowerBounds[reaction_k] = max(lowerBounds[reaction_k],
@@ -158,24 +169,25 @@ class FluxBoundCalculator(object):
         # protein monomers and complexes
         if applyProteinBounds:
             # some species are proteins, these can limit the reactions
-            # complex
             
-            # TODO: calculate indices for limited reactions
-            # Matlab nightmare: indexing not done on FBA matrices, in combination with permutation & logical indexing
+            # Matlab nightmare: indexing is not performed on the FBA matrices but full matrices in combination with permutation & logical indexing.
+            # No possibility to rebuild this logic 1 to 1:
+            
             # limitedReactions = any(any(...
             #        reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], reactionIndexs_fba, :) & ...
             #        ~permute(repmat(proteinLimitableProteinComposition * substrates(substrateIndexs_limitableProteins, :), [1 1 numel(reactionIndexs_fba)]), [1 3 2]), 3), 1);
             
             # [substrateMonomerLocalIndexs; substrateComplexLocalIndexs] [2; 15] = 17 (in full network), reduces to 12 in full set
-            # for instance MG_454_DIMER_ox ?
             # proteinLimitableProteinComposition [17x5]
             
             
-            # Interpretation: limited reactions are reactions which 
-            # [1] have at least one protein/modified protein as reactant or product
-            # [2] the respective unmodified (base) protein has a protein count of zero
-            # So necessary to find the protein reactions & the respective base protein for the modified proteins
+            # Implemented Interpretation: limited reactions are reactions which 
+            #     [1] have at least one protein/modified protein as reactant or product
+            #     [2] at least one respective unmodified (base) protein has a protein count of zero
+            
+            # WTF this part is just craziness
             '''
+            Mapping of reactions to base proteins occuring as reactants/products
             'Aas4': {'MG_287_MONOMER'},
             'Aas5': {'MG_287_MONOMER'},
             'Aas7': {'MG_287_MONOMER'},
@@ -195,17 +207,34 @@ class FluxBoundCalculator(object):
             'PlsX7': {'MG_287_MONOMER'},
             'TrxB': {'MG_124_MONOMER'}}
             '''
-            for reaction_id in self.protein_reactions.keys():
-                # TODO: necessary to put everything from indices to ids
-                # Some things are easier with the ids, some with the indices
-                reaction_k = None
+            # In the end 5 proteins are limiting
+            # thioredoxin - MG_124_MONOMER (FBA substrate) 
+            # 'ribonucleoside-diphosphate reductase' - MG_229_231_TETRAMER (FBA substrate)
+            # osmotically inducible peroxidase' - MG_427_DIMER (FBA substrate)
+            # thiol-dependent peroxidase - MG_454_DIMER (FBA substrate
+            # THIS CREATES PROBLEM: neither in enzymes, nor in substrates, i.e. not represented in FBA problem, 
+            # but necessary for update
+            # Special case has to be handeled
+            # 'acyl carrier protein - MG_287_MONOMER (not FBA substrate/protein)
+
             
-            pass
-            # TODO      
-            # lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-            # upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-            
+            for (reaction_id, proteins) in self.protein_reactions.iteritems():                
+                # check if any of the base proteins in the reaction (reactant/product) is zero
+                for protein_id in proteins:
+                    if protein_id == 'MG_287_MONOMER':  # 'acyl carrier protein'
+                        species_k = self.s_acp_index
+                    else:
+                        species_k = self.s_index.k[protein_id]
+                    N_protein = substrates[species_k, self.compartmentIndexs_cytosol]
+                            
+                    if  N_protein <= 0:
+                        # lookup the index
+                        reaction_k = self.r_index.k[reaction_id]
+                        lowerBounds[reaction_k] = 0;
+                        upperBounds[reaction_k] = 0;
+                        break; # break for this reaction
+                    
         
         # return bounds
         bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
-        return bounds, rxnEnzymes
+        return bounds

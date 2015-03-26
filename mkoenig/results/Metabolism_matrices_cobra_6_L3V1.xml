@@ -897,10 +897,10 @@
             </rdf:Bag>
           </dc:creator>
           <dcterms:created rdf:parseType="Resource">
-            <dcterms:W3CDTF>2015-03-25T14:18:52Z</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2015-03-26T15:36:44Z</dcterms:W3CDTF>
           </dcterms:created>
           <dcterms:modified rdf:parseType="Resource">
-            <dcterms:W3CDTF>2015-03-25T14:18:52Z</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2015-03-26T15:36:44Z</dcterms:W3CDTF>
           </dcterms:modified>
           <bqmodel:isDerivedFrom>
             <rdf:Bag>
@@ -3548,6 +3548,7 @@
       <species id="MG_460_TETRAMER" name="L-lactate dehydrogenase/malate dehydrogenase" compartment="c" initialAmount="0"/>
       <species id="MG_467_468_526_TETRAMER" name="salivaricin A ABC transporter" compartment="c" initialAmount="0"/>
       <species id="MG_482_DIMER" name="holo-(acyl-carrier-protein) synthase" compartment="c" initialAmount="0"/>
+      <species id="MG_287_MONOMER" name="acyl carrier protein" compartment="c" initialAmount="0"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="Aas4__lb_fbaReactionBounds" value="0"/>

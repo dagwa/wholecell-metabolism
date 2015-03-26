@@ -106,7 +106,7 @@ if __name__ == "__main__":
         if not pd.isnull(charge) and len(charge)!=0:            
             splugin.setCharge(int(float(charge)))
     
-    # <proteins>
+    # <proteins> [104]
     # Proteins (ProteinMonomer & ProteinComplex) are encoded as species.
     # The main reasons are:
     #   1. The protein count is changing during the simulation and input of the dynamical flux bound
@@ -114,17 +114,11 @@ if __name__ == "__main__":
     #   2. The proteins can be encoded as modifiers of the respective reactions.
     #      This provides clarity for the reaction <- protein <- gene information
     #      And provides important information for possible visualization.
-    for index, row in e_df.iterrows():
-        # check if the protein is already a species (due to involvment in reaction)
-        s = model.getSpecies(index)
-        if (s is not None):
-            print index, 'is already species.'
-            continue
     
-        # create species for protein
+    def create_protein_species(sid, name):
         s = model.createSpecies()
-        s.setId(index)
-        name = row['name']
+        s.setId(sid)
+        # check name
         if not pd.isnull(name):
             s.setName(name)
         s.setConstant(False)
@@ -134,7 +128,20 @@ if __name__ == "__main__":
         s.setCompartment('c')             # this is just fix
         s.setHasOnlySubstanceUnits(False) # ? 
         s.setInitialAmount(0)  # fix to get rid of warnings  
+    
+    # Handle all Enzymes
+    for index, row in e_df.iterrows():
+        # check if the protein is already a species (due to involvment in reaction)
+        s = model.getSpecies(index)
+        if (s is not None):
+            print index, 'is already species.'
+        else:
+            # create species for protein
+            create_protein_species(sid=index, name=row['name'])
         
+    # Handle the special case of ACP (MG_287_MONOMER - acyl carrier protein)
+    # Neither substrate nor enzyme (no part of FBA, but part of fluxbound calculation)
+    create_protein_species(sid='MG_287_MONOMER', name="acyl carrier protein")
 
     # <reactions>
     # Reactions are all columns in the FBA stoichiometric matrix.
@@ -183,7 +190,6 @@ if __name__ == "__main__":
                 pt.setStoichiometry(stoichiometry)
                 pt.setConstant(True)
     
-        
         # <reversibility>
         # The reversibility can be calculated from the reaction bounds. In some
         # cases the reversibility is in backward direction. This would require the 
