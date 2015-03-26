@@ -34,3 +34,12 @@ def print_state(state):
             print key, value.shape 
         else:
             print key
+            
+def print_variables_by_dim(state, dim):
+    ''' Print the content and dimensions of all state variables. '''
+    
+    for key, value in sorted(state.iteritems()):
+        if isinstance(value, np.ndarray):
+            if value.shape[0] == dim or (len(value.shape)>1 and value.shape[1] == dim):
+                print key, value.shape 
+        

@@ -16,6 +16,7 @@ class FluxBoundCalculator(object):
         '''
         doc = readSBML(sbml)
         self.model = doc.getModel()
+        self.protein_reactions = self.find_protein_reactions()
         
         # set reused attributes from state dict
         # the complete information should be parsed from the SBML
@@ -49,6 +50,39 @@ class FluxBoundCalculator(object):
         self.Nr = len(self.model.getListOfReactions())
         # TODO: set as parameter and read
         self.stepSizeSec = 1
+        self.realmax = 1e6
+        
+    def find_protein_reactions(self, base=True):
+        '''
+        All reactions which have at least one protein as substrate or product.
+        Proteins are ProteinMonomers or ProteinComplexes and start with MG_ in the model.
+        All enzymes are also species in the the sbml, so that the search has to be 
+        performed based on the reactions.
+        '''
+        import re
+        if base:
+            # find the base proteins
+            re_protein = "^MG_\d+_(.+?)MER"
+        else:
+            # find the base/modified proteins
+            re_protein = "^MG_\d+_(.+?)"
+        
+        def add_proteins(list_of):
+            for s in list_of:
+                sid = s.getSpecies()
+                m = re.search(re_protein, sid)
+                if m:
+                    proteins.add(m.group(0))
+        
+        protein_reactions = dict()
+        for r in self.model.getListOfReactions():
+            proteins = set()
+            add_proteins(r.getListOfReactants())
+            add_proteins(r.getListOfProducts())
+            if len(proteins) > 0:
+                protein_reactions[r.getId()] = proteins
+        return protein_reactions
+    
         
     def calcFluxBounds(self, substrates, enzymes, cellDryMass,
                    applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
@@ -123,16 +157,54 @@ class FluxBoundCalculator(object):
         
         # protein monomers and complexes
         if applyProteinBounds:
+            # some species are proteins, these can limit the reactions
+            # complex
+            
             # TODO: calculate indices for limited reactions
+            # Matlab nightmare: indexing not done on FBA matrices, in combination with permutation & logical indexing
+            # limitedReactions = any(any(...
+            #        reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], reactionIndexs_fba, :) & ...
+            #        ~permute(repmat(proteinLimitableProteinComposition * substrates(substrateIndexs_limitableProteins, :), [1 1 numel(reactionIndexs_fba)]), [1 3 2]), 3), 1);
+            
+            # [substrateMonomerLocalIndexs; substrateComplexLocalIndexs] [2; 15] = 17 (in full network), reduces to 12 in full set
+            # for instance MG_454_DIMER_ox ?
+            # proteinLimitableProteinComposition [17x5]
+            
+            
+            # Interpretation: limited reactions are reactions which 
+            # [1] have at least one protein/modified protein as reactant or product
+            # [2] the respective unmodified (base) protein has a protein count of zero
+            # So necessary to find the protein reactions & the respective base protein for the modified proteins
+            '''
+            'Aas4': {'MG_287_MONOMER'},
+            'Aas5': {'MG_287_MONOMER'},
+            'Aas7': {'MG_287_MONOMER'},
+            'NrdEF_ADP': {'MG_229_231_TETRAMER'},
+            'NrdEF_CDP': {'MG_229_231_TETRAMER'},
+            'NrdEF_GDP': {'MG_229_231_TETRAMER'},
+            'NrdEF_maintenance': {'MG_124_MONOMER', 'MG_229_231_TETRAMER'},
+            'Ohr_H2O2': {'MG_454_DIMER'},
+            'Ohr_rx': {'MG_124_MONOMER', 'MG_454_DIMER'},
+            'OsmC_H2O2': {'MG_427_DIMER'},
+            'OsmC_rx': {'MG_124_MONOMER', 'MG_427_DIMER'},
+            'PlsC4': {'MG_287_MONOMER'},
+            'PlsC5': {'MG_287_MONOMER'},
+            'PlsC7': {'MG_287_MONOMER'},
+            'PlsX4': {'MG_287_MONOMER'},
+            'PlsX5': {'MG_287_MONOMER'},
+            'PlsX7': {'MG_287_MONOMER'},
+            'TrxB': {'MG_124_MONOMER'}}
+            '''
+            for reaction_id in self.protein_reactions.keys():
+                # TODO: necessary to put everything from indices to ids
+                # Some things are easier with the ids, some with the indices
+                reaction_k = None
+            
             pass
-            '''
-            limitedReactions = any(any(...
-                    reactionStoichiometryMatrix([substrateMonomerLocalIndexs; substrateComplexLocalIndexs], reactionIndexs_fba, :) & ...
-                    ~permute(repmat(proteinLimitableProteinComposition * substrates(substrateIndexs_limitableProteins, :), [1 1 numel(reactionIndexs_fba)]), [1 3 2]), 3), 1);
-                    
-            lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-            upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-            '''
+            # TODO      
+            # lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
+            # upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
+            
         
         # return bounds
         bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]

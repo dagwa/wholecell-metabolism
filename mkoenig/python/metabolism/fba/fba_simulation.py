@@ -79,25 +79,7 @@ sol = model.solution.x
 #    y: a list for y_dict
 
 
-##############################################################################
-# constant problem data
-##############################################################################
-stepSizeSec = 1                         # defined in Process
-realmax = 1e6                           # maximal flux bound
-compartmentIndexs_cytosol       = 1;    # defined in Metabolism
-compartmentIndexs_extracellular = 2;    # defined in Metabolism
-compartmentIndexs_membrane      = 3;    # defined in Metabolism
-
-# Load state data
-import scipy.io
-import numpy as np
-import pandas as pd
-from fba.matlab.state_tools import read_state, print_state
-
-state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
-state = read_state(state_file)
-# print_state(state)
-
+# For lookup
 # load matrices (most information can be read from the SBML)
 # The goal is to fully encode the necessary information in the SBML.
 matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
@@ -114,26 +96,37 @@ r_fba_df
 e_df = pd.read_csv(os.path.join(matrix_dir, 'e_fba.csv'), sep="\t")
 e_df.set_index('eid', inplace=True)
 
+##############################################################################
+# constant problem data
+##############################################################################
+# Load state data
+import scipy.io
+import numpy as np
+import pandas as pd
+import fba.matlab.state_tools as state_tools
+
+state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
+state = state_tools.read_state(state_file)
 
 ##############################################################################
-# Initialize state
+# Data for fluxbound and growth calculation
 ##############################################################################
 # The properties substrates and enzymes represent the counts of metabolites
 # and metabolic enzymes.
 
 # substrates (metabolite counts) allocated for time step
-substrates = state['substrates']   # [585x3]
+substrates = state.substrates   # [585x3]
 # enzymes (protein counts) available for time step
-enzymes = state['enzymes']         # [104x1]
+enzymes = state.enzymes         # [104x1]
 
 # TODO: missing (dryWeight ?)
 # cellDryMass = sum(mass.cellDry);
-
 # cellDryMass = sum(this.mass.cellDry);
 dryWeight = state['dryWeight']
 print_state(state)
 cellDryMass = state['cellDryMass'] # [1x1]
 cellDryMass = 1.0
+
 
 ##############################################################################
 # Flux Bounds
@@ -153,6 +146,10 @@ enzymes
 
 # full evolution of state
 
+import re
+re_protein = re.compile("^MG_\d+_")
+m = re_protein.match('MG_124_MONOMER_ox')
+m
 
 
 #-------------------------------------------------------------------------------
