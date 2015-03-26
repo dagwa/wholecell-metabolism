@@ -6,65 +6,82 @@ Reproducing the Matlab evolveState logic.
 '''
 import numpy as np
 
-
-def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
+class FluxBoundCalculator(object):
+    
+    def __init__(self, state):
+        self.fbaReactionCatalysisMatrix = state['fbaReactionCatalysisMatrix']
+        self.fbaReactionBounds = state['fbaReactionBounds']
+        self.fbaEnzymeBounds = state['fbaEnzymeBounds']
+        
+        self.fbaReactionIndexs_metabolicConversion = state['fbaReactionIndexs_metabolicConversion'] 
+        self.fbaReactionIndexs_metaboliteInternalExchange = state['fbaReactionIndexs_metaboliteInternalExchange']
+        self.fbaReactionIndexs_biomassExchange = state['fbaReactionIndexs_biomassExchange']
+        self.fbaReactionIndexs_biomassProduction = state['fbaReactionIndexs_biomassProduction'] 
+        
+        self.substrateIndexs_externalExchangedMetabolites
+        
+        self.Nr = self.fbaReactionBounds.shape[0]  # 504 reactions (lower and upper for every necessary)
+        
+    def calcFluxBounds(self, substrates, enzymes,
                    applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
                    applyExternalMetaboliteBounds=True, applyInternalMetaboliteBounds=True, applyProteinBounds=True):
-    '''
-    Compute reaction flux upper and lower bounds based on
-    1. Enzyme kinetics         (fbaEnzymeBounds)
-    2. Enzyme availability     (enzymes)
-    3. Transport rates         (fbaReactionBounds)
-    4. Metabolite availability (substrates)
-    5. Protein availability    (substrates)
-    '''
-
-    # initialize
-    Nr = fbaReactionBounds.shape[0]            # 504
-    lowerBounds =  -np.inf * np.ones([Nr, 1])  # 504
-    upperBounds =   np.inf * np.ones([Nr, 1])  # 504
+        '''
+        Compute reaction flux upper and lower bounds based on
+        1. Enzyme kinetics         (fbaEnzymeBounds)
+        2. Enzyme availability     (enzymes)
+        3. Transport rates         (fbaReactionBounds)
+        4. Metabolite availability (substrates)
+        5. Protein availability    (substrates)
+        '''
+        # initialize bounds
+        lowerBounds =  -np.inf * np.ones([self.Nr, 1])       # 504
+        upperBounds =   np.inf * np.ones([self.Nr, 1])       # 504
     
-    # iterate over the reactions
-    for k, 
-    # get the modifer protein:
-    
-
-    
-    # numbers of enzymes catalyzing each reaction, enzyme kinetics
-    
-    rxnEnzymes = np.dot(fbaReactionCatalysisMatrix, enzymes);  # [504x104]*[104x1]=[504x1]
-    print rxnEnzymes.shape
-    print np.isnan(rxnEnzymes).any()
-    if applyEnzymeKineticBounds:
-        lowerBounds = np.maximum(lowerBounds, np.multiply(fbaEnzymeBounds[:, 0].reshape(Nr,1), rxnEnzymes));
-        upperBounds = np.minimum(upperBounds, np.multiply(fbaEnzymeBounds[:, 1].reshape(Nr,1), rxnEnzymes));
-    '''    
-    # numbers of enzymes catalyzing each reaction, unkown enzyme kinetics
-    if applyEnzymeBounds:
-        # some logical indexing
-        # TODO: understand & translate
-        lowerBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
-        upperBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
+        # numbers of enzymes catalyzing each reaction, enzyme kinetics
+        # every reaction has 1 or zero associated proteins (enzymes)
+        # how many enzymes for every reaction
+        rxnEnzymes = np.dot(self.fbaReactionCatalysisMatrix, enzymes);  # [504x104]*[104x1]=[504x1]
+        if applyEnzymeKineticBounds:
+            for k in range(self.Nr):
+                lowerBounds[k] = max(lowerBounds[k], self.fbaEnzymeBounds[k, 0]*rxnEnzymes[k])
+                upperBounds[k] = min(upperBounds[k], self.fbaEnzymeBounds[k, 1]*rxnEnzymes[k])
+        
+        # numbers of enzymes catalyzing each reaction, unkown enzyme kinetics
+        '''
+        if applyEnzymeBounds:
+            # some logical indexing
+            # TODO: understand & translate
+            lowerBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
+            upperBounds(any(fbaReactionCatalysisMatrix, 2) & rxnEnzymes <= 0) = 0;
+        '''
                 
-    # reaction directionality / thermodynamics
-    if applyDirectionalityBounds:
-        indices = [fbaReactionIndexs_metabolicConversion, 
-                      fbaReactionIndexs_metaboliteInternalExchange,
-                      fbaReactionIndexs_biomassExchange,
-                      fbaReactionIndexs_biomassProduction]
+        # reaction directionality / thermodynamics (for subset of reactions)
+        if applyDirectionalityBounds:
+            # all indices with exception of metaboliteExternalExchange
+            indices = [self.fbaReactionIndexs_metabolicConversion, 
+                   self.fbaReactionIndexs_metaboliteInternalExchange,
+                   self.fbaReactionIndexs_biomassExchange,
+                   self.fbaReactionIndexs_biomassProduction]
+        
         for index in indices:
-            lowerBounds[index] = max(lowerBounds[index], fbaReactionBounds[index, 0]);
-            upperBounds[index] = min(upperBounds[index], fbaReactionBounds[index, 1]);
+            for k in index:
+                k = k-1 # zero indexing
+                lowerBounds[k] = max(lowerBounds[k], self.fbaReactionBounds[k, 0]);
+                upperBounds[k] = min(upperBounds[k], self.fbaReactionBounds[k, 1]);
+        
+        # external metabolite availability
+        if applyExternalMetaboliteBounds:
+            index = self.fbaReactionIndexs_metaboliteExternalExchange
+            for k in index:
+                k = k-1 # zero indexing
+            # find the external metabolite concentration and limit via c/stepSizeSec
+            upperBounds[k] = min(upperBounds[k],
+                                    substrates[self.substrateIndexs_externalExchangedMetabolites[k], self.compartmentIndexs_extracellular]/self.stepSizeSec);
                 
-    # external metabolite availability
-    if applyExternalMetaboliteBounds:
-        index = fbaReactionIndexs_metaboliteExternalExchange
-        upperBounds[index] = min(upperBounds[index],
-                                    substrates[substrateIndexs_externalExchangedMetabolites, compartmentIndexs_extracellular]/stepSizeSec);
-                
-        lowerBounds[index] = max(lowerBounds[index], fbaReactionBounds[index, 0]*cellDryMass);
-        upperBounds[index] = min(upperBounds[index], fbaReactionBounds[index, 1]*cellDryMass);
-
+            lowerBounds[index] = max(lowerBounds[index], self.fbaReactionBounds[index, 0]*self.cellDryMass);
+            upperBounds[index] = min(upperBounds[index], self.fbaReactionBounds[index, 1]*self.cellDryMass);
+            
+        '''
     # internal metabolite availability
     if applyInternalMetaboliteBounds:
         index = fbaReactionIndexs_metaboliteInternalLimitedExchange
@@ -80,6 +97,6 @@ def calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds,
                     
         lowerBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
         upperBounds[fbaReactionIndexs_metabolicConversion[limitedReactions]] = 0;
-    '''
-    bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
-    return bounds
+        '''
+        bounds = np.concatenate((lowerBounds, upperBounds), axis=1) # [504x2]
+        return bounds, rxnEnzymes

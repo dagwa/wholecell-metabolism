@@ -35,7 +35,7 @@ print full_genes
 print len(full_genes)
 print len(set(full_genes))
 
-
+# print objective coefficients
 for key, value in ct.get_objective_coefficients(model).iteritems():
     print key, value
 
@@ -48,12 +48,10 @@ for r in model.reactions:
         print mb
         print r.reaction
         
-
-# Read the flux parameters for updating the bounds
-# TODO
-# Update the flux bounds
-
-
+# Solution status
+model.optimize()
+model.solution.status
+model.solution
 # Perform FBA
 # linear programming
 # linearProgrammingOptions = struct(...
@@ -64,11 +62,6 @@ for r in model.reactions:
 #                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
 #                'qsopt', struct()));
 
-# Solution status
-
-model.optimize()
-model.solution.status
-model.solution
 
 # This cuts off some of the flux bounds
 maxreal = 1E6
@@ -86,15 +79,6 @@ sol = model.solution.x
 #    y: a list for y_dict
 
 
-
-
-# TODO: necessary to syncronize the SBML model with the actual 
-#       FBA problem which is performed. I.e. is necessary to get the 
-#       ids of the objects.
-#       I.e. the ids of substrates, reactions and genes.
-# This can be done with the actual content of the matlab matrices.
-
-
 ##############################################################################
 # constant problem data
 ##############################################################################
@@ -107,21 +91,39 @@ compartmentIndexs_membrane      = 3;    # defined in Metabolism
 # Load state data
 import scipy.io
 import numpy as np
+import pandas as pd
 from fba.matlab.state_tools import read_state, print_state
 
 state_file = os.path.join(DATA_DIR, 'matlab_dumps', 'Process_Metabolism.mat')
 state = read_state(state_file)
-print_state(state)
+# print_state(state)
+
+# load matrices (most information can be read from the SBML)
+# The goal is to fully encode the necessary information in the SBML.
+matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
+
+# handle the sodium NA id (not parsing as NaN)    
+s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", 
+                           keep_default_na=False, na_values=('nan'))
+s_fba_df.set_index('sid', inplace=True)
+
+r_fba_df = pd.read_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
+r_fba_df.set_index('rid', inplace=True)
+r_fba_df
+
+e_df = pd.read_csv(os.path.join(matrix_dir, 'e_fba.csv'), sep="\t")
+e_df.set_index('eid', inplace=True)
 
 
 ##############################################################################
 # Constant global variables for indexing
 ##############################################################################
 
-fbaReactionBounds = state['fbaReactionBounds']
-fbaEnzymeBounds = state['fbaEnzymeBounds']
+# available from SBML & matrix & state
+
 
 # defined indexes (only created once)
+# ?
 substrateIndexs_externalExchangedMetabolites = state['substrateIndexs_externalExchangedMetabolites']  # [124x1]
 substrateIndexs_internalExchangedLimitedMetabolites = state['substrateIndexs_internalExchangedLimitedMetabolites']  # [35x1]
 substrateIndexs_limitableProteins = state['substrateIndexs_limitableProteins'] # [5x1]
@@ -143,16 +145,25 @@ substrates = state['substrates']   # [585x3]
 # enzymes (protein counts) available for time step
 enzymes = state['enzymes']         # [104x1]
 
-# TODO: missing (dryWieght ?)
+# TODO: missing (dryWeight ?)
 # cellDryMass = sum(mass.cellDry);
+dryWeight = state['dryWeight']
+print_state(state)
 cellDryMass = state['cellDryMass'] # [1x1]
 
 ##############################################################################
 # Flux Bounds
 ##############################################################################
 
-# new flux bounds
-fluxBounds = calcFluxBounds(substrates, enzymes, fbaReactionBounds, fbaEnzymeBounds)
+# init once
+import fba.fba_evolveState as evolve 
+
+reload(evolve)
+fb_calc = evolve.FluxBoundCalculator(state)
+
+fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes)
+rx
+enzymes
 
 # calc growth rate
 

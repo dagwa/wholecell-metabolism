@@ -118,6 +118,7 @@ r_df = clean_whole_cell_Ids(rids, 'rid')
 s_df = clean_whole_cell_Ids(sids, 'sid')
 e_df = clean_whole_cell_Ids(eids, 'eid')
 
+
 ###############################################
 # FBA SET
 ###############################################
@@ -333,12 +334,12 @@ for k, item in enumerate(substrateIndexs_fba):
 # internal exchange
 for k, index in enumerate(fbaSubstrateIndexs_metaboliteInternalExchangeConstraints):
     index -= 1
-    s_fba_df.loc[index] = 'metaboliteInternalExchangeConstraints_ix_{}'.format(k)
+    s_fba_df.loc[index, ] = ('metabolite_constraint_ix_{}'.format(k), 'metaboliteInternalExchangeConstraint')
 
 # biomass
 for k, index in enumerate(fbaSubstrateIndexs_biomass):
     index -= 1
-    s_fba_df.loc[index] = 'biomass'.format(k)
+    s_fba_df.loc[index, ] = ('biomass'.format(k), 'biomass')
 
 # fbaRightHandSide is a vector of zeros representing the change 
 # in concentration over time of each metabolite and biomass. 
@@ -366,7 +367,6 @@ all_comps = []
 all_formulas = []
 all_charges = []
 for sid in s_fba_df.index:
-    print sid
     wid, comp = get_wid_from_sid(sid)
     try:
         s = Molecule.objects.get(wid=wid)
@@ -393,7 +393,6 @@ s_fba_df['formula'] = Series(all_formulas, index=s_fba_df.index)
 s_fba_df['charge'] = Series(all_charges, index=s_fba_df.index)
 
 # set index and save
-
 s_fba_df.to_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", index=False)
 
 ##########################################################################
