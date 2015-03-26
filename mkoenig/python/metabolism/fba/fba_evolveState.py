@@ -57,6 +57,7 @@ class FluxBoundCalculator(object):
                     
                     ]:
             setattr(self, key, state[key])
+        
                 
         # self.Nr = self.fbaReactionBounds.shape[0]  # 504 reactions (lower and upper for every necessary)
         self.Nr = len(self.model.getListOfReactions())
@@ -96,7 +97,7 @@ class FluxBoundCalculator(object):
         return protein_reactions
     
         
-    def calcFluxBounds(self, substrates, enzymes, cellDryMass,
+    def calcFluxBounds(self, substrates, enzymes, cellDryMass, state_fb=None,
                    applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
                    applyExternalMetaboliteBounds=True, applyInternalMetaboliteBounds=True, applyProteinBounds=True):
         '''
@@ -107,8 +108,13 @@ class FluxBoundCalculator(object):
         4. Metabolite availability (substrates)
         5. Protein availability    (enzymes)
         '''
-        # initialize bounds
         
+        def print_difference(var, name):
+            if state_fb:
+                control = state_fb[name]
+                print 'Equal {} : {}'.format(name, (var==control).all())
+        
+        # initialize bounds
         lowerBounds =  -np.inf * np.ones([self.Nr, 1])       # 504
         upperBounds =   np.inf * np.ones([self.Nr, 1])       # 504
     
@@ -116,10 +122,30 @@ class FluxBoundCalculator(object):
         # every reaction has 1 or zero associated proteins (enzymes)
         # how many enzymes for every reaction
         rxnEnzymes = np.dot(self.fbaReactionCatalysisMatrix, enzymes);  # [504x104]*[104x1]=[504x1]
+        print_difference(rxnEnzymes, 'rxnEnzymes')
+        #okay
+        
+        # fix NAs in EnzymeBounds 
+        self.fbaEnzymeBounds[np.isnan(self.fbaEnzymeBounds[:, 0]), 0] = -np.inf
+        self.fbaEnzymeBounds[np.isnan(self.fbaEnzymeBounds[:, 1]), 1] = np.inf
+        if state_fb:
+            state_fb.fbaEnzymeBounds[np.isnan(state_fb.fbaEnzymeBounds[:, 0]), 0] = -np.inf
+            state_fb.fbaEnzymeBounds[np.isnan(state_fb.fbaEnzymeBounds[:, 1]), 1] = np.inf
+        print_difference(self.fbaEnzymeBounds, 'fbaEnzymeBounds')
+        
         if applyEnzymeKineticBounds:
             for k in range(self.Nr):
-                lowerBounds[k] = max(lowerBounds[k], self.fbaEnzymeBounds[k, 0]*rxnEnzymes[k])
-                upperBounds[k] = min(upperBounds[k], self.fbaEnzymeBounds[k, 1]*rxnEnzymes[k])
+                # BUG: This should not work in Matlab !
+                # matlab: -inf * NaN = -inf !  (everybody else: -inf * NaN = NaN)
+                # so we have to check for the NaNs resulting from [-inf*0] and [inf*0] (WTF matlab)
+                lb = self.fbaEnzymeBounds[k, 0]*rxnEnzymes[k]
+                if not np.isnan(lb):
+                    lowerBounds[k] = max(lowerBounds[k], lb)
+                ub = self.fbaEnzymeBounds[k, 1]*rxnEnzymes[k]
+                if not np.isnan(ub):
+                    upperBounds[k] = min(upperBounds[k], ub)
+            print_difference(lowerBounds, "lowerBounds_applyEnzymeKineticBounds")
+            print_difference(upperBounds, "upperBounds_applyEnzymeKineticBounds")
         
         # numbers of enzymes catalyzing each reaction, unkown enzyme kinetics
         if applyEnzymeBounds:
@@ -129,6 +155,9 @@ class FluxBoundCalculator(object):
                 if (reaction_has_enzyme[reaction_k] and rxnEnzymes[reaction_k] <= 0):
                     lowerBounds[reaction_k] = 0
                     upperBounds[reaction_k] = 0
+            print_difference(lowerBounds, "lowerBounds_applyEnzymeBounds")
+            print_difference(upperBounds, "upperBounds_applyEnzymeBounds")
+                    
         
         # reaction directionality / thermodynamics (for subset of reactions)
         if applyDirectionalityBounds:
@@ -143,6 +172,8 @@ class FluxBoundCalculator(object):
                     reaction_k = k-1 # zero indexing
                     lowerBounds[reaction_k] = max(lowerBounds[reaction_k], self.fbaReactionBounds[reaction_k, 0]);
                     upperBounds[reaction_k] = min(upperBounds[reaction_k], self.fbaReactionBounds[reaction_k, 1]);
+            print_difference(lowerBounds, "lowerBounds_applyDirectionalityBounds")
+            print_difference(upperBounds, "upperBounds_applyDirectionalityBounds")
         
         # external metabolite availability
         if applyExternalMetaboliteBounds:
@@ -157,9 +188,12 @@ class FluxBoundCalculator(object):
                 
                 lowerBounds[reaction_k] = max(lowerBounds[reaction_k], self.fbaReactionBounds[reaction_k, 0]*cellDryMass);
                 upperBounds[reaction_k] = min(upperBounds[reaction_k], self.fbaReactionBounds[reaction_k, 1]*cellDryMass);
-            
+            print_difference(lowerBounds, "lowerBounds_applyExternalMetaboliteBounds")
+            print_difference(upperBounds, "upperBounds_applyExternalMetaboliteBounds")
         
         # internal metabolite availability
+        print_difference(substrates, "substrates")
+        
         if applyInternalMetaboliteBounds:
             for (k, reaction_k) in enumerate(self.fbaReactionIndexs_metaboliteInternalLimitedExchange):
                 reaction_k = reaction_k-1
@@ -167,7 +201,14 @@ class FluxBoundCalculator(object):
                 compartment_k = self.compartmentIndexs_cytosol
                 lowerBounds[reaction_k] = max(lowerBounds[reaction_k],
                                 - substrates[substrate_k, compartment_k]/self.stepSizeSec);
+            print_difference(lowerBounds, "lowerBounds_applyInternalMetaboliteBounds")
+            print_difference(upperBounds, "lowerBounds_applyInternalMetaboliteBounds")
         
+        print lowerBounds.transpose()
+        print state_fb.lowerBounds_applyInternalMetaboliteBounds.transpose()
+        print 'Difference'
+        print (lowerBounds- state_fb.lowerBounds_applyInternalMetaboliteBounds).transpose()
+            
         # protein monomers and complexes
         if applyProteinBounds:
             # some species are proteins, these can limit the reactions
@@ -235,7 +276,8 @@ class FluxBoundCalculator(object):
                         lowerBounds[reaction_k] = 0;
                         upperBounds[reaction_k] = 0;
                         break; # break for this reaction
-                    
+            print_difference(lowerBounds, "lowerBounds_applyProteinBounds")
+            print_difference(upperBounds, "lowerBounds_applyProteinBounds")       
         
         # return bounds
         bounds = np.concatenate((lowerBounds, upperBounds), axis=1)     # [504x2]

@@ -141,9 +141,13 @@ fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
 # Debug calculation against matlab dump
 # Matlab dumps for flux
 state_fb = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'fluxbounds.mat'))
-np.sum(state_input.substrates - state_fb.substrates) # check that same inputs
-state_fb.keys()
-fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass, state_fb)
+print 'Difference substrates:', np.sum(state_input.substrates - state_fb.substrates)        # check that same inputs
+print 'Difference enzymes:', np.sum(state_input.enzymes - state_fb.enzymes)              # check that same inputs
+print 'Difference cellDryMass:', np.sum(state_input.cellDryMass - state_fb.cellDryMass)      # check that same inputs
+
+reload(evolve)
+fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, state)
+fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass, state_fb=state_fb)
 
 
 reload(ct)
