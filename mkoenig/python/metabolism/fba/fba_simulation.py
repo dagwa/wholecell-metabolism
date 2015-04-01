@@ -132,7 +132,9 @@ state = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'this.mat'
 
 import fba.fba_evolveState as evolve 
 reload(evolve)
-fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, state)
+substrateIndexs = s_fba_df['substrateIndexs']
+fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, 
+                                     substrateIndexs, state)
 
 
 # Normal calculation
@@ -146,7 +148,8 @@ print 'Difference enzymes:', np.sum(state_input.enzymes - state_fb.enzymes)     
 print 'Difference cellDryMass:', np.sum(state_input.cellDryMass - state_fb.cellDryMass)      # check that same inputs
 
 reload(evolve)
-fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, state)
+fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, 
+                                     substrateIndexs, state)
 fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass, state_fb=state_fb)
 
 

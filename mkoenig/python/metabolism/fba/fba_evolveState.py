@@ -12,7 +12,7 @@ from libsbml import readSBML
 class FluxBoundCalculator(object):
     
     def __init__(self, sbml, reaction_index, species_index, enzymes_index,
-                        state):
+                        substrateIndexs, state):
         '''
             In the end the full calculation has to be possible solely 
             based on the given SBML.
@@ -23,6 +23,7 @@ class FluxBoundCalculator(object):
         self.r_index = reaction_index
         self.s_index = species_index
         self.e_index = enzymes_index
+        self.substrateIndexs = substrateIndexs
         self.s_acp_index = 569;         # handle Acetyl-Carrier Protein
         
         doc = readSBML(sbml)
@@ -202,21 +203,22 @@ class FluxBoundCalculator(object):
         if applyInternalMetaboliteBounds:
             for (k, reaction_k) in enumerate(self.fbaReactionIndexs_metaboliteInternalLimitedExchange):
                 reaction_k = reaction_k-1 # reactions are correct
-                substrate_k = self.substrateIndexs_internalExchangedLimitedMetabolites[k]-1
-                print 'reaction_k, substrate_k:',reaction_k, substrate_k
-                print self.r_index.index[reaction_k]#, self.s_index.index[substrate_k]
                 
-                compartment_k = self.compartmentIndexs_cytosol
-                lowerBounds[reaction_k] = max(lowerBounds[reaction_k],
-                                - substrates[substrate_k, compartment_k]/self.stepSizeSec);
-            print_difference(lowerBounds, "lowerBounds_applyInternalMetaboliteBounds")
-            print_difference(upperBounds, "lowerBounds_applyInternalMetaboliteBounds")
-        
+                # substrate indexes are defined on the [585x3] substrate matrix :/
+                row = self.substrateIndexs[self.substrateIndexs == self.substrateIndexs_internalExchangedLimitedMetabolites[k][0]]
+                substrate_k = row[0]-1
 
-        # print lowerBounds.transpose()
-        # print state_fb.lowerBounds_applyInternalMetaboliteBounds.transpose()
-        # print 'Difference'
-        # print (lowerBounds- state_fb.lowerBounds_applyInternalMetaboliteBounds).transpose()
+                # lookup the FBA substrate index
+                # print 'reaction_k, substrate_k:',reaction_k, substrate_k
+                # print self.r_index.index[reaction_k], row.index
+                
+                # reshape to index via the linear index (! Check if reshaped via correct dimension)
+                lin_substrates = np.reshape(substrates.transpose(), (substrates.size))
+                lowerBounds[reaction_k] = max(lowerBounds[reaction_k], -lin_substrates[substrate_k]/self.stepSizeSec)
+
+            print_difference(lowerBounds, "lowerBounds_applyInternalMetaboliteBounds")
+            print_difference(upperBounds, "upperBounds_applyInternalMetaboliteBounds")
+        
             
         # protein monomers and complexes
         if applyProteinBounds:
