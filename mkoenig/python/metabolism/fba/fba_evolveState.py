@@ -24,7 +24,7 @@ class FluxBoundCalculator(object):
         self.s_index = species_index
         self.e_index = enzymes_index
         self.substrateIndexs = substrateIndexs
-        self.s_acp_index = 569;         # handle Acetyl-Carrier Protein
+        self.s_acp_index = 570;         # handle Acetyl-Carrier Protein
         
         doc = readSBML(sbml)
         self.model = doc.getModel()
@@ -163,7 +163,6 @@ class FluxBoundCalculator(object):
                     upperBounds[reaction_k] = 0
             print_difference(lowerBounds, "lowerBounds_applyEnzymeBounds")
             print_difference(upperBounds, "upperBounds_applyEnzymeBounds")
-                    
         
         # reaction directionality / thermodynamics (for subset of reactions)
         if applyDirectionalityBounds:
@@ -276,10 +275,14 @@ class FluxBoundCalculator(object):
                 # check if any of the base proteins in the reaction (reactant/product) is zero
                 for protein_id in proteins:
                     if protein_id == 'MG_287_MONOMER':  # 'acyl carrier protein'
-                        species_k = self.s_acp_index
+                        substrate_k = self.s_acp_index
                     else:
-                        species_k = self.s_index.k[protein_id]
-                    N_protein = substrates[species_k, self.compartmentIndexs_cytosol]
+                        substrate_k = self.substrateIndexs[protein_id]
+                    
+                    # substrate indexes are defined on the [585x3] substrate matrix :/
+                    # reshape to index via the linear index (! Check if reshaped via correct dimension)
+                    lin_substrates = np.reshape(substrates.transpose(), (substrates.size))
+                    N_protein = lin_substrates[substrate_k-1]
                             
                     if  N_protein <= 0:
                         # lookup the index
@@ -288,7 +291,7 @@ class FluxBoundCalculator(object):
                         upperBounds[reaction_k] = 0;
                         break; # break for this reaction
             print_difference(lowerBounds, "lowerBounds_applyProteinBounds")
-            print_difference(upperBounds, "lowerBounds_applyProteinBounds")       
+            print_difference(upperBounds, "upperBounds_applyProteinBounds")       
         
         # return bounds
         bounds = np.concatenate((lowerBounds, upperBounds), axis=1)     # [504x2]
