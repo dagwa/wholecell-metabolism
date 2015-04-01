@@ -1,377 +1,377 @@
-sid	type	fbaRightHandSide	name	model_type	compartment	formula	charge
-AC	substrate	0	acetate	Metabolite	c	C2H3O2	-1.0
-ACAL	substrate	0	acetaldehyde	Metabolite	c	C2H4O1	0.0
-ACCOA	substrate	0	Acetyl-CoA	Metabolite	c	C23H34N7O17P3S1	-4.0
-ACTP	substrate	0	Acetyl phosphate	Metabolite	c	C2H3O5P1	-2.0
-AD	substrate	0	adenine	Metabolite	c	C5H5N5	0.0
-ADN	substrate	0	adenosine	Metabolite	c	C10H13N5O4	0.0
-ADP	substrate	0	ADP	Metabolite	c	C10H12N5O10P2	-3.0
-AEPP	substrate	0	2-aminoethylphosphonate	Metabolite	c	C2H8N1O3P1	0.0
-AHCYS	substrate	0	S-Adenosyl-L-homocysteine	Metabolite	c	C14H20N6O5S1	0.0
-AKG	substrate	0	2-Oxoglutarate	Metabolite	c	C5H4O5	-2.0
-ALA	substrate	0	L-alanine	Metabolite	c	C3H7N1O2	0.0
-AlaAla	substrate	0	L-alanyl-L-alanine	Metabolite	c	C6H12N2O3	0.0
-AMET	substrate	0	S-Adenosyl-L-methionine	Metabolite	c	C15H23N6O5S1	1.0
-AMP	substrate	0	AMP	Metabolite	c	C10H12N5O7P1	-2.0
-ARG	substrate	0	L-Arginine	Metabolite	c	C6H15N4O2	1.0
-ArgArg	substrate	0	L-arginyl-L-arginine	Metabolite	c	C12H28N8O3	2.0
-ASN	substrate	0	L-Asparagine	Metabolite	c	C4H8N2O3	0.0
-AsnAsn	substrate	0	L-asparaginyl-L-asparagine	Metabolite	c	C8H14N4O5	0.0
-ASP	substrate	0	L-Aspartate	Metabolite	c	C4H6N1O4	-1.0
-AspAsp	substrate	0	L-aspartyl-L-aspartic Acid	Metabolite	c	C8H10N2O7	-2.0
-ATP	substrate	0	ATP	Metabolite	c	C10H12N5O13P3	-3.0
-CA	substrate	0	calcium ion	Metabolite	c	Ca1	2.0
-CAP	substrate	0	carbamoyl phosphate	Metabolite	c	C1H2N1O5P1	-2.0
-CDP	substrate	0	CDP	Metabolite	c	C9H12N3O11P2	-3.0
-CL	substrate	0	chloride ion	Metabolite	c	Cl1	-1.0
-cmnm5s2U	substrate	0	5-carboxymethylaminomethyl-2-thiouridine	Metabolite	c	C12H17N3O7S1	0.0
-cmnm5s2UMP	substrate	0	5-carboxymethylaminomethyl-2-thiouridine monophosphate	Metabolite	c	C12H16N3O10P1S1	-2.0
-CMP	substrate	0	CMP	Metabolite	c	C9H12N3O8P1	-2.0
-CO	substrate	0	cobalt ion	Metabolite	c	Co1	2.0
-CO2	substrate	0	carbon dioxide	Metabolite	c	C1O2	0.0
-COA	substrate	0	coenzyme A	Metabolite	c	C21H32N7O16P3S1	-4.0
-CTP	substrate	0	CTP	Metabolite	c	C9H12N3O14P3	-4.0
-CU	substrate	0	cupric ion	Metabolite	c	Cu1	2.0
-CYS	substrate	0	L-Cysteine	Metabolite	c	C3H7N1O2S1	0.0
-CysCys	substrate	0	L-cysteinyl-L-cysteine	Metabolite	c	C6H12N2O3S2	0.0
-CYTD	substrate	0	cytidine	Metabolite	c	C9H13N3O5	0.0
-DA	substrate	0	deoxyadenosine	Metabolite	c	C10H13N5O3	0.0
-DADP	substrate	0	dADP	Metabolite	c	C10H12N5O9P2	-3.0
-DAMP	substrate	0	dAMP	Metabolite	c	C10H12N5O6P1	-2.0
-dApdAp	substrate	0	dAp-dAp	Metabolite	c	C20H23N10O11P2	-3.0
-DATP	substrate	0	dATP	Metabolite	c	C10H12N5O12P3	-4.0
-DC	substrate	0	deoxycytidine	Metabolite	c	C9H13N3O4	0.0
-DCDP	substrate	0	dCDP	Metabolite	c	C9H12N3O10P2	-3.0
-DCMP	substrate	0	dCMP	Metabolite	c	C9H12N3O7P1	-2.0
-dCpdCp	substrate	0	dCp-dCp	Metabolite	c	C18H23N6O13P2	-3.0
-DCTP	substrate	0	dCTP	Metabolite	c	C9H12N3O13P3	-4.0
-DG	substrate	0	deoxyguanosine	Metabolite	c	C10H13N5O4	0.0
-DGDP	substrate	0	dGDP	Metabolite	c	C10H12N5O10P2	-3.0
-DGMP	substrate	0	dGMP	Metabolite	c	C10H12N5O7P1	-2.0
-dGpdGp	substrate	0	dGp-dGp	Metabolite	c	C20H23N10O13P2	-3.0
-DGTP	substrate	0	dGTP	Metabolite	c	C10H12N5O13P3	-4.0
-DHF	substrate	0	dihydrofolate	Metabolite	c	C19H19N7O6	-2.0
-dINS	substrate	0	2'-deoxyinosine	Metabolite	c	C10H12N4O4	-1.0
-DPG	substrate	0	3-Phospho-D-glyceroyl phosphate	Metabolite	c	C3H4O10P2	-4.0
-DR1P	substrate	0	2-Deoxy-D-ribose 1-phosphate	Metabolite	c	C5H9O7P1	-2.0
-DR5P	substrate	0	2-Deoxy-D-ribose 5-phosphate	Metabolite	c	C5H9O7P1	-2.0
-DT	substrate	0	thymidine	Metabolite	c	C10H14N2O5	0.0
-DTDP	substrate	0	dTDP	Metabolite	c	C10H13N2O11P2	-3.0
-DTMP	substrate	0	dTMP	Metabolite	c	C10H13N2O8P1	-2.0
-dTpdTp	substrate	0	dTp-dTp	Metabolite	c	C20H25N4O15P2	-3.0
-DTTP	substrate	0	dTTP	Metabolite	c	C10H13N2O14P3	-4.0
-DU	substrate	0	deoxyuridine	Metabolite	c	C9H12N2O5	0.0
-DUMP	substrate	0	dUMP	Metabolite	c	C9H11N2O8P1	-2.0
-E4P	substrate	0	D-Erythrose 4-phosphate	Metabolite	c	C4H7O7P1	-2.0
-F1P	substrate	0	D-Fructose 1-phosphate	Metabolite	c	C6H11O9P1	-2.0
-F6P	substrate	0	D-Fructose 6-phosphate	Metabolite	c	C6H11O9P1	-2.0
-FAD	substrate	0	flavin adenine dinucleotide, oxidized	Metabolite	c	C27H31N9O15P2	-2.0
-FADH2	substrate	0	flavin adenine dinucleotide, reduced	Metabolite	c	C27H33N9O15P2	-2.0
-FDP	substrate	0	D-Fructose 1,6-bisphosphate	Metabolite	c	C6H10O12P2	-4.0
-FE2	substrate	0	ferrous iron	Metabolite	c	Fe1	2.0
-FE3	substrate	0	ferric iron	Metabolite	c	Fe1	3.0
-FMET	substrate	0	N-Formyl-L-methionine	Metabolite	c	C6H11N1O3S1	-1.0
-FMN	substrate	0	flavin mononucleotide, oxidized	Metabolite	c	C17H19N4O9P1	-3.0
-FMNH2	substrate	0	flavin mononucleotide, reduced	Metabolite	c	C17H21N4O9P1	-2.0
-FOR	substrate	0	Formate	Metabolite	c	C1H1O2	-1.0
-FTHF10	substrate	0	10-formyl-tetrahydrofolate	Metabolite	c	C20H21N7O7	-2.0
-FTHF5	substrate	0	5-formyltetrahydrofolate	Metabolite	c	C20H23N7O7	-2.0
-G1P	substrate	0	D-Glucose 1-phosphate	Metabolite	c	C6H11O9P1	-2.0
-G2P	substrate	0	D-Glycerate 2-phosphate	Metabolite	c	C3H4O7P1	-3.0
-G3P	substrate	0	3-Phospho-D-glycerate	Metabolite	c	C3H4O7P1	-3.0
-G6P	substrate	0	D-Glucose 6-phosphate	Metabolite	c	C6H11O9P1	-2.0
-GDP	substrate	0	GDP	Metabolite	c	C10H12N5O11P2	-3.0
-GL	substrate	0	glycerol	Metabolite	c	C3H8O3	0.0
-GL3P	substrate	0	Glycerol 3-phosphate	Metabolite	c	C3H8O6P1	-2.0
-GLN	substrate	0	L-glutamine	Metabolite	c	C5H10N2O3	0.0
-GlnGln	substrate	0	L-glutaminyl-L-glutamine	Metabolite	c	C10H18N4O5	0.0
-GLU	substrate	0	L-Glutamate	Metabolite	c	C5H8N1O4	-1.0
-GluGlu	substrate	0	L-glutamyl-L-glutamic acid	Metabolite	c	C10H14N2O7	-2.0
-GLY	substrate	0	glycine	Metabolite	c	C2H5N1O2	0.0
-GlyGly	substrate	0	L-glycyl-L-glycine	Metabolite	c	C4H8N2O3	0.0
-Gm	substrate	0	2'-O-methylguanosine	Metabolite	c	C11H15N5O5	0.0
-GmMP	substrate	0	2'-O-methylguanosine monophosphate	Metabolite	c	C11H14N5O8P1	-2.0
-GMP	substrate	0	GMP	Metabolite	c	C10H12N5O8P1	-2.0
-GN	substrate	0	guanine	Metabolite	c	C5H5N5O1	0.0
-GSN	substrate	0	guanosine	Metabolite	c	C10H13N5O5	0.0
-GTP	substrate	0	GTP	Metabolite	c	C10H12N5O14P3	-4.0
-H	substrate	0	hydrogen ion	Metabolite	c	H1	1.0
-H2O	substrate	0	water	Metabolite	c	H2O1	0.0
-H2O2	substrate	0	hydrogen peroxide	Metabolite	c	H2O2	0.0
-HCYS	substrate	0	L-homocysteine	Metabolite	c	C4H9N1O2S1	0.0
-HDCA	substrate	0	Hexadecanoate (n-C16:0)	Metabolite	c	C16H31O2	-1.0
-HDCEA	substrate	0	Hexadecenoate (n-C16:1)	Metabolite	c	C16H29O2	-1.0
-HDECEG3P	substrate	0	1-hexadecanoyl-sn-glycerol 3-phosphate	Metabolite	c	C19H37O7P1	-2.0
-HDECG3P	substrate	0	1-hexadec-9-enoyl-sn-glycerol 3-phosphate	Metabolite	c	C19H35O7P1	-1.0
-HIS	substrate	0	L-Histidine	Metabolite	c	C6H9N3O2	0.0
-HisHis	substrate	0	L-histidyl-L-histidine	Metabolite	c	C12H16N6O3	0.0
-HYXN	substrate	0	hypoxanthine	Metabolite	c	C5H4N4O1	0.0
-IDP	substrate	0	IDP	Metabolite	c	C10H11N4O11P2	-4.0
-ILE	substrate	0	L-Isoleucine	Metabolite	c	C6H13N1O2	0.0
-IleIle	substrate	0	L-isoleucyl-L-isoleucine	Metabolite	c	C12H24N2O3	0.0
-IMP	substrate	0	IMP	Metabolite	c	C10H11N4O8P1	-2.0
-INS	substrate	0	inosine	Metabolite	c	C10H12N4O5	0.0
-ITP	substrate	0	ITP	Metabolite	c	C10H11N4O14P3	-5.0
-K	substrate	0	potassium ion	Metabolite	c	K1	1.0
-k2C	substrate	0	lysidine	Metabolite	c	C15H25N5O6	1.0
-k2CMP	substrate	0	lysidine monophosphate	Metabolite	c	C15H24N5O9P1	-1.0
-LEU	substrate	0	L-Leucine	Metabolite	c	C6H13N1O2	0.0
-LeuLeu	substrate	0	L-leucyl-L-leucine	Metabolite	c	C12H24N2O3	0.0
-LIPOATE	substrate	0	lipoate	Metabolite	c	C8H13O2S2	-1.0
-LIPOYLAMP	substrate	0	lipoyl-AMP	Metabolite	c	C18H25N5O8P1S2	-1.0
-LIPOYLLYS	substrate	0	N(6)-(lipoyl)lysine	Metabolite	c	C14H26N2O3S2	0.0
-LYS	substrate	0	L-Lysine	Metabolite	c	C6H15N2O2	1.0
-LysLys	substrate	0	L-lysyl-L-lysine	Metabolite	c	C12H28N4O3	2.0
-m1G	substrate	0	1-methylguanosine	Metabolite	c	C11H15N5O5	0.0
-m1GMP	substrate	0	1-methylguanosine monophosphate	Metabolite	c	C11H14N5O8P1	-2.0
-m2G	substrate	0	N(2)-methylguanosine	Metabolite	c	C11H15N5O5	0.0
-m2GMP	substrate	0	N(2)-methylguanosine monophosphate	Metabolite	c	C11H14N5O8P1	-2.0
-m62A	substrate	0	N6,N6-dimethyladenosine	Metabolite	c	C12H17N5O4	0.0
-m62AMP	substrate	0	N6,N6-dimethyladenosine monophosphate	Metabolite	c	C12H16N5O7P1	-2.0
-m7G	substrate	0	7-methylguanosine	Metabolite	c	C11H16N5O5	1.0
-m7GMP	substrate	0	7-methylguanosine monophosphate	Metabolite	c	C11H15N5O8P1	-1.0
-MET	substrate	0	L-Methionine	Metabolite	c	C5H11N1O2S1	0.0
-METHF	substrate	0	5,10-methyltetrahydrofolate	Metabolite	c	C20H20N7O6	-2.0
-MetMet	substrate	0	L-methionyl-L-methionine	Metabolite	c	C10H20N2O3S2	0.0
-METTHF	substrate	0	5,10-Methylenetetrahydrofolate	Metabolite	c	C20H23N7O6	-2.0
-MG	substrate	0	magnesium ion	Metabolite	c	Mg1	2.0
-MN	substrate	0	manganese ion	Metabolite	c	Mn1	2.0
-MO	substrate	0	molybdenum ion	Metabolite	c	Mo1	2.0
-MOBD	substrate	0	Molybdate	Metabolite	c	Mo1O4	-2.0
-MTHF	substrate	0	5-Methyltetrahydrofolate	Metabolite	c	C20H24N7O6	-2.0
-NA	substrate	0	sodium ion	Metabolite	c	Na1	1.0
-NAAD	substrate	0	nicotinic acid adenine dinucleotide	Metabolite	c	C21H27N6O15P2	-2.0
-NAC	substrate	0	nicotinate	Metabolite	c	C6H4N1O2	-1.0
-NAD	substrate	0	nicotinamide adenine dinucleotide, oxidized	Metabolite	c	C21H26N7O14P2	-1.0
-NADH	substrate	0	nicotinamide adenine dinucleotide, reduced	Metabolite	c	C21H27N7O14P2	-2.0
-NADP	substrate	0	nicotinamide adenine dinucleotide phosphate, oxidized	Metabolite	c	C21H26N7O17P3	-3.0
-NADPH	substrate	0	nicotinamide adenine dinucleotide phosphate, reduced	Metabolite	c	C21H27N7O17P3	-4.0
-NAMN	substrate	0	nicotinate/nicotinic acid mononucleotide	Metabolite	c	C11H15N1O9P1	-2.0
-NH3	substrate	0	ammonia	Metabolite	c	H3N1	1.0
-NH4	substrate	0	ammonium	Metabolite	c	H4N1	1.0
-NI	substrate	0	nickel	Metabolite	c	Ni1	2.0
-NMN	substrate	0	nicotinamide mononucleotide	Metabolite	c	C11H14N2O8P1	-1.0
-O2	substrate	0	oxygen	Metabolite	c	O2	0.0
-OA	substrate	0	oxaloacetate	Metabolite	c	C4H2O5	-2.0
-OCDCEA	substrate	0	octadecenoate (n-C18:1)	Metabolite	c	C18H33O2	-1.0
-ODEC11GP	substrate	0	1-octadec-11-enoyl-sn-glycerol 3-phosphate	Metabolite	c	C21H39O7P1	-2.0
-PEP	substrate	0	phosphoenolpyruvate	Metabolite	c	C3H2O6P1	-3.0
-PHE	substrate	0	L-phenylalanine	Metabolite	c	C9H11N1O2	0.0
-PhePhe	substrate	0	L-phenylalanyl-L-phenylalanine	Metabolite	c	C18H20N2O3	0.0
-PI	substrate	0	phosphate	Metabolite	c	H1O4P1	-2.0
-PL5P	substrate	0	Pyridoxal 5'-phosphate	Metabolite	c	C8H8N1O6P1	-2.0
-PPAA	substrate	0	Phosphonoacetaldehyde	Metabolite	c	C2H5O4P1	-1.0
-PPGPP	substrate	0	Guanosine 3',5'-bis(diphosphate)	Metabolite	c	C10H11N5O17P4	-4.0
-PPI	substrate	0	diphosphate	Metabolite	c	H1O7P2	-3.0
-PRO	substrate	0	L-Proline	Metabolite	c	C5H9N1O2	0.0
-ProPro	substrate	0	L-prolyl-L-proline	Metabolite	c	C10H16N2O3	0.0
-PRPP	substrate	0	5-Phospho-alpha-D-ribose 1-diphosphate	Metabolite	c	C5H8O14P3	-5.0
-pSER	substrate	0	phosphoserine	Metabolite	c	C3H6N1O6P1	-3.0
-PSIURI	substrate	0	pseudouridine	Metabolite	c	C9H12N2O6	0.0
-PSIURIMP	substrate	0	pseudouridine monophoshate	Metabolite	c	C9H11N2O9P1	-2.0
-pTHR	substrate	0	phosphothreonine	Metabolite	c	C4H8N1O6P1	-2.0
-PTRC	substrate	0	putrescine	Metabolite	c	C4H14N2	2.0
-pTYR	substrate	0	Phosphotyrosine	Metabolite	c	C9H10N1O6P1	-2.0
-PYDX	substrate	0	Pyridoxal	Metabolite	c	C8H9N1O3	0.0
-PYR	substrate	0	pyruvate	Metabolite	c	C3H3O3	-1.0
-R1P	substrate	0	alpha-D-Ribose 1-phosphate	Metabolite	c	C5H11O8P1	-2.0
-R5P	substrate	0	alpha-D-Ribose 5-phosphate	Metabolite	c	C5H9O8P1	-2.0
-RIBFLV	substrate	0	riboflavin, oxidized	Metabolite	c	C17H20N4O6	-1.0
-RL5P	substrate	0	D-Ribulose 5-phosphate	Metabolite	c	C5H9O8P1	-2.0
-s4U	substrate	0	4-thiouridine	Metabolite	c	C9H12N2O5S1	0.0
-s4UMP	substrate	0	4-thiouridine monophosphate	Metabolite	c	C9H11N2O8P1S1	-2.0
-S7P	substrate	0	D-sedoheptulose-7-phosphate	Metabolite	c	C7H13O10P1	-2.0
-SER	substrate	0	L-Serine	Metabolite	c	C3H7N1O3	0.0
-SerSer	substrate	0	L-seryl-L-serine	Metabolite	c	C6H12N2O5	0.0
-SNGLYP	substrate	0	sn-glycerol-1-phosphate	Metabolite	c	C3H7O6P1	-2.0
-SO4	substrate	0	sulphate	Metabolite	c	O4S1	-2.0
-SPMD	substrate	0	spermidine	Metabolite	c	C7H22N3	3.0
-T3P1	substrate	0	D-glyceraldehdye-3-phosphate	Metabolite	c	C3H5O6P1	-2.0
-T3P2	substrate	0	Dihydroxyacetone phosphate	Metabolite	c	C3H5O6P1	-2.0
-THF	substrate	0	5,6,7,8-Tetrahydrofolate	Metabolite	c	C19H21N7O6	-2.0
-THM	substrate	0	thiamine	Metabolite	c	C12H17N4O1S1	1.0
-THR	substrate	0	L-Threonine	Metabolite	c	C4H9N1O3	0.0
-ThrThr	substrate	0	L-threonyl-L-threonine	Metabolite	c	C8H16N2O5	0.0
-THY	substrate	0	thymine	Metabolite	c	C5H6N2O2	0.0
-TPP	substrate	0	thiamine diphosphate	Metabolite	c	C12H16N4O7P2S1	-2.0
-TRP	substrate	0	L-tryptophan	Metabolite	c	C11H12N2O2	0.0
-TrpTrp	substrate	0	L-trytophanyl-L-trytophan	Metabolite	c	C22H22N4O3	0.0
-TYR	substrate	0	L-tyrosine	Metabolite	c	C9H11N1O3	0.0
-TyrTyr	substrate	0	L-tyrosyl-L-tyrosine	Metabolite	c	C18H20N2O5	0.0
-UDP	substrate	0	UDP	Metabolite	c	C9H11N2O12P2	-3.0
-UDPG	substrate	0	UDP-glucose	Metabolite	c	C15H22N2O17P2	-2.0
-UDPGAL	substrate	0	UDP-galactose	Metabolite	c	C15H22N2O17P2	-2.0
-UDPGALF	substrate	0	UDP-D-galacto-1,4-furanose	Metabolite	c	C15H22N2O17P2	-2.0
-Um	substrate	0	2'-O-methyluridine	Metabolite	c	C10H14N2O6	0.0
-UmMP	substrate	0	2'-O-methyluridine monophosphate	Metabolite	c	C10H13N2O9P1	-2.0
-UMP	substrate	0	UMP	Metabolite	c	C9H11N2O9P1	-2.0
-URA	substrate	0	uracil	Metabolite	c	C4H4N2O2	0.0
-URI	substrate	0	uridine	Metabolite	c	C9H12N2O6	0.0
-UTP	substrate	0	UTP	Metabolite	c	C9H11N2O15P3	-4.0
-VAL	substrate	0	L-Valine	Metabolite	c	C5H11N1O2	0.0
-ValVal	substrate	0	L-valyl-L-valine	Metabolite	c	C10H20N2O3	0.0
-X5P	substrate	0	D-Xylulose 5-phosphate	Metabolite	c	C5H9O8P1	-2.0
-ZN	substrate	0	zinc ion	Metabolite	c	Zn1	2.0
-MG_124_MONOMER	substrate	0	thioredoxin	ProteinMonomer	c		
-MG_124_MONOMER_ox	substrate	0	oxidized thioredoxin	ProteinComplex	c		
-MG_229_231_TETRAMER	substrate	0	ribonucleoside-diphosphate reductase	ProteinComplex	c		
-MG_229_231_TETRAMER_ox	substrate	0	oxidized ribonucleoside-diphosphate reductase	ProteinComplex	c		
-MG_287_MONOMER_ACP	substrate	0	holo acyl carrier protein	ProteinComplex	c		
-MG_287_MONOMER_hdeACP	substrate	0	cis-hexadec-9-enoyl-[acyl-carrier protein] (n-C16:1)	ProteinComplex	c		
-MG_287_MONOMER_octeACP	substrate	0	cis-octadec-11-enoyl-[acyl-carrier protein] (n-C18:1)	ProteinComplex	c		
-MG_287_MONOMER_palmACP	substrate	0	Palmitoyl-ACP (n-C16:0ACP)	ProteinComplex	c		
-MG_427_DIMER	substrate	0	osmotically inducible peroxidase	ProteinComplex	c		
-MG_427_DIMER_ox	substrate	0	oxidized osmotically inducible peroxidase	ProteinComplex	c		
-MG_454_DIMER	substrate	0	thiol-dependent peroxidase	ProteinComplex	c		
-MG_454_DIMER_ox	substrate	0	oxidized thiol-dependent peroxidase	ProteinComplex	c		
-metabolite_constraint_ix_0	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_0		n		
-metabolite_constraint_ix_1	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_1		n		
-metabolite_constraint_ix_2	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_2		n		
-metabolite_constraint_ix_3	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_3		n		
-metabolite_constraint_ix_4	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_4		n		
-metabolite_constraint_ix_5	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_5		n		
-metabolite_constraint_ix_6	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_6		n		
-biomass	biomass	0	biomass		n		
-AC__e	substrate	0	acetate	Metabolite	e	C2H3O2	-1.0
-ACAL__e	substrate	0	acetaldehyde	Metabolite	e	C2H4O1	0.0
-AD__e	substrate	0	adenine	Metabolite	e	C5H5N5	0.0
-AEPP__e	substrate	0	2-aminoethylphosphonate	Metabolite	e	C2H8N1O3P1	0.0
-AKG__e	substrate	0	2-Oxoglutarate	Metabolite	e	C5H4O5	-2.0
-AlaAla__e	substrate	0	L-alanyl-L-alanine	Metabolite	e	C6H12N2O3	0.0
-AMP__e	substrate	0	AMP	Metabolite	e	C10H12N5O7P1	-2.0
-AMP_Lysine__e	substrate	0	AMP-Lysine	Metabolite	e	C16H26N7O8P1	-1.0
-AMP_Mor__e	substrate	0	AMP-morpholidate	Metabolite	e	C14H21N6O7P1	-1.0
-AMP_NH2__e	substrate	0	AMP-NH2	Metabolite	e	C10H15N6O6P1	-1.0
-ArgArg__e	substrate	0	L-arginyl-L-arginine	Metabolite	e	C12H28N8O3	2.0
-AsnAsn__e	substrate	0	L-asparaginyl-L-asparagine	Metabolite	e	C8H14N4O5	0.0
-AspAsp__e	substrate	0	L-aspartyl-L-aspartic Acid	Metabolite	e	C8H10N2O7	-2.0
-BUT__e	substrate	0	butyric acid, butanoic acid	Metabolite	e	C4H8O2	-1.0
-CA__e	substrate	0	calcium ion	Metabolite	e	Ca1	2.0
-CAP__e	substrate	0	carbamoyl phosphate	Metabolite	e	C1H2N1O5P1	-2.0
-CH3OH__e	substrate	0	methanol	Metabolite	e	C1H4O1	0.0
-CL__e	substrate	0	chloride ion	Metabolite	e	Cl1	-1.0
-cmnm5s2U__e	substrate	0	5-carboxymethylaminomethyl-2-thiouridine	Metabolite	e	C12H17N3O7S1	0.0
-CO__e	substrate	0	cobalt ion	Metabolite	e	Co1	2.0
-CO2__e	substrate	0	carbon dioxide	Metabolite	e	C1O2	0.0
-COA__e	substrate	0	coenzyme A	Metabolite	e	C21H32N7O16P3S1	-4.0
-CU__e	substrate	0	cupric ion	Metabolite	e	Cu1	2.0
-CysCys__e	substrate	0	L-cysteinyl-L-cysteine	Metabolite	e	C6H12N2O3S2	0.0
-CYTD__e	substrate	0	cytidine	Metabolite	e	C9H13N3O5	0.0
-DA__e	substrate	0	deoxyadenosine	Metabolite	e	C10H13N5O3	0.0
-DAMP__e	substrate	0	dAMP	Metabolite	e	C10H12N5O6P1	-2.0
-dApdAp__e	substrate	0	dAp-dAp	Metabolite	e	C20H23N10O11P2	-3.0
-DCMP__e	substrate	0	dCMP	Metabolite	e	C9H12N3O7P1	-2.0
-dCpdCp__e	substrate	0	dCp-dCp	Metabolite	e	C18H23N6O13P2	-3.0
-DDCA__e	substrate	0	Dodecanoate (n-C12:0)	Metabolite	e	C12H23O2	-1.0
-DGMP__e	substrate	0	dGMP	Metabolite	e	C10H12N5O7P1	-2.0
-dGpdGp__e	substrate	0	dGp-dGp	Metabolite	e	C20H23N10O13P2	-3.0
-DIBUTYRIN__e	substrate	0	dibutyrin	Metabolite	e	C11H20O5	0.0
-dINS__e	substrate	0	2'-deoxyinosine	Metabolite	e	C10H12N4O4	-1.0
-DTMP__e	substrate	0	dTMP	Metabolite	e	C10H13N2O8P1	-2.0
-dTpdTp__e	substrate	0	dTp-dTp	Metabolite	e	C20H25N4O15P2	-3.0
-FE2__e	substrate	0	ferrous iron	Metabolite	e	Fe1	2.0
-FE3__e	substrate	0	ferric iron	Metabolite	e	Fe1	3.0
-FOR__e	substrate	0	Formate	Metabolite	e	C1H1O2	-1.0
-FRU__e	substrate	0	D-Fructose	Metabolite	e	C6H12O6	0.0
-G6P__e	substrate	0	D-Glucose 6-phosphate	Metabolite	e	C6H11O9P1	-2.0
-GL__e	substrate	0	glycerol	Metabolite	e	C3H8O3	0.0
-GL3P__e	substrate	0	Glycerol 3-phosphate	Metabolite	e	C3H8O6P1	-2.0
-GLC__e	substrate	0	D-Glucose	Metabolite	e	C6H12O6	0.0
-GLN__e	substrate	0	L-glutamine	Metabolite	e	C5H10N2O3	0.0
-GlnGln__e	substrate	0	L-glutaminyl-L-glutamine	Metabolite	e	C10H18N4O5	0.0
-GluGlu__e	substrate	0	L-glutamyl-L-glutamic acid	Metabolite	e	C10H14N2O7	-2.0
-GlyGly__e	substrate	0	L-glycyl-L-glycine	Metabolite	e	C4H8N2O3	0.0
-Gm__e	substrate	0	2'-O-methylguanosine	Metabolite	e	C11H15N5O5	0.0
-GMP__e	substrate	0	GMP	Metabolite	e	C10H12N5O8P1	-2.0
-GMP_Lysine__e	substrate	0	GMP-lysine	Metabolite	e	C16H26N7O9P1	-1.0
-GMP_Mor__e	substrate	0	GMP-morpholidate	Metabolite	e	C14H21N6O8P1	-1.0
-GN__e	substrate	0	guanine	Metabolite	e	C5H5N5O1	0.0
-H__e	substrate	0	hydrogen ion	Metabolite	e	H1	1.0
-H2O__e	substrate	0	water	Metabolite	e	H2O1	0.0
-H2O2__e	substrate	0	hydrogen peroxide	Metabolite	e	H2O2	0.0
-HDCA__e	substrate	0	Hexadecanoate (n-C16:0)	Metabolite	e	C16H31O2	-1.0
-HDCEA__e	substrate	0	Hexadecenoate (n-C16:1)	Metabolite	e	C16H29O2	-1.0
-HisHis__e	substrate	0	L-histidyl-L-histidine	Metabolite	e	C12H16N6O3	0.0
-IleIle__e	substrate	0	L-isoleucyl-L-isoleucine	Metabolite	e	C12H24N2O3	0.0
-K__e	substrate	0	potassium ion	Metabolite	e	K1	1.0
-k2C__e	substrate	0	lysidine	Metabolite	e	C15H25N5O6	1.0
-LeuLeu__e	substrate	0	L-leucyl-L-leucine	Metabolite	e	C12H24N2O3	0.0
-LIPOATE__e	substrate	0	lipoate	Metabolite	e	C8H13O2S2	-1.0
-LYS__e	substrate	0	L-Lysine	Metabolite	e	C6H15N2O2	1.0
-LysLys__e	substrate	0	L-lysyl-L-lysine	Metabolite	e	C12H28N4O3	2.0
-m1G__e	substrate	0	1-methylguanosine	Metabolite	e	C11H15N5O5	0.0
-m2G__e	substrate	0	N(2)-methylguanosine	Metabolite	e	C11H15N5O5	0.0
-m62A__e	substrate	0	N6,N6-dimethyladenosine	Metabolite	e	C12H17N5O4	0.0
-m7G__e	substrate	0	7-methylguanosine	Metabolite	e	C11H16N5O5	1.0
-METHYL_OCDCEA__e	substrate	0	methyl oleate	Metabolite	e	C19H36O2	0.0
-MetMet__e	substrate	0	L-methionyl-L-methionine	Metabolite	e	C10H20N2O3S2	0.0
-MG__e	substrate	0	magnesium ion	Metabolite	e	Mg1	2.0
-MN__e	substrate	0	manganese ion	Metabolite	e	Mn1	2.0
-MOBD__e	substrate	0	Molybdate	Metabolite	e	Mo1O4	-2.0
-MONOBUTYRIN__e	substrate	0	1-monobutyrin	Metabolite	e	C7H14O4	0.0
-MOR__e	substrate	0	morpholine	Metabolite	e	C4H9N1O1	1.0
-NA__e	substrate	0	sodium ion	Metabolite	e	Na1	1.0
-NAC__e	substrate	0	nicotinate	Metabolite	e	C6H4N1O2	-1.0
-NH3__e	substrate	0	ammonia	Metabolite	e	H3N1	1.0
-NH4__e	substrate	0	ammonium	Metabolite	e	H4N1	1.0
-NI__e	substrate	0	nickel	Metabolite	e	Ni1	2.0
-O2__e	substrate	0	oxygen	Metabolite	e	O2	0.0
-OA__e	substrate	0	oxaloacetate	Metabolite	e	C4H2O5	-2.0
-OCDCA__e	substrate	0	octadecanoate (n-C18:0)	Metabolite	e	C18H35O2	-1.0
-OCDCEA__e	substrate	0	octadecenoate (n-C18:1)	Metabolite	e	C18H33O2	-1.0
-PHE__e	substrate	0	L-phenylalanine	Metabolite	e	C9H11N1O2	0.0
-PhePhe__e	substrate	0	L-phenylalanyl-L-phenylalanine	Metabolite	e	C18H20N2O3	0.0
-PI__e	substrate	0	phosphate	Metabolite	e	H1O4P1	-2.0
-POE_SORBITAN__e	substrate	0	Polyoxyethylene (20) sorbitan	Metabolite	e	C46H92O25	0.0
-ProPro__e	substrate	0	L-prolyl-L-proline	Metabolite	e	C10H16N2O3	0.0
-PSIURI__e	substrate	0	pseudouridine	Metabolite	e	C9H12N2O6	0.0
-PTRC__e	substrate	0	putrescine	Metabolite	e	C4H14N2	2.0
-PYDX__e	substrate	0	Pyridoxal	Metabolite	e	C8H9N1O3	0.0
-RIBFLV__e	substrate	0	riboflavin, oxidized	Metabolite	e	C17H20N4O6	-1.0
-s4U__e	substrate	0	4-thiouridine	Metabolite	e	C9H12N2O5S1	0.0
-SerSer__e	substrate	0	L-seryl-L-serine	Metabolite	e	C6H12N2O5	0.0
-SO4__e	substrate	0	sulphate	Metabolite	e	O4S1	-2.0
-SPMD__e	substrate	0	spermidine	Metabolite	e	C7H22N3	3.0
-STEROL__e	substrate	0	cholesterol	Metabolite	e	C27H46O1	0.0
-THF__e	substrate	0	5,6,7,8-Tetrahydrofolate	Metabolite	e	C19H21N7O6	-2.0
-THM__e	substrate	0	thiamine	Metabolite	e	C12H17N4O1S1	1.0
-ThrThr__e	substrate	0	L-threonyl-L-threonine	Metabolite	e	C8H16N2O5	0.0
-THY__e	substrate	0	thymine	Metabolite	e	C5H6N2O2	0.0
-TRIBUTYRIN__e	substrate	0	tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin	Metabolite	e	C15H26O6	0.0
-TRILAURIN__e	substrate	0	trilaurin	Metabolite	e	C39H74O6	0.0
-TRIMYRISTIN__e	substrate	0	trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate	Metabolite	e	C45H86O6	0.0
-TRIOLEIN__e	substrate	0	triolein	Metabolite	e	C57H104O6	0.0
-TRIPALMITIN__e	substrate	0	tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate	Metabolite	e	C51H98O6	0.0
-TRISTEARIN__e	substrate	0	Tristearin	Metabolite	e	C57H110O6	0.0
-TRI_HDCEA_IN__e	substrate	0	triacylglycerol of {Hexadecenoate acid}	Metabolite	e	C51H92O6	0.0
-TRI_TTDCEA_IN__e	substrate	0	triacylglycerol of {tetradecenoic acid}	Metabolite	e	C45H78O6	0.0
-TRP__e	substrate	0	L-tryptophan	Metabolite	e	C11H12N2O2	0.0
-TrpTrp__e	substrate	0	L-trytophanyl-L-trytophan	Metabolite	e	C22H22N4O3	0.0
-TTDCA__e	substrate	0	tetradecanoate (n-C14:0)	Metabolite	e	C14H27O2	-1.0
-TTDCEA__e	substrate	0	tetradecenoate (n-C14:1)	Metabolite	e	C14H25O2	-1.0
-TWEEN80__e	substrate	0	Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80	Metabolite	e	C64H124O26	0.0
-TYR__e	substrate	0	L-tyrosine	Metabolite	e	C9H11N1O3	0.0
-TyrTyr__e	substrate	0	L-tyrosyl-L-tyrosine	Metabolite	e	C18H20N2O5	0.0
-Um__e	substrate	0	2'-O-methyluridine	Metabolite	e	C10H14N2O6	0.0
-URA__e	substrate	0	uracil	Metabolite	e	C4H4N2O2	0.0
-ValVal__e	substrate	0	L-valyl-L-valine	Metabolite	e	C10H20N2O3	0.0
-ZN__e	substrate	0	zinc ion	Metabolite	e	Zn1	2.0
-CDPDG160__m	substrate	0	CDP-1,2-dihexadecanoylglycerol	Metabolite	m	C44H79N3O15P2	-2.0
-CDPDG161__m	substrate	0	CDP-1,2-dihexadec-9-enoylglycerol	Metabolite	m	C44H75N3O15P2	-2.0
-CDPDG181__m	substrate	0	CDP-1,2-dioctadec-11-enoylglycerol	Metabolite	m	C48H83N3O15P2	-2.0
-CL160__m	substrate	0	cardiolipin (tetrahexadecanoyl, n-C16:0)	Metabolite	m	C73H140O17P2	-2.0
-CL161__m	substrate	0	cardiolipin (tetrahexadec-9-enoyl, n-C16:1)	Metabolite	m	C73H132O17P2	-2.0
-CL181__m	substrate	0	cardiolipin (tetraoctadec-11-enoyl, n-C18:1)	Metabolite	m	C81H148O17P2	-2.0
-DAG160__m	substrate	0	Diacylglycerol (n-16:0)	Metabolite	m	C35H66O5	0.0
-DAG161__m	substrate	0	Diacylglycerol (n-16:1)	Metabolite	m	C35H64O5	0.0
-DAG181__m	substrate	0	Diacylglycerol (n-18:1)	Metabolite	m	C39H72O5	0.0
-PA160__m	substrate	0	1,2-dihexadecanoyl-sn-glycerol 3-phosphate	Metabolite	m	C35H67O8P1	-2.0
-PA161__m	substrate	0	1,2-dihexadec-9-enoyl-sn-glycerol 3-phosphate	Metabolite	m	C35H63O8P1	-2.0
-PA181__m	substrate	0	1,2-dioctadec-11-enoyl-sn-glycerol 3-phosphate	Metabolite	m	C39H71O8P1	-2.0
-PG160__m	substrate	0	Phosphatidylglycerol (dihexadecanoyl, n-C16:0)	Metabolite	m	C38H74O10P1	-1.0
-PG161__m	substrate	0	Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1)	Metabolite	m	C38H70O10P1	-1.0
-PG181__m	substrate	0	Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1)	Metabolite	m	C42H78O10P1	-1.0
-PGP160__m	substrate	0	Phosphatidylglycerophosphate (dihexadecanoyl, n-C16:0)	Metabolite	m	C38H73O13P2	-3.0
-PGP161__m	substrate	0	Phosphatidylglycerophosphate (dihexadec-9-enoyl, n-C16:1)	Metabolite	m	C38H69O13P2	-3.0
-PGP181__m	substrate	0	Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)	Metabolite	m	C42H77O13P2	-3.0
-STEROL__m	substrate	0	cholesterol	Metabolite	m	C27H46O1	0.0
+sid	substrateIndexs	type	fbaRightHandSide	name	model_type	compartment	formula	charge
+AC	4	substrate	0	acetate	Metabolite	c	C2H3O2	-1.0
+ACAL	5	substrate	0	acetaldehyde	Metabolite	c	C2H4O1	0.0
+ACCOA	6	substrate	0	Acetyl-CoA	Metabolite	c	C23H34N7O17P3S1	-4.0
+ACTP	8	substrate	0	Acetyl phosphate	Metabolite	c	C2H3O5P1	-2.0
+AD	9	substrate	0	adenine	Metabolite	c	C5H5N5	0.0
+ADN	10	substrate	0	adenosine	Metabolite	c	C10H13N5O4	0.0
+ADP	11	substrate	0	ADP	Metabolite	c	C10H12N5O10P2	-3.0
+AEPP	12	substrate	0	2-aminoethylphosphonate	Metabolite	c	C2H8N1O3P1	0.0
+AHCYS	13	substrate	0	S-Adenosyl-L-homocysteine	Metabolite	c	C14H20N6O5S1	0.0
+AKG	14	substrate	0	2-Oxoglutarate	Metabolite	c	C5H4O5	-2.0
+ALA	15	substrate	0	L-alanine	Metabolite	c	C3H7N1O2	0.0
+AlaAla	16	substrate	0	L-alanyl-L-alanine	Metabolite	c	C6H12N2O3	0.0
+AMET	17	substrate	0	S-Adenosyl-L-methionine	Metabolite	c	C15H23N6O5S1	1.0
+AMP	19	substrate	0	AMP	Metabolite	c	C10H12N5O7P1	-2.0
+ARG	24	substrate	0	L-Arginine	Metabolite	c	C6H15N4O2	1.0
+ArgArg	25	substrate	0	L-arginyl-L-arginine	Metabolite	c	C12H28N8O3	2.0
+ASN	26	substrate	0	L-Asparagine	Metabolite	c	C4H8N2O3	0.0
+AsnAsn	27	substrate	0	L-asparaginyl-L-asparagine	Metabolite	c	C8H14N4O5	0.0
+ASP	28	substrate	0	L-Aspartate	Metabolite	c	C4H6N1O4	-1.0
+AspAsp	29	substrate	0	L-aspartyl-L-aspartic Acid	Metabolite	c	C8H10N2O7	-2.0
+ATP	30	substrate	0	ATP	Metabolite	c	C10H12N5O13P3	-3.0
+CA	42	substrate	0	calcium ion	Metabolite	c	Ca1	2.0
+CAP	43	substrate	0	carbamoyl phosphate	Metabolite	c	C1H2N1O5P1	-2.0
+CDP	46	substrate	0	CDP	Metabolite	c	C9H12N3O11P2	-3.0
+CL	62	substrate	0	chloride ion	Metabolite	c	Cl1	-1.0
+cmnm5s2U	66	substrate	0	5-carboxymethylaminomethyl-2-thiouridine	Metabolite	c	C12H17N3O7S1	0.0
+cmnm5s2UMP	67	substrate	0	5-carboxymethylaminomethyl-2-thiouridine monophosphate	Metabolite	c	C12H16N3O10P1S1	-2.0
+CMP	68	substrate	0	CMP	Metabolite	c	C9H12N3O8P1	-2.0
+CO	69	substrate	0	cobalt ion	Metabolite	c	Co1	2.0
+CO2	70	substrate	0	carbon dioxide	Metabolite	c	C1O2	0.0
+COA	71	substrate	0	coenzyme A	Metabolite	c	C21H32N7O16P3S1	-4.0
+CTP	73	substrate	0	CTP	Metabolite	c	C9H12N3O14P3	-4.0
+CU	74	substrate	0	cupric ion	Metabolite	c	Cu1	2.0
+CYS	87	substrate	0	L-Cysteine	Metabolite	c	C3H7N1O2S1	0.0
+CysCys	88	substrate	0	L-cysteinyl-L-cysteine	Metabolite	c	C6H12N2O3S2	0.0
+CYTD	89	substrate	0	cytidine	Metabolite	c	C9H13N3O5	0.0
+DA	91	substrate	0	deoxyadenosine	Metabolite	c	C10H13N5O3	0.0
+DADP	92	substrate	0	dADP	Metabolite	c	C10H12N5O9P2	-3.0
+DAMP	97	substrate	0	dAMP	Metabolite	c	C10H12N5O6P1	-2.0
+dApdAp	98	substrate	0	dAp-dAp	Metabolite	c	C20H23N10O11P2	-3.0
+DATP	99	substrate	0	dATP	Metabolite	c	C10H12N5O12P3	-4.0
+DC	100	substrate	0	deoxycytidine	Metabolite	c	C9H13N3O4	0.0
+DCDP	105	substrate	0	dCDP	Metabolite	c	C9H12N3O10P2	-3.0
+DCMP	106	substrate	0	dCMP	Metabolite	c	C9H12N3O7P1	-2.0
+dCpdCp	112	substrate	0	dCp-dCp	Metabolite	c	C18H23N6O13P2	-3.0
+DCTP	113	substrate	0	dCTP	Metabolite	c	C9H12N3O13P3	-4.0
+DG	119	substrate	0	deoxyguanosine	Metabolite	c	C10H13N5O4	0.0
+DGDP	120	substrate	0	dGDP	Metabolite	c	C10H12N5O10P2	-3.0
+DGMP	121	substrate	0	dGMP	Metabolite	c	C10H12N5O7P1	-2.0
+dGpdGp	122	substrate	0	dGp-dGp	Metabolite	c	C20H23N10O13P2	-3.0
+DGTP	123	substrate	0	dGTP	Metabolite	c	C10H12N5O13P3	-4.0
+DHF	129	substrate	0	dihydrofolate	Metabolite	c	C19H19N7O6	-2.0
+dINS	134	substrate	0	2'-deoxyinosine	Metabolite	c	C10H12N4O4	-1.0
+DPG	139	substrate	0	3-Phospho-D-glyceroyl phosphate	Metabolite	c	C3H4O10P2	-4.0
+DR1P	140	substrate	0	2-Deoxy-D-ribose 1-phosphate	Metabolite	c	C5H9O7P1	-2.0
+DR5P	141	substrate	0	2-Deoxy-D-ribose 5-phosphate	Metabolite	c	C5H9O7P1	-2.0
+DT	142	substrate	0	thymidine	Metabolite	c	C10H14N2O5	0.0
+DTDP	147	substrate	0	dTDP	Metabolite	c	C10H13N2O11P2	-3.0
+DTMP	148	substrate	0	dTMP	Metabolite	c	C10H13N2O8P1	-2.0
+dTpdTp	154	substrate	0	dTp-dTp	Metabolite	c	C20H25N4O15P2	-3.0
+DTTP	155	substrate	0	dTTP	Metabolite	c	C10H13N2O14P3	-4.0
+DU	157	substrate	0	deoxyuridine	Metabolite	c	C9H12N2O5	0.0
+DUMP	159	substrate	0	dUMP	Metabolite	c	C9H11N2O8P1	-2.0
+E4P	177	substrate	0	D-Erythrose 4-phosphate	Metabolite	c	C4H7O7P1	-2.0
+F1P	199	substrate	0	D-Fructose 1-phosphate	Metabolite	c	C6H11O9P1	-2.0
+F6P	202	substrate	0	D-Fructose 6-phosphate	Metabolite	c	C6H11O9P1	-2.0
+FAD	203	substrate	0	flavin adenine dinucleotide, oxidized	Metabolite	c	C27H31N9O15P2	-2.0
+FADH2	204	substrate	0	flavin adenine dinucleotide, reduced	Metabolite	c	C27H33N9O15P2	-2.0
+FDP	210	substrate	0	D-Fructose 1,6-bisphosphate	Metabolite	c	C6H10O12P2	-4.0
+FE2	211	substrate	0	ferrous iron	Metabolite	c	Fe1	2.0
+FE3	212	substrate	0	ferric iron	Metabolite	c	Fe1	3.0
+FMET	213	substrate	0	N-Formyl-L-methionine	Metabolite	c	C6H11N1O3S1	-1.0
+FMN	214	substrate	0	flavin mononucleotide, oxidized	Metabolite	c	C17H19N4O9P1	-3.0
+FMNH2	215	substrate	0	flavin mononucleotide, reduced	Metabolite	c	C17H21N4O9P1	-2.0
+FOR	216	substrate	0	Formate	Metabolite	c	C1H1O2	-1.0
+FTHF10	218	substrate	0	10-formyl-tetrahydrofolate	Metabolite	c	C20H21N7O7	-2.0
+FTHF5	219	substrate	0	5-formyltetrahydrofolate	Metabolite	c	C20H23N7O7	-2.0
+G1P	221	substrate	0	D-Glucose 1-phosphate	Metabolite	c	C6H11O9P1	-2.0
+G2P	223	substrate	0	D-Glycerate 2-phosphate	Metabolite	c	C3H4O7P1	-3.0
+G3P	225	substrate	0	3-Phospho-D-glycerate	Metabolite	c	C3H4O7P1	-3.0
+G6P	226	substrate	0	D-Glucose 6-phosphate	Metabolite	c	C6H11O9P1	-2.0
+GDP	246	substrate	0	GDP	Metabolite	c	C10H12N5O11P2	-3.0
+GL	248	substrate	0	glycerol	Metabolite	c	C3H8O3	0.0
+GL3P	250	substrate	0	Glycerol 3-phosphate	Metabolite	c	C3H8O6P1	-2.0
+GLN	276	substrate	0	L-glutamine	Metabolite	c	C5H10N2O3	0.0
+GlnGln	277	substrate	0	L-glutaminyl-L-glutamine	Metabolite	c	C10H18N4O5	0.0
+GLU	278	substrate	0	L-Glutamate	Metabolite	c	C5H8N1O4	-1.0
+GluGlu	281	substrate	0	L-glutamyl-L-glutamic acid	Metabolite	c	C10H14N2O7	-2.0
+GLY	282	substrate	0	glycine	Metabolite	c	C2H5N1O2	0.0
+GlyGly	283	substrate	0	L-glycyl-L-glycine	Metabolite	c	C4H8N2O3	0.0
+Gm	284	substrate	0	2'-O-methylguanosine	Metabolite	c	C11H15N5O5	0.0
+GmMP	285	substrate	0	2'-O-methylguanosine monophosphate	Metabolite	c	C11H14N5O8P1	-2.0
+GMP	286	substrate	0	GMP	Metabolite	c	C10H12N5O8P1	-2.0
+GN	289	substrate	0	guanine	Metabolite	c	C5H5N5O1	0.0
+GSN	295	substrate	0	guanosine	Metabolite	c	C10H13N5O5	0.0
+GTP	296	substrate	0	GTP	Metabolite	c	C10H12N5O14P3	-4.0
+H	297	substrate	0	hydrogen ion	Metabolite	c	H1	1.0
+H2O	298	substrate	0	water	Metabolite	c	H2O1	0.0
+H2O2	299	substrate	0	hydrogen peroxide	Metabolite	c	H2O2	0.0
+HCYS	300	substrate	0	L-homocysteine	Metabolite	c	C4H9N1O2S1	0.0
+HDCA	301	substrate	0	Hexadecanoate (n-C16:0)	Metabolite	c	C16H31O2	-1.0
+HDCEA	302	substrate	0	Hexadecenoate (n-C16:1)	Metabolite	c	C16H29O2	-1.0
+HDECEG3P	303	substrate	0	1-hexadecanoyl-sn-glycerol 3-phosphate	Metabolite	c	C19H37O7P1	-2.0
+HDECG3P	304	substrate	0	1-hexadec-9-enoyl-sn-glycerol 3-phosphate	Metabolite	c	C19H35O7P1	-1.0
+HIS	305	substrate	0	L-Histidine	Metabolite	c	C6H9N3O2	0.0
+HisHis	306	substrate	0	L-histidyl-L-histidine	Metabolite	c	C12H16N6O3	0.0
+HYXN	328	substrate	0	hypoxanthine	Metabolite	c	C5H4N4O1	0.0
+IDP	329	substrate	0	IDP	Metabolite	c	C10H11N4O11P2	-4.0
+ILE	330	substrate	0	L-Isoleucine	Metabolite	c	C6H13N1O2	0.0
+IleIle	331	substrate	0	L-isoleucyl-L-isoleucine	Metabolite	c	C12H24N2O3	0.0
+IMP	332	substrate	0	IMP	Metabolite	c	C10H11N4O8P1	-2.0
+INS	334	substrate	0	inosine	Metabolite	c	C10H12N4O5	0.0
+ITP	335	substrate	0	ITP	Metabolite	c	C10H11N4O14P3	-5.0
+K	336	substrate	0	potassium ion	Metabolite	c	K1	1.0
+k2C	337	substrate	0	lysidine	Metabolite	c	C15H25N5O6	1.0
+k2CMP	338	substrate	0	lysidine monophosphate	Metabolite	c	C15H24N5O9P1	-1.0
+LEU	340	substrate	0	L-Leucine	Metabolite	c	C6H13N1O2	0.0
+LeuLeu	341	substrate	0	L-leucyl-L-leucine	Metabolite	c	C12H24N2O3	0.0
+LIPOATE	342	substrate	0	lipoate	Metabolite	c	C8H13O2S2	-1.0
+LIPOYLAMP	343	substrate	0	lipoyl-AMP	Metabolite	c	C18H25N5O8P1S2	-1.0
+LIPOYLLYS	344	substrate	0	N(6)-(lipoyl)lysine	Metabolite	c	C14H26N2O3S2	0.0
+LYS	346	substrate	0	L-Lysine	Metabolite	c	C6H15N2O2	1.0
+LysLys	347	substrate	0	L-lysyl-L-lysine	Metabolite	c	C12H28N4O3	2.0
+m1G	352	substrate	0	1-methylguanosine	Metabolite	c	C11H15N5O5	0.0
+m1GMP	353	substrate	0	1-methylguanosine monophosphate	Metabolite	c	C11H14N5O8P1	-2.0
+m2G	354	substrate	0	N(2)-methylguanosine	Metabolite	c	C11H15N5O5	0.0
+m2GMP	355	substrate	0	N(2)-methylguanosine monophosphate	Metabolite	c	C11H14N5O8P1	-2.0
+m62A	370	substrate	0	N6,N6-dimethyladenosine	Metabolite	c	C12H17N5O4	0.0
+m62AMP	371	substrate	0	N6,N6-dimethyladenosine monophosphate	Metabolite	c	C12H16N5O7P1	-2.0
+m7G	380	substrate	0	7-methylguanosine	Metabolite	c	C11H16N5O5	1.0
+m7GMP	381	substrate	0	7-methylguanosine monophosphate	Metabolite	c	C11H15N5O8P1	-1.0
+MET	388	substrate	0	L-Methionine	Metabolite	c	C5H11N1O2S1	0.0
+METHF	389	substrate	0	5,10-methyltetrahydrofolate	Metabolite	c	C20H20N7O6	-2.0
+MetMet	392	substrate	0	L-methionyl-L-methionine	Metabolite	c	C10H20N2O3S2	0.0
+METTHF	395	substrate	0	5,10-Methylenetetrahydrofolate	Metabolite	c	C20H23N7O6	-2.0
+MG	396	substrate	0	magnesium ion	Metabolite	c	Mg1	2.0
+MN	397	substrate	0	manganese ion	Metabolite	c	Mn1	2.0
+MO	398	substrate	0	molybdenum ion	Metabolite	c	Mo1	2.0
+MOBD	399	substrate	0	Molybdate	Metabolite	c	Mo1O4	-2.0
+MTHF	402	substrate	0	5-Methyltetrahydrofolate	Metabolite	c	C20H24N7O6	-2.0
+NA	405	substrate	0	sodium ion	Metabolite	c	Na1	1.0
+NAAD	406	substrate	0	nicotinic acid adenine dinucleotide	Metabolite	c	C21H27N6O15P2	-2.0
+NAC	407	substrate	0	nicotinate	Metabolite	c	C6H4N1O2	-1.0
+NAD	408	substrate	0	nicotinamide adenine dinucleotide, oxidized	Metabolite	c	C21H26N7O14P2	-1.0
+NADH	409	substrate	0	nicotinamide adenine dinucleotide, reduced	Metabolite	c	C21H27N7O14P2	-2.0
+NADP	410	substrate	0	nicotinamide adenine dinucleotide phosphate, oxidized	Metabolite	c	C21H26N7O17P3	-3.0
+NADPH	411	substrate	0	nicotinamide adenine dinucleotide phosphate, reduced	Metabolite	c	C21H27N7O17P3	-4.0
+NAMN	412	substrate	0	nicotinate/nicotinic acid mononucleotide	Metabolite	c	C11H15N1O9P1	-2.0
+NH3	413	substrate	0	ammonia	Metabolite	c	H3N1	1.0
+NH4	414	substrate	0	ammonium	Metabolite	c	H4N1	1.0
+NI	415	substrate	0	nickel	Metabolite	c	Ni1	2.0
+NMN	417	substrate	0	nicotinamide mononucleotide	Metabolite	c	C11H14N2O8P1	-1.0
+O2	421	substrate	0	oxygen	Metabolite	c	O2	0.0
+OA	438	substrate	0	oxaloacetate	Metabolite	c	C4H2O5	-2.0
+OCDCEA	440	substrate	0	octadecenoate (n-C18:1)	Metabolite	c	C18H33O2	-1.0
+ODEC11GP	441	substrate	0	1-octadec-11-enoyl-sn-glycerol 3-phosphate	Metabolite	c	C21H39O7P1	-2.0
+PEP	463	substrate	0	phosphoenolpyruvate	Metabolite	c	C3H2O6P1	-3.0
+PHE	470	substrate	0	L-phenylalanine	Metabolite	c	C9H11N1O2	0.0
+PhePhe	471	substrate	0	L-phenylalanyl-L-phenylalanine	Metabolite	c	C18H20N2O3	0.0
+PI	473	substrate	0	phosphate	Metabolite	c	H1O4P1	-2.0
+PL5P	474	substrate	0	Pyridoxal 5'-phosphate	Metabolite	c	C8H8N1O6P1	-2.0
+PPAA	476	substrate	0	Phosphonoacetaldehyde	Metabolite	c	C2H5O4P1	-1.0
+PPGPP	477	substrate	0	Guanosine 3',5'-bis(diphosphate)	Metabolite	c	C10H11N5O17P4	-4.0
+PPI	479	substrate	0	diphosphate	Metabolite	c	H1O7P2	-3.0
+PRO	481	substrate	0	L-Proline	Metabolite	c	C5H9N1O2	0.0
+ProPro	483	substrate	0	L-prolyl-L-proline	Metabolite	c	C10H16N2O3	0.0
+PRPP	484	substrate	0	5-Phospho-alpha-D-ribose 1-diphosphate	Metabolite	c	C5H8O14P3	-5.0
+pSER	485	substrate	0	phosphoserine	Metabolite	c	C3H6N1O6P1	-3.0
+PSIURI	486	substrate	0	pseudouridine	Metabolite	c	C9H12N2O6	0.0
+PSIURIMP	487	substrate	0	pseudouridine monophoshate	Metabolite	c	C9H11N2O9P1	-2.0
+pTHR	488	substrate	0	phosphothreonine	Metabolite	c	C4H8N1O6P1	-2.0
+PTRC	489	substrate	0	putrescine	Metabolite	c	C4H14N2	2.0
+pTYR	490	substrate	0	Phosphotyrosine	Metabolite	c	C9H10N1O6P1	-2.0
+PYDX	493	substrate	0	Pyridoxal	Metabolite	c	C8H9N1O3	0.0
+PYR	494	substrate	0	pyruvate	Metabolite	c	C3H3O3	-1.0
+R1P	495	substrate	0	alpha-D-Ribose 1-phosphate	Metabolite	c	C5H11O8P1	-2.0
+R5P	496	substrate	0	alpha-D-Ribose 5-phosphate	Metabolite	c	C5H9O8P1	-2.0
+RIBFLV	500	substrate	0	riboflavin, oxidized	Metabolite	c	C17H20N4O6	-1.0
+RL5P	501	substrate	0	D-Ribulose 5-phosphate	Metabolite	c	C5H9O8P1	-2.0
+s4U	504	substrate	0	4-thiouridine	Metabolite	c	C9H12N2O5S1	0.0
+s4UMP	505	substrate	0	4-thiouridine monophosphate	Metabolite	c	C9H11N2O8P1S1	-2.0
+S7P	506	substrate	0	D-sedoheptulose-7-phosphate	Metabolite	c	C7H13O10P1	-2.0
+SER	510	substrate	0	L-Serine	Metabolite	c	C3H7N1O3	0.0
+SerSer	511	substrate	0	L-seryl-L-serine	Metabolite	c	C6H12N2O5	0.0
+SNGLYP	512	substrate	0	sn-glycerol-1-phosphate	Metabolite	c	C3H7O6P1	-2.0
+SO4	514	substrate	0	sulphate	Metabolite	c	O4S1	-2.0
+SPMD	515	substrate	0	spermidine	Metabolite	c	C7H22N3	3.0
+T3P1	517	substrate	0	D-glyceraldehdye-3-phosphate	Metabolite	c	C3H5O6P1	-2.0
+T3P2	518	substrate	0	Dihydroxyacetone phosphate	Metabolite	c	C3H5O6P1	-2.0
+THF	527	substrate	0	5,6,7,8-Tetrahydrofolate	Metabolite	c	C19H21N7O6	-2.0
+THM	528	substrate	0	thiamine	Metabolite	c	C12H17N4O1S1	1.0
+THR	530	substrate	0	L-Threonine	Metabolite	c	C4H9N1O3	0.0
+ThrThr	531	substrate	0	L-threonyl-L-threonine	Metabolite	c	C8H16N2O5	0.0
+THY	532	substrate	0	thymine	Metabolite	c	C5H6N2O2	0.0
+TPP	533	substrate	0	thiamine diphosphate	Metabolite	c	C12H16N4O7P2S1	-2.0
+TRP	542	substrate	0	L-tryptophan	Metabolite	c	C11H12N2O2	0.0
+TrpTrp	543	substrate	0	L-trytophanyl-L-trytophan	Metabolite	c	C22H22N4O3	0.0
+TYR	548	substrate	0	L-tyrosine	Metabolite	c	C9H11N1O3	0.0
+TyrTyr	549	substrate	0	L-tyrosyl-L-tyrosine	Metabolite	c	C18H20N2O5	0.0
+UDP	552	substrate	0	UDP	Metabolite	c	C9H11N2O12P2	-3.0
+UDPG	553	substrate	0	UDP-glucose	Metabolite	c	C15H22N2O17P2	-2.0
+UDPGAL	554	substrate	0	UDP-galactose	Metabolite	c	C15H22N2O17P2	-2.0
+UDPGALF	555	substrate	0	UDP-D-galacto-1,4-furanose	Metabolite	c	C15H22N2O17P2	-2.0
+Um	556	substrate	0	2'-O-methyluridine	Metabolite	c	C10H14N2O6	0.0
+UmMP	557	substrate	0	2'-O-methyluridine monophosphate	Metabolite	c	C10H13N2O9P1	-2.0
+UMP	558	substrate	0	UMP	Metabolite	c	C9H11N2O9P1	-2.0
+URA	559	substrate	0	uracil	Metabolite	c	C4H4N2O2	0.0
+URI	560	substrate	0	uridine	Metabolite	c	C9H12N2O6	0.0
+UTP	561	substrate	0	UTP	Metabolite	c	C9H11N2O15P3	-4.0
+VAL	562	substrate	0	L-Valine	Metabolite	c	C5H11N1O2	0.0
+ValVal	563	substrate	0	L-valyl-L-valine	Metabolite	c	C10H20N2O3	0.0
+X5P	565	substrate	0	D-Xylulose 5-phosphate	Metabolite	c	C5H9O8P1	-2.0
+ZN	568	substrate	0	zinc ion	Metabolite	c	Zn1	2.0
+MG_124_MONOMER	569	substrate	0	thioredoxin	ProteinMonomer	c		
+MG_124_MONOMER_ox	571	substrate	0	oxidized thioredoxin	ProteinComplex	c		
+MG_229_231_TETRAMER	572	substrate	0	ribonucleoside-diphosphate reductase	ProteinComplex	c		
+MG_229_231_TETRAMER_ox	573	substrate	0	oxidized ribonucleoside-diphosphate reductase	ProteinComplex	c		
+MG_287_MONOMER_ACP	574	substrate	0	holo acyl carrier protein	ProteinComplex	c		
+MG_287_MONOMER_hdeACP	576	substrate	0	cis-hexadec-9-enoyl-[acyl-carrier protein] (n-C16:1)	ProteinComplex	c		
+MG_287_MONOMER_octeACP	579	substrate	0	cis-octadec-11-enoyl-[acyl-carrier protein] (n-C18:1)	ProteinComplex	c		
+MG_287_MONOMER_palmACP	580	substrate	0	Palmitoyl-ACP (n-C16:0ACP)	ProteinComplex	c		
+MG_427_DIMER	582	substrate	0	osmotically inducible peroxidase	ProteinComplex	c		
+MG_427_DIMER_ox	583	substrate	0	oxidized osmotically inducible peroxidase	ProteinComplex	c		
+MG_454_DIMER	584	substrate	0	thiol-dependent peroxidase	ProteinComplex	c		
+MG_454_DIMER_ox	585	substrate	0	oxidized thiol-dependent peroxidase	ProteinComplex	c		
+metabolite_constraint_ix_1	226	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_1		n		
+metabolite_constraint_ix_2	227	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_2		n		
+metabolite_constraint_ix_3	228	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_3		n		
+metabolite_constraint_ix_4	229	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_4		n		
+metabolite_constraint_ix_5	230	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_5		n		
+metabolite_constraint_ix_6	231	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_6		n		
+metabolite_constraint_ix_7	232	metaboliteInternalExchangeConstraint	0	metabolite_constraint_ix_7		n		
+biomass	233	biomass	0	biomass		n		
+AC__e	589	substrate	0	acetate	Metabolite	e	C2H3O2	-1.0
+ACAL__e	590	substrate	0	acetaldehyde	Metabolite	e	C2H4O1	0.0
+AD__e	594	substrate	0	adenine	Metabolite	e	C5H5N5	0.0
+AEPP__e	597	substrate	0	2-aminoethylphosphonate	Metabolite	e	C2H8N1O3P1	0.0
+AKG__e	599	substrate	0	2-Oxoglutarate	Metabolite	e	C5H4O5	-2.0
+AlaAla__e	601	substrate	0	L-alanyl-L-alanine	Metabolite	e	C6H12N2O3	0.0
+AMP__e	604	substrate	0	AMP	Metabolite	e	C10H12N5O7P1	-2.0
+AMP_Lysine__e	605	substrate	0	AMP-Lysine	Metabolite	e	C16H26N7O8P1	-1.0
+AMP_Mor__e	606	substrate	0	AMP-morpholidate	Metabolite	e	C14H21N6O7P1	-1.0
+AMP_NH2__e	607	substrate	0	AMP-NH2	Metabolite	e	C10H15N6O6P1	-1.0
+ArgArg__e	610	substrate	0	L-arginyl-L-arginine	Metabolite	e	C12H28N8O3	2.0
+AsnAsn__e	612	substrate	0	L-asparaginyl-L-asparagine	Metabolite	e	C8H14N4O5	0.0
+AspAsp__e	614	substrate	0	L-aspartyl-L-aspartic Acid	Metabolite	e	C8H10N2O7	-2.0
+BUT__e	622	substrate	0	butyric acid, butanoic acid	Metabolite	e	C4H8O2	-1.0
+CA__e	627	substrate	0	calcium ion	Metabolite	e	Ca1	2.0
+CAP__e	628	substrate	0	carbamoyl phosphate	Metabolite	e	C1H2N1O5P1	-2.0
+CH3OH__e	640	substrate	0	methanol	Metabolite	e	C1H4O1	0.0
+CL__e	647	substrate	0	chloride ion	Metabolite	e	Cl1	-1.0
+cmnm5s2U__e	651	substrate	0	5-carboxymethylaminomethyl-2-thiouridine	Metabolite	e	C12H17N3O7S1	0.0
+CO__e	654	substrate	0	cobalt ion	Metabolite	e	Co1	2.0
+CO2__e	655	substrate	0	carbon dioxide	Metabolite	e	C1O2	0.0
+COA__e	656	substrate	0	coenzyme A	Metabolite	e	C21H32N7O16P3S1	-4.0
+CU__e	659	substrate	0	cupric ion	Metabolite	e	Cu1	2.0
+CysCys__e	673	substrate	0	L-cysteinyl-L-cysteine	Metabolite	e	C6H12N2O3S2	0.0
+CYTD__e	674	substrate	0	cytidine	Metabolite	e	C9H13N3O5	0.0
+DA__e	676	substrate	0	deoxyadenosine	Metabolite	e	C10H13N5O3	0.0
+DAMP__e	682	substrate	0	dAMP	Metabolite	e	C10H12N5O6P1	-2.0
+dApdAp__e	683	substrate	0	dAp-dAp	Metabolite	e	C20H23N10O11P2	-3.0
+DCMP__e	691	substrate	0	dCMP	Metabolite	e	C9H12N3O7P1	-2.0
+dCpdCp__e	697	substrate	0	dCp-dCp	Metabolite	e	C18H23N6O13P2	-3.0
+DDCA__e	700	substrate	0	Dodecanoate (n-C12:0)	Metabolite	e	C12H23O2	-1.0
+DGMP__e	706	substrate	0	dGMP	Metabolite	e	C10H12N5O7P1	-2.0
+dGpdGp__e	707	substrate	0	dGp-dGp	Metabolite	e	C20H23N10O13P2	-3.0
+DIBUTYRIN__e	718	substrate	0	dibutyrin	Metabolite	e	C11H20O5	0.0
+dINS__e	719	substrate	0	2'-deoxyinosine	Metabolite	e	C10H12N4O4	-1.0
+DTMP__e	733	substrate	0	dTMP	Metabolite	e	C10H13N2O8P1	-2.0
+dTpdTp__e	739	substrate	0	dTp-dTp	Metabolite	e	C20H25N4O15P2	-3.0
+FE2__e	796	substrate	0	ferrous iron	Metabolite	e	Fe1	2.0
+FE3__e	797	substrate	0	ferric iron	Metabolite	e	Fe1	3.0
+FOR__e	801	substrate	0	Formate	Metabolite	e	C1H1O2	-1.0
+FRU__e	802	substrate	0	D-Fructose	Metabolite	e	C6H12O6	0.0
+G6P__e	811	substrate	0	D-Glucose 6-phosphate	Metabolite	e	C6H11O9P1	-2.0
+GL__e	833	substrate	0	glycerol	Metabolite	e	C3H8O3	0.0
+GL3P__e	835	substrate	0	Glycerol 3-phosphate	Metabolite	e	C3H8O6P1	-2.0
+GLC__e	836	substrate	0	D-Glucose	Metabolite	e	C6H12O6	0.0
+GLN__e	861	substrate	0	L-glutamine	Metabolite	e	C5H10N2O3	0.0
+GlnGln__e	862	substrate	0	L-glutaminyl-L-glutamine	Metabolite	e	C10H18N4O5	0.0
+GluGlu__e	866	substrate	0	L-glutamyl-L-glutamic acid	Metabolite	e	C10H14N2O7	-2.0
+GlyGly__e	868	substrate	0	L-glycyl-L-glycine	Metabolite	e	C4H8N2O3	0.0
+Gm__e	869	substrate	0	2'-O-methylguanosine	Metabolite	e	C11H15N5O5	0.0
+GMP__e	871	substrate	0	GMP	Metabolite	e	C10H12N5O8P1	-2.0
+GMP_Lysine__e	872	substrate	0	GMP-lysine	Metabolite	e	C16H26N7O9P1	-1.0
+GMP_Mor__e	873	substrate	0	GMP-morpholidate	Metabolite	e	C14H21N6O8P1	-1.0
+GN__e	874	substrate	0	guanine	Metabolite	e	C5H5N5O1	0.0
+H__e	882	substrate	0	hydrogen ion	Metabolite	e	H1	1.0
+H2O__e	883	substrate	0	water	Metabolite	e	H2O1	0.0
+H2O2__e	884	substrate	0	hydrogen peroxide	Metabolite	e	H2O2	0.0
+HDCA__e	886	substrate	0	Hexadecanoate (n-C16:0)	Metabolite	e	C16H31O2	-1.0
+HDCEA__e	887	substrate	0	Hexadecenoate (n-C16:1)	Metabolite	e	C16H29O2	-1.0
+HisHis__e	891	substrate	0	L-histidyl-L-histidine	Metabolite	e	C12H16N6O3	0.0
+IleIle__e	916	substrate	0	L-isoleucyl-L-isoleucine	Metabolite	e	C12H24N2O3	0.0
+K__e	921	substrate	0	potassium ion	Metabolite	e	K1	1.0
+k2C__e	922	substrate	0	lysidine	Metabolite	e	C15H25N5O6	1.0
+LeuLeu__e	926	substrate	0	L-leucyl-L-leucine	Metabolite	e	C12H24N2O3	0.0
+LIPOATE__e	927	substrate	0	lipoate	Metabolite	e	C8H13O2S2	-1.0
+LYS__e	931	substrate	0	L-Lysine	Metabolite	e	C6H15N2O2	1.0
+LysLys__e	932	substrate	0	L-lysyl-L-lysine	Metabolite	e	C12H28N4O3	2.0
+m1G__e	937	substrate	0	1-methylguanosine	Metabolite	e	C11H15N5O5	0.0
+m2G__e	939	substrate	0	N(2)-methylguanosine	Metabolite	e	C11H15N5O5	0.0
+m62A__e	955	substrate	0	N6,N6-dimethyladenosine	Metabolite	e	C12H17N5O4	0.0
+m7G__e	965	substrate	0	7-methylguanosine	Metabolite	e	C11H16N5O5	1.0
+METHYL_OCDCEA__e	976	substrate	0	methyl oleate	Metabolite	e	C19H36O2	0.0
+MetMet__e	977	substrate	0	L-methionyl-L-methionine	Metabolite	e	C10H20N2O3S2	0.0
+MG__e	981	substrate	0	magnesium ion	Metabolite	e	Mg1	2.0
+MN__e	982	substrate	0	manganese ion	Metabolite	e	Mn1	2.0
+MOBD__e	984	substrate	0	Molybdate	Metabolite	e	Mo1O4	-2.0
+MONOBUTYRIN__e	985	substrate	0	1-monobutyrin	Metabolite	e	C7H14O4	0.0
+MOR__e	986	substrate	0	morpholine	Metabolite	e	C4H9N1O1	1.0
+NA__e	990	substrate	0	sodium ion	Metabolite	e	Na1	1.0
+NAC__e	992	substrate	0	nicotinate	Metabolite	e	C6H4N1O2	-1.0
+NH3__e	998	substrate	0	ammonia	Metabolite	e	H3N1	1.0
+NH4__e	999	substrate	0	ammonium	Metabolite	e	H4N1	1.0
+NI__e	1000	substrate	0	nickel	Metabolite	e	Ni1	2.0
+O2__e	1006	substrate	0	oxygen	Metabolite	e	O2	0.0
+OA__e	1023	substrate	0	oxaloacetate	Metabolite	e	C4H2O5	-2.0
+OCDCA__e	1024	substrate	0	octadecanoate (n-C18:0)	Metabolite	e	C18H35O2	-1.0
+OCDCEA__e	1025	substrate	0	octadecenoate (n-C18:1)	Metabolite	e	C18H33O2	-1.0
+PHE__e	1055	substrate	0	L-phenylalanine	Metabolite	e	C9H11N1O2	0.0
+PhePhe__e	1056	substrate	0	L-phenylalanyl-L-phenylalanine	Metabolite	e	C18H20N2O3	0.0
+PI__e	1058	substrate	0	phosphate	Metabolite	e	H1O4P1	-2.0
+POE_SORBITAN__e	1060	substrate	0	Polyoxyethylene (20) sorbitan	Metabolite	e	C46H92O25	0.0
+ProPro__e	1068	substrate	0	L-prolyl-L-proline	Metabolite	e	C10H16N2O3	0.0
+PSIURI__e	1071	substrate	0	pseudouridine	Metabolite	e	C9H12N2O6	0.0
+PTRC__e	1074	substrate	0	putrescine	Metabolite	e	C4H14N2	2.0
+PYDX__e	1078	substrate	0	Pyridoxal	Metabolite	e	C8H9N1O3	0.0
+RIBFLV__e	1085	substrate	0	riboflavin, oxidized	Metabolite	e	C17H20N4O6	-1.0
+s4U__e	1089	substrate	0	4-thiouridine	Metabolite	e	C9H12N2O5S1	0.0
+SerSer__e	1096	substrate	0	L-seryl-L-serine	Metabolite	e	C6H12N2O5	0.0
+SO4__e	1099	substrate	0	sulphate	Metabolite	e	O4S1	-2.0
+SPMD__e	1100	substrate	0	spermidine	Metabolite	e	C7H22N3	3.0
+STEROL__e	1101	substrate	0	cholesterol	Metabolite	e	C27H46O1	0.0
+THF__e	1112	substrate	0	5,6,7,8-Tetrahydrofolate	Metabolite	e	C19H21N7O6	-2.0
+THM__e	1113	substrate	0	thiamine	Metabolite	e	C12H17N4O1S1	1.0
+ThrThr__e	1116	substrate	0	L-threonyl-L-threonine	Metabolite	e	C8H16N2O5	0.0
+THY__e	1117	substrate	0	thymine	Metabolite	e	C5H6N2O2	0.0
+TRIBUTYRIN__e	1119	substrate	0	tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin	Metabolite	e	C15H26O6	0.0
+TRILAURIN__e	1120	substrate	0	trilaurin	Metabolite	e	C39H74O6	0.0
+TRIMYRISTIN__e	1121	substrate	0	trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate	Metabolite	e	C45H86O6	0.0
+TRIOLEIN__e	1122	substrate	0	triolein	Metabolite	e	C57H104O6	0.0
+TRIPALMITIN__e	1123	substrate	0	tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate	Metabolite	e	C51H98O6	0.0
+TRISTEARIN__e	1124	substrate	0	Tristearin	Metabolite	e	C57H110O6	0.0
+TRI_HDCEA_IN__e	1125	substrate	0	triacylglycerol of {Hexadecenoate acid}	Metabolite	e	C51H92O6	0.0
+TRI_TTDCEA_IN__e	1126	substrate	0	triacylglycerol of {tetradecenoic acid}	Metabolite	e	C45H78O6	0.0
+TRP__e	1127	substrate	0	L-tryptophan	Metabolite	e	C11H12N2O2	0.0
+TrpTrp__e	1128	substrate	0	L-trytophanyl-L-trytophan	Metabolite	e	C22H22N4O3	0.0
+TTDCA__e	1129	substrate	0	tetradecanoate (n-C14:0)	Metabolite	e	C14H27O2	-1.0
+TTDCEA__e	1130	substrate	0	tetradecenoate (n-C14:1)	Metabolite	e	C14H25O2	-1.0
+TWEEN80__e	1132	substrate	0	Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80	Metabolite	e	C64H124O26	0.0
+TYR__e	1133	substrate	0	L-tyrosine	Metabolite	e	C9H11N1O3	0.0
+TyrTyr__e	1134	substrate	0	L-tyrosyl-L-tyrosine	Metabolite	e	C18H20N2O5	0.0
+Um__e	1141	substrate	0	2'-O-methyluridine	Metabolite	e	C10H14N2O6	0.0
+URA__e	1144	substrate	0	uracil	Metabolite	e	C4H4N2O2	0.0
+ValVal__e	1148	substrate	0	L-valyl-L-valine	Metabolite	e	C10H20N2O3	0.0
+ZN__e	1153	substrate	0	zinc ion	Metabolite	e	Zn1	2.0
+CDPDG160__m	1220	substrate	0	CDP-1,2-dihexadecanoylglycerol	Metabolite	m	C44H79N3O15P2	-2.0
+CDPDG161__m	1221	substrate	0	CDP-1,2-dihexadec-9-enoylglycerol	Metabolite	m	C44H75N3O15P2	-2.0
+CDPDG181__m	1223	substrate	0	CDP-1,2-dioctadec-11-enoylglycerol	Metabolite	m	C48H83N3O15P2	-2.0
+CL160__m	1233	substrate	0	cardiolipin (tetrahexadecanoyl, n-C16:0)	Metabolite	m	C73H140O17P2	-2.0
+CL161__m	1234	substrate	0	cardiolipin (tetrahexadec-9-enoyl, n-C16:1)	Metabolite	m	C73H132O17P2	-2.0
+CL181__m	1235	substrate	0	cardiolipin (tetraoctadec-11-enoyl, n-C18:1)	Metabolite	m	C81H148O17P2	-2.0
+DAG160__m	1263	substrate	0	Diacylglycerol (n-16:0)	Metabolite	m	C35H66O5	0.0
+DAG161__m	1264	substrate	0	Diacylglycerol (n-16:1)	Metabolite	m	C35H64O5	0.0
+DAG181__m	1265	substrate	0	Diacylglycerol (n-18:1)	Metabolite	m	C39H72O5	0.0
+PA160__m	1626	substrate	0	1,2-dihexadecanoyl-sn-glycerol 3-phosphate	Metabolite	m	C35H67O8P1	-2.0
+PA161__m	1627	substrate	0	1,2-dihexadec-9-enoyl-sn-glycerol 3-phosphate	Metabolite	m	C35H63O8P1	-2.0
+PA181__m	1629	substrate	0	1,2-dioctadec-11-enoyl-sn-glycerol 3-phosphate	Metabolite	m	C39H71O8P1	-2.0
+PG160__m	1634	substrate	0	Phosphatidylglycerol (dihexadecanoyl, n-C16:0)	Metabolite	m	C38H74O10P1	-1.0
+PG161__m	1635	substrate	0	Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1)	Metabolite	m	C38H70O10P1	-1.0
+PG181__m	1636	substrate	0	Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1)	Metabolite	m	C42H78O10P1	-1.0
+PGP160__m	1637	substrate	0	Phosphatidylglycerophosphate (dihexadecanoyl, n-C16:0)	Metabolite	m	C38H73O13P2	-3.0
+PGP161__m	1638	substrate	0	Phosphatidylglycerophosphate (dihexadec-9-enoyl, n-C16:1)	Metabolite	m	C38H69O13P2	-3.0
+PGP181__m	1639	substrate	0	Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)	Metabolite	m	C42H77O13P2	-3.0
+STEROL__m	1686	substrate	0	cholesterol	Metabolite	m	C27H46O1	0.0

@@ -96,7 +96,14 @@ class FluxBoundCalculator(object):
                 protein_reactions[r.getId()] = proteins
         return protein_reactions
     
+    
+    def initBounds(self):
+        # initialize bounds
+        lowerBounds =  -np.inf * np.ones([self.Nr, 1])       # 504
+        upperBounds =   np.inf * np.ones([self.Nr, 1])       # 504
+        return (lowerBounds, upperBounds)
         
+    
     def calcFluxBounds(self, substrates, enzymes, cellDryMass, state_fb=None,
                    applyEnzymeKineticBounds=True, applyEnzymeBounds=True, applyDirectionalityBounds=True,
                    applyExternalMetaboliteBounds=True, applyInternalMetaboliteBounds=True, applyProteinBounds=True):
@@ -114,9 +121,7 @@ class FluxBoundCalculator(object):
                 control = state_fb[name]
                 print 'Equal {} : {}'.format(name, (var==control).all())
         
-        # initialize bounds
-        lowerBounds =  -np.inf * np.ones([self.Nr, 1])       # 504
-        upperBounds =   np.inf * np.ones([self.Nr, 1])       # 504
+        (lowerBounds, upperBounds) = self.initBounds()
     
         # numbers of enzymes catalyzing each reaction, enzyme kinetics
         # every reaction has 1 or zero associated proteins (enzymes)
@@ -196,18 +201,22 @@ class FluxBoundCalculator(object):
         
         if applyInternalMetaboliteBounds:
             for (k, reaction_k) in enumerate(self.fbaReactionIndexs_metaboliteInternalLimitedExchange):
-                reaction_k = reaction_k-1
+                reaction_k = reaction_k-1 # reactions are correct
                 substrate_k = self.substrateIndexs_internalExchangedLimitedMetabolites[k]-1
+                print 'reaction_k, substrate_k:',reaction_k, substrate_k
+                print self.r_index.index[reaction_k]#, self.s_index.index[substrate_k]
+                
                 compartment_k = self.compartmentIndexs_cytosol
                 lowerBounds[reaction_k] = max(lowerBounds[reaction_k],
                                 - substrates[substrate_k, compartment_k]/self.stepSizeSec);
             print_difference(lowerBounds, "lowerBounds_applyInternalMetaboliteBounds")
             print_difference(upperBounds, "lowerBounds_applyInternalMetaboliteBounds")
         
-        print lowerBounds.transpose()
-        print state_fb.lowerBounds_applyInternalMetaboliteBounds.transpose()
-        print 'Difference'
-        print (lowerBounds- state_fb.lowerBounds_applyInternalMetaboliteBounds).transpose()
+
+        # print lowerBounds.transpose()
+        # print state_fb.lowerBounds_applyInternalMetaboliteBounds.transpose()
+        # print 'Difference'
+        # print (lowerBounds- state_fb.lowerBounds_applyInternalMetaboliteBounds).transpose()
             
         # protein monomers and complexes
         if applyProteinBounds:

@@ -216,31 +216,29 @@ reactionIndexs_fba = state["reactionIndexs_fba"]  # [336,1]
 
 # Reaction identifier
 r_fba_df = DataFrame(range(0, 504), columns=['rid'])
+r_fba_df['reactionIndexs'] = -1
 r_fba_df['type'] = None     # type is important for the calculation of flux bounds
 
 # metabolic conversion
 for k, item in enumerate(reactionIndexs_fba):
     index = item[0] - 1
-    r_fba_df.loc[k] = (r_df['rid'][index], 'metabolicConversion')
+    r_fba_df.loc[k] = (r_df['rid'][index], item[0], 'metabolicConversion')
     
 # metabolite external Exchange
 for k, index in enumerate(fbaReactionIndexs_metaboliteExternalExchange):
-    index -= 1
-    r_fba_df.loc[index,] = ('metabolite_ex_{}'.format(k), 'metaboliteExternalExchange')
-r_fba_df
+    r_fba_df.loc[index-1] = ('metabolite_ex_{}'.format(k+1), index[0], 'metaboliteExternalExchange')
 
 # metabolite internal Exchange
 for k, index in enumerate(fbaReactionIndexs_metaboliteInternalExchange):
-    index -= 1
-    r_fba_df.loc[index, ] = ('metabolite_ix_{}'.format(k), 'metaboliteInternalExchange')
+    r_fba_df.loc[index-1] = ('metabolite_ix_{}'.format(k+1), index[0], 'metaboliteInternalExchange')
 
 # biomass production
-index = fbaReactionIndexs_biomassProduction[0] - 1
-r_fba_df.loc[index, ] = ('biomassProduction'.format(k), 'biomassProduction')
+index = fbaReactionIndexs_biomassProduction[0]
+r_fba_df.loc[index-1] = ('biomassProduction', index[0], 'biomassProduction')
 
 # biomass consumption
-index = fbaReactionIndexs_biomassExchange[0] - 1
-r_fba_df.loc[index, ] = ('biomassConsumption'.format(k), 'biomassConsumption')
+index = fbaReactionIndexs_biomassExchange[0]
+r_fba_df.loc[index-1] = ('biomassConsumption', index[0], 'biomassConsumption')
 
 # set index
 r_fba_df = r_fba_df.set_index(r_fba_df['rid'])
@@ -302,10 +300,14 @@ fbaSubstrateIndexs_biomass = state['fbaSubstrateIndexs_biomass']         # [1x1]
 substrateIndexs_fba = state["substrateIndexs_fba"]                       # [376x1]
 
 # substrate identifier
-s_fba_df = DataFrame(range(0, 376), columns=['sid'])
+s_fba_df = DataFrame({'sid': range(0, 376)})
+s_fba_df['substrateIndexs'] = -1
 s_fba_df['type'] = None
 
+
 # substrates
+# here the mapping from the [585x3] substrate matrix to the [376x1] vector
+# is reconstructed
 N_substrates = 585
 index_offset = 8
 for k, item in enumerate(substrateIndexs_fba):
@@ -328,18 +330,17 @@ for k, item in enumerate(substrateIndexs_fba):
         # 8 elements (internal exchange and biomass) are out of order
         # so offset is nedessary
         k += index_offset
-    s_fba_df.loc[k] = (sid, 'substrate')
+    s_fba_df.loc[k] = (sid, item[0], 'substrate')
     
+s_fba_df
 
 # internal exchange
 for k, index in enumerate(fbaSubstrateIndexs_metaboliteInternalExchangeConstraints):
-    index -= 1
-    s_fba_df.loc[index, ] = ('metabolite_constraint_ix_{}'.format(k), 'metaboliteInternalExchangeConstraint')
+    s_fba_df.loc[index-1] = ('metabolite_constraint_ix_{}'.format(k+1), index[0], 'metaboliteInternalExchangeConstraint')
 
 # biomass
 for k, index in enumerate(fbaSubstrateIndexs_biomass):
-    index -= 1
-    s_fba_df.loc[index, ] = ('biomass'.format(k), 'biomass')
+    s_fba_df.loc[index-1] = ('biomass', index[0], 'biomass')
 
 # fbaRightHandSide is a vector of zeros representing the change 
 # in concentration over time of each metabolite and biomass. 
