@@ -298,64 +298,70 @@ class FluxBoundCalculator(object):
 
 
 import fba.cobra.cobra_tools as ct
+from cobra import Model
 class GrowthCalculator(object):
     '''
+        Calculating the growth and update in substrates based 
+        on given fluxBounds.
+        
         fluxBounds.shape
         Out[30]: (504, 2)
-
     '''
-    realmax = 1e6
-    
     def __init__(self, cobra_model, reaction_index):
         self.cobra_model = cobra_model
         self.r_index = reaction_index
+    
+    @classmethod
+    def stochasticRound(value):
+        '''
+        Rounding of floats to integers weighted by decimal part.
+        '''
+        roundUp = np.random.rand(value.size) < np.mod(value,1);
+        value[roundUp] = np.ceil(value[roundUp]);
+        value[~roundUp] = np.floor(value[~roundUp]);
+        return value
+    
+    @classmethod
+    def setRealMaxForBounds(self, bounds, realmax=1E6):
+        '''
+        Maximal upper and lower bounds are defined by realmax.
+        Overwrites the [-inf, inf] bounds
+        '''
+        # real-valued linear programming with realmax bounds
+        for k in xrange(len(bounds)):
+            bounds.lowerBounds[k] = max(bounds.lowerBounds[k], -realmax);
+            bounds.upperBounds[k] = min(bounds.upperBounds[k],  realmax);
+        return bounds
         
     def calcGrowthRate(self, fluxBounds):
         ''' 
-        Calculates the growth rate with given fluxBounds via FBA. 
-        TODO: remove the copying of the fluxbounds.
-        '''
-        # flux bounds
-        lowerBounds = fluxBounds.lowerBounds
-        upperBounds = fluxBounds.upperBounds
-            
-        # real-valued linear programming with realmax bounds
-        for k in range(len(lowerBounds)):
-            lowerBounds[k] = max(lowerBounds[k], -self.realmax);
-            upperBounds[k] = min(upperBounds[k],  self.realmax);
-        
-        # Set flux bounds in model
-        bounds_df = DataFrame({'lowerBounds':lowerBounds, 'upperBounds':upperBounds}, index=self.r_index.index)
-        ct.set_flux_bounds(self.cobra_model, bounds_df)
-
-        # perform the FBA calculation
-        # solution is created   
-        self.cobra_model.optimize()
-        self.solution = self.cobra_model.solution
-        
-        fbaReactionFluxs = self.solution.x 
-
-        '''
-    [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
+        Calculates the growth rate with given fluxBounds via FBA.
+        Corresponding to the linear programming problem defined via:
+        [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
                 'maximize', fbaObj, fbaSMat, 
                 fbaRightHandSide, loFluxBounds, upFluxBounds, ...
-                'S', 'C', linearProgrammingOptions);
-    if errFlag:
-        warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
-                fbaReactionFluxs = zeros(size(loFluxBounds));
+                'S', 'C', linearProgrammingOptions); 
         '''
-    
-        # Solution has to be in flux bounds
-        # ????? This should not be necessary if the solution was calculated properly ???
+        # Constrain fluxBounds by real value and set bounds for cobra problem
+        bounds = GrowthCalculator.setRealMaxForBounds(self, fluxBounds)
+        ct.set_flux_bounds(self.cobra_model, bounds)
+        
+        # TODO: Set additional solver options (currently not supported by cobrapy) 
+        # self.cobra_model.optimize(lpsolver=1, presol=1, scale=1, msglev=0, tolbnd=10e-7)
+        self.cobra_model.optimize(solver='cglpk')
+        self.solution = self.cobra_model.solution
+        
+        # Solution should be within flux bounds
         # fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
         
-    
-        # Readout growth reaction
+        # Read solution and growth
+        fbaReactionFluxs = self.solution.x 
         growth = self.solution.x_dict['biomassProduction']
         
+        # The reaction fluxes are required for updating the substrates.
         # for idx in this.fbaReactionIndexs_metabolicConversion
         # reactionFluxs(this.reactionIndexs_fba) = fbaReactionFluxs(this.fbaReactionIndexs_metabolicConversion);
-        reactionFluxs = np.zeros(len(self.r_index));
+        reactionFluxs = np.zeros(len(self.r_index)); # (645x1)
         idx = 0
         for reaction_id, row in self.r_index.iterrows():
             if row.type == "metabolicConversion":
@@ -364,5 +370,10 @@ class GrowthCalculator(object):
                 pass
             idx += 1
         
+        
+        
+        
         return (growth, reactionFluxs, fbaReactionFluxs)
+    
+
     

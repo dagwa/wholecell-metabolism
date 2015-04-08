@@ -56,15 +56,7 @@ for r in model.reactions:
 model.optimize()
 model.solution.status
 model.solution
-# Perform FBA
-# linear programming
-# linearProgrammingOptions = struct(...
-#            'solver', 'glpk',...
-#            'solverOptions', struct(...
-#                'glpk', struct('lpsolver', 1, 'presol', 1, 'scale', 1, 'msglev', 0, 'tolbnd', 10e-7),...
-#                'linprog', struct('Display','off'),...
-#                'lp_solve', struct('verbose', 0, 'scaling', 3 + 64 + 128, 'presolve', 0), ...
-#                'qsopt', struct()));
+
 
 
 # This cuts off some of the flux bounds
@@ -106,18 +98,19 @@ e_df.set_index('eid', inplace=True)
 # The properties substrates and enzymes represent the counts of metabolites
 # and metabolic enzymes.
 state_input = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'input.mat'))
+# this object from Process Metabolism
+state = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'this.mat'))
+# state for calculating fluxbounds
+state_fb = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'fluxbounds.mat'))
+# state for comparing growth calculation
+state_output = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'output.mat'))
 
-# substrates (metabolite counts) allocated for time step
-substrates = state_input.substrates   # [585x3]
-# enzymes (protein counts) available for time step
-enzymes = state_input.enzymes         # [104x1]
-# cellDryMass
-cellDryMass = state_input.cellDryMass
+
 
 ##############################################################################
 # Flux Bounds
 ##############################################################################
-# init once
+# init once with the necessary indexes
 from pandas import DataFrame
 import pandas as pd
 Nr = len(r_fba_df)
@@ -127,62 +120,52 @@ reaction_index = DataFrame({'k' : range(Nr), 'type': r_fba_df.type},
                             index=r_fba_df.index)
 species_index = DataFrame(range(Ns), index=s_fba_df.index, columns=['k'])
 enzymes_index = DataFrame(range(Ne), index=e_df.index, columns=['k'])
-
-# this object from Process Metabolism
-state = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'this.mat'))
-
-import fba.fba_evolveState as evolve 
-reload(evolve)
 substrateIndexs = s_fba_df['substrateIndexs']
-fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, 
-                                     substrateIndexs, state)
-
-
-# Normal calculation
-fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
 
 # Debug calculation against matlab dump
 # Matlab dumps for flux
-state_fb = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'fluxbounds.mat'))
+
 print 'Difference substrates:', np.sum(state_input.substrates - state_fb.substrates)        # check that same inputs
 print 'Difference enzymes:', np.sum(state_input.enzymes - state_fb.enzymes)                 # check that same inputs
 print 'Difference cellDryMass:', np.sum(state_input.cellDryMass - state_fb.cellDryMass)     # check that same inputs
 
+# substrates (metabolite counts) allocated for time step
+substrates = state_input.substrates   # [585x3]
+# enzymes (protein counts) available for time step
+enzymes = state_input.enzymes         # [104x1]
+# cellDryMass
+cellDryMass = state_input.cellDryMass
+
+import fba.fba_evolveState as evolve 
 reload(evolve)
 fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, 
                                      substrateIndexs, state)
 fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass, state_fb=state_fb)
 
 
-# Test the integration
-# => necessary to set realmax bounds
-reload(ct)
-ct.set_flux_bounds(model, fluxBounds)
-model.optimize()
-model.solution.status
-model.solution
-
-
-import pdb
 # calc growth rate
 reload(ct)
 reload(evolve)
 growth_calc = evolve.GrowthCalculator(model, reaction_index)
 (growth, reactionFluxs, fbaReactionFluxs) = growth_calc.calcGrowthRate(fluxBounds)
-growth
 
-# full evolution of state
+# Matlab growth output for comparison
+growth - state_output.growth # growth is identical
+
+for k in xrange(len(fbaReactionFluxs)):
+    print reaction_index.ix[k].name,  fbaReactionFluxs[k] - state_output.fbaReactionFluxs[k]
 
 
 
-def stochasticRound(value):
-    '''
-    Rounding of floats to integers weighted by decimal part
-    '''
-    roundUp = np.random.rand(value.size) < np.mod(value,1);
-    value[roundUp] = np.ceil(value[roundUp]);
-    value[~roundUp] = np.floor(value[~roundUp]);
-    return value
+
+# write the lp problem
+from cobra.solvers import solver_dict
+solver = 'cglpk'
+problem = solver_dict[solver].create_problem(model)
+problem.solve_problem()
+problem.write('test.lp')
+
+
 
 
 
