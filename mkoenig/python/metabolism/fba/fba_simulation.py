@@ -123,7 +123,8 @@ import pandas as pd
 Nr = len(r_fba_df)
 Ns = len(s_fba_df)
 Ne = len(e_df)
-reaction_index = DataFrame(range(Nr), index=r_fba_df.index, columns=['k'])
+reaction_index = DataFrame({'k' : range(Nr), 'type': r_fba_df.type}, 
+                            index=r_fba_df.index)
 species_index = DataFrame(range(Ns), index=s_fba_df.index, columns=['k'])
 enzymes_index = DataFrame(range(Ne), index=e_df.index, columns=['k'])
 
@@ -153,6 +154,8 @@ fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzyme
 fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass, state_fb=state_fb)
 
 
+# Test the integration
+# => necessary to set realmax bounds
 reload(ct)
 ct.set_flux_bounds(model, fluxBounds)
 model.optimize()
@@ -160,12 +163,13 @@ model.solution.status
 model.solution
 
 
-
+import pdb
 # calc growth rate
 reload(ct)
 reload(evolve)
 growth_calc = evolve.GrowthCalculator(model, reaction_index)
-growth_calc.calcGrowthRate(fluxBounds);
+(growth, reactionFluxs, fbaReactionFluxs) = growth_calc.calcGrowthRate(fluxBounds)
+growth
 
 # full evolution of state
 

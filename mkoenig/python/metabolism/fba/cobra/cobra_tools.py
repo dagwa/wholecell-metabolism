@@ -90,7 +90,6 @@ def _set_flux_bounds_from_fbc(model, sbml):
 def set_flux_bounds(model, bounds_df):
     for reaction_id, row in bounds_df.iterrows():
         reaction = model.reactions.get_by_id(reaction_id)
-        
         reaction.upper_bound = row.upperBounds
         reaction.lower_bound = row.lowerBounds
 

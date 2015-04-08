@@ -304,7 +304,6 @@ class GrowthCalculator(object):
         Out[30]: (504, 2)
 
     '''
-    
     realmax = 1e6
     
     def __init__(self, cobra_model, reaction_index):
@@ -312,25 +311,29 @@ class GrowthCalculator(object):
         self.r_index = reaction_index
         
     def calcGrowthRate(self, fluxBounds):
+        ''' 
+        Calculates the growth rate with given fluxBounds via FBA. 
+        TODO: remove the copying of the fluxbounds.
+        '''
         # flux bounds
-        lowerBounds = fluxBounds[:, 0];
-        upperBounds = fluxBounds[:, 1];
+        lowerBounds = fluxBounds.lowerBounds
+        upperBounds = fluxBounds.upperBounds
             
-        # real-valued linear programming
+        # real-valued linear programming with realmax bounds
         for k in range(len(lowerBounds)):
             lowerBounds[k] = max(lowerBounds[k], -self.realmax);
             upperBounds[k] = min(upperBounds[k],  self.realmax);
         
         # Set flux bounds in model
-        bounds_df = DataFrame({'lower_bound':lowerBounds, 'upper_bounds':upperBounds}, index=self.r_index.index)
-        ct.set_flux_bounds(self.model, bounds_df)
+        bounds_df = DataFrame({'lowerBounds':lowerBounds, 'upperBounds':upperBounds}, index=self.r_index.index)
+        ct.set_flux_bounds(self.cobra_model, bounds_df)
 
-        # perform the FBA calculation   
-        self.model.optimize()
-        print self.model.solution.status
-        fbaReactionFluxs = self.model.solution.x
-        self.sol = self.model.solution
+        # perform the FBA calculation
+        # solution is created   
+        self.cobra_model.optimize()
+        self.solution = self.cobra_model.solution
         
+        fbaReactionFluxs = self.solution.x 
 
         '''
     [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
@@ -340,22 +343,26 @@ class GrowthCalculator(object):
     if errFlag:
         warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
                 fbaReactionFluxs = zeros(size(loFluxBounds));
-    
-    
-            
-    # growth
-    # ????? This should not be necessary if the solution was calculated properly ???
-    # fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
-    
-    # Readout subset of reactions
-    growth = fbaReactionFluxs(fbaReactionIndexs_biomassProduction);
-    
-    reactionFluxs = zeros(size(this.reactionStoichiometryMatrix, 2), 1);
-    reactionFluxs(this.reactionIndexs_fba) = fbaReactionFluxs(this.fbaReactionIndexs_metabolicConversion);
-    
-        return [growth, reactionFluxs, fbaReactionFluxs, ...
-                reducedCosts, fbaReducedCosts, ...
-                shadowPrices, fbaShadowPrices] 
-    
         '''
+    
+        # Solution has to be in flux bounds
+        # ????? This should not be necessary if the solution was calculated properly ???
+        # fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
+        
+    
+        # Readout growth reaction
+        growth = self.solution.x_dict['biomassProduction']
+        
+        # for idx in this.fbaReactionIndexs_metabolicConversion
+        # reactionFluxs(this.reactionIndexs_fba) = fbaReactionFluxs(this.fbaReactionIndexs_metabolicConversion);
+        reactionFluxs = np.zeros(len(self.r_index));
+        idx = 0
+        for reaction_id, row in self.r_index.iterrows():
+            if row.type == "metabolicConversion":
+                reactionFluxs[idx] = self.solution.x_dict[reaction_id]
+            else:
+                pass
+            idx += 1
+        
+        return (growth, reactionFluxs, fbaReactionFluxs)
     
