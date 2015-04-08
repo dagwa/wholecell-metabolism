@@ -144,8 +144,8 @@ fluxBounds = fb_calc.calcFluxBounds(substrates, enzymes, cellDryMass)
 # Matlab dumps for flux
 state_fb = state_tools.read_state(os.path.join(DATA_DIR, 'matlab_dumps', 'fluxbounds.mat'))
 print 'Difference substrates:', np.sum(state_input.substrates - state_fb.substrates)        # check that same inputs
-print 'Difference enzymes:', np.sum(state_input.enzymes - state_fb.enzymes)              # check that same inputs
-print 'Difference cellDryMass:', np.sum(state_input.cellDryMass - state_fb.cellDryMass)      # check that same inputs
+print 'Difference enzymes:', np.sum(state_input.enzymes - state_fb.enzymes)                 # check that same inputs
+print 'Difference cellDryMass:', np.sum(state_input.cellDryMass - state_fb.cellDryMass)     # check that same inputs
 
 reload(evolve)
 fb_calc = evolve.FluxBoundCalculator(sbml, reaction_index, species_index, enzymes_index, 
@@ -162,53 +162,13 @@ model.solution
 
 
 # calc growth rate
+reload(ct)
+reload(evolve)
+growth_calc = evolve.GrowthCalculator(model, reaction_index)
+growth_calc.calcGrowthRate(fluxBounds);
 
 # full evolution of state
 
-
-
-#-------------------------------------------------------------------------------
-
-def calcGrowthRate(fluxBounds, fbaObj=fbaObjective, fbaSMat=fbaReactionStoichiometryMatrix):
-    # import edu.stanford.covert.util.ComputationUtil;
-    # import edu.stanford.covert.util.ConstantUtil;
-
-    # flux bounds
-    loFluxBounds = fluxBounds[:, 1];
-    upFluxBounds = fluxBounds[:, 2];
-            
-    # real-valued linear programming
-    loFluxBounds = max(loFluxBounds, -realmax);
-    upFluxBounds = min(upFluxBounds,  realmax);
-
-    # perform the FBA calculation    
-    [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
-                'maximize', fbaObj, fbaSMat, 
-                fbaRightHandSide, loFluxBounds, upFluxBounds, ...
-                'S', 'C', linearProgrammingOptions);
-    if errFlag:
-        warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
-                fbaReactionFluxs = zeros(size(loFluxBounds));
-            
-    # growth
-    fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
-    growth = fbaReactionFluxs(fbaReactionIndexs_biomassProduction);
-    reactionFluxs = zeros(size(this.reactionStoichiometryMatrix, 2), 1);
-    reactionFluxs(this.reactionIndexs_fba) = fbaReactionFluxs(this.fbaReactionIndexs_metabolicConversion);
-    
-    # additional calculation of reducedCosts and Shadow prices
-            if nargout > 3
-                fbaReducedCosts = lambda.reducedCosts;
-                reducedCosts = zeros(size(this.reactionStoichiometryMatrix, 2), 1);
-                reducedCosts(this.reactionIndexs_fba) = fbaReducedCosts(this.fbaReactionIndexs_metabolicConversion);
-                
-                fbaShadowPrices = lambda.shadowPrices;
-                shadowPrices = zeros(size(this.substrates));
-                shadowPrices(this.substrateIndexs_fba) = fbaShadowPrices(this.fbaSubstrateIndexs_substrates);
-            end
-    return [growth, reactionFluxs, fbaReactionFluxs, ...
-                reducedCosts, fbaReducedCosts, ...
-                shadowPrices, fbaShadowPrices] 
 
 
 def stochasticRound(value):

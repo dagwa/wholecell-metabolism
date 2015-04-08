@@ -6,7 +6,6 @@ Reproducing the Matlab evolveState logic.
 '''
 import numpy as np
 from pandas import DataFrame
-import pandas as pd
 from libsbml import readSBML
 
 class FluxBoundCalculator(object):
@@ -64,7 +63,7 @@ class FluxBoundCalculator(object):
         self.Nr = len(self.model.getListOfReactions())
         # TODO: set as parameter and read
         self.stepSizeSec = 1
-        self.realmax = 1e6
+        
         
     def find_protein_reactions(self, base=True):
         '''
@@ -96,8 +95,7 @@ class FluxBoundCalculator(object):
             if len(proteins) > 0:
                 protein_reactions[r.getId()] = proteins
         return protein_reactions
-    
-    
+     
     def initBounds(self):
         # initialize bounds
         lowerBounds =  -np.inf * np.ones([self.Nr, 1])       # 504
@@ -297,3 +295,67 @@ class FluxBoundCalculator(object):
         bounds = np.concatenate((lowerBounds, upperBounds), axis=1)     # [504x2]
         bounds_df = DataFrame(bounds, index=self.r_index.index, columns=['lowerBounds', 'upperBounds'])
         return bounds_df
+
+
+import fba.cobra.cobra_tools as ct
+class GrowthCalculator(object):
+    '''
+        fluxBounds.shape
+        Out[30]: (504, 2)
+
+    '''
+    
+    realmax = 1e6
+    
+    def __init__(self, cobra_model, reaction_index):
+        self.cobra_model = cobra_model
+        self.r_index = reaction_index
+        
+    def calcGrowthRate(self, fluxBounds):
+        # flux bounds
+        lowerBounds = fluxBounds[:, 0];
+        upperBounds = fluxBounds[:, 1];
+            
+        # real-valued linear programming
+        for k in range(len(lowerBounds)):
+            lowerBounds[k] = max(lowerBounds[k], -self.realmax);
+            upperBounds[k] = min(upperBounds[k],  self.realmax);
+        
+        # Set flux bounds in model
+        bounds_df = DataFrame({'lower_bound':lowerBounds, 'upper_bounds':upperBounds}, index=self.r_index.index)
+        ct.set_flux_bounds(self.model, bounds_df)
+
+        # perform the FBA calculation   
+        self.model.optimize()
+        print self.model.solution.status
+        fbaReactionFluxs = self.model.solution.x
+        self.sol = self.model.solution
+        
+
+        '''
+    [fbaReactionFluxs, lambda, ~, errFlag, errMsg] = ComputationUtil.linearProgramming(...
+                'maximize', fbaObj, fbaSMat, 
+                fbaRightHandSide, loFluxBounds, upFluxBounds, ...
+                'S', 'C', linearProgrammingOptions);
+    if errFlag:
+        warning('WholeCell:warning', 'Linear programming error: %s. Returning feasible, but possibly non-optimal solution x=0.', errMsg);
+                fbaReactionFluxs = zeros(size(loFluxBounds));
+    
+    
+            
+    # growth
+    # ????? This should not be necessary if the solution was calculated properly ???
+    # fbaReactionFluxs = max(min(fbaReactionFluxs, upFluxBounds), loFluxBounds);
+    
+    # Readout subset of reactions
+    growth = fbaReactionFluxs(fbaReactionIndexs_biomassProduction);
+    
+    reactionFluxs = zeros(size(this.reactionStoichiometryMatrix, 2), 1);
+    reactionFluxs(this.reactionIndexs_fba) = fbaReactionFluxs(this.fbaReactionIndexs_metabolicConversion);
+    
+        return [growth, reactionFluxs, fbaReactionFluxs, ...
+                reducedCosts, fbaReducedCosts, ...
+                shadowPrices, fbaShadowPrices] 
+    
+        '''
+    

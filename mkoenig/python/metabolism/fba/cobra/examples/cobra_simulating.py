@@ -8,7 +8,6 @@
 # objective reactions.
 #
 import cobra.test
-from cobra import Reaction
 model = cobra.test.create_test_model()
 ### Running FBA
 model.optimize()
