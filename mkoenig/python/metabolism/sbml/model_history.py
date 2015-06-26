@@ -20,7 +20,7 @@ creators = [
         ['Koenig', 'Matthias', 'konigmatt@googlemail.com', 'Charite Berlin'],
         ['Smallbone', 'Kieran', 'kieran.smallbone@manchester.ac.uk', 'University of Manchester'],
         ['Tokic', 'Milenko', 'milenko.tokic@epfl.ch', 'EPFL'],
-        ['Costa', 'Rafael', '‎rcosta@kdbio.inesc-id.pt', 'University of Lisbon'],
+        ['Costa', 'Rafael', 'rcosta@kdbio.inesc-id.pt', 'University of Lisbon'],
         ['Baghalian', 'Kambiz', 'kambiz.baghalian@plants.ox.ac.uk', 'University of Oxford'],
 ]
 creators_df = DataFrame(data=creators, columns=['FamilyName', 'GivenName', 'Email', 'Organization'])
