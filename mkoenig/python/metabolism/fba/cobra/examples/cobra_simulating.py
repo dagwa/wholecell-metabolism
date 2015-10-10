@@ -25,10 +25,10 @@ model.optimize()
 # For example, after the last call to model.optimize(), the status should be
 # 'optimal' if the solver returned no errors, and f should be the objective
 # value
-model.solution.status
+print model.solution.status
 # Output:
 # 'optimal'
-model.solution.f
+print model.solution.f
 # Output:
 # 0.38000797227551136
 ### Changing the Objectives
@@ -36,7 +36,7 @@ model.solution.f
 # of the objective reaction(s). Currently in the model, there is only one
 # objective reaction, with an objective coefficient of 1.
 {reaction: reaction.objective_coefficient for reaction in model.reactions
-if reaction.objective_coefficient > 0}
+ if reaction.objective_coefficient > 0}
 # Output:
 # {<Reaction biomass_iRR1083_metals at 0x660d350>: 1.0}
 # The objective function can be changed by using the function
@@ -47,7 +47,7 @@ if reaction.objective_coefficient > 0}
 model.reactions.get_by_id("ATPM").upper_bound = 1000.
 model.change_objective("ATPM")
 {reaction: reaction.objective_coefficient for reaction in model.reactions
-if reaction.objective_coefficient > 0}
+ if reaction.objective_coefficient > 0}
 # Output:
 # {<Reaction ATPM at 0x52cb190>: 1.0}
 model.optimize()
@@ -58,6 +58,6 @@ model.optimize()
 model.reactions.get_by_id("ATPM").objective_coefficient = 0.
 model.reactions.get_by_id("biomass_iRR1083_metals").objective_coefficient = 1.
 {reaction: reaction.objective_coefficient for reaction in model.reactions
-if reaction.objective_coefficient > 0}
+ if reaction.objective_coefficient > 0}
 # Output:
 # {<Reaction biomass_iRR1083_metals at 0x660d350>: 1.0}

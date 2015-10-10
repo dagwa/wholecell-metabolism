@@ -81,7 +81,7 @@ cobra.io.save_matlab_model(ecoli_model, "test_ecoli_model.mat")
 from cPickle import load, dump
 # read in the test models
 with open(cobra.test.ecoli_pickle, "rb") as infile:
-ecoli_model = load(infile)
+    ecoli_model = load(infile)
 with open(cobra.test.salmonella_pickle, "rb") as infile:
 salmonella_model = load(infile)
 # output to a file
