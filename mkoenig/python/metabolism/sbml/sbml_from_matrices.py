@@ -174,10 +174,9 @@ if __name__ == "__main__":
 
             gpa = rplugin.createGeneProductAssociation()
             gpa.setId('ga__{}__{}'.format(index, eid))
-            # TODO: BUG, FIXME geneProducts not written correctly
-            print("*"*60)
-            print(r.getId())
-            print(genes_formula)
+            # print("*"*60)
+            # print(r.getId())
+            # print(genes_formula)
             gpa.setAssociation(genes_formula)
 
         # stoichiometry from stoichiometric matrix  # [376x504]

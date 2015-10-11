@@ -14,7 +14,7 @@ The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
         BQB_IS_VERSION_OF)
 
 @author: Matthias Koenig
-@date: 2015-03-08
+@date: 2015-10-11
 """
 from libsbml import *
 from sbml_tools.checks import check_sbml, check
@@ -29,6 +29,7 @@ sbml_out_L3V1 = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}_L3V1.xml".for
 csv_metabolites = os.path.join(DATA_DIR, "Table_S3G_metabolites.csv")
 csv_reactions = os.path.join(DATA_DIR, "Table_S3O_reactions.csv")
 #######################################################################
+
 
 def cvdf_from_resource_data(r_data):
     cv_df = DataFrame(columns=('ID', 'BQB', 'Qualifier', 'URI'))
@@ -82,28 +83,29 @@ r_cvdf = cvdf_from_resource_data(r_cv_data)
 # print r_cvdf
 #######################################################################
 
+
 def cid_from_sid(sid):
-    '''
+    """
     Create the compound id in the supplement tables from ids in SBML.
     The id lookup for species is without M_ and _compartment.
     For instance M_A23CMP_c -> A23CMP in the annotation table.
-    '''
+    """
     tokens = sid.split('_')
     return '_'.join(tokens[1:(len(tokens)-1)])
 
+
 def cid_from_rid(sid):
-    '''
-    Get compound id for lookup from SBML reaction id.
-    '''
+    """ Get compound id for lookup from SBML reaction id. """
     tokens = sid.split('_')
     return '_'.join(tokens[1:len(tokens)])
 
+
 def annotate_model_cv(m):
-    '''
+    """
     Annotate the model with given annotation data frames
     for metabolites and reactions.
     Uses the global cvdf datasets and the parsed table information.
-    '''
+    """
     # read original model    
     annotate_objects(m.getListOfSpecies(), m_df, m_cvdf, otype='SPECIES')
     annotate_objects(m.getListOfReactions(), r_df, r_cvdf, otype='REACTION')
@@ -115,6 +117,7 @@ def create_meta_id(sid):
     Uniqueness not tested.
     '''
     return 'meta_{}'.format(sid)
+
 
 def annotate_objects(objects, o_df, o_cvdf, otype):
         # Metabolite annotation
