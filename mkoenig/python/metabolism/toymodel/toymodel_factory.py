@@ -11,7 +11,7 @@ doc_fba = SBMLDocument(sbmlns)
 doc_fba.setPackageRequired("fbc", False)
 model = doc_fba.createModel()
 mplugin = model.getPlugin("fbc")
-mplugin.setStrict(False)
+mplugin.setStrict(True)
 
 # model name and id for process
 model.setId("fba_toy")
@@ -46,13 +46,13 @@ def createSpecies(id, name, initialAmount, constant, boundaryCondition, compartm
     return s
 
 s_A = createSpecies(id="A", name="A", initialAmount=10, constant=False,
-                    boundaryCondition=False, compartment=c_ext.getId())
+                    boundaryCondition=True, compartment=c_ext.getId())
 s_B1 = createSpecies(id="B1", name="B1", initialAmount=0, constant=False,
                     boundaryCondition=False, compartment=c_int.getId())
 s_B2 = createSpecies(id="B2", name="B2", initialAmount=0, constant=False,
                     boundaryCondition=False, compartment=c_int.getId())
 s_C = createSpecies(id="C", name="C", initialAmount=0, constant=False,
-                    boundaryCondition=False, compartment=c_ext.getId())
+                    boundaryCondition=True, compartment=c_ext.getId())
 s_D = createSpecies(id="D", name="D", initialAmount=0, constant=False,
                     boundaryCondition=False, compartment=c_ext.getId())
 
@@ -111,7 +111,7 @@ r_R4 = createReaction(id="R4", name="R4", fast=False, reversible=True,
 objective = mplugin.createObjective()
 objective.setId("R3_maximize")
 objective.setType("maximize")
-mplugin.setActiveObjectiveId("maximize")
+mplugin.setActiveObjectiveId("R3_maximize")
 fluxObjective = objective.createFluxObjective()
 fluxObjective.setReaction("R3")
 fluxObjective.setCoefficient(1.0)
@@ -150,7 +150,6 @@ check_sbml(fba_out)
 import cobra
 cobra_model = cobra.io.read_sbml_model(fba_out)
 
-
 # [1] Simple FBA
 cobra_model.optimize()
 print cobra_model.solution.status
@@ -170,5 +169,3 @@ print_flux_bounds(cobra_model)
 # in the calculation of the FBA boundaries.
 # => recalculate the boundaries
 
-m = cobra.io.read_sbml_model(os.path.join(cobra.test.data_directory, "mini_fbc2.xml"))
-print_flux_bounds(m)

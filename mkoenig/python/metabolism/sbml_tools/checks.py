@@ -10,6 +10,9 @@ from libsbml import *
 def check_sbml(filename): 
     current = time.clock()
     doc = readSBML(filename)
+    doc.setConsistencyChecks(LIBSBML_CAT_UNITS_CONSISTENCY, False)
+    doc.setConsistencyChecks(LIBSBML_CAT_MODELING_PRACTICE, False)
+    doc.checkConsistency()
     errors = doc.getNumErrors()
     
     print
@@ -36,4 +39,3 @@ def check(value, message):
             sys.exit(1)
     else:
         return
-    

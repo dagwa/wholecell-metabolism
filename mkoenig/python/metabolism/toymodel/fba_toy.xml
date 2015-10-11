@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model id="fba_toy" name="FBA submodel" fbc:strict="false">
+  <model id="fba_toy" name="FBA submodel" fbc:strict="true">
     <listOfCompartments>
       <compartment id="ext" spatialDimensions="3" size="1" constant="true"/>
       <compartment id="cell" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="A" name="A" compartment="ext" initialAmount="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="A" name="A" compartment="ext" initialAmount="10" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
       <species id="B1" name="B1" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="B2" name="B2" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
       <species id="D" name="D" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
@@ -52,7 +52,7 @@
         </listOfProducts>
       </reaction>
     </listOfReactions>
-    <fbc:listOfObjectives fbc:activeObjective="maximize">
+    <fbc:listOfObjectives fbc:activeObjective="R3_maximize">
       <fbc:objective fbc:id="R3_maximize" fbc:type="maximize">
         <fbc:listOfFluxObjectives>
           <fbc:fluxObjective fbc:reaction="R3" fbc:coefficient="1"/>
