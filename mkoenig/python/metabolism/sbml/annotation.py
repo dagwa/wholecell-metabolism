@@ -112,15 +112,15 @@ def annotate_model_cv(m):
 
 
 def create_meta_id(sid):
-    '''
+    """
     Create meta id. 
     Uniqueness not tested.
-    '''
+    """
     return 'meta_{}'.format(sid)
 
 
 def annotate_objects(objects, o_df, o_cvdf, otype):
-        # Metabolite annotation
+    # Metabolite annotation
     # no fancy things here: just take the ids of the species
     # and look up existing annotations. Than write the CV terms
     # from the defined list above.
@@ -173,20 +173,20 @@ def annotate_model_sbo(m):
     print '* Annotate SBO *'
     
     sbo_dict = {
-            'Compartment' : "SBO:0000290",    # physical compartment
-            'Metabolite' : 'SBO:0000247',     # simple chemical
-            'Gene' : 'SBO:0000243',           # gene
-            'Protein' : 'SBO:0000245',        # macromolecule
-            'ProteinMonomer' : 'SBO:0000245', # macromolecule
-            'ProteinComplex' : 'SBO:0000297', # protein complex
-            'Stimulus' : 'SBO:0000170',        # stimulation.
+            'Compartment': "SBO:0000290",     # physical compartment
+            'Metabolite': 'SBO:0000247',      # simple chemical
+            'Gene': 'SBO:0000243',            # gene
+            'Protein': 'SBO:0000245',         # macromolecule
+            'ProteinMonomer': 'SBO:0000245',  # macromolecule
+            'ProteinComplex': 'SBO:0000297',  # protein complex
+            'Stimulus': 'SBO:0000170',        # stimulation.
     
             'TransportReaction' : 'SBO:0000185',  # transport reaction (find via compartments)
-            'Reaction' : 'SBO:0000176',           # biochemical reaction
+            'Reaction': 'SBO:0000176',            # biochemical reaction
             
-            'Modifier' : 'SBO:0000019',  # modifier
-            'Product' : 'SBO:0000011',   # product     
-            'Reactant' : 'SBO:0000010',  # reactant 
+            'Modifier': 'SBO:0000019',  # modifier
+            'Product': 'SBO:0000011',   # product
+            'Reactant': 'SBO:0000010',  # reactant
     }
     
     # compartments
@@ -234,11 +234,13 @@ def annotate_model_sbo(m):
             check(product.setSBOTerm(sbo_dict['Product']), 'Set SBO')    
         for modifier in r.getListOfModifiers():
             check(modifier.setSBOTerm(sbo_dict['Modifier']), 'Set SBO')
-  
+
+
 def annotate_Karr():
-    '''
-    Performs the annotations and converts the model into SBML L3V1.
-    '''
+    """
+    Annotations of the original Karr SBML file and conversion to SBML L3V1.
+    This takes the model and writes all the additional information to it.
+    """
     check_sbml(sbml_raw)
 
     # read model
@@ -271,6 +273,7 @@ def annotate_Karr():
         print sbml_out_L3V1
         check_sbml(sbml_out_L3V1)
 
+
 def annotate_sbml():
     warning('NOT IMPLEMENTED')
 
@@ -284,8 +287,7 @@ if __name__ == "__main__":
     
     r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
     r_df = r_df.set_index(r_df.ID)
-    
-    
+
     # Annotate the SBML provided in Karr supplement
     annotate_Karr()
     # Annotate the SBML generated from the FBA matrices
