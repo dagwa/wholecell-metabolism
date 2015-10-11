@@ -1,13 +1,13 @@
-'''
-Created on Mar 10, 2015
+"""
+Global settings for the python scripts to write and read data.
 
 @author: Matthias Koenig
-@date: global settings for the python scripts to write to correct folders
-'''
+@date: 2015-10-11
+"""
 import os
-VERSION = '7'
+VERSION = '8'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-if (False):
+if True:
     DATA_DIR = os.path.join(BASE_DIR, "../data") 
     RESULTS_DIR = os.path.join(BASE_DIR, "../results")
 else:

@@ -1,9 +1,9 @@
-'''
-Write SBML for metabolism process directly from database information.
+"""
+Creates the SBML for the metabolism sub-modul directly from the database information.
 
 @author: Matthias Koeng
-@date: 2015-03-25
-'''
+@date: 2015-10-11
+"""
 from libsbml import *
 from sbml_tools.validator import SBMLValidator
 from metabolism_settings import RESULTS_DIR, VERSION        
@@ -41,6 +41,7 @@ def create_compartments(model, comp_df):
 if __name__ == "__main__":
     # Load matrix information
     matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
+    print(matrix_dir)
 
     # handle the sodium NA id (not parsing as NaN)    
     s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", 
@@ -56,8 +57,7 @@ if __name__ == "__main__":
     
     mat_stoichiometry = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t")
     mat_stoichiometry.set_index(s_fba_df.index, inplace=True)        
-        
-    
+
     mat_catalysis = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionCatalysisMatrix.csv'), sep="\t")
     mat_catalysis.set_index(r_fba_df.index, inplace=True)  
     
@@ -68,12 +68,13 @@ if __name__ == "__main__":
     tol = 1E-12         # within this tolerance matrix elements are considered != 0    
                         # for instance in stoichiometric matrix
     
-    # SBML model with FBC support    
-    sbmlns = SBMLNamespaces(3,1,"fbc",1)
+    # SBML model with FBC support
+    # TODO: update to fbc v2
+    sbmlns = SBMLNamespaces(3, 1, "fbc", 1)
     doc = SBMLDocument(sbmlns)
     doc.setPackageRequired("fbc", False)
     model = doc.createModel()
-    mplugin = model.getPlugin("fbc");           
+    mplugin = model.getPlugin("fbc")
 
     # history & creators
     from sbml.model_history import set_history_information
@@ -254,4 +255,3 @@ if __name__ == "__main__":
     sbml_cobra = os.path.join(RESULTS_DIR, "Metabolism_matrices_cobra_{}_L3V1.xml".format(VERSION))
     writer = SBMLWriter()
     writer.writeSBML(doc, sbml_cobra)
-    
