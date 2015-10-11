@@ -28,7 +28,7 @@ comp_df.set_index(comp_df.id, inplace=True)
 
     
 def create_compartments(model, comp_df):
-    ''' Create compartments based on compartment information. '''
+    """ Create compartments based on compartment information. """
     for index, row in comp_df.iterrows():
         c = model.createCompartment()
         c.setId(row['id'])
@@ -39,13 +39,14 @@ def create_compartments(model, comp_df):
 
 
 if __name__ == "__main__":
+    ###########################################################################
     # Load matrix information
+    ###########################################################################
     matrix_dir = os.path.join(RESULTS_DIR, 'fba_matrices')
-    print(matrix_dir)
 
     # handle the sodium NA id (not parsing as NaN)    
     s_fba_df = pd.read_csv(os.path.join(matrix_dir, 's_fba.csv'), sep="\t", 
-                           keep_default_na=False, na_values=('nan'))
+                           keep_default_na=False, na_values='nan')
     s_fba_df.set_index('sid', inplace=True)
 
     r_fba_df = pd.read_csv(os.path.join(matrix_dir, 'r_fba.csv'), sep="\t")
@@ -53,7 +54,6 @@ if __name__ == "__main__":
 
     e_df = pd.read_csv(os.path.join(matrix_dir, 'e_fba.csv'), sep="\t")
     e_df.set_index('eid', inplace=True)
-    e_df    
     
     mat_stoichiometry = pd.read_csv(os.path.join(matrix_dir, 'fbaReactionStoichiometryMatrix.csv'), sep="\t")
     mat_stoichiometry.set_index(s_fba_df.index, inplace=True)        
@@ -69,12 +69,12 @@ if __name__ == "__main__":
                         # for instance in stoichiometric matrix
     
     # SBML model with FBC support
-    # TODO: update to fbc v2
-    sbmlns = SBMLNamespaces(3, 1, "fbc", 1)
+    sbmlns = SBMLNamespaces(3, 1, "fbc", 2)
     doc = SBMLDocument(sbmlns)
     doc.setPackageRequired("fbc", False)
     model = doc.createModel()
     mplugin = model.getPlugin("fbc")
+    mplugin.setStrict(False)  # +-INF bounds in the Karr model
 
     # history & creators
     from sbml.model_history import set_history_information
@@ -93,10 +93,10 @@ if __name__ == "__main__":
         s.setBoundaryCondition(False)
         s.setCompartment(row['compartment'])
         s.setHasOnlySubstanceUnits(False)
-        s.setInitialAmount(0)  # fix to get rid of warnings  
+        s.setInitialAmount(0)  # to get rid of warnings, not required for FBA simulations
         
         # chemical formula and charge => for balance
-        splugin = s.getPlugin("fbc");
+        splugin = s.getPlugin("fbc")
         formula = row['formula']
         if not pd.isnull(formula):
             splugin.setChemicalFormula(formula)
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
         # string to int desaster due to NA name for sodium
         # this is ugly but works        
-        if not pd.isnull(charge) and len(charge)!=0:            
+        if not pd.isnull(charge) and len(charge) != 0:
             splugin.setCharge(int(float(charge)))
     
     # <proteins> [104]
@@ -134,7 +134,7 @@ if __name__ == "__main__":
     for index, row in e_df.iterrows():
         # check if the protein is already a species (due to involvment in reaction)
         s = model.getSpecies(index)
-        if (s is not None):
+        if s is not None:
             print index, 'is already species.'
         else:
             # create species for protein
@@ -158,7 +158,7 @@ if __name__ == "__main__":
         
         # set proteins as modifiers from catalysis matrix       
         row = mat_catalysis.ix[index]
-        row = row[row>tol]
+        row = row[row > tol]
         for eid, value in row.iteritems():
             # set protein as modifier
             mod = r.createModifier()
@@ -177,7 +177,7 @@ if __name__ == "__main__":
         # stoichiometry from stoichiometric matrix  # [376x504]
         # find non-zero elements in the reaction column 
         col = mat_stoichiometry[index]
-        col = col[abs(col)>tol]
+        col = col[abs(col) > tol]
         # create species references depending on stoichiometry
         for sid, stoichiometry in col.iteritems():
             if stoichiometry < 0:
@@ -197,47 +197,56 @@ if __name__ == "__main__":
         # change of reactants and products for encoding. The SBML is strictly reproducing
         # the FBA problem, so that no reversibilities are defined in the SBML. 
         # Reversibility is functional in the FBA via the actual flux bounds.
-        r.setReversible(True) # some are irreversible via Flux bounds in forward or backward direction
-        
+        r.setReversible(True)  # some are irreversible via Flux bounds in forward or backward direction
+
+
         # <fluxbounds>
-        # parameters for dynamical calculation of flux bounds
+        def createFluxParameter(p_name, index, pid=None):
+            if not pid:
+                pid = '{}__{}'.format(index, p_name)
+            p = model.createParameter()
+            p.setId(pid)
+            p.setValue(r_fba_df[p_name][index])
+            p.setConstant(True)
+            return p
+
+        # create parameters for dynamical calculation of flux bounds
         for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds', 'lb_fbaEnzymeBounds', 'ub_fbaEnzymeBounds'):
-            par = model.createParameter()
-            par.setId('{}__{}'.format(index, p_name))
-            par.setValue(r_fba_df[p_name][index])
-            par.setConstant(True) 
+            createFluxParameter(p_name, index)
+        # upper bound & lower bounds parameters (this
+        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds'):
+            if p_name.startswith('lb'):
+                createFluxParameter(p_name, index, pid='lb__{}'.format(index))
+            if p_name.startswith('ub'):
+                createFluxParameter(p_name, index, pid='ub__{}'.format(index))
+
         # The reaction flux bounds are set as hard upper and lower flux bounds
         # These are NOT the dynamical flux bounds.
-        
-        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds'):
-            # "lessEqual", "greaterEqual", "equal"
-            bound = mplugin.createFluxBound();            
-            bound.setReaction(index);
-            bound.setValue(r_fba_df[p_name][index])
-            if p_name.startswith('lb'):
-                bound.setId('lb__{}'.format(index))
-                bound.setOperation("greaterEqual")
-            if p_name.startswith('ub'):
-                bound.setId('ub__{}'.format(index))
-                bound.setOperation("lessEqual")                
-        
+        # The actual flux bounds are calculated based on an outer model which evaluates AssignmentRules for the
+        # parameters (taking into account metabolite counts, protein counts, kcat, ...)
+        rplugin = r.getPlugin("fbc")
+        rplugin.setLowerFluxBound('lb__{}'.format(index))
+        rplugin.setUpperFluxBound('ub__{}'.format(index))
+
     # <objective function>
-    objective = mplugin.createObjective();
+    objective = mplugin.createObjective()
     objective.setId("growth")
-    objective.setType("maximize");
-    mplugin.setActiveObjectiveId("growth");
+    objective.setType("maximize")
+    mplugin.setActiveObjectiveId("growth")
     for index, row in r_fba_df.iterrows():
         coeff = row['fbaObjective']
-        if (not pd.isnull(coeff) and abs(coeff)>tol):
-            fluxObjective = objective.createFluxObjective();
-            fluxObjective.setReaction(index);
-            fluxObjective.setCoefficient(coeff);
+        if not pd.isnull(coeff) and abs(coeff) > tol:
+            fluxObjective = objective.createFluxObjective()
+            fluxObjective.setReaction(index)
+            fluxObjective.setCoefficient(coeff)
 
     # write sbml    
     sbml_out = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
     writer = SBMLWriter()
     writer.writeSBML(doc, sbml_out)
-    print sbml_out   
+    print sbml_out
+
+    # TODO: perform the full validation checks & validation
     from sbml_tools.checks import check_sbml
     check_sbml(sbml_out) 
     
