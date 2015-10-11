@@ -65,8 +65,8 @@ def createParameter(id, name, constant, value):
     p.setValue(value)
     return p
 
-p_r1 = createParameter(id="r1", name="r1", constant=False, value=1.0)
-p_r3 = createParameter(id="r3", name="0.0", constant=False, value=0.0)
+p_r1 = createParameter(id="r1", name="r1", constant=True, value=1.0)
+p_r3 = createParameter(id="r3", name="0.0", constant=True, value=0.0)
 p_lb = createParameter(id="lb", name="lower bound", constant=True, value=0.0)
 p_ub = createParameter(id="ub", name="upper bound", constant=True, value=1000.0)
 
@@ -112,7 +112,7 @@ objective = mplugin.createObjective()
 objective.setId("R3_maximize")
 objective.setType("maximize")
 mplugin.setActiveObjectiveId("R3_maximize")
-fluxObjective = objective.createFluxObjective()
+fluxObjective = objective.createFluxObjectie()
 fluxObjective.setReaction("R3")
 fluxObjective.setCoefficient(1.0)
 
