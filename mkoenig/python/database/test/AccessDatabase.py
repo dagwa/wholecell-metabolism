@@ -1,8 +1,8 @@
-'''
-Test the object mapping.
+"""
+Test the object-relational mapping of the wholecellkb (knowledge base).
 @author: mkoenig
-@date: 2015-03-09
-'''
+@date: 2015-10-11
+"""
 
 # import the objects you are interested in from models
 # Detailed DB schema in schema & relationships in models.py
@@ -28,7 +28,6 @@ print rs[0].stoichiometry.all()
 
 from public.models import Entry
 from pandas import DataFrame
-import pandas as pd
 
 # create pandas DataFrame for all entries
 entries = Entry.objects.all()
