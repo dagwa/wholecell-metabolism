@@ -5,7 +5,7 @@ Global settings for the python scripts to write and read data.
 @date: 2015-10-11
 """
 import os
-VERSION = '8'
+VERSION = '08'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 if True:
     DATA_DIR = os.path.join(BASE_DIR, "../data") 

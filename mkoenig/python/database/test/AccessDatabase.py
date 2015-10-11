@@ -7,6 +7,8 @@ Test the object-relational mapping of the wholecellkb (knowledge base).
 # import the objects you are interested in from models
 # Detailed DB schema in schema & relationships in models.py
 from public.models import Metabolite
+metabolites = Metabolite.objects.all()[:10] 
+m = metabolites[0]
 
 # get first 10 metabolites
 metabolites = Metabolite.objects.all()[:10]    

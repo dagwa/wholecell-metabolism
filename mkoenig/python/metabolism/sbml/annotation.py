@@ -16,6 +16,7 @@ The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
 @author: Matthias Koenig
 @date: 2015-10-11
 """
+import warnings
 from libsbml import *
 from sbml_tools.checks import check_sbml, check
 from pandas import DataFrame
@@ -23,9 +24,14 @@ import pandas as pd
 from metabolism_settings import RESULTS_DIR, DATA_DIR, VERSION
 
 #######################################################################
+# Karr file
 sbml_raw = os.path.join(DATA_DIR, 'Metabolism.sbml')
-sbml_out = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}.xml".format(VERSION))
-sbml_out_L3V1 = os.path.join(RESULTS_DIR, "Metabolism_annotated_{}_L3V1.xml".format(VERSION))
+sbml_out = os.path.join(RESULTS_DIR, "Metabolism_annotated.xml")
+sbml_out_L3V1 = os.path.join(RESULTS_DIR, "Metabolism_annotated_L3V1.xml")
+# Created SBML files (matrices)
+sbml_empty = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
+sbml_annotated = os.path.join(RESULTS_DIR, "Metabolism_matrices_annotated_{}_L3V1.xml".format(VERSION))
+
 csv_metabolites = os.path.join(DATA_DIR, "Table_S3G_metabolites.csv")
 csv_reactions = os.path.join(DATA_DIR, "Table_S3O_reactions.csv")
 #######################################################################
@@ -83,21 +89,20 @@ r_cvdf = cvdf_from_resource_data(r_cv_data)
 # print r_cvdf
 #######################################################################
 
-
 def cid_from_sid(sid):
     """
     Create the compound id in the supplement tables from ids in SBML.
     The id lookup for species is without M_ and _compartment.
     For instance M_A23CMP_c -> A23CMP in the annotation table.
     """
-    tokens = sid.split('_')
-    return '_'.join(tokens[1:(len(tokens)-1)])
+    tokens = sid.split('__')
+    return tokens[0]
 
 
 def cid_from_rid(sid):
     """ Get compound id for lookup from SBML reaction id. """
-    tokens = sid.split('_')
-    return '_'.join(tokens[1:len(tokens)])
+    tokens = sid.split('__')
+    return tokens[0]
 
 
 def annotate_model_cv(m):
@@ -159,11 +164,11 @@ def annotate_objects(objects, o_df, o_cvdf, otype):
                 uri = '{}{}'.format(o_cvdf.loc[cv_type, 'URI'], cv_id)
                 print qt, bqt, uri
                 
-                cv = CVTerm();
+                cv = CVTerm()
                 check(cv.setQualifierType(qt), 'setQualifier')
                 check(cv.setBiologicalQualifierType(bqt), 'setQualifierType')
                 check(cv.addResource(uri), 'setURI')
-                check(s.addCVTerm(cv), 'addCVTerm');
+                check(s.addCVTerm(cv), 'addCVTerm')
                 
 
 def annotate_model_sbo(m):
@@ -199,14 +204,15 @@ def annotate_model_sbo(m):
         # lookup the Entry in the database
         sid = s.getId()
         wid = cid_from_sid(sid)  # get wid from sid
+        # print(sid, "->", wid)
         try:
             e = Entry.objects.get(wid=wid)
             m_type = e.model_type
             sbo_id = sbo_dict[m_type]
             check(s.setSBOTerm(sbo_id), 'Set SBO')
         except ObjectDoesNotExist:
-            print 'Warning - Entry not existing in DB, no SBO', sid, wid
-    
+            warnings.warn("Entry not existing in DB, no SBO: {} {}".format(sid, wid))
+
     # reactions
     for r in m.getListOfReactions():
         # lookup the Entry in the database
@@ -219,13 +225,13 @@ def annotate_model_sbo(m):
                 # check if multiple compartments, than transporter
                 reaction = DBReaction.objects.get(wid=wid)
                 comps = set([c.compartment for c in reaction.stoichiometry.all()])
-                if len(comps)>1:
+                if len(comps) > 1:
                     m_type = 'TransportReaction'
                     
             sbo_id = sbo_dict[m_type]
             check(r.setSBOTerm(sbo_id), 'Set SBO')
         except ObjectDoesNotExist:
-            print 'Warning - Entry not existing in DB, no SBO', sid, wid
+            warnings.warn("Entry not existing in DB, no SBO: {} {}".format(sid, wid))
             
         # set the additional information for SpeciesReferences
         for reactant in r.getListOfReactants():
@@ -245,7 +251,7 @@ def annotate_Karr():
 
     # read model
     doc = readSBML(sbml_raw)
-    doc.setLevelAndVersion(2,4,False, True)
+    doc.setLevelAndVersion(2, 4, False, True)
     # write id and name
     m = doc.getModel()
     mid = 'Metabolism_annotated_{}'.format(VERSION)
@@ -274,8 +280,35 @@ def annotate_Karr():
         check_sbml(sbml_out_L3V1)
 
 
-def annotate_sbml():
-    warning('NOT IMPLEMENTED')
+def annotate_sbml(sbml_empty, sbml_annotated):
+    """
+    Takes unannotated SBML file with identifiers from wholecellkb and creates the annotated version of the model.
+    Similar to the annotation of the Karr SBML model.
+    """
+    # check/validate the input SBML file
+    print("*** Check SBML ***")
+    check_sbml(sbml_empty)
+
+    # read model
+    doc = readSBML(sbml_empty)
+    model = doc.getModel()
+
+    print("*** Write model history ***")
+    from model_history import set_history_information
+    set_history_information(model)
+
+    print("*** Annotate SBO ***")
+    annotate_model_sbo(model)
+
+    print("*** Annotate CV terms ***")
+    # annotate_model_cv(model)
+
+    # save
+    writeSBMLToFile(doc, sbml_annotated)
+
+    # check/validate annotated file
+    print("*** Check annotated SBML ***")
+    check_sbml(sbml_annotated)
 
 
 if __name__ == "__main__":
@@ -289,6 +322,6 @@ if __name__ == "__main__":
     r_df = r_df.set_index(r_df.ID)
 
     # Annotate the SBML provided in Karr supplement
-    annotate_Karr()
+    # annotate_Karr()
     # Annotate the SBML generated from the FBA matrices
-    # TODO implement
+    annotate_sbml(sbml_empty, sbml_annotated)
