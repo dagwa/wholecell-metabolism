@@ -174,10 +174,10 @@ if __name__ == "__main__":
 
             gpa = rplugin.createGeneProductAssociation()
             gpa.setId('ga__{}__{}'.format(index, eid))
+            # TODO: BUG, FIXME geneProducts not written correctly
             print("*"*60)
+            print(r.getId())
             print(genes_formula)
-            # print(ass)
-            # gpa.setAssociation(ass)
             gpa.setAssociation(genes_formula)
 
         # stoichiometry from stoichiometric matrix  # [376x504]
@@ -204,7 +204,6 @@ if __name__ == "__main__":
         # the FBA problem, so that no reversibilities are defined in the SBML. 
         # Reversibility is functional in the FBA via the actual flux bounds.
         r.setReversible(True)  # some are irreversible via Flux bounds in forward or backward direction
-
 
         # <fluxbounds>
         def createFluxParameter(p_name, index, pid=None):
@@ -251,7 +250,7 @@ if __name__ == "__main__":
     writer.writeSBML(doc, sbml_out)
     print sbml_out
 
-    # TODO: perform the full validation checks & validation
+    # perform the full validation checks & validation
     from sbml_tools.checks import check_sbml
     check_sbml(sbml_out) 
     
