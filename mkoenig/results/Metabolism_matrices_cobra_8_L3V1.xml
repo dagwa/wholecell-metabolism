@@ -2,834 +2,6 @@
 <sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
   <model metaid="meta_WCM_3_10" id="WCM_3_10" name="Whole Cell 2015 - Metabolism">
     <annotation>
-      <listOfGeneAssociations xmlns="http://www.sbml.org/sbml/level3/version1/fbc/version1">
-        <geneAssociation id="ga__AceE__MG_271_272_273_274_192MER" reaction="AceE">
-          <and>
-            <gene reference="MG_271"/>
-            <gene reference="MG_272"/>
-            <gene reference="MG_273"/>
-            <gene reference="MG_274"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__AckA__MG_357_DIMER" reaction="AckA">
-          <gene reference="MG_357"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Adk1__MG_171_MONOMER" reaction="Adk1">
-          <gene reference="MG_171"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Adk2__MG_171_MONOMER" reaction="Adk2">
-          <gene reference="MG_171"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Adk3__MG_171_MONOMER" reaction="Adk3">
-          <gene reference="MG_171"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Adk4__MG_171_MONOMER" reaction="Adk4">
-          <gene reference="MG_171"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Apt__MG_276_DIMER" reaction="Apt">
-          <gene reference="MG_276"/>
-        </geneAssociation>
-        <geneAssociation id="ga__AtpA__MG_398_399_400_401_402_403_404_405_22MER" reaction="AtpA">
-          <and>
-            <gene reference="MG_405"/>
-            <gene reference="MG_404"/>
-            <gene reference="MG_403"/>
-            <gene reference="MG_402"/>
-            <gene reference="MG_401"/>
-            <gene reference="MG_398"/>
-            <gene reference="MG_399"/>
-            <gene reference="MG_400"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__Cdd1__MG_052_DIMER" reaction="Cdd1">
-          <gene reference="MG_052"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Cdd2__MG_052_DIMER" reaction="Cdd2">
-          <gene reference="MG_052"/>
-        </geneAssociation>
-        <geneAssociation id="ga__CdsA4__MG_437_DIMER" reaction="CdsA4">
-          <gene reference="MG_437"/>
-        </geneAssociation>
-        <geneAssociation id="ga__CdsA5__MG_437_DIMER" reaction="CdsA5">
-          <gene reference="MG_437"/>
-        </geneAssociation>
-        <geneAssociation id="ga__CdsA7__MG_437_DIMER" reaction="CdsA7">
-          <gene reference="MG_437"/>
-        </geneAssociation>
-        <geneAssociation id="ga__CmkA1__MG_330_MONOMER" reaction="CmkA1">
-          <gene reference="MG_330"/>
-        </geneAssociation>
-        <geneAssociation id="ga__CmkA2__MG_330_MONOMER" reaction="CmkA2">
-          <gene reference="MG_330"/>
-        </geneAssociation>
-        <geneAssociation id="ga__CmkB3__MG_434_HEXAMER" reaction="CmkB3">
-          <gene reference="MG_434"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Dak1__MG_171_MONOMER" reaction="Dak1">
-          <gene reference="MG_171"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoC__MG_050_MONOMER" reaction="DeoC">
-          <gene reference="MG_050"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD1__MG_049_HEXAMER" reaction="DeoD1">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD2__MG_049_HEXAMER" reaction="DeoD2">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD3__MG_049_HEXAMER" reaction="DeoD3">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD4__MG_049_HEXAMER" reaction="DeoD4">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD5__MG_049_HEXAMER" reaction="DeoD5">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD6__MG_049_HEXAMER" reaction="DeoD6">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DeoD8__MG_049_HEXAMER" reaction="DeoD8">
-          <gene reference="MG_049"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Dgk1__MG_107_DIMER" reaction="Dgk1">
-          <gene reference="MG_107"/>
-        </geneAssociation>
-        <geneAssociation id="ga__DhfR1__MG_228_TETRAMER" reaction="DhfR1">
-          <gene reference="MG_228"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Eno__MG_407_DIMER" reaction="Eno">
-          <gene reference="MG_407"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Fba__MG_023_DIMER" reaction="Fba">
-          <gene reference="MG_023"/>
-        </geneAssociation>
-        <geneAssociation id="ga__FolD1__MG_013_DIMER" reaction="FolD1">
-          <gene reference="MG_013"/>
-        </geneAssociation>
-        <geneAssociation id="ga__FolD2__MG_013_DIMER" reaction="FolD2">
-          <gene reference="MG_013"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Fre1__MG_342_MONOMER" reaction="Fre1">
-          <gene reference="MG_342"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Fre5__MG_342_MONOMER" reaction="Fre5">
-          <gene reference="MG_342"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Fre6__MG_342_MONOMER" reaction="Fre6">
-          <gene reference="MG_342"/>
-        </geneAssociation>
-        <geneAssociation id="ga__FruK1__MG_063_DIMER" reaction="FruK1">
-          <gene reference="MG_063"/>
-        </geneAssociation>
-        <geneAssociation id="ga__FthC__MG_245_MONOMER" reaction="FthC">
-          <gene reference="MG_245"/>
-        </geneAssociation>
-        <geneAssociation id="ga__FTHFS__MG_013_DIMER" reaction="FTHFS">
-          <gene reference="MG_013"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GalE__MG_118_DIMER" reaction="GalE">
-          <gene reference="MG_118"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GalU1__MG_453_TETRAMER" reaction="GalU1">
-          <gene reference="MG_453"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GapA__MG_301_TETRAMER" reaction="GapA">
-          <gene reference="MG_301"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Glf__MG_137_DIMER" reaction="Glf">
-          <gene reference="MG_137"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GlpK__MG_038_TETRAMER" reaction="GlpK">
-          <gene reference="MG_038"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GlyA3__MG_394_TETRAMER" reaction="GlyA3">
-          <gene reference="MG_394"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GlyA4__MG_394_TETRAMER" reaction="GlyA4">
-          <gene reference="MG_394"/>
-        </geneAssociation>
-        <geneAssociation id="ga__glycosyltransferase_PG160_DAG160__MG_517_MONOMER" reaction="glycosyltransferase_PG160_DAG160">
-          <gene reference="MG_517"/>
-        </geneAssociation>
-        <geneAssociation id="ga__glycosyltransferase_PG161_DAG161__MG_517_MONOMER" reaction="glycosyltransferase_PG161_DAG161">
-          <gene reference="MG_517"/>
-        </geneAssociation>
-        <geneAssociation id="ga__glycosyltransferase_PG181_DAG181__MG_517_MONOMER" reaction="glycosyltransferase_PG181_DAG181">
-          <gene reference="MG_517"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Gmk1__MG_107_DIMER" reaction="Gmk1">
-          <gene reference="MG_107"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Gmk2__MG_107_DIMER" reaction="Gmk2">
-          <gene reference="MG_107"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Gmk3__MG_107_DIMER" reaction="Gmk3">
-          <gene reference="MG_107"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Gmk4__MG_107_DIMER" reaction="Gmk4">
-          <gene reference="MG_107"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GpmA__MG_430_MONOMER" reaction="GpmA">
-          <gene reference="MG_430"/>
-        </geneAssociation>
-        <geneAssociation id="ga__GpsA__MG_039_DIMER" reaction="GpsA">
-          <gene reference="MG_039"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Hpt1__MG_458_TETRAMER" reaction="Hpt1">
-          <gene reference="MG_458"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Hpt2__MG_458_TETRAMER" reaction="Hpt2">
-          <gene reference="MG_458"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_DIBUTYRIN_MG310__MG_310_MONOMER" reaction="LIPASE_DIBUTYRIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_DIBUTYRIN_MG327__MG_327_MONOMER" reaction="LIPASE_DIBUTYRIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_DIBUTYRIN_MG344__MG_344_MONOMER" reaction="LIPASE_DIBUTYRIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_METHYL_OCDCEA_MG310__MG_310_MONOMER" reaction="LIPASE_METHYL_OCDCEA_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_METHYL_OCDCEA_MG327__MG_327_MONOMER" reaction="LIPASE_METHYL_OCDCEA_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_METHYL_OCDCEA_MG344__MG_344_MONOMER" reaction="LIPASE_METHYL_OCDCEA_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_MONOBUTYRIN_MG310__MG_310_MONOMER" reaction="LIPASE_MONOBUTYRIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_MONOBUTYRIN_MG327__MG_327_MONOMER" reaction="LIPASE_MONOBUTYRIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_MONOBUTYRIN_MG344__MG_344_MONOMER" reaction="LIPASE_MONOBUTYRIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIBUTYRIN_MG310__MG_310_MONOMER" reaction="LIPASE_TRIBUTYRIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIBUTYRIN_MG327__MG_327_MONOMER" reaction="LIPASE_TRIBUTYRIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIBUTYRIN_MG344__MG_344_MONOMER" reaction="LIPASE_TRIBUTYRIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRILAURIN_MG310__MG_310_MONOMER" reaction="LIPASE_TRILAURIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRILAURIN_MG327__MG_327_MONOMER" reaction="LIPASE_TRILAURIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRILAURIN_MG344__MG_344_MONOMER" reaction="LIPASE_TRILAURIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIMYRISTIN_MG310__MG_310_MONOMER" reaction="LIPASE_TRIMYRISTIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIMYRISTIN_MG327__MG_327_MONOMER" reaction="LIPASE_TRIMYRISTIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIMYRISTIN_MG344__MG_344_MONOMER" reaction="LIPASE_TRIMYRISTIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIOLEIN_MG310__MG_310_MONOMER" reaction="LIPASE_TRIOLEIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIOLEIN_MG327__MG_327_MONOMER" reaction="LIPASE_TRIOLEIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIOLEIN_MG344__MG_344_MONOMER" reaction="LIPASE_TRIOLEIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIPALMITIN_MG310__MG_310_MONOMER" reaction="LIPASE_TRIPALMITIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIPALMITIN_MG327__MG_327_MONOMER" reaction="LIPASE_TRIPALMITIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRIPALMITIN_MG344__MG_344_MONOMER" reaction="LIPASE_TRIPALMITIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRISTEARIN_MG310__MG_310_MONOMER" reaction="LIPASE_TRISTEARIN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRISTEARIN_MG327__MG_327_MONOMER" reaction="LIPASE_TRISTEARIN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRISTEARIN_MG344__MG_344_MONOMER" reaction="LIPASE_TRISTEARIN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRI_HDCEA_IN_MG310__MG_310_MONOMER" reaction="LIPASE_TRI_HDCEA_IN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRI_HDCEA_IN_MG327__MG_327_MONOMER" reaction="LIPASE_TRI_HDCEA_IN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRI_HDCEA_IN_MG344__MG_344_MONOMER" reaction="LIPASE_TRI_HDCEA_IN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRI_TTDCEA_IN_MG310__MG_310_MONOMER" reaction="LIPASE_TRI_TTDCEA_IN_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRI_TTDCEA_IN_MG327__MG_327_MONOMER" reaction="LIPASE_TRI_TTDCEA_IN_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TRI_TTDCEA_IN_MG344__MG_344_MONOMER" reaction="LIPASE_TRI_TTDCEA_IN_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TWEEN80_MG310__MG_310_MONOMER" reaction="LIPASE_TWEEN80_MG310">
-          <gene reference="MG_310"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TWEEN80_MG327__MG_327_MONOMER" reaction="LIPASE_TWEEN80_MG327">
-          <gene reference="MG_327"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LIPASE_TWEEN80_MG344__MG_344_MONOMER" reaction="LIPASE_TWEEN80_MG344">
-          <gene reference="MG_344"/>
-        </geneAssociation>
-        <geneAssociation id="ga__LplA__MG_270_MONOMER" reaction="LplA">
-          <gene reference="MG_270"/>
-        </geneAssociation>
-        <geneAssociation id="ga__MetF__MG_228_TETRAMER" reaction="MetF">
-          <gene reference="MG_228"/>
-        </geneAssociation>
-        <geneAssociation id="ga__MetK__MG_047_TETRAMER" reaction="MetK">
-          <gene reference="MG_047"/>
-        </geneAssociation>
-        <geneAssociation id="ga__NadE__MG_383_DIMER" reaction="NadE">
-          <gene reference="MG_383"/>
-        </geneAssociation>
-        <geneAssociation id="ga__NadK__MG_128_HEXAMER" reaction="NadK">
-          <gene reference="MG_128"/>
-        </geneAssociation>
-        <geneAssociation id="ga__NADR1__MG_240_HEXAMER" reaction="NADR1">
-          <gene reference="MG_240"/>
-        </geneAssociation>
-        <geneAssociation id="ga__NOX__MG_275_TETRAMER" reaction="NOX">
-          <gene reference="MG_275"/>
-        </geneAssociation>
-        <geneAssociation id="ga__NrdEF_ADP__MG_229_231_TETRAMER" reaction="NrdEF_ADP">
-          <and>
-            <gene reference="MG_229"/>
-            <gene reference="MG_231"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__NrdEF_CDP__MG_229_231_TETRAMER" reaction="NrdEF_CDP">
-          <and>
-            <gene reference="MG_229"/>
-            <gene reference="MG_231"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__NrdEF_GDP__MG_229_231_TETRAMER" reaction="NrdEF_GDP">
-          <and>
-            <gene reference="MG_229"/>
-            <gene reference="MG_231"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__NrdEF_maintenance__MG_230_MONOMER" reaction="NrdEF_maintenance">
-          <gene reference="MG_230"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pdp1__MG_051_DIMER" reaction="Pdp1">
-          <gene reference="MG_051"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pdp2__MG_051_DIMER" reaction="Pdp2">
-          <gene reference="MG_051"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PfkA1__MG_215_TETRAMER" reaction="PfkA1">
-          <gene reference="MG_215"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PfkA2__MG_215_TETRAMER" reaction="PfkA2">
-          <gene reference="MG_215"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PfkA3__MG_215_TETRAMER" reaction="PfkA3">
-          <gene reference="MG_215"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PfkA4__MG_215_TETRAMER" reaction="PfkA4">
-          <gene reference="MG_215"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PfkA5__MG_215_TETRAMER" reaction="PfkA5">
-          <gene reference="MG_215"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgi__MG_111_DIMER" reaction="Pgi">
-          <gene reference="MG_111"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgk1__MG_300_MONOMER" reaction="Pgk1">
-          <gene reference="MG_300"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgk2__MG_300_MONOMER" reaction="Pgk2">
-          <gene reference="MG_300"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgk3__MG_300_MONOMER" reaction="Pgk3">
-          <gene reference="MG_300"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgk4__MG_300_MONOMER" reaction="Pgk4">
-          <gene reference="MG_300"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgk5__MG_300_MONOMER" reaction="Pgk5">
-          <gene reference="MG_300"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pgm__MG_053_TRIMER" reaction="Pgm">
-          <gene reference="MG_053"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PgsA1__MG_114_DIMER" reaction="PgsA1">
-          <gene reference="MG_114"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PgsA2__MG_114_DIMER" reaction="PgsA2">
-          <gene reference="MG_114"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PgsA3__MG_114_DIMER" reaction="PgsA3">
-          <gene reference="MG_114"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PlsC4__MG_212_MONOMER" reaction="PlsC4">
-          <gene reference="MG_212"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PlsC5__MG_212_MONOMER" reaction="PlsC5">
-          <gene reference="MG_212"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PlsC7__MG_212_MONOMER" reaction="PlsC7">
-          <gene reference="MG_212"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PlsX4__MG_368_DIMER" reaction="PlsX4">
-          <gene reference="MG_368"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PlsX5__MG_368_DIMER" reaction="PlsX5">
-          <gene reference="MG_368"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PlsX7__MG_368_DIMER" reaction="PlsX7">
-          <gene reference="MG_368"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PncB__MG_037_MONOMER" reaction="PncB">
-          <gene reference="MG_037"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Ppa__MG_351_HEXAMER" reaction="Ppa">
-          <gene reference="MG_351"/>
-        </geneAssociation>
-        <geneAssociation id="ga__PrsA__MG_058_HEXAMER" reaction="PrsA">
-          <gene reference="MG_058"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pta__MG_299_DIMER" reaction="Pta">
-          <gene reference="MG_299"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_ADP__MG_216_TETRAMER" reaction="Pyk_ADP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_CDP__MG_216_TETRAMER" reaction="Pyk_CDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_DADP__MG_216_TETRAMER" reaction="Pyk_DADP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_DCDP__MG_216_TETRAMER" reaction="Pyk_DCDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_DGDP__MG_216_TETRAMER" reaction="Pyk_DGDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_DTDP__MG_216_TETRAMER" reaction="Pyk_DTDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_GDP__MG_216_TETRAMER" reaction="Pyk_GDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_IDP__MG_216_TETRAMER" reaction="Pyk_IDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Pyk_UDP__MG_216_TETRAMER" reaction="Pyk_UDP">
-          <gene reference="MG_216"/>
-        </geneAssociation>
-        <geneAssociation id="ga__RelA1__MG_278_DIMER" reaction="RelA1">
-          <gene reference="MG_278"/>
-        </geneAssociation>
-        <geneAssociation id="ga__RibF1__MG_145_MONOMER" reaction="RibF1">
-          <gene reference="MG_145"/>
-        </geneAssociation>
-        <geneAssociation id="ga__RibF2__MG_145_MONOMER" reaction="RibF2">
-          <gene reference="MG_145"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Rpe__MG_112_DIMER" reaction="Rpe">
-          <gene reference="MG_112"/>
-        </geneAssociation>
-        <geneAssociation id="ga__RpiB__MG_396_DIMER" reaction="RpiB">
-          <gene reference="MG_396"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TatD_dAMP__MG_009_MONOMER" reaction="TatD_dAMP">
-          <gene reference="MG_009"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TatD_dCMP__MG_009_MONOMER" reaction="TatD_dCMP">
-          <gene reference="MG_009"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TatD_dGMP__MG_009_MONOMER" reaction="TatD_dGMP">
-          <gene reference="MG_009"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TatD_dTMP__MG_009_MONOMER" reaction="TatD_dTMP">
-          <gene reference="MG_009"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Tdk1__MG_034_DIMER" reaction="Tdk1">
-          <gene reference="MG_034"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Tdk2__MG_034_DIMER" reaction="Tdk2">
-          <gene reference="MG_034"/>
-        </geneAssociation>
-        <geneAssociation id="ga__ThyA__MG_227_DIMER" reaction="ThyA">
-          <gene reference="MG_227"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Tkt1__MG_066_DIMER" reaction="Tkt1">
-          <gene reference="MG_066"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Tkt2__MG_066_DIMER" reaction="Tkt2">
-          <gene reference="MG_066"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Tmk__MG_006_DIMER" reaction="Tmk">
-          <gene reference="MG_006"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TpiA__MG_431_DIMER" reaction="TpiA">
-          <gene reference="MG_431"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TrxB__MG_102_DIMER" reaction="TrxB">
-          <gene reference="MG_102"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_AROP11__MG_226_DIMER" reaction="TX_AROP11">
-          <gene reference="MG_226"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_AROP12__MG_226_DIMER" reaction="TX_AROP12">
-          <gene reference="MG_226"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_AROP13__MG_226_DIMER" reaction="TX_AROP13">
-          <gene reference="MG_226"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_AROP21__MG_225_DIMER" reaction="TX_AROP21">
-          <gene reference="MG_225"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_AROP22__MG_225_DIMER" reaction="TX_AROP22">
-          <gene reference="MG_225"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_AROP23__MG_225_DIMER" reaction="TX_AROP23">
-          <gene reference="MG_225"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_Cbi_Co__MG_179_180_181_TETRAMER" reaction="TX_Cbi_Co">
-          <and>
-            <gene reference="MG_180"/>
-            <gene reference="MG_181"/>
-            <gene reference="MG_179"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_Cbi_Ni__MG_302_303_304_TETRAMER" reaction="TX_Cbi_Ni">
-          <and>
-            <gene reference="MG_302"/>
-            <gene reference="MG_303"/>
-            <gene reference="MG_304"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_ComEC_dApdAp__MG_316_DIMER" reaction="TX_ComEC_dApdAp">
-          <gene reference="MG_316"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_ComEC_dCpdCp__MG_316_DIMER" reaction="TX_ComEC_dCpdCp">
-          <gene reference="MG_316"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_ComEC_dGpdGp__MG_316_DIMER" reaction="TX_ComEC_dGpdGp">
-          <gene reference="MG_316"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_ComEC_dTpdTp__MG_316_DIMER" reaction="TX_ComEC_dTpdTp">
-          <gene reference="MG_316"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_FRUPTS__MG_041_062_429_PENTAMER" reaction="TX_FRUPTS">
-          <and>
-            <gene reference="MG_429"/>
-            <gene reference="MG_041"/>
-            <gene reference="MG_062"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_GL__MG_186_187_188_189_PENTAMER" reaction="TX_GL">
-          <and>
-            <gene reference="MG_188"/>
-            <gene reference="MG_189"/>
-            <gene reference="MG_186"/>
-            <gene reference="MG_187"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_GL3P__MG_186_187_188_189_PENTAMER" reaction="TX_GL3P">
-          <and>
-            <gene reference="MG_188"/>
-            <gene reference="MG_189"/>
-            <gene reference="MG_186"/>
-            <gene reference="MG_187"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_GLCPTS__MG_041_069_429_PENTAMER" reaction="TX_GLCPTS">
-          <and>
-            <gene reference="MG_429"/>
-            <gene reference="MG_069"/>
-            <gene reference="MG_041"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_GLUP__MG_033_TETRAMER" reaction="TX_GLUP">
-          <gene reference="MG_033"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_CA__MG_071_MONOMER" reaction="TX_MGTA_CA">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_CU__MG_071_MONOMER" reaction="TX_MGTA_CU">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_FE2__MG_071_MONOMER" reaction="TX_MGTA_FE2">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_FE3__MG_071_MONOMER" reaction="TX_MGTA_FE3">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_MG__MG_071_MONOMER" reaction="TX_MGTA_MG">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_MN__MG_071_MONOMER" reaction="TX_MGTA_MN">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_MOBD__MG_071_MONOMER" reaction="TX_MGTA_MOBD">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_MGTA_ZN__MG_071_MONOMER" reaction="TX_MGTA_ZN">
-          <gene reference="MG_071"/>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_NAUP2__MG_322_323_TETRAMER" reaction="TX_NAUP2">
-          <and>
-            <gene reference="MG_322"/>
-            <gene reference="MG_323"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Ala__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Ala">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Arg__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Arg">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Asn__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Asn">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Asp__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Asp">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Cys__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Cys">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Gln__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Gln">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Glu__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Glu">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Gly__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Gly">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_His__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_His">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Ile__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Ile">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Leu__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Leu">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Lys__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Lys">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Met__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Met">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Phe__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Phe">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Pro__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Pro">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Ser__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Ser">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Thr__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Thr">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Trp__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Trp">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Tyr__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Tyr">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_OppB_Val__MG_077_078_079_080_321_PENTAMER" reaction="TX_OppB_Val">
-          <and>
-            <gene reference="MG_077"/>
-            <gene reference="MG_321"/>
-            <gene reference="MG_080"/>
-            <gene reference="MG_078"/>
-            <gene reference="MG_079"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_PHNT__MG_289_290_291_PENTAMER" reaction="TX_PHNT">
-          <and>
-            <gene reference="MG_289"/>
-            <gene reference="MG_290"/>
-            <gene reference="MG_291"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_PIUP1__MG_410_411_412_PENTAMER" reaction="TX_PIUP1">
-          <and>
-            <gene reference="MG_410"/>
-            <gene reference="MG_411"/>
-            <gene reference="MG_412"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_SPMDUP1__MG_042_043_044_045_PENTAMER" reaction="TX_SPMDUP1">
-          <and>
-            <gene reference="MG_045"/>
-            <gene reference="MG_044"/>
-            <gene reference="MG_043"/>
-            <gene reference="MG_042"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_SPRDUP2__MG_042_043_044_045_PENTAMER" reaction="TX_SPRDUP2">
-          <and>
-            <gene reference="MG_045"/>
-            <gene reference="MG_044"/>
-            <gene reference="MG_043"/>
-            <gene reference="MG_042"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_TRK__MG_322_323_TETRAMER" reaction="TX_TRK">
-          <and>
-            <gene reference="MG_322"/>
-            <gene reference="MG_323"/>
-          </and>
-        </geneAssociation>
-        <geneAssociation id="ga__TX_UHPT1__MG_061_MONOMER" reaction="TX_UHPT1">
-          <gene reference="MG_061"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Udk1__MG_382_TETRAMER" reaction="Udk1">
-          <gene reference="MG_382"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Udk2__MG_382_TETRAMER" reaction="Udk2">
-          <gene reference="MG_382"/>
-        </geneAssociation>
-        <geneAssociation id="ga__Upp__MG_030_TRIMER" reaction="Upp">
-          <gene reference="MG_030"/>
-        </geneAssociation>
-        <geneAssociation id="ga__YbiV_SNGLYP__MG_265_DIMER" reaction="YbiV_SNGLYP">
-          <gene reference="MG_265"/>
-        </geneAssociation>
-      </listOfGeneAssociations>
       <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
         <rdf:Description rdf:about="#meta_WCM_3_10">
           <dc:creator>
@@ -897,10 +69,10 @@
             </rdf:Bag>
           </dc:creator>
           <dcterms:created rdf:parseType="Resource">
-            <dcterms:W3CDTF>2015-10-11T18:50:40Z</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2015-10-11T19:25:36Z</dcterms:W3CDTF>
           </dcterms:created>
           <dcterms:modified rdf:parseType="Resource">
-            <dcterms:W3CDTF>2015-10-11T18:50:40Z</dcterms:W3CDTF>
+            <dcterms:W3CDTF>2015-10-11T19:25:36Z</dcterms:W3CDTF>
           </dcterms:modified>
           <bqmodel:isDerivedFrom>
             <rdf:Bag>
@@ -6649,7 +5821,7 @@
       <reaction id="AceE" name="pyruvate dehydrogenase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_271 and MG_272 and MG_273 and MG_274)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___TWO____SEVEN____ONE__ and gp_MG___TWO____SEVEN____TWO__ and gp_MG___TWO____SEVEN____THREE__ and gp_MG___TWO____SEVEN____FOUR__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -6680,7 +5852,7 @@
       <reaction id="AckA" name="acetate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_357</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FIVE____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -6709,7 +5881,7 @@
       <reaction id="Adk1" name="adenylate kinase (ATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_171</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____SEVEN____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -6737,7 +5909,7 @@
       <reaction id="Adk2" name="adentylate kinase (GTP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_171</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____SEVEN____ONE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -6766,7 +5938,7 @@
       <reaction id="Adk3" name="adentylate kinase (ITP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_171</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____SEVEN____ONE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -6795,7 +5967,7 @@
       <reaction id="Adk4" name="deoxyadenylate kinase (dADP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_171</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____SEVEN____ONE___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -6845,7 +6017,7 @@
       <reaction id="Apt" name="adenine phosphoribosyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_276</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____SEVEN____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7318,7 +6490,7 @@
       <reaction id="AtpA" name="ATP synthase (four protons for one ATP) (periplasm)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_405 and MG_404 and MG_403 and MG_402 and MG_401 and MG_398 and MG_399 and MG_400)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___FOUR____ZERO____FIVE__ and gp_MG___FOUR____ZERO____FOUR__ and gp_MG___FOUR____ZERO____THREE__ and gp_MG___FOUR____ZERO____TWO__ and gp_MG___FOUR____ZERO____ONE__ and gp_MG___THREE____NINE____EIGHT__ and gp_MG___THREE____NINE____NINE__ and gp_MG___FOUR____ZERO____ZERO__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7349,7 +6521,7 @@
       <reaction id="Cdd1" name="cytidine deaminase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_052</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____TWO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7378,7 +6550,7 @@
       <reaction id="Cdd2" name="deoxycytidine deaminase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_052</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____TWO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7407,7 +6579,7 @@
       <reaction id="CdsA4" name="CDP-diacylglycerol synthetase (n-C16:0)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_437</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____THREE____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7437,7 +6609,7 @@
       <reaction id="CdsA5" name="CDP-diacylglycerol synthetase (n-C16:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_437</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____THREE____SEVEN___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7467,7 +6639,7 @@
       <reaction id="CdsA7" name="CDP-diacylglycerol synthetase (n-C18:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_437</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____THREE____SEVEN___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7557,7 +6729,7 @@
       <reaction id="CmkA1" name="cytidylate kinase (dCMP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_330</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____THREE____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7586,7 +6758,7 @@
       <reaction id="CmkA2" name="cytidylate kinase (CMP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_330</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____THREE____ZERO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7615,7 +6787,7 @@
       <reaction id="CmkB3" name="UMP kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_434</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____THREE____FOUR__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7644,7 +6816,7 @@
       <reaction id="Dak1" name="deoxyadenylate kinase (dA:ATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_171</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____SEVEN____ONE___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7716,7 +6888,7 @@
       <reaction id="DeoC" name="deoxyribose-phosphate aldolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_050</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7744,7 +6916,7 @@
       <reaction id="DeoD1" name="purine-nucleoside phosphorylase (Deoxyinosine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7773,7 +6945,7 @@
       <reaction id="DeoD2" name="purine-nucleoside phosphorylase (Deoxyadenosine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7802,7 +6974,7 @@
       <reaction id="DeoD3" name="purine-nucleoside phosphorylase (Deoxyguanosine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7831,7 +7003,7 @@
       <reaction id="DeoD4" name="purine-nucleoside phosphorylase (Inosine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7861,7 +7033,7 @@
       <reaction id="DeoD5" name="purine-nucleoside phosphorylase (Adenosine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7891,7 +7063,7 @@
       <reaction id="DeoD6" name="purine-nucleoside phosphorylase (Guanosine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE___5</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7921,7 +7093,7 @@
       <reaction id="DeoD8" name="purine-nucleoside phosphorylase (Deoxyuridine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_049</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____NINE___6</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7950,7 +7122,7 @@
       <reaction id="Dgk1" name="deoxyguanylate kinase (dG:ATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_107</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ZERO____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -7980,7 +7152,7 @@
       <reaction id="DhfR1" name="dihydrofolate reductase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_228</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8010,7 +7182,7 @@
       <reaction id="Eno" name="enolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_407</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____ZERO____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8038,7 +7210,7 @@
       <reaction id="Fba" name="fructose-bisphosphate aldolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_023</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____TWO____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8088,7 +7260,7 @@
       <reaction id="FolD1" name="methylenetetrahydrofolate dehydrogenase (NADP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_013</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ONE____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8118,7 +7290,7 @@
       <reaction id="FolD2" name="methenyltetrahydrofolate cyclohydrolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_013</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ONE____THREE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8147,7 +7319,7 @@
       <reaction id="Fre1" name="FAD reductase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_342</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____TWO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8199,7 +7371,7 @@
       <reaction id="Fre5" name="FMN reductase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_342</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____TWO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8229,7 +7401,7 @@
       <reaction id="Fre6" name="FMN reductase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_342</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____TWO___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8259,7 +7431,7 @@
       <reaction id="FruK1" name="fructose-1-phosphate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_063</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SIX____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8289,7 +7461,7 @@
       <reaction id="FthC" name="methylenetetrahydrofolate cyclohydrase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_245</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____FOUR____FIVE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8320,7 +7492,7 @@
       <reaction id="FTHFS" name="formate-tetrahydrofolate ligase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_013</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ONE____THREE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8351,7 +7523,7 @@
       <reaction id="GalE" name="UDPglucose 4-epimerase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_118</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ONE____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8378,7 +7550,7 @@
       <reaction id="GalU1" name="UTP-glucose-1-phosphate uridylyltransferase (irreversible)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_453</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____FIVE____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8408,7 +7580,7 @@
       <reaction id="GapA" name="glyceraldehyde-3-phosphate dehydrogenase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_301</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ZERO____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8439,7 +7611,7 @@
       <reaction id="Glf" name="FAD reductase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_137</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____THREE____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8488,7 +7660,7 @@
       <reaction id="GlpK" name="glycerol kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_038</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8517,7 +7689,7 @@
       <reaction id="GlyA3" name="glycine hydroxymethyltransferase, reversible">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_394</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____NINE____FOUR__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8548,7 +7720,7 @@
       <reaction id="GlyA4" name="Threonine aldolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_394</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____NINE____FOUR___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8576,7 +7748,7 @@
       <reaction id="glycosyltransferase_PG160_DAG160" name="glycosyltransferase (Phosphatidylglycerol (dihexadecanoyl, n-C16:0) ==&gt; Diacylglycerol (n-16:0))">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_517</p>
+            <p>GENE_ASSOCIATION : gp_MG___FIVE____ONE____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8606,7 +7778,7 @@
       <reaction id="glycosyltransferase_PG161_DAG161" name="glycosyltransferase (Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1) ==&gt; Diacylglycerol (n-16:1))">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_517</p>
+            <p>GENE_ASSOCIATION : gp_MG___FIVE____ONE____SEVEN___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8635,7 +7807,7 @@
       <reaction id="glycosyltransferase_PG181_DAG181" name="glycosyltransferase (Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1) ==&gt; Diacylglycerol (n-18:1))">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_517</p>
+            <p>GENE_ASSOCIATION : gp_MG___FIVE____ONE____SEVEN___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8664,7 +7836,7 @@
       <reaction id="Gmk1" name="guanylate kinase (GMP:ATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_107</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ZERO____SEVEN___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8693,7 +7865,7 @@
       <reaction id="Gmk2" name="deoxyguanylate kinase (dGMP:ATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_107</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ZERO____SEVEN___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8722,7 +7894,7 @@
       <reaction id="Gmk3" name="guanylate kinase (GMP:dATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_107</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ZERO____SEVEN___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8751,7 +7923,7 @@
       <reaction id="Gmk4" name="deoxyguanylate kinase (dGMP:dATP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_107</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ZERO____SEVEN___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8780,7 +7952,7 @@
       <reaction id="GpmA" name="phosphoglycerate mutase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_430</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____THREE____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8807,7 +7979,7 @@
       <reaction id="GpsA" name="glycerol-3-phosphate dehydrogenase (NAD)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_039</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____NINE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8969,7 +8141,7 @@
       <reaction id="Hpt1" name="hypoxanthine phosphoribosyltransferase (Hypoxanthine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_458</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____FIVE____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -8998,7 +8170,7 @@
       <reaction id="Hpt2" name="guanine phosphoribosyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_458</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____FIVE____EIGHT___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9027,7 +8199,7 @@
       <reaction id="LIPASE_DIBUTYRIN_MG310" name="Triacylglycerol lipase (dibutyrin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9056,7 +8228,7 @@
       <reaction id="LIPASE_DIBUTYRIN_MG327" name="Triacylglycerol lipase (dibutyrin) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9085,7 +8257,7 @@
       <reaction id="LIPASE_DIBUTYRIN_MG344" name="Triacylglycerol lipase (dibutyrin) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9114,7 +8286,7 @@
       <reaction id="LIPASE_METHYL_OCDCEA_MG310" name="Triacylglycerol lipase (methyl_ocdcea) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9144,7 +8316,7 @@
       <reaction id="LIPASE_METHYL_OCDCEA_MG327" name="Triacylglycerol lipase (methyl_ocdcea) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9174,7 +8346,7 @@
       <reaction id="LIPASE_METHYL_OCDCEA_MG344" name="Triacylglycerol lipase (methyl_ocdcea) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9204,7 +8376,7 @@
       <reaction id="LIPASE_MONOBUTYRIN_MG310" name="Triacylglycerol lipase (1-monobutyrin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9233,7 +8405,7 @@
       <reaction id="LIPASE_MONOBUTYRIN_MG327" name="Triacylglycerol lipase (1-monobutyrin) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9262,7 +8434,7 @@
       <reaction id="LIPASE_MONOBUTYRIN_MG344" name="Triacylglycerol lipase (1-monobutyrin) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9291,7 +8463,7 @@
       <reaction id="LIPASE_TRIBUTYRIN_MG310" name="Triacylglycerol lipase (tributyrin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9320,7 +8492,7 @@
       <reaction id="LIPASE_TRIBUTYRIN_MG327" name="Triacylglycerol lipase (tributyrin) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9349,7 +8521,7 @@
       <reaction id="LIPASE_TRIBUTYRIN_MG344" name="Triacylglycerol lipase (tributyrin) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9378,7 +8550,7 @@
       <reaction id="LIPASE_TRILAURIN_MG310" name="Triacylglycerol lipase (trilaurin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9408,7 +8580,7 @@
       <reaction id="LIPASE_TRILAURIN_MG327" name="Triacylglycerol lipase (trilaurin) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9438,7 +8610,7 @@
       <reaction id="LIPASE_TRILAURIN_MG344" name="Triacylglycerol lipase (trilaurin) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9468,7 +8640,7 @@
       <reaction id="LIPASE_TRIMYRISTIN_MG310" name="Triacylglycerol lipase (trimyristin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___5</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9498,7 +8670,7 @@
       <reaction id="LIPASE_TRIMYRISTIN_MG327" name="Triacylglycerol lipase (trimyristin) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___5</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9528,7 +8700,7 @@
       <reaction id="LIPASE_TRIMYRISTIN_MG344" name="Triacylglycerol lipase (trimyristin) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___5</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9558,7 +8730,7 @@
       <reaction id="LIPASE_TRIOLEIN_MG310" name=" Triacylglycerol lipase (triolein) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___6</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9588,7 +8760,7 @@
       <reaction id="LIPASE_TRIOLEIN_MG327" name=" Triacylglycerol lipase (triolein) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___6</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9618,7 +8790,7 @@
       <reaction id="LIPASE_TRIOLEIN_MG344" name="Triacylglycerol lipase (triolein) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___6</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9648,7 +8820,7 @@
       <reaction id="LIPASE_TRIPALMITIN_MG310" name="Triacylglycerol lipase (tripalmitin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___7</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9678,7 +8850,7 @@
       <reaction id="LIPASE_TRIPALMITIN_MG327" name="Triacylglycerol lipase (tripalmitin) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___7</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9708,7 +8880,7 @@
       <reaction id="LIPASE_TRIPALMITIN_MG344" name="Triacylglycerol lipase (tripalmitin) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___7</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9738,7 +8910,7 @@
       <reaction id="LIPASE_TRISTEARIN_MG310" name="Triacylglycerol lipase (octadecanoate) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___8</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9768,7 +8940,7 @@
       <reaction id="LIPASE_TRISTEARIN_MG327" name="Triacylglycerol lipase (octadecanoate) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___8</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9798,7 +8970,7 @@
       <reaction id="LIPASE_TRISTEARIN_MG344" name="Triacylglycerol lipase (octadecanoate) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___8</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9828,7 +9000,7 @@
       <reaction id="LIPASE_TRI_HDCEA_IN_MG310" name="Triacylglycerol lipase (tri_hdcea_in) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___9</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9858,7 +9030,7 @@
       <reaction id="LIPASE_TRI_HDCEA_IN_MG327" name="Triacylglycerol lipase (tri_hdcea_in) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___9</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9888,7 +9060,7 @@
       <reaction id="LIPASE_TRI_HDCEA_IN_MG344" name="Triacylglycerol lipase (tri_hdcea_in) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___9</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9918,7 +9090,7 @@
       <reaction id="LIPASE_TRI_TTDCEA_IN_MG310" name="Triacylglycerol lipase (tri_ttdcea_in) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___10</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9948,7 +9120,7 @@
       <reaction id="LIPASE_TRI_TTDCEA_IN_MG327" name="Triacylglycerol lipase (tri_ttdcea_in) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___10</p>
           </body>
         </notes>
         <listOfReactants>
@@ -9978,7 +9150,7 @@
       <reaction id="LIPASE_TRI_TTDCEA_IN_MG344" name="Triacylglycerol lipase (tri_ttdcea_in) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___10</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10008,7 +9180,7 @@
       <reaction id="LIPASE_TWEEN80_MG310" name="Triacylglycerol lipase (Tween 80) (MG_310)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_310</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____ZERO___11</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10038,7 +9210,7 @@
       <reaction id="LIPASE_TWEEN80_MG327" name="Triacylglycerol lipase (Tween 80) (MG_327)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_327</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____TWO____SEVEN___11</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10068,7 +9240,7 @@
       <reaction id="LIPASE_TWEEN80_MG344" name="Triacylglycerol lipase (Tween 80) (MG_344)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_344</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FOUR____FOUR___11</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10119,7 +9291,7 @@
       <reaction id="LplA" name="ATP:lipoate adenylyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_270</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____SEVEN____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10149,7 +9321,7 @@
       <reaction id="MetF" name="5,10-methylenetetrahydrofolate reductase (NADH)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_228</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____EIGHT___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10199,7 +9371,7 @@
       <reaction id="MetK" name="methionine adenosyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_047</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FOUR____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10316,7 +9488,7 @@
       <reaction id="NadE" name="NAD synthase (nh3)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_383</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____EIGHT____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10348,7 +9520,7 @@
       <reaction id="NadK" name="NAD kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_128</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____TWO____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10377,7 +9549,7 @@
       <reaction id="NADR1" name="nicotinamide-nucleotide adenylyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_240</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____FOUR____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10427,7 +9599,7 @@
       <reaction id="NOX" name="NADH dehydrogenase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_275</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____SEVEN____FIVE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10457,7 +9629,7 @@
       <reaction id="NrdEF_ADP" name="ribonucleoside-diphosphate reductase (ADP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_229 and MG_231)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___TWO____TWO____NINE__ and gp_MG___TWO____THREE____ONE__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10488,7 +9660,7 @@
       <reaction id="NrdEF_CDP" name="ribonucleoside-diphosphate reductase (CDP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_229 and MG_231)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___TWO____TWO____NINE___1 and gp_MG___TWO____THREE____ONE___1)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10519,7 +9691,7 @@
       <reaction id="NrdEF_GDP" name="ribonucleoside-diphosphate reductase (GDP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_229 and MG_231)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___TWO____TWO____NINE___2 and gp_MG___TWO____THREE____ONE___2)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10550,7 +9722,7 @@
       <reaction id="NrdEF_maintenance" name="ribonucleoside-diphosphate reductase maintenance">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_230</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____THREE____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10691,7 +9863,7 @@
       <reaction id="Pdp1" name="deoxyuridine phosphorylase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_051</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10720,7 +9892,7 @@
       <reaction id="Pdp2" name="thymidine phosphorylase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_051</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____ONE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10771,7 +9943,7 @@
       <reaction id="PfkA1" name="phosphofructokinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_215</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____FIVE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10801,7 +9973,7 @@
       <reaction id="PfkA2" name="phosphofructokinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_215</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____FIVE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10831,7 +10003,7 @@
       <reaction id="PfkA3" name="phosphofructokinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_215</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____FIVE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10861,7 +10033,7 @@
       <reaction id="PfkA4" name="phosphofructokinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_215</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____FIVE___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10891,7 +10063,7 @@
       <reaction id="PfkA5" name="phosphofructokinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_215</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____FIVE___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10921,7 +10093,7 @@
       <reaction id="Pgi" name="glucose-6-phosphate isomerase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_111</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ONE____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10948,7 +10120,7 @@
       <reaction id="Pgk1" name="phosphoglycerate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_300</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ZERO____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -10977,7 +10149,7 @@
       <reaction id="Pgk2" name="phosphoglycerate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_300</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ZERO____ZERO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11006,7 +10178,7 @@
       <reaction id="Pgk3" name="phosphoglycerate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_300</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ZERO____ZERO___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11035,7 +10207,7 @@
       <reaction id="Pgk4" name="phosphoglycerate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_300</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ZERO____ZERO___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11064,7 +10236,7 @@
       <reaction id="Pgk5" name="phosphoglycerate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_300</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ZERO____ZERO___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11093,7 +10265,7 @@
       <reaction id="Pgm" name="phosphoglucomutase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_053</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11183,7 +10355,7 @@
       <reaction id="PgsA1" name="Phosphatidylglycerol synthase (n-C16:0)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_114</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ONE____FOUR__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11213,7 +10385,7 @@
       <reaction id="PgsA2" name="Phosphatidylglycerol synthase (n-C16:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_114</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ONE____FOUR___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11243,7 +10415,7 @@
       <reaction id="PgsA3" name="Phosphatidylglycerol synthase (n-C18:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_114</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ONE____FOUR___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11317,7 +10489,7 @@
       <reaction id="PlsC4" name="1-hexadecanoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C16:0)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_212</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____TWO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11347,7 +10519,7 @@
       <reaction id="PlsC5" name="1-hexadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C16:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_212</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____TWO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11377,7 +10549,7 @@
       <reaction id="PlsC7" name="1-octadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C18:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_212</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____TWO___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11406,7 +10578,7 @@
       <reaction id="PlsX4" name="glycerol-3-phosphate acyltransferase (C16:0)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_368</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____SIX____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11436,7 +10608,7 @@
       <reaction id="PlsX5" name="glycerol-3-phosphate acyltransferase (C16:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_368</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____SIX____EIGHT___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11466,7 +10638,7 @@
       <reaction id="PlsX7" name="glycerol-3-phosphate acyltransferase (C18:1)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_368</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____SIX____EIGHT___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11496,7 +10668,7 @@
       <reaction id="PncB" name="nicotinic acid mononucleotide pyrophosphorylase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_037</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11530,7 +10702,7 @@
       <reaction id="Ppa" name="inorganic diphosphatase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_351</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____FIVE____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11582,7 +10754,7 @@
       <reaction id="PrsA" name="phosphoribosylpyrophosphate synthetase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_058</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____FIVE____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11633,7 +10805,7 @@
       <reaction id="Pta" name="phosphotransacetylase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_299</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____NINE____NINE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11726,7 +10898,7 @@
       <reaction id="Pyk_ADP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11756,7 +10928,7 @@
       <reaction id="Pyk_CDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11786,7 +10958,7 @@
       <reaction id="Pyk_DADP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11816,7 +10988,7 @@
       <reaction id="Pyk_DCDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11846,7 +11018,7 @@
       <reaction id="Pyk_DGDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11876,7 +11048,7 @@
       <reaction id="Pyk_DTDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___5</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11906,7 +11078,7 @@
       <reaction id="Pyk_GDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___6</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11936,7 +11108,7 @@
       <reaction id="Pyk_IDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___7</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11966,7 +11138,7 @@
       <reaction id="Pyk_UDP" name="pyruvate kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_216</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____ONE____SIX___8</p>
           </body>
         </notes>
         <listOfReactants>
@@ -11996,7 +11168,7 @@
       <reaction id="RelA1" name="GDP diphosphokinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_278</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____SEVEN____EIGHT__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12026,7 +11198,7 @@
       <reaction id="RibF1" name="riboflavin kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_145</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____FOUR____FIVE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12056,7 +11228,7 @@
       <reaction id="RibF2" name="FMN adenylyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_145</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____FOUR____FIVE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12086,7 +11258,7 @@
       <reaction id="Rpe" name="ribulose 5-phosphate 3-epimerase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_112</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ONE____TWO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12113,7 +11285,7 @@
       <reaction id="RpiB" name="ribose-5-phosphate isomerase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_396</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____NINE____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12183,7 +11355,7 @@
       <reaction id="TatD_dAMP" name="deoxyribonuclease (dAMP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_009</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ZERO____NINE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12212,7 +11384,7 @@
       <reaction id="TatD_dCMP" name="deoxyribonuclease (dCMP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_009</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ZERO____NINE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12241,7 +11413,7 @@
       <reaction id="TatD_dGMP" name="deoxyribonuclease (dGMP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_009</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ZERO____NINE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12270,7 +11442,7 @@
       <reaction id="TatD_dTMP" name="deoxyribonuclease (dTMP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_009</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ZERO____NINE___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12299,7 +11471,7 @@
       <reaction id="Tdk1" name="deoxyuridine kinase (ATP:Deoxyuridine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_034</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____FOUR__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12329,7 +11501,7 @@
       <reaction id="Tdk2" name="thymidine kinase (ATP:thymidine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_034</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____FOUR___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12359,7 +11531,7 @@
       <reaction id="ThyA" name="thymidylate synthase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_227</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____SEVEN__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12389,7 +11561,7 @@
       <reaction id="Tkt1" name="transketolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_066</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SIX____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12418,7 +11590,7 @@
       <reaction id="Tkt2" name="transketolase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_066</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SIX____SIX___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12469,7 +11641,7 @@
       <reaction id="Tmk" name="thiamine kinase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_006</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____ZERO____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12498,7 +11670,7 @@
       <reaction id="TpiA" name="triose-phosphate isomerase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_431</p>
+            <p>GENE_ASSOCIATION : gp_MG___FOUR____THREE____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12525,7 +11697,7 @@
       <reaction id="TrxB" name="thioredoxin reductase (NADPH)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_102</p>
+            <p>GENE_ASSOCIATION : gp_MG___ONE____ZERO____TWO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12677,7 +11849,7 @@
       <reaction id="TX_AROP11" name="L-phenylalanine reversible transport via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_226</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12706,7 +11878,7 @@
       <reaction id="TX_AROP12" name="L-tryptophan reversible transport via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_226</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____SIX___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12735,7 +11907,7 @@
       <reaction id="TX_AROP13" name="L-tyrosine reversible transport via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_226</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____SIX___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12764,7 +11936,7 @@
       <reaction id="TX_AROP21" name="L-phenylalanine reversible transport via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_225</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____FIVE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12793,7 +11965,7 @@
       <reaction id="TX_AROP22" name="L-tryptophan reversible transport via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_225</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____FIVE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12822,7 +11994,7 @@
       <reaction id="TX_AROP23" name="L-tyrosine reversible transport via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_225</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____TWO____FIVE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12870,7 +12042,7 @@
       <reaction id="TX_Cbi_Co" name="cobalt transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_180 and MG_181 and MG_179)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ONE____EIGHT____ZERO__ and gp_MG___ONE____EIGHT____ONE__ and gp_MG___ONE____SEVEN____NINE__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -12902,7 +12074,7 @@
       <reaction id="TX_Cbi_Ni" name="nickel transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_302 and MG_303 and MG_304)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___THREE____ZERO____TWO__ and gp_MG___THREE____ZERO____THREE__ and gp_MG___THREE____ZERO____FOUR__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13012,7 +12184,7 @@
       <reaction id="TX_ComEC_dApdAp" name="DNA internalization (dApdAp)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_316</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____SIX__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13042,7 +12214,7 @@
       <reaction id="TX_ComEC_dCpdCp" name="DNA internalization (dCpdCp)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_316</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____SIX___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13072,7 +12244,7 @@
       <reaction id="TX_ComEC_dGpdGp" name="DNA internalization (dGpdGp)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_316</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____SIX___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13102,7 +12274,7 @@
       <reaction id="TX_ComEC_dTpdTp" name="DNA internalization (dTpdTp)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_316</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____ONE____SIX___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13212,7 +12384,7 @@
       <reaction id="TX_FRUPTS" name="D-fructose transport via PEP:Pyr PTS">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_429 and MG_041 and MG_062)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___FOUR____TWO____NINE__ and gp_MG___ZERO____FOUR____ONE__ and gp_MG___ZERO____SIX____TWO__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13241,7 +12413,7 @@
       <reaction id="TX_GL" name="glycerol transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_188 and MG_189 and MG_186 and MG_187)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ONE____EIGHT____EIGHT__ and gp_MG___ONE____EIGHT____NINE__ and gp_MG___ONE____EIGHT____SIX__ and gp_MG___ONE____EIGHT____SEVEN__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13273,7 +12445,7 @@
       <reaction id="TX_GL3P" name="glycerol transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_188 and MG_189 and MG_186 and MG_187)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ONE____EIGHT____EIGHT___1 and gp_MG___ONE____EIGHT____NINE___1 and gp_MG___ONE____EIGHT____SIX___1 and gp_MG___ONE____EIGHT____SEVEN___1)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13305,7 +12477,7 @@
       <reaction id="TX_GLCPTS" name="D-glucose transport via PEP:Pyr PTS">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_429 and MG_069 and MG_041)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___FOUR____TWO____NINE___1 and gp_MG___ZERO____SIX____NINE__ and gp_MG___ZERO____FOUR____ONE___1)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13358,7 +12530,7 @@
       <reaction id="TX_GLUP" name="glycerol transport via diffusion">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_033</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____THREE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13615,7 +12787,7 @@
       <reaction id="TX_MGTA_CA" name="calcium-transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13647,7 +12819,7 @@
       <reaction id="TX_MGTA_CU" name="copper-transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13679,7 +12851,7 @@
       <reaction id="TX_MGTA_FE2" name="iron (II) transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___2</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13711,7 +12883,7 @@
       <reaction id="TX_MGTA_FE3" name="iron (III) transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___3</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13743,7 +12915,7 @@
       <reaction id="TX_MGTA_MG" name="Magnesium-transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___4</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13775,7 +12947,7 @@
       <reaction id="TX_MGTA_MN" name="Manganese-transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___5</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13807,7 +12979,7 @@
       <reaction id="TX_MGTA_MOBD" name="molybdate transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___6</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13839,7 +13011,7 @@
       <reaction id="TX_MGTA_ZN" name="zinc-transporting ATPase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_071</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SEVEN____ONE___7</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13890,7 +13062,7 @@
       <reaction id="TX_NAUP2" name="sodium transport out via proton antiport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_322 and MG_323)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___THREE____TWO____TWO__ and gp_MG___THREE____TWO____THREE__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -13995,7 +13167,7 @@
       <reaction id="TX_OppB_Ala" name="oligopeptide (Ala) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN__ and gp_MG___THREE____TWO____ONE__ and gp_MG___ZERO____EIGHT____ZERO__ and gp_MG___ZERO____SEVEN____EIGHT__ and gp_MG___ZERO____SEVEN____NINE__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14027,7 +13199,7 @@
       <reaction id="TX_OppB_Arg" name="oligopeptide (Arg) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___1 and gp_MG___THREE____TWO____ONE___1 and gp_MG___ZERO____EIGHT____ZERO___1 and gp_MG___ZERO____SEVEN____EIGHT___1 and gp_MG___ZERO____SEVEN____NINE___1)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14059,7 +13231,7 @@
       <reaction id="TX_OppB_Asn" name="oligopeptide (Asn) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___2 and gp_MG___THREE____TWO____ONE___2 and gp_MG___ZERO____EIGHT____ZERO___2 and gp_MG___ZERO____SEVEN____EIGHT___2 and gp_MG___ZERO____SEVEN____NINE___2)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14091,7 +13263,7 @@
       <reaction id="TX_OppB_Asp" name="oligopeptide (Asp) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___3 and gp_MG___THREE____TWO____ONE___3 and gp_MG___ZERO____EIGHT____ZERO___3 and gp_MG___ZERO____SEVEN____EIGHT___3 and gp_MG___ZERO____SEVEN____NINE___3)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14123,7 +13295,7 @@
       <reaction id="TX_OppB_Cys" name="oligopeptide (Cys) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___4 and gp_MG___THREE____TWO____ONE___4 and gp_MG___ZERO____EIGHT____ZERO___4 and gp_MG___ZERO____SEVEN____EIGHT___4 and gp_MG___ZERO____SEVEN____NINE___4)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14155,7 +13327,7 @@
       <reaction id="TX_OppB_Gln" name="oligopeptide (Gln) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___5 and gp_MG___THREE____TWO____ONE___5 and gp_MG___ZERO____EIGHT____ZERO___5 and gp_MG___ZERO____SEVEN____EIGHT___5 and gp_MG___ZERO____SEVEN____NINE___5)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14187,7 +13359,7 @@
       <reaction id="TX_OppB_Glu" name="oligopeptide (Glu) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___6 and gp_MG___THREE____TWO____ONE___6 and gp_MG___ZERO____EIGHT____ZERO___6 and gp_MG___ZERO____SEVEN____EIGHT___6 and gp_MG___ZERO____SEVEN____NINE___6)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14219,7 +13391,7 @@
       <reaction id="TX_OppB_Gly" name="oligopeptide (Gly) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___7 and gp_MG___THREE____TWO____ONE___7 and gp_MG___ZERO____EIGHT____ZERO___7 and gp_MG___ZERO____SEVEN____EIGHT___7 and gp_MG___ZERO____SEVEN____NINE___7)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14251,7 +13423,7 @@
       <reaction id="TX_OppB_His" name="oligopeptide (His) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___8 and gp_MG___THREE____TWO____ONE___8 and gp_MG___ZERO____EIGHT____ZERO___8 and gp_MG___ZERO____SEVEN____EIGHT___8 and gp_MG___ZERO____SEVEN____NINE___8)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14283,7 +13455,7 @@
       <reaction id="TX_OppB_Ile" name="oligopeptide (Ile) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___9 and gp_MG___THREE____TWO____ONE___9 and gp_MG___ZERO____EIGHT____ZERO___9 and gp_MG___ZERO____SEVEN____EIGHT___9 and gp_MG___ZERO____SEVEN____NINE___9)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14315,7 +13487,7 @@
       <reaction id="TX_OppB_Leu" name="oligopeptide (Leu) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___10 and gp_MG___THREE____TWO____ONE___10 and gp_MG___ZERO____EIGHT____ZERO___10 and gp_MG___ZERO____SEVEN____EIGHT___10 and gp_MG___ZERO____SEVEN____NINE___10)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14347,7 +13519,7 @@
       <reaction id="TX_OppB_Lys" name="oligopeptide (Lys) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___11 and gp_MG___THREE____TWO____ONE___11 and gp_MG___ZERO____EIGHT____ZERO___11 and gp_MG___ZERO____SEVEN____EIGHT___11 and gp_MG___ZERO____SEVEN____NINE___11)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14379,7 +13551,7 @@
       <reaction id="TX_OppB_Met" name="oligopeptide (Met) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___12 and gp_MG___THREE____TWO____ONE___12 and gp_MG___ZERO____EIGHT____ZERO___12 and gp_MG___ZERO____SEVEN____EIGHT___12 and gp_MG___ZERO____SEVEN____NINE___12)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14411,7 +13583,7 @@
       <reaction id="TX_OppB_Phe" name="oligopeptide (Phe) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___13 and gp_MG___THREE____TWO____ONE___13 and gp_MG___ZERO____EIGHT____ZERO___13 and gp_MG___ZERO____SEVEN____EIGHT___13 and gp_MG___ZERO____SEVEN____NINE___13)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14443,7 +13615,7 @@
       <reaction id="TX_OppB_Pro" name="oligopeptide (Pro) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___14 and gp_MG___THREE____TWO____ONE___14 and gp_MG___ZERO____EIGHT____ZERO___14 and gp_MG___ZERO____SEVEN____EIGHT___14 and gp_MG___ZERO____SEVEN____NINE___14)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14475,7 +13647,7 @@
       <reaction id="TX_OppB_Ser" name="oligopeptide (Ser) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___15 and gp_MG___THREE____TWO____ONE___15 and gp_MG___ZERO____EIGHT____ZERO___15 and gp_MG___ZERO____SEVEN____EIGHT___15 and gp_MG___ZERO____SEVEN____NINE___15)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14507,7 +13679,7 @@
       <reaction id="TX_OppB_Thr" name="oligopeptide (Thr) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___16 and gp_MG___THREE____TWO____ONE___16 and gp_MG___ZERO____EIGHT____ZERO___16 and gp_MG___ZERO____SEVEN____EIGHT___16 and gp_MG___ZERO____SEVEN____NINE___16)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14539,7 +13711,7 @@
       <reaction id="TX_OppB_Trp" name="oligopeptide (Trp) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___17 and gp_MG___THREE____TWO____ONE___17 and gp_MG___ZERO____EIGHT____ZERO___17 and gp_MG___ZERO____SEVEN____EIGHT___17 and gp_MG___ZERO____SEVEN____NINE___17)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14571,7 +13743,7 @@
       <reaction id="TX_OppB_Tyr" name="oligopeptide (Tyr) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___18 and gp_MG___THREE____TWO____ONE___18 and gp_MG___ZERO____EIGHT____ZERO___18 and gp_MG___ZERO____SEVEN____EIGHT___18 and gp_MG___ZERO____SEVEN____NINE___18)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14603,7 +13775,7 @@
       <reaction id="TX_OppB_Val" name="oligopeptide (Val) transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_077 and MG_321 and MG_080 and MG_078 and MG_079)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____SEVEN____SEVEN___19 and gp_MG___THREE____TWO____ONE___19 and gp_MG___ZERO____EIGHT____ZERO___19 and gp_MG___ZERO____SEVEN____EIGHT___19 and gp_MG___ZERO____SEVEN____NINE___19)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14635,7 +13807,7 @@
       <reaction id="TX_PHNT" name="2-aminoethylphosphonate transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_289 and MG_290 and MG_291)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___TWO____EIGHT____NINE__ and gp_MG___TWO____NINE____ZERO__ and gp_MG___TWO____NINE____ONE__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14667,7 +13839,7 @@
       <reaction id="TX_PIUP1" name="phosphate transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_410 and MG_411 and MG_412)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___FOUR____ONE____ZERO__ and gp_MG___FOUR____ONE____ONE__ and gp_MG___FOUR____ONE____TWO__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14779,7 +13951,7 @@
       <reaction id="TX_SPMDUP1" name="spermidine transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_045 and MG_044 and MG_043 and MG_042)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____FOUR____FIVE__ and gp_MG___ZERO____FOUR____FOUR__ and gp_MG___ZERO____FOUR____THREE__ and gp_MG___ZERO____FOUR____TWO__)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14811,7 +13983,7 @@
       <reaction id="TX_SPRDUP2" name="putrescine transport via ABC system">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_045 and MG_044 and MG_043 and MG_042)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___ZERO____FOUR____FIVE___1 and gp_MG___ZERO____FOUR____FOUR___1 and gp_MG___ZERO____FOUR____THREE___1 and gp_MG___ZERO____FOUR____TWO___1)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14902,7 +14074,7 @@
       <reaction id="TX_TRK" name="potassium transport in via proton symport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : (MG_322 and MG_323)</p>
+            <p>GENE_ASSOCIATION : (gp_MG___THREE____TWO____TWO___1 and gp_MG___THREE____TWO____THREE___1)</p>
           </body>
         </notes>
         <listOfReactants>
@@ -14931,7 +14103,7 @@
       <reaction id="TX_UHPT1" name="Glucose-6-phosphate transport via phosphate antiport">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_061</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____SIX____ONE__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -15000,7 +14172,7 @@
       <reaction id="Udk1" name="uridine kinase (GTP:Uridine)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_382</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____EIGHT____TWO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -15030,7 +14202,7 @@
       <reaction id="Udk2" name="cytidine kinase (GTP)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_382</p>
+            <p>GENE_ASSOCIATION : gp_MG___THREE____EIGHT____TWO___1</p>
           </body>
         </notes>
         <listOfReactants>
@@ -15060,7 +14232,7 @@
       <reaction id="Upp" name="uracil phosphoribosyltransferase">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_030</p>
+            <p>GENE_ASSOCIATION : gp_MG___ZERO____THREE____ZERO__</p>
           </body>
         </notes>
         <listOfReactants>
@@ -15425,7 +14597,7 @@
       <reaction id="YbiV_SNGLYP" name="sugar phosphatase (sn-glycerol-1-phosphate)">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>GENE_ASSOCIATION : MG_265</p>
+            <p>GENE_ASSOCIATION : gp_MG___TWO____SIX____FIVE__</p>
           </body>
         </notes>
         <listOfReactants>

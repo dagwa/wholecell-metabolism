@@ -149,12 +149,15 @@ if __name__ == "__main__":
     # This includes some pseudo-reactions (internal & external exchange) which
     # are not represented in the knowledgbase.
     for index, row in r_fba_df.iterrows():
+        # create reaction
         r = model.createReaction()
         r.setId(index)
         name = row['name']
         if not pd.isnull(name):
             r.setName(name)
         r.setFast(False)
+        # get FBC plugin
+        rplugin = r.getPlugin("fbc")
         
         # set proteins as modifiers from catalysis matrix       
         row = mat_catalysis.ix[index]
@@ -167,12 +170,15 @@ if __name__ == "__main__":
             # gene associations
             gene_str = e_df['genes'][eid]
             genes = [g.strip() for g in gene_str.split(',')]
-            genes_formula = '*'.join(genes)
-            ga = mplugin.createGeneAssociation()
-            ga.setId('ga__{}__{}'.format(index, eid))
-            ga.setReaction(index)
-            ass = Association_parseInfixAssociation(genes_formula)            
-            ga.setAssociation(ass)
+            genes_formula = ' AND '.join(genes)
+
+            gpa = rplugin.createGeneProductAssociation()
+            gpa.setId('ga__{}__{}'.format(index, eid))
+            print("*"*60)
+            print(genes_formula)
+            # print(ass)
+            # gpa.setAssociation(ass)
+            gpa.setAssociation(genes_formula)
 
         # stoichiometry from stoichiometric matrix  # [376x504]
         # find non-zero elements in the reaction column 
@@ -224,7 +230,6 @@ if __name__ == "__main__":
         # These are NOT the dynamical flux bounds.
         # The actual flux bounds are calculated based on an outer model which evaluates AssignmentRules for the
         # parameters (taking into account metabolite counts, protein counts, kcat, ...)
-        rplugin = r.getPlugin("fbc")
         rplugin.setLowerFluxBound('lb__{}'.format(index))
         rplugin.setUpperFluxBound('ub__{}'.format(index))
 
@@ -254,7 +259,9 @@ if __name__ == "__main__":
     
     validator = SBMLValidator(False)
     print validator.validate(sbml_out)
-    
+
+
+    # Conversion to cobra model
     from libsbml import ConversionProperties, LIBSBML_OPERATION_SUCCESS
     conversion_properties = ConversionProperties()
     conversion_properties.addOption("convert fbc to cobra", True, "Convert FBC model to Cobra model")
