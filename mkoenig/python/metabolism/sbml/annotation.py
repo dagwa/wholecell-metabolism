@@ -301,7 +301,7 @@ def annotate_sbml(sbml_empty, sbml_annotated):
     annotate_model_sbo(model)
 
     print("*** Annotate CV terms ***")
-    # annotate_model_cv(model)
+    annotate_model_cv(model)
 
     # save
     writeSBMLToFile(doc, sbml_annotated)
@@ -313,9 +313,9 @@ def annotate_sbml(sbml_empty, sbml_annotated):
 
 if __name__ == "__main__":
     # Load annotation data & index with ID for O(1) lookup    
-    m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t")
+    m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t", dtype={'PubChem': object, 'ChEBI': object})
     m_df = m_df.set_index(m_df.ID)
-    # print m_df.head()
+    print m_df.head()
     # m_df.ix['A23CMP']
     
     r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
