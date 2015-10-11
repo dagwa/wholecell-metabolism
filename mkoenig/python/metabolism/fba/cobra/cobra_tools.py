@@ -111,7 +111,7 @@ def print_flux_bounds(model):
     info = []
     for r in model.reactions:
         info.append([r.id, r.lower_bound, r.upper_bound])
-        df = DataFrame(info, columns=['id', 'lw', 'ub'])
+        df = DataFrame(info, columns=['id', 'lb', 'ub'])
     print_full_df(df)
     print '*'*80
 

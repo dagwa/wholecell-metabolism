@@ -4,12 +4,14 @@ Create the Toy sub models.
 
 from libsbml import *
 
+
 # Create the FBA submodel and run an optimization
-sbmlns = SBMLNamespaces(3, 1, "fbc", 1)
+sbmlns = SBMLNamespaces(3, 1, "fbc", 2)
 doc_fba = SBMLDocument(sbmlns)
 doc_fba.setPackageRequired("fbc", False)
 model = doc_fba.createModel()
 mplugin = model.getPlugin("fbc")
+mplugin.setStrict(False)
 
 # model name and id for process
 model.setId("fba_toy")
@@ -28,7 +30,7 @@ def createCompartment(id, name, size, dims, constant):
     return c
 
 c_ext = createCompartment(id="ext", name="", size=1.0, dims=3, constant=True)
-c_int = createCompartment(id="int", name="", size=1.0, dims=3, constant=True)
+c_int = createCompartment(id="cell", name="", size=1.0, dims=3, constant=True)
 
 # create species
 def createSpecies(id, name, initialAmount, constant, boundaryCondition, compartment,
@@ -51,10 +53,24 @@ s_B2 = createSpecies(id="B2", name="B2", initialAmount=0, constant=False,
                     boundaryCondition=False, compartment=c_int.getId())
 s_C = createSpecies(id="C", name="C", initialAmount=0, constant=False,
                     boundaryCondition=False, compartment=c_ext.getId())
+s_D = createSpecies(id="D", name="D", initialAmount=0, constant=False,
+                    boundaryCondition=False, compartment=c_ext.getId())
 
-# Create paramters
+# Create parameters
+def createParameter(id, name, constant, value):
+    p = model.createParameter()
+    p.setId(id)
+    p.setName(name)
+    p.setConstant(constant)
+    p.setValue(value)
+    return p
 
-# create reactions
+p_r1 = createParameter(id="r1", name="r1", constant=False, value=1.0)
+p_r3 = createParameter(id="r3", name="0.0", constant=False, value=0.0)
+p_lb = createParameter(id="lb", name="lower bound", constant=True, value=0.0)
+p_ub = createParameter(id="ub", name="upper bound", constant=True, value=1000.0)
+
+# create reactions with kinetic laws
 def createReaction(id, name, fast=False, reversible=True,
                      reactants={}, products={}):
     r = model.createReaction()
@@ -75,48 +91,43 @@ def createReaction(id, name, fast=False, reversible=True,
         rt.setStoichiometry(abs(stoichiometry))
         rt.setConstant(True)
 
-createReaction(id="R1", name="R1", fast=False, reversible=True,
+    return r
+
+r_R1 = createReaction(id="R1", name="R1", fast=False, reversible=True,
                reactants={"A": 1}, products={"B1": 1})
-createReaction(id="R2", name="R2", fast=False, reversible=True,
+print r_R1
+rplugin = r_R1.getPlugin("fbc")
+rplugin.setLowerFluxBound("lb")
+rplugin.setUpperFluxBound("ub")
+
+r_R2 = createReaction(id="R2", name="R2", fast=False, reversible=True,
                reactants={"B1": 1}, products={"B2": 1})
-createReaction(id="R3", name="R3", fast=False, reversible=True,
+r_R3 = createReaction(id="R3", name="R3", fast=False, reversible=True,
                reactants={"B2": 1}, products={"C": 1})
+r_R4 = createReaction(id="R4", name="R4", fast=False, reversible=True,
+               reactants={"C": 1}, products={"D": 1})
 
 # create objective function
 objective = mplugin.createObjective()
 objective.setId("R3_maximize")
-objective.setType("maximize");
-mplugin.setActiveObjectiveId("maximize");
+objective.setType("maximize")
+mplugin.setActiveObjectiveId("maximize")
 fluxObjective = objective.createFluxObjective()
 fluxObjective.setReaction("R3")
 fluxObjective.setCoefficient(1.0)
 
-"""
-        # <fluxbounds>
-        # parameters for dynamical calculation of flux bounds
-        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds', 'lb_fbaEnzymeBounds', 'ub_fbaEnzymeBounds'):
-            par = model.createParameter()
-            par.setId('{}__{}'.format(index, p_name))
-            par.setValue(r_fba_df[p_name][index])
-            par.setConstant(True)
-        # The reaction flux bounds are set as hard upper and lower flux bounds
-        # These are NOT the dynamical flux bounds.
+# create flux bounds
+def createFluxBounds(r, lb="lb", ub="ub"):
+    rplugin = r.getPlugin("fbc")
+    rplugin.setLowerFluxBound(lb)
+    rplugin.setUpperFluxBound(ub)
 
-        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds'):
-            # "lessEqual", "greaterEqual", "equal"
-            bound = mplugin.createFluxBound();
-            bound.setReaction(index);
-            bound.setValue(r_fba_df[p_name][index])
-            if p_name.startswith('lb'):
-                bound.setId('lb__{}'.format(index))
-                bound.setOperation("greaterEqual")
-            if p_name.startswith('ub'):
-                bound.setId('ub__{}'.format(index))
-                bound.setOperation("lessEqual")
+# special
+createFluxBounds(r_R1, lb="lb", ub="r1")
+createFluxBounds(r_R2, lb="lb", ub="ub")
+createFluxBounds(r_R3, lb="lb", ub="ub")
+createFluxBounds(r_R4, lb="lb", ub="ub")
 
-    # <objective function>
-
-"""
 # write sbml
 fba_out = "fba_toy.xml"
 writer = SBMLWriter()
@@ -125,6 +136,14 @@ writer.writeSBML(doc_fba, fba_out)
 from sbml_tools.checks import check_sbml
 check_sbml(fba_out)
 
+"""
+#########################################################################################3
+# simulate the kinetic model
+
+
+
+
+"""
 #########################################################################################3
 # simulate the FBA model
 
@@ -132,7 +151,7 @@ import cobra
 cobra_model = cobra.io.read_sbml_model(fba_out)
 
 
-### Running FBA
+# [1] Simple FBA
 cobra_model.optimize()
 print cobra_model.solution.status
 # Output:
@@ -140,3 +159,16 @@ print cobra_model.solution.status
 print cobra_model.solution.f
 {reaction: reaction.objective_coefficient for reaction in cobra_model.reactions
  if reaction.objective_coefficient > 0}
+
+
+from fba.cobra.cobra_tools import print_flux_bounds
+print_flux_bounds(cobra_model)
+
+
+# [2] Dynamic FBA
+# Change the boundaries dynamically, i.e. changing a parameter/concentration which is used
+# in the calculation of the FBA boundaries.
+# => recalculate the boundaries
+
+m = cobra.io.read_sbml_model(os.path.join(cobra.test.data_directory, "mini_fbc2.xml"))
+print_flux_bounds(m)

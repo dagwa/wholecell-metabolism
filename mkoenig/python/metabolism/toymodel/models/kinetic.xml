@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" xmlns:arrays="http://www.sbml.org/sbml/level3/version1/arrays/version1" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" arrays:required="true" comp:required="true" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" version="1" fbc:required="false">
+  <model metaid="iBioSim2" id="kinetic">
+    <comp:listOfPorts xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
+      <comp:port comp:id="input__C" comp:idRef="C" sboTerm="SBO:0000600"/>
+    </comp:listOfPorts>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout layout:id="iBioSim">
+        <layout:dimensions layout:height="425" layout:depth="0" layout:width="1070"/>
+        <layout:listOfCompartmentGlyphs>
+          <layout:compartmentGlyph layout:id="Glyph__Cell" layout:compartment="Cell">
+            <layout:boundingBox>
+              <layout:position layout:x="0" layout:y="0"/>
+              <layout:dimensions layout:height="425" layout:width="1070"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+        </layout:listOfCompartmentGlyphs>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="Glyph__C" layout:species="C">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="Glyph__D" layout:species="D">
+            <layout:boundingBox>
+              <layout:position layout:x="500" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="Glyph__R0" layout:reaction="R0">
+            <layout:boundingBox>
+              <layout:position layout:x="370" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="30"/>
+            </layout:boundingBox>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R0__substrate__C" layout:role="substrate" layout:speciesGlyph="Glyph__C">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="230" layout:y="135"/>
+                      <layout:end layout:x="385" layout:y="135"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="Glyph__R0__product__D" layout:role="product" layout:speciesGlyph="Glyph__D">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="385" layout:y="135"/>
+                      <layout:end layout:x="550" layout:y="135"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:id="TextGlyph__Cell" layout:text="Cell" layout:graphicalObject="Glyph__Cell">
+            <layout:boundingBox>
+              <layout:position layout:x="0" layout:y="0"/>
+              <layout:dimensions layout:height="425" layout:width="1070"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="TextGlyph__C" layout:text="C" layout:graphicalObject="Glyph__C">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="TextGlyph__R0" layout:text="R0" layout:graphicalObject="Glyph__R0">
+            <layout:boundingBox>
+              <layout:position layout:x="370" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="30"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="TextGlyph__D" layout:text="D" layout:graphicalObject="Glyph__D">
+            <layout:boundingBox>
+              <layout:position layout:x="500" layout:y="120"/>
+              <layout:dimensions layout:height="30" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfCompartments>
+      <compartment constant="true" id="Cell" size="1" spatialDimensions="3"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim4" hasOnlySubstanceUnits="true" initialAmount="0" compartment="Cell" id="C"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim6" hasOnlySubstanceUnits="true" initialAmount="0" compartment="Cell" id="D"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction compartment="Cell" fast="false" id="R0" metaid="iBioSim5" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="true" species="C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference stoichiometry="1" constant="true" species="D"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> kf </ci>
+              <ci> C </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kf" metaid="R0___kf" value="0.1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
