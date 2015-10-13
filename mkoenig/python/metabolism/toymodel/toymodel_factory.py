@@ -82,6 +82,27 @@ def create_objective(mplugin, oid, otype, fluxObjectives, active=True):
     return objective
 
 
+def create_assignment_rule(model, sid, formula):
+    rule = model.createAssignmentRule()
+    rule.setVariable(sid)
+    astnode = parseL3FormulaWithModel(formula, model)
+    if not astnode:
+        print('Formula could not be parsed:', formula)
+        print(getLastParseL3Error())
+    rule.setMath(astnode)
+    return rule
+
+
+def create_rate_rule(model, sid, formula):
+    rule = model.createRateRule()
+    rule.setVariable(sid)
+    astnode = parseL3FormulaWithModel(formula, model)
+    if not astnode:
+        print('Formula could not be parsed:', formula)
+        print(getLastParseL3Error())
+    rule.setMath(astnode)
+    return rule
+
 def write_and_check(doc, sbml_file):
     # write and check the SBML file
     writer = SBMLWriter()
@@ -128,11 +149,14 @@ def create_fba(sbml_file):
                         boundaryCondition=False, compartment=c_int.getId())
     s_D = create_species(model, sid="D", name="D", initialAmount=0, constant=False,
                         boundaryCondition=False, compartment=c_ext.getId())
-    # parameters
-    p_r1 = create_parameter(model, pid="r1", name="r1", constant=False, value=1.0)
-    p_r3 = create_parameter(model, pid="r3", name="r3", constant=True, value=0.0)
-    p_lb = create_parameter(model, pid="lb", name="lower bound", constant=True, value=0.0)
-    p_ub = create_parameter(model, pid="ub", name="upper bound", constant=True, value=1000.0)
+    # parameters (bounds)
+    create_parameter(model, pid="ub_R1", name="ub R1", constant=False, value=1.0)
+    create_parameter(model, pid="lb", name="lower bound", constant=True, value=0.0)
+    create_parameter(model, pid="ub", name="upper bound", constant=True, value=1000.0)
+    # parameters (fluxes)
+    create_parameter(model, pid="v_R1", name="flux R1", constant=True, value=0.0)
+    create_parameter(model, pid="v_R2", name="flux R2", constant=True, value=0.0)
+    create_parameter(model, pid="v_R3", name="flux R3", constant=True, value=0.0)
 
     # reactions
     r_R1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
@@ -143,7 +167,7 @@ def create_fba(sbml_file):
                reactants={"B2": 1}, products={"C": 1})
 
     # flux bounds
-    set_flux_bounds(r_R1, lb="lb", ub="r1")
+    set_flux_bounds(r_R1, lb="lb", ub="ub_R1")
     set_flux_bounds(r_R2, lb="lb", ub="ub")
     set_flux_bounds(r_R3, lb="lb", ub="ub")
 
@@ -154,32 +178,9 @@ def create_fba(sbml_file):
     write_and_check(doc_fba, sbml_file)
 
 ####################################################
-# ODE submodels
+# ODE flux bounds
 ####################################################
-
-def create_assignment_rule(model, sid, formula):
-    rule = model.createAssignmentRule()
-    rule.setVariable(sid)
-    astnode = parseL3FormulaWithModel(formula, model)
-    if not astnode:
-        print('Formula could not be parsed:', formula)
-        print(getLastParseL3Error())
-    rule.setMath(astnode)
-    return rule
-
-def create_rate_rule(model, sid, formula):
-    rule = model.createRateRule()
-    rule.setVariable(sid)
-    astnode = parseL3FormulaWithModel(formula, model)
-    if not astnode:
-        print('Formula could not be parsed:', formula)
-        print(getLastParseL3Error())
-    rule.setMath(astnode)
-    return rule
-
-
-
-# [1] dynamical flux bounds calculation
+# ODE model for dynamical flux bound calculation
 def create_ode_bounds(sbml_file):
     """" Submodel for dynamically calculating the flux bounds. """
     sbmlns = SBMLNamespaces(3, 1)
@@ -191,19 +192,35 @@ def create_ode_bounds(sbml_file):
     model.setName("ODE bound calculation submodel")
 
     # parameters to update
-    p_r1 = create_parameter(model, pid="r1", name="r1", constant=False, value=1.0)
-    p_k1 = create_parameter(model, pid="k1", name="k1", constant=False, value=-0.1)
+    create_parameter(model, pid="ub_R1", name="ub r1", constant=False, value=1.0)
 
     # assignment rules
-    create_rate_rule(model, sid="r1", formula="k1*r1")
+    create_parameter(model, pid="k1", name="k1", constant=False, value=-0.2)
+    create_rate_rule(model, sid="ub_R1", formula="k1*ub_R1")
 
     # write SBML file
     write_and_check(doc, sbml_file)
 
+####################################################
+# ODE species update
+####################################################
+# model for update of species count
+def create_ode_update(sbml_file):
+    """" Submodel for dynamically updating the metabolite count. """
+    sbmlns = SBMLNamespaces(3, 1)
+    doc = SBMLDocument(sbmlns)
+    model = doc.createModel()
+
+    # model
+    model.setId("ode_update_toy")
+    model.setName("ODE metabolite update submodel")
+
+    # write SBML file
+    write_and_check(doc, sbml_file)
 
 if __name__ == "__main__":
     # write & check sbml
-    from toymodel_settings import fba_file
-    from toymodel_settings import ode_bounds_file
+    from toymodel_settings import fba_file, ode_bounds_file, ode_update_file
     create_fba(fba_file)
     create_ode_bounds(ode_bounds_file)
+    create_ode_update(ode_update_file)

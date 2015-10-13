@@ -9,32 +9,44 @@ synchronization between the partial simulations.
 #################################
 # create toy models
 #################################
-from toymodel_settings import fba_file, ode_bounds_file
-from toymodel_factory import create_fba
+from toymodel.toymodel_settings import fba_file, ode_bounds_file, ode_update_file
+from toymodel.toymodel_factory import create_fba, create_ode_bounds, create_ode_update
 create_fba(fba_file)
+create_ode_bounds(ode_bounds_file)
+create_ode_update(ode_update_file)
 
 #################################
 # simulate kinetic flux bound model
 #################################
+# dynamically changing bounds
 import roadrunner
 print roadrunner.__version__
-rr = roadrunner.RoadRunner(ode_bounds_file)
-rr.selections = ['time', 'r1']
+rr_bounds = roadrunner.RoadRunner(ode_bounds_file)
+rr_bounds.reset()
+# rr_bounds.selections = ['time', 'r1']
 # changing parameters
-rr.model.k1 = 0.2
+rr_bounds.k1 = -0.2
 
-result = rr.simulate(0, 10, steps=100)
-rr.plot()
-rr.reset()
+result = rr_bounds.simulate(0, 10, steps=100)
+rr_bounds.plot()
 print result
 
 #################################
 # simulate simple FBA
 #################################
-import cobra
-cobra_model = cobra.io.read_sbml_model(fba_file)
+# set bounds in FBA model from bounds calculation
+rr_fba = roadrunner.RoadRunner(fba_file)
+rr_fba.ub_R1 = rr_bounds.ub_R1
 
-# [1] Simple FBA
+# sets the bounds in the cobra model
+import cobra
+from fba.cobra.cobra_tools import print_flux_bounds
+cobra_model = cobra.io.read_sbml_model(fba_file)
+cobra_R1 = cobra_model.reactions.get_by_id("R1")
+cobra_R1.upper_bound = rr_bounds.ub_R1
+print_flux_bounds(cobra_model)
+
+# calculate FBA
 cobra_model.optimize()
 print cobra_model.solution.status
 # Output:
@@ -43,8 +55,17 @@ print cobra_model.solution.f
 {reaction: reaction.objective_coefficient for reaction in cobra_model.reactions
  if reaction.objective_coefficient > 0}
 
-from fba.cobra.cobra_tools import print_flux_bounds
-print_flux_bounds(cobra_model)
+# solution fluxes
+print cobra_model.solution.y_dict
+
+# set solution in rr_fba
+for (rid, flux) in cobra_model.solution.y_dict.iteritems():
+    rr_fba
+
+
+
+
+
 
 #################################
 # simulate metabolite update

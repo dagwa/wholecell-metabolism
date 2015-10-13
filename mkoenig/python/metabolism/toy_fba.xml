@@ -17,8 +17,8 @@
       <parameter id="lb" name="lower bound" value="0" constant="true"/>
       <parameter id="ub" name="upper bound" value="1000" constant="true"/>
       <parameter id="v_R1" name="flux R1" value="0" constant="true"/>
-      <parameter id="v_R2" name="flux R1" value="0" constant="true"/>
-      <parameter id="v_R3" name="flux R1" value="0" constant="true"/>
+      <parameter id="v_R2" name="flux R2" value="0" constant="true"/>
+      <parameter id="v_R3" name="flux R3" value="0" constant="true"/>
     </listOfParameters>
     <listOfReactions>
       <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub_R1">
