@@ -2,24 +2,24 @@
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
   <model id="fba_toy" name="FBA submodel" fbc:strict="true">
     <listOfCompartments>
-      <compartment id="ext" spatialDimensions="3" size="1" constant="true"/>
-      <compartment id="cell" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="ext" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="cell" name="cell" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
       <species id="A" name="A" compartment="ext" initialAmount="10" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
       <species id="B1" name="B1" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="B2" name="B2" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
       <species id="D" name="D" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="r1" name="r1" value="1" constant="false"/>
-      <parameter id="r3" name="0.0" value="0" constant="false"/>
+      <parameter id="r1" name="r1" value="1" constant="true"/>
+      <parameter id="r3" name="r3" value="0" constant="true"/>
       <parameter id="lb" name="lower bound" value="0" constant="true"/>
       <parameter id="ub" name="upper bound" value="1000" constant="true"/>
     </listOfParameters>
     <listOfReactions>
-      <reaction id="R1" name="R1" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="r1">
+      <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="r1">
         <listOfReactants>
           <speciesReference species="A" stoichiometry="1" constant="true"/>
         </listOfReactants>
@@ -27,7 +27,7 @@
           <speciesReference species="B1" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R2" name="R2" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
+      <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
         <listOfReactants>
           <speciesReference species="B1" stoichiometry="1" constant="true"/>
         </listOfReactants>
@@ -35,20 +35,12 @@
           <speciesReference species="B2" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R3" name="R3" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
+      <reaction id="R3" name="B2 export (R3)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
         <listOfReactants>
           <speciesReference species="B2" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="C" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-      </reaction>
-      <reaction id="R4" name="R4" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-        <listOfReactants>
-          <speciesReference species="C" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="D" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
     </listOfReactions>
