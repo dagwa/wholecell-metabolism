@@ -40,7 +40,7 @@ def create_parameter(model, pid, name, constant, value):
     return p
 
 def create_reaction(model, rid, name, fast=False, reversible=True,
-                     reactants={}, products={}):
+                     reactants={}, products={}, formula=None):
     """ Create basic reaction structure. """
     r = model.createReaction()
     r.setId(rid)
@@ -59,6 +59,15 @@ def create_reaction(model, rid, name, fast=False, reversible=True,
         rt.setSpecies(sid)
         rt.setStoichiometry(abs(stoichiometry))
         rt.setConstant(True)
+
+    if formula:
+        # set formula in reaction
+        astnode = parseL3FormulaWithModel(formula, model)
+        if not astnode:
+            print('Formula could not be parsed:', formula)
+            print(getLastParseL3Error())
+        law = r.createKineticLaw()
+        law.setMath(astnode)
 
     return r
 
@@ -147,24 +156,25 @@ def create_fba(sbml_file):
                         boundaryCondition=False, compartment=c_int.getId())
     s_B2 = create_species(model, sid="B2", name="B2", initialAmount=0, constant=False,
                         boundaryCondition=False, compartment=c_int.getId())
-    s_D = create_species(model, sid="D", name="D", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_ext.getId())
     # parameters (bounds)
     create_parameter(model, pid="ub_R1", name="ub R1", constant=False, value=1.0)
     create_parameter(model, pid="lb", name="lower bound", constant=True, value=0.0)
     create_parameter(model, pid="ub", name="upper bound", constant=True, value=1000.0)
     # parameters (fluxes)
-    create_parameter(model, pid="v_R1", name="flux R1", constant=True, value=0.0)
-    create_parameter(model, pid="v_R2", name="flux R2", constant=True, value=0.0)
-    create_parameter(model, pid="v_R3", name="flux R3", constant=True, value=0.0)
+    create_parameter(model, pid="v_R1", name="R1 flux", constant=False, value=0.0)
+    create_parameter(model, pid="v_R2", name="R2 flux", constant=False, value=0.0)
+    create_parameter(model, pid="v_R3", name="R3 flux", constant=False, value=0.0)
 
-    # reactions
+    # reactions with constant flux
     r_R1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
-               reactants={"A": 1}, products={"B1": 1})
+                           reactants={"A": 1}, products={"B1": 1},
+                           formula="v_R1")
     r_R2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
-               reactants={"B1": 1}, products={"B2": 1})
+                           reactants={"B1": 1}, products={"B2": 1},
+                           formula="v_R2")
     r_R3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
-               reactants={"B2": 1}, products={"C": 1})
+                           reactants={"B2": 1}, products={"C": 1},
+                           formula="v_R3")
 
     # flux bounds
     set_flux_bounds(r_R1, lb="lb", ub="ub_R1")

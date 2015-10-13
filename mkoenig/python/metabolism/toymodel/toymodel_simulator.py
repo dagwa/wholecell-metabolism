@@ -41,8 +41,8 @@ rr_fba.ub_R1 = rr_bounds.ub_R1
 # sets the bounds in the cobra model
 import cobra
 from fba.cobra.cobra_tools import print_flux_bounds
-cobra_model = cobra.io.read_sbml_model(fba_file)
-cobra_R1 = cobra_model.reactions.get_by_id("R1")
+cobra_fba = cobra.io.read_sbml_model(fba_file)
+cobra_R1 = cobra_fba.reactions.get_by_id("R1")
 cobra_R1.upper_bound = rr_bounds.ub_R1
 print_flux_bounds(cobra_model)
 
@@ -55,14 +55,13 @@ print cobra_model.solution.f
 {reaction: reaction.objective_coefficient for reaction in cobra_model.reactions
  if reaction.objective_coefficient > 0}
 
-# solution fluxes
-print cobra_model.solution.y_dict
+# set solution fluxes in rr_fba
+# constant fluxes
+for (rid, flux) in cobra_model.solution.x_dict.iteritems():
+    pid = "v_{}".format(rid)
+    rr_fba[pid] = flux
 
-# set solution in rr_fba
-for (rid, flux) in cobra_model.solution.y_dict.iteritems():
-    rr_fba
-
-
+rr_fba.v_R1
 
 
 
