@@ -81,10 +81,18 @@ def create_objective(mplugin, oid, otype, fluxObjectives, active=True):
         fluxObjective.setCoefficient(coefficient)
     return objective
 
+
+def write_and_check(doc, sbml_file):
+    # write and check the SBML file
+    writer = SBMLWriter()
+    writer.writeSBML(doc, sbml_file)
+    from sbml_tools.checks import check_sbml
+    check_sbml(sbml_file)
+
 ####################################################
 # FBA submodel
 ####################################################
-
+# FBA submodel in FBC v2 which uses parameters as flux bounds.
 def create_fba(sbml_file):
     """
     Create the fba model.
@@ -98,7 +106,7 @@ def create_fba(sbml_file):
     doc_fba.setPackageRequired("fbc", False)
     model = doc_fba.createModel()
     mplugin = model.getPlugin("fbc")
-    mplugin.setStrict(True)
+    mplugin.setStrict(False)
 
     # model
     model.setId("fba_toy")
@@ -121,7 +129,7 @@ def create_fba(sbml_file):
     s_D = create_species(model, sid="D", name="D", initialAmount=0, constant=False,
                         boundaryCondition=False, compartment=c_ext.getId())
     # parameters
-    p_r1 = create_parameter(model, pid="r1", name="r1", constant=True, value=1.0)
+    p_r1 = create_parameter(model, pid="r1", name="r1", constant=False, value=1.0)
     p_r3 = create_parameter(model, pid="r3", name="r3", constant=True, value=0.0)
     p_lb = create_parameter(model, pid="lb", name="lower bound", constant=True, value=0.0)
     p_ub = create_parameter(model, pid="ub", name="upper bound", constant=True, value=1000.0)
@@ -142,18 +150,60 @@ def create_fba(sbml_file):
     # objective function
     create_objective(mplugin, oid="R3_maximize", otype="maximize", fluxObjectives={"R3": 1.0})
 
-    # write and check the SBML file
-    writer = SBMLWriter()
-    writer.writeSBML(doc_fba, sbml_file)
-    from sbml_tools.checks import check_sbml
-    check_sbml(sbml_file)
+    # write SBML file
+    write_and_check(doc_fba, sbml_file)
 
 ####################################################
-# ODE submodel
+# ODE submodels
 ####################################################
+
+def create_assignment_rule(model, sid, formula):
+    rule = model.createAssignmentRule()
+    rule.setVariable(sid)
+    astnode = parseL3FormulaWithModel(formula, model)
+    if not astnode:
+        print('Formula could not be parsed:', formula)
+        print(getLastParseL3Error())
+    rule.setMath(astnode)
+    return rule
+
+def create_rate_rule(model, sid, formula):
+    rule = model.createRateRule()
+    rule.setVariable(sid)
+    astnode = parseL3FormulaWithModel(formula, model)
+    if not astnode:
+        print('Formula could not be parsed:', formula)
+        print(getLastParseL3Error())
+    rule.setMath(astnode)
+    return rule
+
+
+
+# [1] dynamical flux bounds calculation
+def create_ode_bounds(sbml_file):
+    """" Submodel for dynamically calculating the flux bounds. """
+    sbmlns = SBMLNamespaces(3, 1)
+    doc = SBMLDocument(sbmlns)
+    model = doc.createModel()
+
+    # model
+    model.setId("ode_bounds_toy")
+    model.setName("ODE bound calculation submodel")
+
+    # parameters to update
+    p_r1 = create_parameter(model, pid="r1", name="r1", constant=False, value=1.0)
+    p_k1 = create_parameter(model, pid="k1", name="k1", constant=False, value=-0.1)
+
+    # assignment rules
+    create_rate_rule(model, sid="r1", formula="k1*r1")
+
+    # write SBML file
+    write_and_check(doc, sbml_file)
 
 
 if __name__ == "__main__":
     # write & check sbml
     from toymodel_settings import fba_file
+    from toymodel_settings import ode_bounds_file
     create_fba(fba_file)
+    create_ode_bounds(ode_bounds_file)

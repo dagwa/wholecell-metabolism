@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model id="fba_toy" name="FBA submodel" fbc:strict="true">
+  <model id="fba_toy" name="FBA submodel" fbc:strict="false">
     <listOfCompartments>
       <compartment id="ext" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
       <compartment id="cell" name="cell" spatialDimensions="3" size="1" constant="true"/>
@@ -13,7 +13,7 @@
       <species id="D" name="D" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="r1" name="r1" value="1" constant="true"/>
+      <parameter id="r1" name="r1" value="1" constant="false"/>
       <parameter id="r3" name="r3" value="0" constant="true"/>
       <parameter id="lb" name="lower bound" value="0" constant="true"/>
       <parameter id="ub" name="upper bound" value="1000" constant="true"/>
