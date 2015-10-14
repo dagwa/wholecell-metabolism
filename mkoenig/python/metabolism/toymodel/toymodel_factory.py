@@ -215,12 +215,13 @@ def create_ode_bounds(sbml_file):
 # ODE species update
 ####################################################
 # model for update of species count
-def create_ode_update(sbml_file):
-    """" Submodel for dynamically updating the metabolite count. """
-    sbmlns = SBMLNamespaces(3, 1)
-    doc = SBMLDocument(sbmlns)
-    model = doc.createModel()
-
+def create_ode_update(sbml_file, fba_file):
+    """" Submodel for dynamically updating the metabolite count.
+        Very similar model to the FBA model.
+    """
+    reader = SBMLReader()
+    doc = reader.readSBMLFromFile(fba_file)
+    model = doc.getModel()
     # model
     model.setId("ode_update_toy")
     model.setName("ODE metabolite update submodel")
@@ -233,4 +234,4 @@ if __name__ == "__main__":
     from toymodel_settings import fba_file, ode_bounds_file, ode_update_file
     create_fba(fba_file)
     create_ode_bounds(ode_bounds_file)
-    create_ode_update(ode_update_file)
+    create_ode_update(ode_update_file, fba_file)

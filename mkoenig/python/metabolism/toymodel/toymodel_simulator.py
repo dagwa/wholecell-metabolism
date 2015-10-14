@@ -13,7 +13,7 @@ from toymodel.toymodel_settings import fba_file, ode_bounds_file, ode_update_fil
 from toymodel.toymodel_factory import create_fba, create_ode_bounds, create_ode_update
 create_fba(fba_file)
 create_ode_bounds(ode_bounds_file)
-create_ode_update(ode_update_file)
+create_ode_update(ode_update_file, fba_file=fba_file)
 
 #################################
 # simulate kinetic flux bound model
@@ -44,32 +44,41 @@ from fba.cobra.cobra_tools import print_flux_bounds
 cobra_fba = cobra.io.read_sbml_model(fba_file)
 cobra_R1 = cobra_fba.reactions.get_by_id("R1")
 cobra_R1.upper_bound = rr_bounds.ub_R1
-print_flux_bounds(cobra_model)
+print_flux_bounds(cobra_fba)
 
 # calculate FBA
-cobra_model.optimize()
-print cobra_model.solution.status
+cobra_fba.optimize()
+print cobra_fba.solution.status
 # Output:
 # 'optimal'
-print cobra_model.solution.f
-{reaction: reaction.objective_coefficient for reaction in cobra_model.reactions
+print cobra_fba.solution.f
+{reaction: reaction.objective_coefficient for reaction in cobra_fba.reactions
  if reaction.objective_coefficient > 0}
 
 # set solution fluxes in rr_fba
 # constant fluxes
-for (rid, flux) in cobra_model.solution.x_dict.iteritems():
+for (rid, flux) in cobra_fba.solution.x_dict.iteritems():
     pid = "v_{}".format(rid)
     rr_fba[pid] = flux
 
-rr_fba.v_R1
-
-
-
+print rr_fba.v_R1
 
 #################################
 # simulate metabolite update
 #################################
-# TODO
+rr_update = roadrunner.RoadRunner(ode_update_file)
+rr_update
+# set the fluxes
+for rid in cobra_fba.solution.x_dict:
+    pid = "v_{}".format(rid)
+    rr_update[pid] = rr_fba[pid]
+
+# add boundary selection
+
+result = rr_update.simulate(0, 10, steps=100)
+rr_update.plot()
+print result
+
 
 
 #################################
