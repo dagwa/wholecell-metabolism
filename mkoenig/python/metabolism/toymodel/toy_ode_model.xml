@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
-  <model id="ode_model_toy" name="ODE/SSA submodel">
+  <model id="toy_ode_model" name="ODE/SSA submodel">
     <listOfCompartments>
       <compartment id="ext" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>

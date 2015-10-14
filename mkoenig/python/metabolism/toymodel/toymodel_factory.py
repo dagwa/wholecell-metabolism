@@ -139,7 +139,7 @@ def create_fba(sbml_file):
     mplugin.setStrict(False)
 
     # model
-    model.setId("fba_toy")
+    model.setId("toy_fba")
     model.setName("FBA submodel")
 
     # compartments
@@ -199,7 +199,7 @@ def create_ode_bounds(sbml_file):
     model = doc.createModel()
 
     # model
-    model.setId("ode_bounds_toy")
+    model.setId("toy_ode_bounds")
     model.setName("ODE bound calculation submodel")
 
     # parameters to update
@@ -224,7 +224,7 @@ def create_ode_update(sbml_file, fba_file):
     doc = reader.readSBMLFromFile(fba_file)
     model = doc.getModel()
     # model
-    model.setId("ode_update_toy")
+    model.setId("toy_ode_update")
     model.setName("ODE metabolite update submodel")
 
     # boundary conditions of FBA have to be released
@@ -247,7 +247,7 @@ def create_ode_model(sbml_file):
 
     # model
     model = doc.createModel()
-    model.setId("ode_model_toy")
+    model.setId("toy_ode_model")
     model.setName("ODE/SSA submodel")
 
     # compartments
@@ -270,11 +270,16 @@ def create_ode_model(sbml_file):
     # write SBML file
     write_and_check(doc, sbml_file)
 
-
 ####################################################
 # Comp model
 ####################################################
-
+# Combined comp model of all the kinetic parts.
+# - bounds calculation
+# - metabolite updates
+# - kinetic submodel
+def create_ode_comp(sbml_file):
+    """" Kinetic comp model """
+    pass
 
 
 if __name__ == "__main__":

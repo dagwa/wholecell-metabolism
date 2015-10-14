@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model id="ode_update_toy" name="ODE metabolite update submodel" fbc:strict="false">
+  <model id="toy_ode_update" name="ODE metabolite update submodel" fbc:strict="false">
     <listOfCompartments>
       <compartment id="ext" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
       <compartment id="cell" name="cell" spatialDimensions="3" size="1" constant="true"/>

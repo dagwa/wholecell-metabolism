@@ -23,11 +23,6 @@ create_ode_model(ode_model_file)
 import roadrunner
 print roadrunner.__version__
 rr_bounds = roadrunner.RoadRunner(ode_bounds_file)
-rr_bounds.reset()
-# rr_bounds.selections = ['time', 'r1']
-# changing parameters
-rr_bounds.k1 = -0.2
-
 result = rr_bounds.simulate(0, 10, steps=100)
 rr_bounds.plot()
 print result
@@ -35,7 +30,7 @@ print result
 #################################
 # simulate simple FBA
 #################################
-# set bounds in FBA model from bounds calculation
+# set new bounds in FBA model
 rr_fba = roadrunner.RoadRunner(fba_file)
 rr_fba.ub_R1 = rr_bounds.ub_R1
 
@@ -85,6 +80,6 @@ rr_model = roadrunner.RoadRunner(ode_model_file)
 # synchronize concentrations
 rr_model.model["init(C)"] = rr_update.C
 
-result = rr_model.simulate(0, 10, steps=100)
+result = rr_model.simulate(0, 10, steps=10)
 rr_model.plot()
 print result
