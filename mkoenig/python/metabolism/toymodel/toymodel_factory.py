@@ -151,6 +151,7 @@ def create_fba(sbml_file):
                         boundaryCondition=True, compartment=c_ext.getId())
     s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
                         boundaryCondition=True, compartment=c_ext.getId())
+
     # internal species
     s_B1 = create_species(model, sid="B1", name="B1", initialAmount=0, constant=False,
                         boundaryCondition=False, compartment=c_int.getId())
@@ -225,6 +226,13 @@ def create_ode_update(sbml_file, fba_file):
     # model
     model.setId("ode_update_toy")
     model.setName("ODE metabolite update submodel")
+
+    # boundary conditions of FBA have to be released
+    # for the update of the species
+    s_A = model.getSpecies("A")
+    s_A.setBoundaryCondition(False)
+    s_C = model.getSpecies("C")
+    s_C.setBoundaryCondition(False)
 
     # write SBML file
     write_and_check(doc, sbml_file)

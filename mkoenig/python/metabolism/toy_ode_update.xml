@@ -6,8 +6,8 @@
       <compartment id="cell" name="cell" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="A" name="A" compartment="ext" initialAmount="10" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
-      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="A" name="A" compartment="ext" initialAmount="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="B1" name="B1" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="B2" name="B2" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
