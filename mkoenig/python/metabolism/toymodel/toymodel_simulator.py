@@ -9,11 +9,12 @@ synchronization between the partial simulations.
 #################################
 # create toy models
 #################################
-from toymodel.toymodel_settings import fba_file, ode_bounds_file, ode_update_file
-from toymodel.toymodel_factory import create_fba, create_ode_bounds, create_ode_update
+from toymodel.toymodel_settings import fba_file, ode_bounds_file, ode_update_file, ode_model_file
+from toymodel.toymodel_factory import create_fba, create_ode_bounds, create_ode_update, create_ode_model
 create_fba(fba_file)
 create_ode_bounds(ode_bounds_file)
 create_ode_update(ode_update_file, fba_file=fba_file)
+create_ode_model(ode_model_file)
 
 #################################
 # simulate kinetic flux bound model
@@ -67,30 +68,23 @@ print rr_fba.v_R1
 # simulate metabolite update
 #################################
 rr_update = roadrunner.RoadRunner(ode_update_file)
-rr_update
 # set the fluxes
 for rid in cobra_fba.solution.x_dict:
     pid = "v_{}".format(rid)
     rr_update[pid] = rr_fba[pid]
 
-# add boundary selection
-
+# simulate
 result = rr_update.simulate(0, 10, steps=100)
 rr_update.plot()
 print result
 
-
-
 #################################
-# dynamic fba
+# simulate kinetic model
 #################################
-# drive the FBA based on changed flux bounds and use
-# results to update the species composition
+rr_model = roadrunner.RoadRunner(ode_model_file)
+# synchronize concentrations
+rr_model.model["init(C)"] = rr_update.C
 
-
-
-# [2] Dynamic FBA
-# Change the boundaries dynamically, i.e. changing a parameter/concentration which is used
-# in the calculation of the FBA boundaries.
-# => recalculate the boundaries
-
+result = rr_model.simulate(0, 10, steps=100)
+rr_model.plot()
+print result

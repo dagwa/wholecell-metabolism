@@ -237,9 +237,52 @@ def create_ode_update(sbml_file, fba_file):
     # write SBML file
     write_and_check(doc, sbml_file)
 
+####################################################
+# ODE/SSA model
+####################################################
+def create_ode_model(sbml_file):
+    """" Kinetic submodel (coupled model to FBA). """
+    sbmlns = SBMLNamespaces(3, 1)
+    doc = SBMLDocument(sbmlns)
+
+    # model
+    model = doc.createModel()
+    model.setId("ode_model_toy")
+    model.setName("ODE/SSA submodel")
+
+    # compartments
+    c_ext = create_compartment(model, cid="ext", name="external compartment")
+
+    # boundary species
+    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
+                        boundaryCondition=False, compartment=c_ext.getId())
+    s_D = create_species(model, sid="D", name="D", initialAmount=0, constant=False,
+                        boundaryCondition=False, compartment=c_ext.getId())
+
+    # parameters
+    create_parameter(model, pid="k_R4", name="k R4", constant=True, value=0.1)
+
+    # kinetic reaction (MMK)
+    r_R4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
+                           reactants={"C": 1}, products={"D": 1},
+                           formula="k_R4*C")
+
+    # write SBML file
+    write_and_check(doc, sbml_file)
+
+
+####################################################
+# Comp model
+####################################################
+
+
+
 if __name__ == "__main__":
     # write & check sbml
     from toymodel_settings import fba_file, ode_bounds_file, ode_update_file
+    from toymodel_settings import ode_model_file
+
     create_fba(fba_file)
     create_ode_bounds(ode_bounds_file)
     create_ode_update(ode_update_file, fba_file)
+    create_ode_model(ode_model_file)
