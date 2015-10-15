@@ -23,9 +23,13 @@ from toymodel_settings import fba_file, comp_file
 cobra_fba = cobra.io.read_sbml_model(fba_file)
 # ode model
 rr_comp = roadrunner.RoadRunner(comp_file)
+sel = ['time'] \
+        + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
+        + ["".join(["[", item, "]"]) for item in rr_comp.model.getFloatingSpeciesIds()] \
+        + rr_comp.model.getReactionIds()
+rr_comp.timeCourseSelections = sel
 
-
-def simulate(tend=10):
+def simulate(tend=10, step_size=0.1):
 
     time = 0.0
     while time <= tend:
@@ -56,10 +60,18 @@ def simulate(tend=10):
         # ODE
         # --------------------------------------
         # simulate (1 step)
-        result = rr_comp.simulate(0, steps=1)
+        if step_size:
+            # constant step size
+            result = rr_comp.simulate(0, end=step_size, steps=1)
+        else:
+            # variable step size
+            result = rr_comp.simulate(0, steps=1, variableStep=True)
         print result
-        print "-" * 80
-        exit()
+        
+        # store simulation values & get time step
+        delta_time = step_size
+        time = time + delta_time
+        
 
 if __name__ == "__main__":
     simulate(tend=1.0)
