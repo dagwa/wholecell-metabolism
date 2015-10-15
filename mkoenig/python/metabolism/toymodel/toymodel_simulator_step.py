@@ -3,39 +3,29 @@ Simulation of the combined toy model consisting of FBA and kinetic submodels.
 Using FBA simulator & kinetic simulator to simulate submodels with
 synchronization between the partial simulations.
 
-Simulating the model.
+Simple proof of concept for one step.
 
 @author: Matthias Koenig
 """
+
+#################################
+# create toy models
+#################################
+from toymodel.toymodel_settings import fba_file, ode_bounds_file, ode_update_file, ode_model_file
+from toymodel.toymodel_factory import create_fba, create_ode_bounds, create_ode_update, create_ode_model
+create_fba(fba_file)
+create_ode_bounds(ode_bounds_file)
+create_ode_update(ode_update_file, fba_file=fba_file)
+create_ode_model(ode_model_file)
+
+#################################
+# simulate kinetic flux bound model
+#################################
+# dynamically changing bounds
 import roadrunner
-import cobra
-from fba.cobra.cobra_tools import print_flux_bounds
-
 print roadrunner.__version__
-print cobra.__version__
-
-#################################
-# load the models
-#################################
-from toymodel_settings import ode_bounds_file, ode_model_file, ode_update_file, fba_file
-
-# roadrunner
 rr_bounds = roadrunner.RoadRunner(ode_bounds_file)
-rr_model = roadrunner.RoadRunner(ode_model_file)
-rr_update = roadrunner.RoadRunner(ode_update_file)
-
-# The complete kinetic part has to be simulated as one model.
-rr_fba = roadrunner.RoadRunner(fba_file)
-# cobra
-cobra_fba = cobra.io.read_sbml_model(fba_file)
-
-def simulate(time_start=0, time_end=10):
-    # dynamically changing bounds
-    result = rr_bounds.simulate(0, 10, steps=100)
-    pass
-
-
-
+result = rr_bounds.simulate(0, 10, steps=100)
 rr_bounds.plot()
 print result
 
@@ -47,7 +37,9 @@ rr_fba = roadrunner.RoadRunner(fba_file)
 rr_fba.ub_R1 = rr_bounds.ub_R1
 
 # sets the bounds in the cobra model
-
+import cobra
+from fba.cobra.cobra_tools import print_flux_bounds
+cobra_fba = cobra.io.read_sbml_model(fba_file)
 cobra_R1 = cobra_fba.reactions.get_by_id("R1")
 cobra_R1.upper_bound = rr_bounds.ub_R1
 print_flux_bounds(cobra_fba)

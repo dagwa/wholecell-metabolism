@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1">
+  <model id="toy_ode_comp" name="Combined ODE/SSA model"/>
+  <comp:listOfExternalModelDefinitions>
+    <comp:externalModelDefinition comp:id="toy_ode_bounds" comp:name="calculate flux bounds" comp:source="toy_ode_bounds.xml" comp:modelRef="toy_ode_bounds"/>
+  </comp:listOfExternalModelDefinitions>
+</sbml>
