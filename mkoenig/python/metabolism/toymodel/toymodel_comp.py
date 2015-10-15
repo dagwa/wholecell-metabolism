@@ -6,7 +6,7 @@ Test script for working with the comp extension in SBML.
 """
 from libsbml import *
 
-from toymodel_settings import toy_comp_file
+from toymodel_settings import comp_file
 from toymodel_factory import *
 
 
@@ -63,7 +63,7 @@ def create_comp_model(sbml_file):
 
     # shared species
     s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
-                        boundaryCondition=True, compartment=c_ext.getId())
+                        boundaryCondition=False, compartment=c_ext.getId())
     cplugin = s_C.getPlugin("comp")
     replaced_element = cplugin.createReplacedElement()
     replaced_element.setSubmodelRef("submodel_model")
@@ -80,4 +80,4 @@ def create_comp_model(sbml_file):
 
 
 if __name__ == "__main__":
-    create_comp_model(toy_comp_file)
+    create_comp_model(comp_file)

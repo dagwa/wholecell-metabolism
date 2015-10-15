@@ -10,7 +10,7 @@
       </compartment>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="C" name="C" compartment="extern" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false">
+      <species id="C" name="C" compartment="extern" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <comp:listOfReplacedElements>
           <comp:replacedElement comp:idRef="C" comp:submodelRef="submodel_model"/>
           <comp:replacedElement comp:idRef="C" comp:submodelRef="submodel_update"/>

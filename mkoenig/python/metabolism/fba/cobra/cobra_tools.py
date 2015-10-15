@@ -105,15 +105,14 @@ def print_full_df(x):
     print(x)
     pd.reset_option('display.max_rows')
 
+
 def print_flux_bounds(model):
-    ''' Prints flux bounds for all reactions. '''
-    print '*'*80
+    """ Prints flux bounds for all reactions. """
     info = []
     for r in model.reactions:
         info.append([r.id, r.lower_bound, r.upper_bound])
         df = DataFrame(info, columns=['id', 'lb', 'ub'])
     print_full_df(df)
-    print '*'*80
 
 
 # -----------------------------------------------------------------------------
