@@ -222,6 +222,7 @@ def create_ode_update(sbml_file, fba_file):
     """ Submodel for dynamically updating the metabolite count.
         Very similar model to the FBA model.
     """
+    """
     # Create the update model without fbc content
     sbmlns = SBMLNamespaces(3, 1)
     doc = SBMLDocument(sbmlns)
@@ -286,7 +287,6 @@ def create_ode_update(sbml_file, fba_file):
 
     # write SBML file
     write_and_check(doc, sbml_file)
-    """
 
 ####################################################
 # ODE/SSA model
