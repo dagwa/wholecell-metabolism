@@ -20,3 +20,4 @@ rr.timeCourseSelections = sel
 # simulate multiple steps
 result = rr.simulate(start=0, end=10, steps=5)
 print result
+f

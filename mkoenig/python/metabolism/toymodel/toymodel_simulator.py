@@ -50,8 +50,7 @@ def simulate(tend=10, step_size=0.01, debug=True):
         # set bounds in cobra model
         cobra_R1 = cobra_fba.reactions.get_by_id("R1")
         cobra_R1.upper_bound = rr_comp.submodel_bounds__ub_R1
-        print_flux_bounds(cobra_fba)
-
+        
         # optimize
         cobra_fba.optimize()
 
@@ -62,6 +61,7 @@ def simulate(tend=10, step_size=0.01, debug=True):
             rr_comp[pid] = flux
             
         if debug:
+            print_flux_bounds(cobra_fba)
             print cobra_fba.solution.status
             print cobra_fba.solution.x_dict
             print "-" * 80
@@ -95,13 +95,17 @@ def simulate(tend=10, step_size=0.01, debug=True):
     return df
 
 if __name__ == "__main__":
-    df = simulate(tend=10.0)
-    df.columns
-    df.plot(x="time", y=["submodel_update__R1",
+    
+    df1 = simulate(tend=50.0, step_size=0.01, debug=False)
+    rr_comp.reset()
+    # df2 = simulate(tend=10.0, step_size=None, debug=False)
+    
+    df1.columns
+    df1.plot(x="time", y=["submodel_update__R1",
                          "submodel_update__R2",
                          "submodel_update__R3",
                          "submodel_model__R4"])
-    df.plot(x="time", y=["[submodel_update__A]",
+    df1.plot(x="time", y=["[submodel_update__A]",
                          "[submodel_update__B1]",
                          "[submodel_update__B2]",
                          "[C]",

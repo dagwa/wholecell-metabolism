@@ -1,5 +1,0 @@
-import "toy_ode_model.xml"
-
-model mod2()
-  A: toy_ode_model();
-end
