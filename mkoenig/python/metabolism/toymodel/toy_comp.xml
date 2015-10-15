@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1">
-  <model id="toy_ode_comp" name="Combined ODE/SSA model"/>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" comp:required="true">
+  <model id="toy_ode_comp" name="Combined ODE/SSA model">
+    <comp:listOfSubmodels>
+      <comp:submodel comp:id="submodel_bounds" comp:modelRef="toy_ode_bounds"/>
+      <comp:submodel comp:id="submodel_update" comp:modelRef="toy_ode_update"/>
+      <comp:submodel comp:id="submodel_model" comp:modelRef="toy_ode_model"/>
+    </comp:listOfSubmodels>
+  </model>
   <comp:listOfExternalModelDefinitions>
-    <comp:externalModelDefinition comp:id="toy_ode_bounds" comp:name="calculate flux bounds" comp:source="toy_ode_bounds.xml" comp:modelRef="toy_ode_bounds"/>
+    <comp:externalModelDefinition comp:id="toy_ode_bounds" comp:name="toy_ode_bounds" comp:source="toy_ode_bounds.xml" comp:modelRef="toy_ode_bounds"/>
+    <comp:externalModelDefinition comp:id="toy_ode_update" comp:name="toy_ode_update" comp:source="toy_ode_update.xml" comp:modelRef="toy_ode_update"/>
+    <comp:externalModelDefinition comp:id="toy_ode_model" comp:name="toy_ode_model" comp:source="toy_ode_model.xml" comp:modelRef="toy_ode_model"/>
   </comp:listOfExternalModelDefinitions>
 </sbml>
