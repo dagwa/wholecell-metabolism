@@ -120,6 +120,30 @@ def write_and_check(doc, sbml_file):
     check_sbml(sbml_file)
 
 ####################################################
+# ODE flux bounds
+####################################################
+# ODE model for dynamical flux bound calculation
+def create_ode_bounds(sbml_file):
+    """" Submodel for dynamically calculating the flux bounds. """
+    sbmlns = SBMLNamespaces(3, 1)
+    doc = SBMLDocument(sbmlns)
+    model = doc.createModel()
+
+    # model
+    model.setId("toy_ode_bounds")
+    model.setName("ODE bound calculation submodel")
+
+    # parameters to update
+    create_parameter(model, pid="ub_R1", name="ub r1", constant=False, value=1.0)
+
+    # assignment rules
+    create_parameter(model, pid="k1", name="k1", constant=False, value=-0.2)
+    create_rate_rule(model, sid="ub_R1", formula="k1*ub_R1")
+
+    # write SBML file
+    write_and_check(doc, sbml_file)
+
+####################################################
 # FBA submodel
 ####################################################
 # FBA submodel in FBC v2 which uses parameters as flux bounds.
@@ -143,7 +167,7 @@ def create_fba(sbml_file):
     model.setName("FBA submodel")
 
     # compartments
-    c_ext = create_compartment(model, cid="ext", name="external compartment")
+    c_ext = create_compartment(model, cid="extern", name="external compartment")
     c_int = create_compartment(model, cid="cell", name="cell")
     
     # boundary species
@@ -189,41 +213,67 @@ def create_fba(sbml_file):
     write_and_check(doc_fba, sbml_file)
 
 ####################################################
-# ODE flux bounds
+# ODE species update
 ####################################################
-# ODE model for dynamical flux bound calculation
-def create_ode_bounds(sbml_file):
-    """" Submodel for dynamically calculating the flux bounds. """
+# model for update of species count
+
+
+def create_ode_update(sbml_file, fba_file):
+    """ Submodel for dynamically updating the metabolite count.
+        Very similar model to the FBA model.
+    """
+    # Create the update model without fbc content
     sbmlns = SBMLNamespaces(3, 1)
     doc = SBMLDocument(sbmlns)
     model = doc.createModel()
 
     # model
-    model.setId("toy_ode_bounds")
-    model.setName("ODE bound calculation submodel")
+    model.setId("toy_ode_update")
+    model.setName("ODE metabolite update submodel")
 
-    # parameters to update
-    create_parameter(model, pid="ub_R1", name="ub r1", constant=False, value=1.0)
+    # compartments
+    c_ext = create_compartment(model, cid="extern", name="external compartment")
+    c_int = create_compartment(model, cid="cell", name="cell")
 
-    # assignment rules
-    create_parameter(model, pid="k1", name="k1", constant=False, value=-0.2)
-    create_rate_rule(model, sid="ub_R1", formula="k1*ub_R1")
+    # boundary species released
+    s_A = create_species(model, sid="A", name="A", initialAmount=10, constant=False,
+                        boundaryCondition=False, compartment=c_ext.getId())
+    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
+                        boundaryCondition=False, compartment=c_ext.getId())
 
+    # internal species
+    s_B1 = create_species(model, sid="B1", name="B1", initialAmount=0, constant=False,
+                        boundaryCondition=False, compartment=c_int.getId())
+    s_B2 = create_species(model, sid="B2", name="B2", initialAmount=0, constant=False,
+                        boundaryCondition=False, compartment=c_int.getId())
+
+    # parameters (fluxes)
+    create_parameter(model, pid="v_R1", name="R1 flux", constant=False, value=0.0)
+    create_parameter(model, pid="v_R2", name="R2 flux", constant=False, value=0.0)
+    create_parameter(model, pid="v_R3", name="R3 flux", constant=False, value=0.0)
+
+    # reactions with constant flux
+    r_R1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
+                           reactants={"A": 1}, products={"B1": 1},
+                           formula="v_R1")
+    r_R2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
+                           reactants={"B1": 1}, products={"B2": 1},
+                           formula="v_R2")
+    r_R3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
+                           reactants={"B2": 1}, products={"C": 1},
+                           formula="v_R3")
     # write SBML file
     write_and_check(doc, sbml_file)
 
-####################################################
-# ODE species update
-####################################################
-# model for update of species count
-def create_ode_update(sbml_file, fba_file):
-    """" Submodel for dynamically updating the metabolite count.
-        Very similar model to the FBA model.
     """
+    # Should be possible to just reuse the FBA model for the update,
+    # but comp has problems with the fbc part.
+
     reader = SBMLReader()
     doc = reader.readSBMLFromFile(fba_file)
-    model = doc.getModel()
+
     # model
+    model = doc.getModel()
     model.setId("toy_ode_update")
     model.setName("ODE metabolite update submodel")
 
@@ -236,6 +286,7 @@ def create_ode_update(sbml_file, fba_file):
 
     # write SBML file
     write_and_check(doc, sbml_file)
+    """
 
 ####################################################
 # ODE/SSA model
@@ -251,7 +302,7 @@ def create_ode_model(sbml_file):
     model.setName("ODE/SSA submodel")
 
     # compartments
-    c_ext = create_compartment(model, cid="ext", name="external compartment")
+    c_ext = create_compartment(model, cid="extern", name="external compartment")
 
     # boundary species
     s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,

@@ -2,11 +2,11 @@
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
   <model id="toy_ode_model" name="ODE/SSA submodel">
     <listOfCompartments>
-      <compartment id="ext" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="C" name="C" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="D" name="D" compartment="ext" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="C" name="C" compartment="extern" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="D" name="D" compartment="extern" initialAmount="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="k_R4" name="k R4" value="0.1" constant="true"/>

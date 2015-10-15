@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by libAntimony version v2.8.0 on 2015-10-15 07:08 with libSBML version 5.11.9. -->
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
+  <model id="toy_ode_comp" name="toy_ode_comp">
+    <listOfCompartments>
+      <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="submodel_update_cell" spatialDimensions="3" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="submodel_update_A" compartment="extern" initialAmount="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="C" compartment="extern" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="submodel_update_B1" compartment="submodel_update_cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="submodel_update_B2" compartment="submodel_update_cell" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="submodel_model_D" compartment="extern" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="submodel_bounds_ub_R1" name="ub r1" value="1" constant="false"/>
+      <parameter id="submodel_bounds_k1" value="-0.2" constant="false"/>
+      <parameter id="submodel_update_v_R1" name="R1 flux" value="0" constant="false"/>
+      <parameter id="submodel_update_v_R2" name="R2 flux" value="0" constant="false"/>
+      <parameter id="submodel_update_v_R3" name="R3 flux" value="0" constant="false"/>
+      <parameter id="submodel_model_k_R4" name="k R4" value="0.1" constant="true"/>
+    </listOfParameters>
+    <listOfRules>
+      <rateRule variable="submodel_bounds_ub_R1">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> submodel_bounds_k1 </ci>
+            <ci> submodel_bounds_ub_R1 </ci>
+          </apply>
+        </math>
+      </rateRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction id="submodel_update_R1" name="A import (R1)" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="submodel_update_A" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="submodel_update_B1" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> submodel_update_v_R1 </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="submodel_update_R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="submodel_update_B1" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="submodel_update_B2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> submodel_update_v_R2 </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="submodel_update_R3" name="B2 export (R3)" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="submodel_update_B2" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> submodel_update_v_R3 </ci>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="submodel_model_R4" name="C -&gt; D" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="C" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="submodel_model_D" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> submodel_model_k_R4 </ci>
+              <ci> C </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

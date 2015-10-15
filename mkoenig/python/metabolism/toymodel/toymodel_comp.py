@@ -19,7 +19,6 @@ def create_ExternalModelDefinition(mdoc, cid, sbml_file):
     extdef.setSource(sbml_file)
     return extdef
 
-
 def create_comp_model(sbml_file):
 
     sbmlns = SBMLNamespaces(3, 1, "comp", 1)
@@ -51,6 +50,27 @@ def create_comp_model(sbml_file):
     submodel_model.setId("submodel_model")
     submodel_model.setModelRef(emd_model.getModelRef())
 
+    # shared compartment
+    c_ext = create_compartment(model, cid="extern", name="external compartment")
+
+    cplugin = c_ext.getPlugin("comp")
+    replaced_element = cplugin.createReplacedElement()
+    replaced_element.setSubmodelRef("submodel_model")
+    replaced_element.setIdRef("extern")
+    replaced_element = cplugin.createReplacedElement()
+    replaced_element.setSubmodelRef("submodel_update")
+    replaced_element.setIdRef("extern")
+
+    # shared species
+    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
+                        boundaryCondition=True, compartment=c_ext.getId())
+    cplugin = s_C.getPlugin("comp")
+    replaced_element = cplugin.createReplacedElement()
+    replaced_element.setSubmodelRef("submodel_model")
+    replaced_element.setIdRef("C")
+    replaced_element = cplugin.createReplacedElement()
+    replaced_element.setSubmodelRef("submodel_update")
+    replaced_element.setIdRef("C")
 
     # write SBML file
     write_and_check(doc, sbml_file)
