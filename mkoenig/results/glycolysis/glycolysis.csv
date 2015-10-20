@@ -15,7 +15,7 @@ DTTP	dTTP	c	SBO:0000247	species	C10H13N2O14P3
 Eno	enolase		SBO:0000176	reaction	
 F1P	D-Fructose 1-phosphate	c	SBO:0000247	species	C6H11O9P1
 F6P	D-Fructose 6-phosphate	c	SBO:0000247	species	C6H11O9P1
-FDP	D-Fructose 16-bisphosphate	c	SBO:0000247	species	C6H10O12P2
+FDP	D-Fructose 1,6-bisphosphate	c	SBO:0000247	species	C6H10O12P2
 FRU__e	D-Fructose	e	SBO:0000247	species	C6H12O6
 Fba	fructose-bisphosphate aldolase		SBO:0000176	reaction	
 FruK1	fructose-1-phosphate kinase		SBO:0000176	reaction	
