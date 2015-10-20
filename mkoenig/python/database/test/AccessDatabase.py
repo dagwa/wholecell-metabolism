@@ -40,3 +40,14 @@ for k, e in enumerate(entries):
 entries_df = entries_df.set_index(entries_df.id)
 # print the first 10
 print entries_df.head(10)
+
+# write the csv table
+import csv
+with open('entry_names.csv', 'wb') as csvfile:
+    writer = csv.writer(csvfile, delimiter='\t', quotechar='', quoting=csv.QUOTE_NONE)
+    writer.writerow(['id', 'model_type', 'wid', 'name'])
+    for k, e in enumerate(entries):
+        writer.writerow([e.id, e.model_type, e.wid, e.name.encode('utf-8')])
+
+e1 = Entry.objects.get(wid="MG_028_DIMER")
+e1.name
