@@ -5,9 +5,11 @@ synchronization between the partial simulations.
 
 Simulating the model.
 
+TODO: Create one comp file with all the ports and
+    figure out the FBA and ODE subparts based on the annotations.
+    The manual assignment which is done below has to be performed
+    automatically based on the provided SBML information.
 TODO: Fix the zero time point of the simulation
-
-@author: Matthias Koenig
 """
 import roadrunner
 import cobra
@@ -33,6 +35,14 @@ rr_comp.timeCourseSelections = sel
 rr_comp.reset()
 
 def simulate(tend=10, step_size=0.01, debug=True):
+    """
+    Performs the model integration.
+
+    :param tend: end time of the simulation
+    :param step_size: step size for the integration, if None variable step size will be used
+    :param debug: additional information
+    :return: pandas solution data frame
+    """
 
     # store results
     all_results = [] 

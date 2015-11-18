@@ -1,11 +1,14 @@
 """
-Create the Toy sub models for coupling ODE models with FBA models.
-Using hierarchical model composition to create the main model and the kinetic model
-subparts.
+Module creates the sub models of the combined toy model.
+The toy model consists of FBA submodels, deterministic ODE models and stochastic
+ODE models.
+The SBML comp extension is used for hierarchical model composition, i.e. to create
+the main model and the kinetic model subparts.
 
 @author: Matthias Koenig
 """
 from libsbml import *
+
 
 def create_compartment(model, cid, name, size=1.0, dims=3, constant=True):
     """ Create compartments. """
@@ -16,6 +19,7 @@ def create_compartment(model, cid, name, size=1.0, dims=3, constant=True):
     c.setSpatialDimensions(dims)
     c.setConstant(constant)
     return c
+
 
 def create_species(model, sid, name, initialAmount, constant, boundaryCondition, compartment,
                   hasOnlySubstanceUnits=False):
@@ -30,6 +34,7 @@ def create_species(model, sid, name, initialAmount, constant, boundaryCondition,
     s.setHasOnlySubstanceUnits(hasOnlySubstanceUnits)
     return s
 
+
 def create_parameter(model, pid, name, constant, value):
     """ Create paramters. """
     p = model.createParameter()
@@ -38,6 +43,7 @@ def create_parameter(model, pid, name, constant, value):
     p.setConstant(constant)
     p.setValue(value)
     return p
+
 
 def create_reaction(model, rid, name, fast=False, reversible=True,
                      reactants={}, products={}, formula=None):
@@ -78,6 +84,7 @@ def set_flux_bounds(r, lb="lb", ub="ub"):
     rplugin.setLowerFluxBound(lb)
     rplugin.setUpperFluxBound(ub)
 
+
 def create_objective(mplugin, oid, otype, fluxObjectives, active=True):
     objective = mplugin.createObjective()
     objective.setId(oid)
@@ -111,6 +118,7 @@ def create_rate_rule(model, sid, formula):
         print(getLastParseL3Error())
     rule.setMath(astnode)
     return rule
+
 
 def write_and_check(doc, sbml_file):
     # write and check the SBML file
@@ -216,60 +224,11 @@ def create_fba(sbml_file):
 # ODE species update
 ####################################################
 # model for update of species count
-
-
 def create_ode_update(sbml_file, fba_file):
     """ Submodel for dynamically updating the metabolite count.
         Very similar model to the FBA model.
     """
-    """
-    # Create the update model without fbc content
-    sbmlns = SBMLNamespaces(3, 1)
-    doc = SBMLDocument(sbmlns)
-    model = doc.createModel()
-
-    # model
-    model.setId("toy_ode_update")
-    model.setName("ODE metabolite update submodel")
-
-    # compartments
-    c_ext = create_compartment(model, cid="extern", name="external compartment")
-    c_int = create_compartment(model, cid="cell", name="cell")
-
-    # boundary species released
-    s_A = create_species(model, sid="A", name="A", initialAmount=10, constant=False,
-                        boundaryCondition=False, compartment=c_ext.getId())
-    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_ext.getId())
-
-    # internal species
-    s_B1 = create_species(model, sid="B1", name="B1", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_int.getId())
-    s_B2 = create_species(model, sid="B2", name="B2", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_int.getId())
-
-    # parameters (fluxes)
-    create_parameter(model, pid="v_R1", name="R1 flux", constant=False, value=0.0)
-    create_parameter(model, pid="v_R2", name="R2 flux", constant=False, value=0.0)
-    create_parameter(model, pid="v_R3", name="R3 flux", constant=False, value=0.0)
-
-    # reactions with constant flux
-    r_R1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
-                           reactants={"A": 1}, products={"B1": 1},
-                           formula="v_R1")
-    r_R2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
-                           reactants={"B1": 1}, products={"B2": 1},
-                           formula="v_R2")
-    r_R3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
-                           reactants={"B2": 1}, products={"C": 1},
-                           formula="v_R3")
-    # write SBML file
-    write_and_check(doc, sbml_file)
-
-    """
-    # Should be possible to just reuse the FBA model for the update,
-    # but comp has problems with the fbc part.
-
+    # read FBA model
     reader = SBMLReader()
     doc = reader.readSBMLFromFile(fba_file)
 
@@ -328,7 +287,9 @@ def create_ode_model(sbml_file):
 # - bounds calculation
 # - metabolite updates
 # - kinetic submodel
-def create_ode_comp(sbml_file):
+
+
+def create_ode_comp(sbmlfile):
     """" Kinetic comp model """
     pass
 
