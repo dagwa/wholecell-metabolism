@@ -10,6 +10,10 @@ TODO: Create one comp file with all the ports and
     The manual assignment which is done below has to be performed
     automatically based on the provided SBML information.
 TODO: Fix the zero time point of the simulation
+
+TODO: fix the paths, how to handle development in pycharm and spyder, 
+    i.e. consistent paths (use the relative to file trick). 
+
 """
 import roadrunner
 import cobra
@@ -21,7 +25,7 @@ print cobra.__version__
 #################################
 # load ode and fba model
 #################################
-from toymodel_settings import fba_file, comp_file
+from toymodel.toymodel_settings import fba_file, comp_file
 
 # fba model
 cobra_fba = cobra.io.read_sbml_model(fba_file)
