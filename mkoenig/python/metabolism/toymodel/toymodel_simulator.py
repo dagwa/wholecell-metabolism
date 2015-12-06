@@ -15,18 +15,20 @@ TODO: fix the paths, how to handle development in pycharm and spyder,
     i.e. consistent paths (use the relative to file trick). 
 
 """
+from __future__ import print_function
 import roadrunner
 import cobra
+from settings import fba_file, comp_file
+
 from fba.cobra.cobra_tools import print_flux_bounds
 
-print roadrunner.__version__
-print cobra.__version__
+print(roadrunner.__version__)
+print(cobra.__version__)
+
 
 #################################
 # load ode and fba model
 #################################
-from toymodel.settings import fba_file, comp_file
-
 # fba model
 cobra_fba = cobra.io.read_sbml_model(fba_file)
 # ode model
@@ -37,6 +39,7 @@ sel = ['time'] \
         + rr_comp.model.getReactionIds()
 rr_comp.timeCourseSelections = sel
 rr_comp.reset()
+
 
 def simulate(tend=10, step_size=0.01, debug=True):
     """
@@ -55,8 +58,8 @@ def simulate(tend=10, step_size=0.01, debug=True):
     time = 0.0
     while time <= tend:
         if debug:
-            print "-" * 80
-            print "Time: {}".format(time)
+            print("-" * 80)
+            print("Time: {}".format(time))
         
         # --------------------------------------
         # FBA
@@ -76,9 +79,9 @@ def simulate(tend=10, step_size=0.01, debug=True):
             
         if debug:
             print_flux_bounds(cobra_fba)
-            print cobra_fba.solution.status
-            print cobra_fba.solution.x_dict
-            print "-" * 80
+            print(cobra_fba.solution.status)
+            print(cobra_fba.solution.x_dict)
+            print("-" * 80)
         # --------------------------------------
         # ODE
         # --------------------------------------
@@ -99,13 +102,13 @@ def simulate(tend=10, step_size=0.01, debug=True):
         time = time + delta_time
         
         if debug:        
-            print result
+            print(result)
 
     # create result matrix    
     import pandas
     df = pandas.DataFrame(data=all_results, columns=result.colnames)    
     df.time = all_time
-    print df
+    print(df)
     return df
 
 if __name__ == "__main__":

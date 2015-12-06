@@ -71,9 +71,10 @@ units = {
                     (UNIT_KIND_METRE, -3.0)],
 }
 
-AMOUNT_UNIT = UNIT_KIND_ITEM
-CONCENTRATION_UNIT = 'item_per_m3'
-FLUX_UNIT = 'item_per_s'
+UNIT_AMOUNT = UNIT_KIND_ITEM
+UNIT_VOLUME = 'm3'
+UNIT_CONCENTRATION = 'item_per_m3'
+UNIT_FLUX = 'item_per_s'
 
 ########################################################################
 def add_generic_info(model):
@@ -97,7 +98,7 @@ def create_ode_bounds(sbml_file):
     add_generic_info(model)
 
     parameters = [
-        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: FLUX_UNIT, A_NAME: 'ub_r1', A_CONSTANT: False},
+        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: UNIT_FLUX, A_NAME: 'ub_r1', A_CONSTANT: False},
         {A_ID: 'k1', A_VALUE: -0.2, A_UNIT: "per_s", A_NAME: "k1", A_CONSTANT: False},
     ]
 
@@ -138,34 +139,34 @@ def create_fba(sbml_file):
     add_generic_info(model)
 
     compartments = [
-        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
-        {A_ID: 'cell', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'cell', A_SPATIAL_DIMENSION: 3}
+        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
+        {A_ID: 'cell', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_NAME: 'cell', A_SPATIAL_DIMENSION: 3}
     ]
     create_compartments(model, compartments)
 
     species = [
         # external
-        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
-        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
+        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+         A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+         A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
         # internal
-        {A_ID: 'B1', A_NAME: "B1", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT:"cell"},
-        {A_ID: 'B2', A_NAME: "B2", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT:"cell"},
+        {A_ID: 'B1', A_NAME: "B1", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+         A_COMPARTMENT:"cell"},
+        {A_ID: 'B2', A_NAME: "B2", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+         A_COMPARTMENT:"cell"},
     ]
     create_species(model, species)
 
     parameters = [
         # bounds
-        {A_ID: "ub_R1", A_NAME: "ub R1", A_VALUE: 1.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
-        {A_ID: "lb", A_NAME: "lower bound", A_VALUE: 0.0, A_UNIT: FLUX_UNIT,  A_CONSTANT: True},
-        {A_ID: "ub", A_NAME: "upper bound", A_VALUE: 1000.0, A_UNIT: FLUX_UNIT,  A_CONSTANT: True},
+        {A_ID: "ub_R1", A_NAME: "ub R1", A_VALUE: 1.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        {A_ID: "lb", A_NAME: "lower bound", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: True},
+        {A_ID: "ub", A_NAME: "upper bound", A_VALUE: 1000.0, A_UNIT: UNIT_FLUX, A_CONSTANT: True},
         # parameters (fluxes)
-        {A_ID: "v_R1", A_NAME: "R1 flux", A_VALUE:0.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
-        {A_ID: "v_R2", A_NAME: "R2 flux", A_VALUE: 0.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
-        {A_ID: "v_R3", A_NAME: "R3 flux", A_VALUE: 0.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
+        {A_ID: "v_R1", A_NAME: "R1 flux", A_VALUE:0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        {A_ID: "v_R2", A_NAME: "R2 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        {A_ID: "v_R3", A_NAME: "R3 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
     ]
     create_parameters(model, parameters)
 
@@ -239,15 +240,15 @@ def create_ode_model(sbml_file):
 
     species = [
         # external
-        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
-        {A_ID: 'D', A_NAME: "D", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+         A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
+        {A_ID: 'D', A_NAME: "D", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+         A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
     ]
     create_species(model, species)
 
     parameters = [
-        {A_ID: "k_R4", A_NAME: "k R4", A_VALUE: 0.1, A_CONSTANT: True, A_UNIT:"per_s"}
+        {A_ID: "k_R4", A_NAME: "k R4", A_VALUE: 0.1, A_CONSTANT: True, A_UNIT: "per_s"}
     ]
     create_parameters(model, parameters)
 
