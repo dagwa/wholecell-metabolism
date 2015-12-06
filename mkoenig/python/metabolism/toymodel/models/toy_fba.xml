@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+  <model metaid="meta_8d9558fb192644379b570c87a5306de7" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -25,7 +25,32 @@
              the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
     </div>
   </body>
-</notes><listOfUnitDefinitions>
+</notes><annotation>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+    <rdf:Description rdf:about="#meta_8d9558fb192644379b570c87a5306de7">
+      <dc:creator>
+        <rdf:Bag>
+          <rdf:li rdf:parseType="Resource">
+            <vCard:N rdf:parseType="Resource">
+              <vCard:Family>Koenig</vCard:Family>
+              <vCard:Given>Matthias</vCard:Given>
+            </vCard:N>
+            <vCard:EMAIL>konigmatt@googlemail.com</vCard:EMAIL>
+            <vCard:ORG rdf:parseType="Resource">
+              <vCard:Orgname>Charite Berlin</vCard:Orgname>
+            </vCard:ORG>
+          </rdf:li>
+        </rdf:Bag>
+      </dc:creator>
+      <dcterms:created rdf:parseType="Resource">
+        <dcterms:W3CDTF>2015-12-06T16:49:13Z</dcterms:W3CDTF>
+      </dcterms:created>
+      <dcterms:modified rdf:parseType="Resource">
+        <dcterms:W3CDTF>2015-12-06T16:49:13Z</dcterms:W3CDTF>
+      </dcterms:modified>
+    </rdf:Description>
+  </rdf:RDF>
+</annotation><listOfUnitDefinitions>
   <unitDefinition id="item_per_s">
     <listOfUnits>
       <unit kind="item" exponent="1" scale="0" multiplier="1"/>
@@ -69,6 +94,11 @@
       <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
     </listOfUnits>
   </unitDefinition>
+  <unitDefinition id="per_s">
+    <listOfUnits>
+      <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+    </listOfUnits>
+  </unitDefinition>
 </listOfUnitDefinitions><listOfCompartments>
   <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" units="m3" constant="true"/>
   <compartment id="cell" name="cell" spatialDimensions="3" size="1" units="m3" constant="true"/>
@@ -79,11 +109,11 @@
   <species id="B2" name="B2" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
 </listOfSpecies><listOfParameters>
   <parameter id="ub_R1" name="ub R1" value="1" units="item_per_s" constant="false"/>
-  <parameter id="lb" name="lower bound" units="item_per_s" constant="true"/>
+  <parameter id="lb" name="lower bound" value="0" units="item_per_s" constant="true"/>
   <parameter id="ub" name="upper bound" value="1000" units="item_per_s" constant="true"/>
-  <parameter id="v_R1" name="R1 flux" units="item_per_s" constant="false"/>
-  <parameter id="v_R2" name="R2 flux" units="item_per_s" constant="false"/>
-  <parameter id="v_R3" name="R3 flux" units="item_per_s" constant="false"/>
+  <parameter id="v_R1" name="R1 flux" value="0" units="item_per_s" constant="false"/>
+  <parameter id="v_R2" name="R2 flux" value="0" units="item_per_s" constant="false"/>
+  <parameter id="v_R3" name="R3 flux" value="0" units="item_per_s" constant="false"/>
 </listOfParameters><listOfReactions>
   <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub_R1">
     <listOfReactants>

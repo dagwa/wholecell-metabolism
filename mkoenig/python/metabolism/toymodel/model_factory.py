@@ -45,7 +45,8 @@ notes = XMLNode.convertStringToXMLNode("""
 """)
 creators = {
     # id : ('FamilyName', 'GivenName', 'Email', 'Organization')
-    'mk': ('Koenig', 'Matthias', 'konigmatt@googlemail.com', 'Charite Berlin'),
+    'mk': {'FamilyName':'Koenig', 'GivenName':'Matthias',
+           'Email':'konigmatt@googlemail.com', 'Organization': 'Charite Berlin'},
 }
 main_units = {
     'time': 's',
@@ -63,6 +64,7 @@ units = {
     'm3': [(UNIT_KIND_METRE, 3.0)],
     'mM': [(UNIT_KIND_MOLE, 1.0, 0),
            (UNIT_KIND_METRE, -3.0)],
+    'per_s' : [(UNIT_KIND_SECOND, -1.0)],
     'item_per_s': [(UNIT_KIND_ITEM, 1.0),
                    (UNIT_KIND_SECOND, -1.0)],
     'item_per_m3': [(UNIT_KIND_ITEM, 1.0),
@@ -75,7 +77,7 @@ FLUX_UNIT = 'item_per_s'
 
 ########################################################################
 def add_generic_info(model):
-    # sbml_annotation.set_model_history(model, creators)
+    sbml_annotation.set_model_history(model, creators)
     create_unit_definitions(model, units)
     set_main_units(model, main_units)
     model.setNotes(notes)
@@ -95,8 +97,8 @@ def create_ode_bounds(sbml_file):
     add_generic_info(model)
 
     parameters = [
-        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: None, A_NAME: 'ub_r1', A_CONSTANT: False},
-        {A_ID: 'k1', A_VALUE: -0.2, A_UNIT: None, A_NAME: "k1", A_CONSTANT: False},
+        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: FLUX_UNIT, A_NAME: 'ub_r1', A_CONSTANT: False},
+        {A_ID: 'k1', A_VALUE: -0.2, A_UNIT: "per_s", A_NAME: "k1", A_CONSTANT: False},
     ]
 
     rate_rules = [
@@ -245,7 +247,7 @@ def create_ode_model(sbml_file):
     create_species(model, species)
 
     parameters = [
-        {A_ID: "k_R4", A_NAME: "k R4", A_CONSTANT: True, A_VALUE: 0.1}
+        {A_ID: "k_R4", A_NAME: "k R4", A_VALUE: 0.1, A_CONSTANT: True, A_UNIT:"per_s"}
     ]
     create_parameters(model, parameters)
 
@@ -279,3 +281,9 @@ if __name__ == "__main__":
     create_ode_bounds(ode_bounds_file)
     create_ode_update(ode_update_file, fba_file)
     create_ode_model(ode_model_file)
+
+    import multiscale.multiscalesite.simapp.db.api as db_api
+    db_api.create_model(fba_file, model_format=db_api.CompModelFormat.SBML)
+    db_api.create_model(ode_bounds_file, model_format=db_api.CompModelFormat.SBML)
+    db_api.create_model(ode_update_file, model_format=db_api.CompModelFormat.SBML)
+    db_api.create_model(ode_model_file, model_format=db_api.CompModelFormat.SBML)
