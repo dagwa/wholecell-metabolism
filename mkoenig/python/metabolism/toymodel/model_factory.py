@@ -9,6 +9,7 @@ the main model and the kinetic model subparts.
 from libsbml import *
 import multiscale.sbmlutils.io as sbml_io
 import multiscale.sbmlutils.annotation as sbml_annotation
+import multiscale.sbmlutils.comp as comp
 
 from multiscale.sbmlutils.factory import *
 
@@ -95,6 +96,7 @@ def create_ode_bounds(sbml_file):
     model = doc.createModel()
     model.setId("toy_ode_bounds")
     model.setName("ODE bound calculation submodel")
+    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
     add_generic_info(model)
 
     parameters = [
@@ -136,6 +138,7 @@ def create_fba(sbml_file):
     # model
     model.setId('toy_fba')
     model.setName('FBA submodel')
+    model.setSBOTerm(comp.SBO_FLUX_BALANCE_FRAMEWORK)
     add_generic_info(model)
 
     compartments = [
@@ -208,6 +211,7 @@ def create_ode_update(sbml_file, fba_file):
     model = doc.getModel()
     model.setId("toy_ode_update")
     model.setName("ODE metabolite update submodel")
+    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
 
     # boundary conditions of FBA have to be released
     # for the update of the species
@@ -231,6 +235,7 @@ def create_ode_model(sbml_file):
     model = doc.createModel()
     model.setId("toy_ode_model")
     model.setName("ODE/SSA submodel")
+    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
     add_generic_info(model)
 
     compartments = [
@@ -259,20 +264,8 @@ def create_ode_model(sbml_file):
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
 
-####################################################
-# Comp model
-####################################################
-# Combined comp model of all the kinetic parts.
-# - bounds calculation
-# - metabolite updates
-# - kinetic submodel
 
-
-def create_ode_comp(sbmlfile):
-    """" Kinetic comp model """
-    pass
-
-
+########################################################################################################################
 if __name__ == "__main__":
     # write & check sbml
     from settings import fba_file, ode_bounds_file, ode_update_file

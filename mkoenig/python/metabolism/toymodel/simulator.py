@@ -1,4 +1,7 @@
 """
+Simulator to run the models consisting of multiple
+modeling frameworks.
+
 Simulation of the combined toy model consisting of FBA and kinetic submodels.
 Using FBA simulator & kinetic simulator to simulate submodels with
 synchronization between the partial simulations.
@@ -10,17 +13,14 @@ TODO: Create one comp file with all the ports and
     The manual assignment which is done below has to be performed
     automatically based on the provided SBML information.
 TODO: Fix the zero time point of the simulation
-
-TODO: fix the paths, how to handle development in pycharm and spyder, 
-    i.e. consistent paths (use the relative to file trick). 
-
 """
+
 from __future__ import print_function
 import pandas as pd
 from pandas import DataFrame
 import roadrunner
 import cobra
-from settings import fba_file, comp_file
+from settings import fba_file, comp_ode_file
 
 print(roadrunner.__version__)
 print(cobra.__version__)
@@ -40,27 +40,30 @@ def print_flux_bounds(model):
 #################################
 # load ode and fba model
 #################################
-# fba model
-cobra_fba = cobra.io.read_sbml_model(fba_file)
-# ode model
-rr_comp = roadrunner.RoadRunner(comp_file)
-sel = ['time'] \
-        + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
-        + ["".join(["[", item, "]"]) for item in rr_comp.model.getFloatingSpeciesIds()] \
-        + rr_comp.model.getReactionIds()
-rr_comp.timeCourseSelections = sel
-rr_comp.reset()
 
-
-def simulate(tend=10.0, step_size=0.01, debug=True):
+def simulate_manual(fba_sbml, comp_ode_sbml, tend=10.0, step_size=0.01, debug=True):
     """
     Performs the model integration.
+
+    Manual connection of the fba model and the combined comp_ode model.
+    The connections are hard coded. Proof-of-principle.
 
     :param tend: end time of the simulation
     :param step_size: step size for the integration, if None variable step size will be used
     :param debug: additional information
     :return: pandas solution data frame
     """
+
+    # load fba model
+    cobra_fba = cobra.io.read_sbml_model(fba_sbml)
+    # ode model
+    rr_comp = roadrunner.RoadRunner(comp_ode_sbml)
+    sel = ['time'] \
+        + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
+        + ["".join(["[", item, "]"]) for item in rr_comp.model.getFloatingSpeciesIds()] \
+        + rr_comp.model.getReactionIds()
+    rr_comp.timeCourseSelections = sel
+    rr_comp.reset()
 
     # store results
     all_results = [] 
@@ -123,11 +126,10 @@ def simulate(tend=10.0, step_size=0.01, debug=True):
 
 if __name__ == "__main__":
     
-    df1 = simulate(tend=50.0, step_size=0.1, debug=False)
-    rr_comp.reset()
+    df1 = simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
+                          tend=50.0, step_size=0.1, debug=False)
     # df2 = simulate(tend=10.0, step_size=None, debug=False)
-    
-    df1.columns
+
     df1.plot(x='time', y=['submodel_update__R1',
                           'submodel_update__R2',
                           'submodel_update__R3',

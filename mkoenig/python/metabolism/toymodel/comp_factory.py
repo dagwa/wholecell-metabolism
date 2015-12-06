@@ -7,9 +7,10 @@ in addition the higher level comp model is created which combines everything (i.
 For the simulation of the full combined model the tools have to figure out the subparts which are
 simulated with which simulation environment.
 """
-
+from __future__ import print_function
+import warnings
 from libsbml import *
-from settings import comp_file
+from settings import comp_ode_file, comp_full_file
 
 import model_factory
 from multiscale.sbmlutils import comp
@@ -17,9 +18,10 @@ from multiscale.sbmlutils.factory import *
 import multiscale.sbmlutils.io as sbml_io
 
 
-def create_comp_model(sbml_file):
+def create_comp_ode_model(sbml_file):
     """
     Creates the ODE/SSA comp model.
+    These are all the ode submodels combined without the FBA part.
     """
     sbmlns = SBMLNamespaces(3, 1, "comp", 1)
     doc = SBMLDocument(sbmlns)
@@ -37,6 +39,7 @@ def create_comp_model(sbml_file):
     model.setName("Combined ODE/SSA model")
     model_factory.add_generic_info(model)
     mplugin = model.getPlugin("comp")
+    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
 
     # add listOfSubmodels which reference the External models
     submodel_bounds = mplugin.createSubmodel()
@@ -90,5 +93,14 @@ def create_comp_model(sbml_file):
     # Use the flattened model for simulation
 
 
+def create_comp_full_model(sbml_file):
+    """
+    Creates the full comp model as combination of FBA and comp models.
+    """
+    warnings.warn("NOT IMPLEMENTED")
+
+
+
 if __name__ == "__main__":
-    create_comp_model(comp_file)
+    create_comp_ode_model(comp_ode_file)
+    create_comp_full_model(comp_full_file)
