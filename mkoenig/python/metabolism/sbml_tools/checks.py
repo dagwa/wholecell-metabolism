@@ -7,6 +7,8 @@ Created on Sun Mar  8 08:33:17 2015
 import time
 from libsbml import *
 
+
+# TODO: use the sbmlutils
 def check_sbml(filename): 
     current = time.clock()
     doc = readSBML(filename)

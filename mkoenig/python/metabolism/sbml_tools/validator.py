@@ -2,11 +2,13 @@
 Created on Jun 20, 2014
 
 @author: mkoenig
+
 '''
 import os.path
 import time
 import libsbml
- 
+
+# TODO: use the sbmlutils
 class SBMLValidator:
     def __init__(self, ucheck):
         self.reader = libsbml.SBMLReader()
