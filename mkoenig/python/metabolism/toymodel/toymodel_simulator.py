@@ -16,14 +16,25 @@ TODO: fix the paths, how to handle development in pycharm and spyder,
 
 """
 from __future__ import print_function
+import pandas as pd
+from pandas import DataFrame
 import roadrunner
 import cobra
 from settings import fba_file, comp_file
 
-from fba.cobra.cobra_tools import print_flux_bounds
-
 print(roadrunner.__version__)
 print(cobra.__version__)
+
+
+def print_flux_bounds(model):
+    """ Prints flux bounds for all reactions. """
+    info = []
+    for r in model.reactions:
+        info.append([r.id, r.lower_bound, r.upper_bound])
+    df = DataFrame(info, columns=['id', 'lb', 'ub'])
+    pd.set_option('display.max_rows', len(df))
+    print(df)
+    pd.reset_option('display.max_rows')
 
 
 #################################
@@ -41,7 +52,7 @@ rr_comp.timeCourseSelections = sel
 rr_comp.reset()
 
 
-def simulate(tend=10, step_size=0.01, debug=True):
+def simulate(tend=10.0, step_size=0.01, debug=True):
     """
     Performs the model integration.
 
@@ -54,7 +65,7 @@ def simulate(tend=10, step_size=0.01, debug=True):
     # store results
     all_results = [] 
     all_time = []
-
+    result = None
     time = 0.0
     while time <= tend:
         if debug:
@@ -105,28 +116,27 @@ def simulate(tend=10, step_size=0.01, debug=True):
             print(result)
 
     # create result matrix    
-    import pandas
-    df = pandas.DataFrame(data=all_results, columns=result.colnames)    
+    df = pd.DataFrame(data=all_results, columns=result.colnames)    
     df.time = all_time
     print(df)
     return df
 
 if __name__ == "__main__":
     
-    df1 = simulate(tend=50.0, step_size=0.01, debug=False)
+    df1 = simulate(tend=50.0, step_size=0.1, debug=False)
     rr_comp.reset()
     # df2 = simulate(tend=10.0, step_size=None, debug=False)
     
     df1.columns
-    df1.plot(x="time", y=["submodel_update__R1",
-                         "submodel_update__R2",
-                         "submodel_update__R3",
-                         "submodel_model__R4"])
-    df1.plot(x="time", y=["[submodel_update__A]",
-                         "[submodel_update__B1]",
-                         "[submodel_update__B2]",
-                         "[C]",
-                         "[submodel_model__D]"])
+    df1.plot(x='time', y=['submodel_update__R1',
+                          'submodel_update__R2',
+                          'submodel_update__R3',
+                          'submodel_model__R4'])
+    df1.plot(x='time', y=['[submodel_update__A]',
+                          '[submodel_update__B1]',
+                          '[submodel_update__B2]',
+                          '[C]',
+                          '[submodel_model__D]'])
 
-    # TODO: create figures
+    # TODO: save figures as files
 
