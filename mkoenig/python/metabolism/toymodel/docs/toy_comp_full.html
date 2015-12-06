@@ -9,14 +9,14 @@
     <meta name="author" content="Matthias Koenig">
     <!--<meta http-equiv="refresh" content="5" />-->
     <link rel="icon" href="http://localhost:8001/static/simapp/images/sbml.ico">
-    <title>toy_ode_bounds</title>
+    <title>toy_comp_full</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="toy_ode_bounds_files/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="toy_ode_bounds_files/dataTables.css">
-    <link rel="stylesheet" type="text/css" href="toy_ode_bounds_files/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="toy_comp_full_files/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="toy_comp_full_files/dataTables.css">
+    <link rel="stylesheet" type="text/css" href="toy_comp_full_files/dashboard.css">
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="toy_ode_bounds_files/report.css">
+    <link rel="stylesheet" type="text/css" href="toy_comp_full_files/report.css">
 
 
     <!-- JAVASCRIPT -->
@@ -27,10 +27,10 @@
     <![endif]-->
 
 
-  <script type="text/javascript" language="javascript" src="toy_ode_bounds_files/jquery-1.js"></script>
-      <script type="text/javascript" language="javascript" src="toy_ode_bounds_files/bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" src="toy_ode_bounds_files/jquery_002.js"></script>
-    <script type="text/javascript" language="javascript" src="toy_ode_bounds_files/dataTables.js"></script>
+  <script type="text/javascript" language="javascript" src="toy_comp_full_files/jquery-1.js"></script>
+      <script type="text/javascript" language="javascript" src="toy_comp_full_files/bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="toy_comp_full_files/jquery_002.js"></script>
+    <script type="text/javascript" language="javascript" src="toy_comp_full_files/dataTables.js"></script>
 
 
 
@@ -149,7 +149,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#top">toy_ode_bounds</a>
+          <a class="navbar-brand" href="#top">toy_comp_full</a>
         </div>
 
           <form class="navbar-form navbar-left">
@@ -178,12 +178,13 @@
                 
                 
                 
+                    <li><a href="#Compartments">Compartments</a></li>
                 
+                    <li><a href="#Species">Species</a></li>
                 
                     <li><a href="#Parameters">Parameters</a></li>
                 
                 
-                    <li><a href="#Rules">Rules</a></li>
                 
                 
                 
@@ -234,8 +235,8 @@
         
         
 
-    <h1>Model : toy_ode_bounds</h1>
-    <b>Creator</b><br>Matthias, Koenig, Charite Berlin, <a href="mailto:konigmatt@googlemail.com" target="_blank">konigmatt@googlemail.com</a><br><b>Created:</b> 2015-12-06 23:18<br><b>Modified:</b> 2015-12-06 23:18<br><br>
+    <h1>Model : toy_comp_full</h1>
+    <b>Creator</b><br>Matthias, Koenig, Charite Berlin, <a href="mailto:konigmatt@googlemail.com" target="_blank">konigmatt@googlemail.com</a><br><b>Created:</b> 2015-12-06 23:33<br><b>Modified:</b> 2015-12-06 23:33<br><br>
     <table id="table_model_annotation" class="table table-condensed table-nonfluid">
         <tbody><tr>
 
@@ -251,8 +252,8 @@
             <tbody>
             <tr>
 	
-	</tr><tr><td class="active">id</td><td>toy_ode_bounds</td></tr>
-	<tr><td class="active">name</td><td>ODE bound calculation submodel</td></tr>
+	</tr><tr><td class="active">id</td><td>toy_comp_full</td></tr>
+	<tr><td class="active">name</td><td>Combined SSA with FBA model</td></tr>
 	<tr><td class="active">version</td><td>L3V1</td></tr>
 	<tr><td class="active">time</td><td>s</td></tr>
 	<tr><td class="active">substance</td><td>item</td></tr>
@@ -393,9 +394,78 @@
     <!-- Compartments -->
     <!--------------------------------------------------->
     
+        <a class="anchor" id="Compartments"></a>
+        <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="table_compartments_wrapper"><div class="top"></div><table role="grid" id="table_compartments" class="table table-condensed table-nonfluid dataTable no-footer">
+            <thead>
+            <tr role="row"><th aria-label="type: activate to sort column descending" aria-sort="ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" scope="col" class="hidden sorting_asc">type</th><th aria-label="Compartments [2]: activate to sort column ascending" style="width: 156px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" scope="col" class="warning sorting">Compartments [2]</th><th aria-label="name: activate to sort column ascending" style="width: 159px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">name</th><th aria-label="size: activate to sort column ascending" style="width: 39px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">size</th><th aria-label="constant: activate to sort column ascending" style="width: 81px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">constant</th><th aria-label="spatial dimensions: activate to sort column ascending" style="width: 166px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">spatial dimensions</th><th aria-label="unit: activate to sort column ascending" style="width: 39px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">unit</th><th aria-label="derived unit: activate to sort column ascending" style="width: 107px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">derived unit</th><th aria-label="sbo: activate to sort column ascending" style="width: 38px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">sbo</th><th aria-label="cvterm: activate to sort column ascending" style="width: 63px;" colspan="1" rowspan="1" aria-controls="table_compartments" tabindex="0" class="sorting" scope="col">cvterm</th></tr>
+            </thead>
+            <tbody>
+            
+                
+            
+                
+            
+            <tr class="odd" role="row">
+    <td class="hidden sorting_1">Compartment</td>
+	<td class="active">extern</td>
+	<td>external compartment</td>
+	<td>1.0</td>
+	<td class="success">True</td>
+	<td>3</td>
+	<td>m3</td>
+	<td>m^3</td>
+	<td>
+    -
+</td>
+	<td>-</td>
+</tr><tr class="even" role="row">
+    <td class="hidden sorting_1">Compartment</td>
+	<td class="active">cell</td>
+	<td>cell</td>
+	<td>1.0</td>
+	<td class="success">True</td>
+	<td>3</td>
+	<td>m3</td>
+	<td>m^3</td>
+	<td>
+    -
+</td>
+	<td>-</td>
+</tr></tbody>
+        </table><div class="bottom"></div><div class="clear"></div></div>
+        <hr>
+    
     <!--------------------------------------------------->
     <!-- Species -->
     <!--------------------------------------------------->
+    
+        <a class="anchor" id="Species"></a>
+        <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="table_species_wrapper"><div class="top"></div><table role="grid" id="table_species" class="table table-condensed table-nonfluid dataTable no-footer">
+            <thead>
+            <tr role="row"><th aria-label="type: activate to sort column descending" aria-sort="ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" scope="col" class="hidden sorting_asc">type</th><th aria-label="Species [1]: activate to sort column ascending" style="width: 67px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" scope="col" class="warning sorting">Species [1]</th><th aria-label="name: activate to sort column ascending" style="width: 37px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">name</th><th aria-label="compartment: activate to sort column ascending" style="width: 90px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">compartment</th><th aria-label="boundary condition: activate to sort column ascending" style="width: 107px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">boundary condition</th><th aria-label="constant: activate to sort column ascending" style="width: 61px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">constant</th><th aria-label="initial amount: activate to sort column ascending" style="width: 76px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">initial amount</th><th aria-label="initial concentration: activate to sort column ascending" style="width: 120px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">initial concentration</th><th aria-label="substance units: activate to sort column ascending" style="width: 95px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">substance units</th><th aria-label="derived units: activate to sort column ascending" style="width: 74px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">derived units</th><th aria-label="sbo: activate to sort column ascending" style="width: 26px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">sbo</th><th aria-label="cvterm: activate to sort column ascending" style="width: 46px;" colspan="1" rowspan="1" aria-controls="table_species" tabindex="0" class="sorting" scope="col">cvterm</th></tr>
+            </thead>
+            <tbody>
+            
+                
+            
+            <tr class="odd" role="row">
+    <td class="hidden sorting_1">Species</td>
+	<td class="active">C</td>
+	<td>C</td>
+	<td>extern</td>
+	<td class="  danger  ">False</td>
+	<td class="  danger  ">False</td>	
+	<td> 0.0 </td>
+	<td> </td>
+	<td>item</td>
+	<td>item</td>
+	<td>
+    -
+</td>
+	<td>-</td>
+</tr></tbody>
+        </table><div class="bottom"></div><div class="clear"></div></div>
+        <hr>
     
     <!--------------------------------------------------->
     <!-- Parameters -->
@@ -404,9 +474,13 @@
         <a class="anchor" id="Parameters"></a>
         <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="table_parameters_wrapper"><div class="top"></div><table role="grid" id="table_parameters" class="table table-condensed table-nonfluid dataTable no-footer">
             <thead>
-            <tr role="row"><th aria-label="type: activate to sort column descending" aria-sort="ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" scope="col" class="hidden sorting_asc">type</th><th aria-label="Parameters [2]: activate to sort column ascending" style="width: 180px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" scope="col" class="warning sorting">Parameters [2]</th><th aria-label="name: activate to sort column ascending" style="width: 79px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">name</th><th aria-label="value: activate to sort column ascending" style="width: 79px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">value</th><th aria-label="unit: activate to sort column ascending" style="width: 110px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">unit</th><th aria-label="derived unit: activate to sort column ascending" style="width: 154px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">derived unit</th><th aria-label="constant: activate to sort column ascending" style="width: 119px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">constant</th><th aria-label="sbo: activate to sort column ascending" style="width: 60px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">sbo</th><th aria-label="cvterm: activate to sort column ascending" style="width: 94px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">cvterm</th></tr>
+            <tr role="row"><th aria-label="type: activate to sort column descending" aria-sort="ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" scope="col" class="hidden sorting_asc">type</th><th aria-label="Parameters [4]: activate to sort column ascending" style="width: 180px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" scope="col" class="warning sorting">Parameters [4]</th><th aria-label="name: activate to sort column ascending" style="width: 79px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">name</th><th aria-label="value: activate to sort column ascending" style="width: 79px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">value</th><th aria-label="unit: activate to sort column ascending" style="width: 110px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">unit</th><th aria-label="derived unit: activate to sort column ascending" style="width: 154px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">derived unit</th><th aria-label="constant: activate to sort column ascending" style="width: 119px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">constant</th><th aria-label="sbo: activate to sort column ascending" style="width: 60px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">sbo</th><th aria-label="cvterm: activate to sort column ascending" style="width: 94px;" colspan="1" rowspan="1" aria-controls="table_parameters" tabindex="0" class="sorting" scope="col">cvterm</th></tr>
             </thead>
             <tbody>
+            
+                
+            
+                
             
                 
             
@@ -427,12 +501,38 @@
 	<td>-</td>
 </tr><tr class="even" role="row">
     <td class="hidden sorting_1">Parameter</td>
-	<td class="active">k1</td>
-	<td>k1</td>
-	<td>-0.2</td>
+	<td class="active">v_R1</td>
+	<td>R1 flux</td>
+	<td>0.0</td>
 	
-	<td>per_s</td>
-	<td>s^-1</td>
+	<td>item_per_s</td>
+	<td>item * s^-1</td>
+	<td class=" danger ">False</td>
+	<td>
+    -
+</td>
+	<td>-</td>
+</tr><tr class="odd" role="row">
+    <td class="hidden sorting_1">Parameter</td>
+	<td class="active">v_R2</td>
+	<td>R2 flux</td>
+	<td>0.0</td>
+	
+	<td>item_per_s</td>
+	<td>item * s^-1</td>
+	<td class=" danger ">False</td>
+	<td>
+    -
+</td>
+	<td>-</td>
+</tr><tr class="even" role="row">
+    <td class="hidden sorting_1">Parameter</td>
+	<td class="active">v_R3</td>
+	<td>R3 flux</td>
+	<td>0.0</td>
+	
+	<td>item_per_s</td>
+	<td>item * s^-1</td>
 	<td class=" danger ">False</td>
 	<td>
     -
@@ -449,29 +549,6 @@
     <!--------------------------------------------------->
     <!-- Rules -->
     <!--------------------------------------------------->
-    
-        <a class="anchor" id="Rules"></a>
-        <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="table_rules_wrapper"><div class="top"></div><table role="grid" id="table_rules" class="table table-condensed table-nonfluid dataTable no-footer">
-            <thead>
-            <tr role="row"><th aria-label="type: activate to sort column descending" aria-sort="ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" scope="col" class="hidden sorting_asc">type</th><th aria-label="Rules [1]: activate to sort column ascending" style="width: 177px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" scope="col" class="warning sorting">Rules [1]</th><th aria-label="&amp;nbsp;: activate to sort column ascending" style="width: 43px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" class="sorting" scope="col">&nbsp;</th><th aria-label="assignment: activate to sort column ascending" style="width: 222px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" class="sorting" scope="col">assignment</th><th aria-label="derived units: activate to sort column ascending" style="width: 245px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" class="sorting" scope="col">derived units</th><th aria-label="sbo: activate to sort column ascending" style="width: 95px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" class="sorting" scope="col">sbo</th><th aria-label="cvterm: activate to sort column ascending" style="width: 142px;" colspan="1" rowspan="1" aria-controls="table_rules" tabindex="0" class="sorting" scope="col">cvterm</th></tr>
-            </thead>
-            <tbody>
-            
-                
-            
-            <tr class="odd" role="row">
-    <td class="hidden sorting_1">Rule</td>
-	<td class="active">ub_R1</td>
-	<td>=</td>
-	<td>k1 * ub_R1</td>
-	<td>item * s^-2</td>
-	<td>
-    -
-</td>
-	<td>-</td>
-</tr></tbody>
-        </table><div class="bottom"></div><div class="clear"></div></div>
-        <hr>
     
     <!--------------------------------------------------->
     <!-- Constraints -->
@@ -493,13 +570,13 @@
     <div class="footer">
         <hr>
         <p>© 2015 Matthias Koenig.
-            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="toy_ode_bounds_files/80x15.png"></a><br>This
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="toy_comp_full_files/80x15.png"></a><br>This
             work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.livermetabolism.com/" property="cc:attributionName" rel="cc:attributionURL">Matthias Koenig</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
                 Attribution-ShareAlike 4.0 International License</a>.
             <br>
-            Powered by <a href="https://www.djangoproject.com/" target="_blank"><img src="toy_ode_bounds_files/django.png" alt="django" height="15"></a> and
-            bootstrap <a href="http://getbootstrap.com/" target="_blank"><img src="toy_ode_bounds_files/bootstrap.png" alt="bootstrap" height="15"></a>.
-            Source available on <a href="https://github.com/matthiaskoenig/multiscale-galactose/" target="_blank"><img src="toy_ode_bounds_files/github.png" alt="GitHub" height="20"></a>.
+            Powered by <a href="https://www.djangoproject.com/" target="_blank"><img src="toy_comp_full_files/django.png" alt="django" height="15"></a> and
+            bootstrap <a href="http://getbootstrap.com/" target="_blank"><img src="toy_comp_full_files/bootstrap.png" alt="bootstrap" height="15"></a>.
+            Source available on <a href="https://github.com/matthiaskoenig/multiscale-galactose/" target="_blank"><img src="toy_comp_full_files/github.png" alt="GitHub" height="20"></a>.
         </p>
     </div>
 
@@ -513,16 +590,16 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 
-<link rel="stylesheet" href="toy_ode_bounds_files/print.css" type="text/css" media="print">
-<link rel="stylesheet" href="toy_ode_bounds_files/toolbar.css" type="text/css">
+<link rel="stylesheet" href="toy_comp_full_files/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="toy_comp_full_files/toolbar.css" type="text/css">
 
 <!-- Prevent our copy of jQuery from registering as an AMD module on sites that use RequireJS. -->
-<script src="toy_ode_bounds_files/jquery_pre.js"></script>
-<script src="toy_ode_bounds_files/jquery.js"></script>
-<script src="toy_ode_bounds_files/jquery_post.js"></script>
+<script src="toy_comp_full_files/jquery_pre.js"></script>
+<script src="toy_comp_full_files/jquery.js"></script>
+<script src="toy_comp_full_files/jquery_post.js"></script>
 
-<script src="toy_ode_bounds_files/toolbar.js"></script>
-<div style="display: block;" id="djDebug" dir="ltr" data-store-id="e4f74ae7b95145c38ea7b41c63b21d71" data-render-panel-url="/__debug__/render_panel/" hidden="hidden">
+<script src="toy_comp_full_files/toolbar.js"></script>
+<div style="display: block;" id="djDebug" dir="ltr" data-store-id="bd5e587dea54479ba7453eaa683419d4" data-render-panel-url="/__debug__/render_panel/" hidden="hidden">
 	<div style="" id="djDebugToolbar" hidden="hidden">
 		<ul id="djDebugPanelList">
 			
@@ -553,7 +630,7 @@
 					Time
 					
 					
-						<br><small>CPU: 68.48ms (79.27ms)</small>
+						<br><small>CPU: 92.30ms (105.38ms)</small>
 					
 					
 					
@@ -617,7 +694,7 @@
 					SQL
 					
 					
-						<br><small>3 queries in 2.38ms</small>
+						<br><small>3 queries in 2.76ms</small>
 					
 					
 					
@@ -731,7 +808,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -746,7 +823,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -761,7 +838,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -776,7 +853,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -791,7 +868,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -806,7 +883,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -821,7 +898,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -836,7 +913,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -851,7 +928,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -866,7 +943,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -881,7 +958,7 @@
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="toy_ode_bounds_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="toy_comp_full_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>

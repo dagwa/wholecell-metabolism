@@ -28,6 +28,9 @@ import comp_factory
 comp_factory.create_comp_ode_model(comp_ode_file)
 comp_factory.create_comp_full_model(comp_full_file)
 
+db_api.create_model(comp_ode_file, model_format=db_api.CompModelFormat.SBML)
+db_api.create_model(comp_full_file, model_format=db_api.CompModelFormat.SBML)
+
 ###########################################
 # Simulate the comp models
 ###########################################

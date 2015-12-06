@@ -103,13 +103,11 @@ def create_ode_bounds(sbml_file):
         {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: UNIT_FLUX, A_NAME: 'ub_r1', A_CONSTANT: False},
         {A_ID: 'k1', A_VALUE: -0.2, A_UNIT: "per_s", A_NAME: "k1", A_CONSTANT: False},
     ]
+    create_parameters(model, parameters)
 
     rate_rules = [
         {A_ID: "ub_R1", A_VALUE: "k1*ub_R1"}
     ]
-
-    # create model
-    create_parameters(model, parameters)
     create_rate_rules(model, rate_rules)
 
     sbml_io.write_and_check(doc, sbml_file)
@@ -149,15 +147,15 @@ def create_fba(sbml_file):
 
     species = [
         # external
-        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-         A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
-        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-         A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
+        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
+         A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: True},
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
+         A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: True},
         # internal
-        {A_ID: 'B1', A_NAME: "B1", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-         A_COMPARTMENT:"cell"},
-        {A_ID: 'B2', A_NAME: "B2", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-         A_COMPARTMENT:"cell"},
+        {A_ID: 'B1', A_NAME: "B1", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
+         A_COMPARTMENT: "cell"},
+        {A_ID: 'B2', A_NAME: "B2", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
+         A_COMPARTMENT: "cell"},
     ]
     create_species(model, species)
 
@@ -167,7 +165,7 @@ def create_fba(sbml_file):
         {A_ID: "lb", A_NAME: "lower bound", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: True},
         {A_ID: "ub", A_NAME: "upper bound", A_VALUE: 1000.0, A_UNIT: UNIT_FLUX, A_CONSTANT: True},
         # parameters (fluxes)
-        {A_ID: "v_R1", A_NAME: "R1 flux", A_VALUE:0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        {A_ID: "v_R1", A_NAME: "R1 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
         {A_ID: "v_R2", A_NAME: "R2 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
         {A_ID: "v_R3", A_NAME: "R3 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
     ]

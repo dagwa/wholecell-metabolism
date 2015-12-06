@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model metaid="meta_50a51f53ea0047b3b2e51f823445a530" sboTerm="SBO:0000624" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" comp:required="true">
+  <model metaid="meta_170485f3164041d5994846159c5e916f" sboTerm="SBO:0000062" id="toy_comp_full" name="Combined SSA with FBA model" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_50a51f53ea0047b3b2e51f823445a530">
+    <rdf:Description rdf:about="#meta_170485f3164041d5994846159c5e916f">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -43,10 +43,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2015-12-07T00:33:34Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2015-12-06T23:33:35Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2015-12-07T00:33:34Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2015-12-06T23:33:35Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
@@ -100,66 +100,61 @@
     </listOfUnits>
   </unitDefinition>
 </listOfUnitDefinitions><listOfCompartments>
-  <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" units="m3" constant="true"/>
-  <compartment id="cell" name="cell" spatialDimensions="3" size="1" units="m3" constant="true"/>
+  <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" units="m3" constant="true">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="extern" comp:submodelRef="model"/>
+      <comp:replacedElement comp:idRef="extern" comp:submodelRef="update"/>
+      <comp:replacedElement comp:idRef="extern" comp:submodelRef="fba"/>
+    </comp:listOfReplacedElements>
+  </compartment>
+  <compartment id="cell" name="cell" spatialDimensions="3" size="1" units="m3" constant="true">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="cell" comp:submodelRef="update"/>
+      <comp:replacedElement comp:idRef="cell" comp:submodelRef="fba"/>
+    </comp:listOfReplacedElements>
+  </compartment>
 </listOfCompartments><listOfSpecies>
-  <species id="A" name="A" compartment="extern" initialAmount="10" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
-  <species id="C" name="C" compartment="extern" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
-  <species id="B1" name="B1" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-  <species id="B2" name="B2" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+  <species id="C" name="C" compartment="extern" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="C" comp:submodelRef="model"/>
+      <comp:replacedElement comp:idRef="C" comp:submodelRef="update"/>
+    </comp:listOfReplacedElements>
+  </species>
 </listOfSpecies><listOfParameters>
-  <parameter id="ub_R1" name="ub R1" value="1" units="item_per_s" constant="false"/>
-  <parameter id="lb" name="lower bound" value="0" units="item_per_s" constant="true"/>
-  <parameter id="ub" name="upper bound" value="1000" units="item_per_s" constant="true"/>
-  <parameter id="v_R1" name="R1 flux" value="0" units="item_per_s" constant="false"/>
-  <parameter id="v_R2" name="R2 flux" value="0" units="item_per_s" constant="false"/>
-  <parameter id="v_R3" name="R3 flux" value="0" units="item_per_s" constant="false"/>
-</listOfParameters><listOfReactions>
-  <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub_R1">
-    <listOfReactants>
-      <speciesReference species="A" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="B1" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-    <kineticLaw>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <ci> v_R1 </ci>
-      </math>
-    </kineticLaw>
-  </reaction>
-  <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-    <listOfReactants>
-      <speciesReference species="B1" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="B2" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-    <kineticLaw>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <ci> v_R2 </ci>
-      </math>
-    </kineticLaw>
-  </reaction>
-  <reaction id="R3" name="B2 export (R3)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-    <listOfReactants>
-      <speciesReference species="B2" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="C" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-    <kineticLaw>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <ci> v_R3 </ci>
-      </math>
-    </kineticLaw>
-  </reaction>
-</listOfReactions><fbc:listOfObjectives fbc:activeObjective="R3_maximize">
-  <fbc:objective fbc:id="R3_maximize" fbc:type="maximize">
-    <fbc:listOfFluxObjectives>
-      <fbc:fluxObjective fbc:reaction="R3" fbc:coefficient="1"/>
-    </fbc:listOfFluxObjectives>
-  </fbc:objective>
-</fbc:listOfObjectives>
-</model>
+  <parameter id="ub_R1" name="ub_r1" value="1" units="item_per_s" constant="false">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="fba"/>
+      <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="bounds"/>
+    </comp:listOfReplacedElements>
+  </parameter>
+  <parameter id="v_R1" name="R1 flux" value="0" units="item_per_s" constant="false">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="v_R1" comp:submodelRef="fba"/>
+      <comp:replacedElement comp:idRef="v_R1" comp:submodelRef="update"/>
+    </comp:listOfReplacedElements>
+  </parameter>
+  <parameter id="v_R2" name="R2 flux" value="0" units="item_per_s" constant="false">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="v_R2" comp:submodelRef="fba"/>
+      <comp:replacedElement comp:idRef="v_R2" comp:submodelRef="update"/>
+    </comp:listOfReplacedElements>
+  </parameter>
+  <parameter id="v_R3" name="R3 flux" value="0" units="item_per_s" constant="false">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="v_R3" comp:submodelRef="fba"/>
+      <comp:replacedElement comp:idRef="v_R3" comp:submodelRef="update"/>
+    </comp:listOfReplacedElements>
+  </parameter>
+</listOfParameters><comp:listOfSubmodels>
+  <comp:submodel comp:id="bounds" comp:modelRef="toy_ode_bounds"/>
+  <comp:submodel comp:id="update" comp:modelRef="toy_ode_update"/>
+  <comp:submodel comp:id="model" comp:modelRef="toy_ode_model"/>
+  <comp:submodel comp:id="fba" comp:modelRef="toy_fba"/>
+</comp:listOfSubmodels>
+</model><comp:listOfExternalModelDefinitions>
+  <comp:externalModelDefinition comp:id="toy_ode_bounds" comp:name="toy_ode_bounds" comp:source="toy_ode_bounds.xml" comp:modelRef="toy_ode_bounds"/>
+  <comp:externalModelDefinition comp:id="toy_ode_update" comp:name="toy_ode_update" comp:source="toy_ode_update.xml" comp:modelRef="toy_ode_update"/>
+  <comp:externalModelDefinition comp:id="toy_ode_model" comp:name="toy_ode_model" comp:source="toy_ode_model.xml" comp:modelRef="toy_ode_model"/>
+  <comp:externalModelDefinition comp:id="toy_fba" comp:name="toy_fba" comp:source="toy_fba.xml" comp:modelRef="toy_fba"/>
+</comp:listOfExternalModelDefinitions>
 </sbml>
