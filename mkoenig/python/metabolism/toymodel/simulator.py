@@ -40,7 +40,6 @@ def print_flux_bounds(model):
 #################################
 # load ode and fba model
 #################################
-
 def simulate_manual(fba_sbml, comp_ode_sbml, tend=10.0, step_size=0.01, debug=True):
     """
     Performs the model integration.
@@ -123,6 +122,22 @@ def simulate_manual(fba_sbml, comp_ode_sbml, tend=10.0, step_size=0.01, debug=Tr
     df.time = all_time
     print(df)
     return df
+
+def simulate(mixed_sbml, tend=10.0, step_size=0.01, debug=True):
+    """
+    Performs the model integration.
+
+    The simulator has to figure out based on the replacement and SBO
+    annotation which submodels to simulate with which algorithms.
+
+    :param tend: end time of the simulation
+    :param step_size: step size for the integration, if None variable step size will be used
+    :param debug: additional information
+    :return: pandas solution data frame
+    """
+    # TODO: implement
+    raise Exception("NOT IMPLEMENTED")
+
 
 if __name__ == "__main__":
     
