@@ -9,7 +9,7 @@ print roadrunner.__version__
 # 1.4.1; Compiler: gcc 4.8.4, C++ version: 199711; JIT Compiler: LLVM-3.4; Date: Nov 11 2015, 14:36:20
 
 # Load model results in warnings about fbc v2
-from settings import ode_bounds_file
+from toymodel.settings import ode_bounds_file
 rr = roadrunner.RoadRunner(ode_bounds_file)
 
 # simulate multiple steps

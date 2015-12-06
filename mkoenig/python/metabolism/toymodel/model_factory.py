@@ -66,23 +66,19 @@ units = {
     'item_per_s': [(UNIT_KIND_ITEM, 1.0),
                    (UNIT_KIND_SECOND, -1.0)],
     'item_per_m3': [(UNIT_KIND_ITEM, 1.0),
-                   (UNIT_KIND_METRE, -3.0)],
+                    (UNIT_KIND_METRE, -3.0)],
 }
 
 AMOUNT_UNIT = UNIT_KIND_ITEM
-CONCENTRATION_UNIT = 'items_per_m3'
-FLUX_UNIT = 'items_per_s'
+CONCENTRATION_UNIT = 'item_per_m3'
+FLUX_UNIT = 'item_per_s'
 
 ########################################################################
 def add_generic_info(model):
-    sbml_annotation.set_model_history(model, creators)
+    # sbml_annotation.set_model_history(model, creators)
     create_unit_definitions(model, units)
-    set_main_units(model, units)
+    set_main_units(model, main_units)
     model.setNotes(notes)
-
-
-
-
 
 ####################################################
 # ODE flux bounds
@@ -96,6 +92,7 @@ def create_ode_bounds(sbml_file):
     model = doc.createModel()
     model.setId("toy_ode_bounds")
     model.setName("ODE bound calculation submodel")
+    add_generic_info(model)
 
     parameters = [
         {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: None, A_NAME: 'ub_r1', A_CONSTANT: False},
@@ -136,6 +133,7 @@ def create_fba(sbml_file):
     # model
     model.setId('toy_fba')
     model.setName('FBA submodel')
+    add_generic_info(model)
 
     compartments = [
         {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
@@ -230,31 +228,30 @@ def create_ode_model(sbml_file):
     model = doc.createModel()
     model.setId("toy_ode_model")
     model.setName("ODE/SSA submodel")
-
+    add_generic_info(model)
 
     compartments = [
-        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT:"m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
+        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
     ]
     create_compartments(model, compartments)
 
     species = [
         # external
-        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
-            A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
         {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
+        {A_ID: 'D', A_NAME: "D", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
             A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
     ]
     create_species(model, species)
 
-
-    # parameters
-    parameters = [{A_ID: "k_R4", A_NAME: "k R4", A_CONSTANT: True, A_VALUE: 0.1}]
+    parameters = [
+        {A_ID: "k_R4", A_NAME: "k R4", A_CONSTANT: True, A_VALUE: 0.1}
+    ]
     create_parameters(model, parameters)
 
     # kinetic reaction (MMK)
     r4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
-                           reactants={"C": 1}, products={"D": 1},
-                           formula="k_R4*C")
+                         reactants={"C": 1}, products={"D": 1}, formula="k_R4*C")
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)

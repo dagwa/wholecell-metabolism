@@ -7,7 +7,7 @@ Test script for working with the comp extension in SBML.
 from libsbml import *
 
 from settings import comp_file
-from toymodel_factory import *
+from model_factory import *
 
 
 def create_ExternalModelDefinition(mdoc, cid, sbml_file):
