@@ -17,3 +17,7 @@ svn checkout http://svn.code.sf.net/p/sbml/code/trunk sbml-code
 ### cobrapy
 
 Running the examples requires to build libSBML, roadrunner and cobrapy from source.
+
+
+# Create the toy_models
+Use the `toymodel_factory' to create the models.
