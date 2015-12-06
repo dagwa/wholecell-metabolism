@@ -25,7 +25,7 @@ print cobra.__version__
 #################################
 # load ode and fba model
 #################################
-from toymodel.toymodel_settings import fba_file, comp_file
+from toymodel.settings import fba_file, comp_file
 
 # fba model
 cobra_fba = cobra.io.read_sbml_model(fba_file)

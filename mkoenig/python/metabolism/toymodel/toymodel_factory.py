@@ -1,3 +1,4 @@
+# -*- coding=utf-8 -*-
 """
 Module creates the sub models and combined comp model for the toy model case.
 The toy model consists of FBA submodels, deterministic ODE models and stochastic
@@ -64,9 +65,15 @@ units = {
            (UNIT_KIND_METRE, -3.0)],
     'item_per_s': [(UNIT_KIND_ITEM, 1.0),
                    (UNIT_KIND_SECOND, -1.0)],
+    'item_per_m3': [(UNIT_KIND_ITEM, 1.0),
+                   (UNIT_KIND_METRE, -3.0)],
 }
-########################################################################
 
+AMOUNT_UNIT = UNIT_KIND_ITEM
+CONCENTRATION_UNIT = 'items_per_m3'
+FLUX_UNIT = 'items_per_s'
+
+########################################################################
 def add_generic_info(model):
     sbml_annotation.set_model_history(model, creators)
     create_unit_definitions(model, units)
@@ -74,82 +81,6 @@ def add_generic_info(model):
     model.setNotes(notes)
 
 
-# TODO: put all the code in the factory
-
-# def create_assignment_rule(model, sid, formula):
-#     rule = model.createAssignmentRule()
-#     rule.setVariable(sid)
-#     astnode = parseL3FormulaWithModel(formula, model)
-#     if not astnode:
-#         print('Formula could not be parsed:', formula)
-#         print(getLastParseL3Error())
-#     rule.setMath(astnode)
-#     return rule
-#
-#
-# def create_rate_rule(model, sid, formula):
-#     rule = model.createRateRule()
-#     rule.setVariable(sid)
-#     astnode = parseL3FormulaWithModel(formula, model)
-#     if not astnode:
-#         print('Formula could not be parsed:', formula)
-#         print(getLastParseL3Error())
-#     rule.setMath(astnode)
-#     return rule
-
-
-
-# def create_reaction(model, rid, name, fast=False, reversible=True,
-#                      reactants={}, products={}, formula=None):
-#     """ Create basic reaction structure. """
-#     r = model.createReaction()
-#     r.setId(rid)
-#     r.setName(name)
-#     r.setFast(fast)
-#     r.setReversible(reversible)
-#
-#     for sid, stoichiometry in reactants.iteritems():
-#         rt = r.createReactant()
-#         rt.setSpecies(sid)
-#         rt.setStoichiometry(abs(stoichiometry))
-#         rt.setConstant(True)
-#
-#     for sid, stoichiometry in products.iteritems():
-#         rt = r.createProduct()
-#         rt.setSpecies(sid)
-#         rt.setStoichiometry(abs(stoichiometry))
-#         rt.setConstant(True)
-#
-#     if formula:
-#         # set formula in reaction
-#         astnode = parseL3FormulaWithModel(formula, model)
-#         if not astnode:
-#             print('Formula could not be parsed:', formula)
-#             print(getLastParseL3Error())
-#         law = r.createKineticLaw()
-#         law.setMath(astnode)
-#
-#     return r
-#
-#
-# def set_flux_bounds(r, lb="lb", ub="ub"):
-#     """ Set flux bounds on given reaction. """
-#     rplugin = r.getPlugin("fbc")
-#     rplugin.setLowerFluxBound(lb)
-#     rplugin.setUpperFluxBound(ub)
-#
-#
-# def create_objective(mplugin, oid, otype, fluxObjectives, active=True):
-#     objective = mplugin.createObjective()
-#     objective.setId(oid)
-#     objective.setType(otype)
-#     if active:
-#         mplugin.setActiveObjectiveId("R3_maximize")
-#     for rid, coefficient in fluxObjectives.iteritems():
-#         fluxObjective = objective.createFluxObjective()
-#         fluxObjective.setReaction(rid)
-#         fluxObjective.setCoefficient(coefficient)
-#     return objective
 
 
 
@@ -207,53 +138,52 @@ def create_fba(sbml_file):
     model.setName('FBA submodel')
 
     compartments = [
-        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT:"m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
-        {A_ID: 'cell', A_VALUE: 1.0, A_UNIT:"m3", A_NAME: 'cell', A_SPATIAL_DIMENSION: 3}
+        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
+        {A_ID: 'cell', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'cell', A_SPATIAL_DIMENSION: 3}
     ]
     create_compartments(model, compartments)
-    
-    # boundary species
+
     species = [
-        {A_ID: "A", A_NAME: "A", A_VALUE:10.0, constant=False,
-                        boundaryCondition=True, compartment=c_ext.getId())
-    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
-                        boundaryCondition=True, compartment=c_ext.getId()}
+        # external
+        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT:"extern", A_BOUNDARY_CONDITION: True},
+        # internal
+        {A_ID: 'B1', A_NAME: "B1", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT:"cell"},
+        {A_ID: 'B2', A_NAME: "B2", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT:"cell"},
     ]
+    create_species(model, species)
 
-    s_A = create_species(model, sid="A", name="A", initialAmount=10, constant=False,
-                        boundaryCondition=True, compartment=c_ext.getId())
-    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
-                        boundaryCondition=True, compartment=c_ext.getId())
-
-    # internal species
-    s_B1 = create_species(model, sid="B1", name="B1", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_int.getId())
-    s_B2 = create_species(model, sid="B2", name="B2", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_int.getId())
-    # parameters (bounds)
-    create_parameter(model, pid="ub_R1", name="ub R1", constant=False, value=1.0)
-    create_parameter(model, pid="lb", name="lower bound", constant=True, value=0.0)
-    create_parameter(model, pid="ub", name="upper bound", constant=True, value=1000.0)
-    # parameters (fluxes)
-    create_parameter(model, pid="v_R1", name="R1 flux", constant=False, value=0.0)
-    create_parameter(model, pid="v_R2", name="R2 flux", constant=False, value=0.0)
-    create_parameter(model, pid="v_R3", name="R3 flux", constant=False, value=0.0)
+    parameters = [
+        # bounds
+        {A_ID: "ub_R1", A_NAME: "ub R1", A_VALUE: 1.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
+        {A_ID: "lb", A_NAME: "lower bound", A_VALUE: 0.0, A_UNIT: FLUX_UNIT,  A_CONSTANT: True},
+        {A_ID: "ub", A_NAME: "upper bound", A_VALUE: 1000.0, A_UNIT: FLUX_UNIT,  A_CONSTANT: True},
+        # parameters (fluxes)
+        {A_ID: "v_R1", A_NAME: "R1 flux", A_VALUE:0.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
+        {A_ID: "v_R2", A_NAME: "R2 flux", A_VALUE: 0.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
+        {A_ID: "v_R3", A_NAME: "R3 flux", A_VALUE: 0.0, A_UNIT: FLUX_UNIT, A_CONSTANT: False},
+    ]
+    create_parameters(model, parameters)
 
     # reactions with constant flux
-    r_R1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
+    r1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
                            reactants={"A": 1}, products={"B1": 1},
                            formula="v_R1")
-    r_R2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
+    r2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
                            reactants={"B1": 1}, products={"B2": 1},
                            formula="v_R2")
-    r_R3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
+    r3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
                            reactants={"B2": 1}, products={"C": 1},
                            formula="v_R3")
 
     # flux bounds
-    set_flux_bounds(r_R1, lb="lb", ub="ub_R1")
-    set_flux_bounds(r_R2, lb="lb", ub="ub")
-    set_flux_bounds(r_R3, lb="lb", ub="ub")
+    set_flux_bounds(r1, lb="lb", ub="ub_R1")
+    set_flux_bounds(r2, lb="lb", ub="ub")
+    set_flux_bounds(r3, lb="lb", ub="ub")
 
     # objective function
     create_objective(mplugin, oid="R3_maximize", otype="maximize", fluxObjectives={"R3": 1.0})
@@ -301,20 +231,28 @@ def create_ode_model(sbml_file):
     model.setId("toy_ode_model")
     model.setName("ODE/SSA submodel")
 
-    # compartments
-    c_ext = create_compartment(model, cid="extern", name="external compartment")
 
-    # boundary species
-    s_C = create_species(model, sid="C", name="C", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_ext.getId())
-    s_D = create_species(model, sid="D", name="D", initialAmount=0, constant=False,
-                        boundaryCondition=False, compartment=c_ext.getId())
+    compartments = [
+        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT:"m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
+    ]
+    create_compartments(model, compartments)
+
+    species = [
+        # external
+        {A_ID: 'A', A_NAME: "A", A_VALUE: 10, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: AMOUNT_UNIT, A_HAS_ONLY_SUBSTANCE_UNITS:True,
+            A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
+    ]
+    create_species(model, species)
+
 
     # parameters
-    create_parameter(model, pid="k_R4", name="k R4", constant=True, value=0.1)
+    parameters = [{A_ID: "k_R4", A_NAME: "k R4", A_CONSTANT: True, A_VALUE: 0.1}]
+    create_parameters(model, parameters)
 
     # kinetic reaction (MMK)
-    r_R4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
+    r4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
                            reactants={"C": 1}, products={"D": 1},
                            formula="k_R4*C")
 
@@ -337,8 +275,8 @@ def create_ode_comp(sbmlfile):
 
 if __name__ == "__main__":
     # write & check sbml
-    from toymodel_settings import fba_file, ode_bounds_file, ode_update_file
-    from toymodel_settings import ode_model_file
+    from settings import fba_file, ode_bounds_file, ode_update_file
+    from settings import ode_model_file
 
     create_fba(fba_file)
     create_ode_bounds(ode_bounds_file)

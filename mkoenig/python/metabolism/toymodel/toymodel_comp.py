@@ -6,7 +6,7 @@ Test script for working with the comp extension in SBML.
 """
 from libsbml import *
 
-from toymodel_settings import comp_file
+from settings import comp_file
 from toymodel_factory import *
 
 
