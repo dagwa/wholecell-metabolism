@@ -16,7 +16,7 @@ SBO:0000004 - modelling framework
 In a first version the SBOTerm of the model is set. This is currently not legal, but the simplest approach.
 
 ## Submodels
-
+![submodel overview](docs/toymodel_overview.png)
 
 
 
