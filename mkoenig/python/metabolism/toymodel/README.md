@@ -26,7 +26,6 @@ When creating the comp models the model SBOTerms should be copied to the respect
 ```
 The submodel SBOterms are used by the simulator to decide which simulation framework to use.
 
-
 ## Submodels
 ![submodel overview](docs/toymodel_overview.png)
 
@@ -50,12 +49,15 @@ Build the following libraries with their python bindings from the latest source
 * `libsbml`
 * `roadrunner`
 * `cobrapy`
-* 'sbmlutils' - python sbmlutils (package not yet on github)
+* `sbmlutils` - python sbmlutils (package not yet on github)
 
 ### Create models & simulate
+All models are created and the test simulation run via
 ```
 python run_all.py
 ```
+This performs an iterative simulation between FBA and ODE implemented in `simulator.py`
+![Simulation example](results/results.png)
 
 
 
