@@ -10,10 +10,10 @@ simulated with which simulation environment.
 from __future__ import print_function
 import warnings
 from libsbml import *
-from settings import comp_ode_file, comp_full_file
+from settings import *
 
 import model_factory
-from multiscale.sbmlutils import comp
+import multiscale.sbmlutils.comp as comp
 from multiscale.sbmlutils.factory import *
 import multiscale.sbmlutils.io as sbml_io
 
@@ -29,68 +29,41 @@ def create_comp_ode_model(sbml_file):
     mdoc = doc.getPlugin("comp")
 
     # create listOfExternalModelDefinitions
-    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds", sbml_file="toy_ode_bounds.xml")
-    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file="toy_ode_update.xml")
-    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file="toy_ode_model.xml")
+    # absolute file path for model resolving essential !
+    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds", sbml_file=ode_bounds_file)
+    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file=ode_update_file)
+    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file=ode_model_file)
 
     # create models and submodels
     model = doc.createModel()
     model.setId("toy_comp_ode")
     model.setName("Combined ODE/SSA model")
     model_factory.add_generic_info(model)
-    mplugin = model.getPlugin("comp")
     model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
+    mplugin = model.getPlugin("comp")
 
     # add listOfSubmodels which reference the External models
-    submodel_bounds = mplugin.createSubmodel()
-    submodel_bounds.setId("submodel_bounds")
-    submodel_bounds.setModelRef(emd_bounds.getModelRef())
+    comp.add_submodel_from_emd(mplugin, submodel_sid="bounds", emd=emd_bounds)
+    comp.add_submodel_from_emd(mplugin, submodel_sid="update", emd=emd_update)
+    comp.add_submodel_from_emd(mplugin, submodel_sid="model", emd=emd_model)
 
-    submodel_update = mplugin.createSubmodel()
-    submodel_update.setId("submodel_update")
-    submodel_update.setModelRef(emd_update.getModelRef())
-
-    submodel_model = mplugin.createSubmodel()
-    submodel_model.setId("submodel_model")
-    submodel_model.setModelRef(emd_model.getModelRef())
-
-    # shared compartment
+    # replace compartment
     create_compartments(model, [{
         A_ID: "extern", A_NAME: "external compartment", A_SPATIAL_DIMENSION: 3, A_VALUE: 1.0,
         A_UNIT: model_factory.UNIT_VOLUME
     }])
+    comp.replace_compartment(model, 'extern', ['model', 'update'])
 
-    c_ext = model.getCompartment("extern")
-    cplugin = c_ext.getPlugin("comp")
-    replaced_element = cplugin.createReplacedElement()
-    replaced_element.setSubmodelRef("submodel_model")
-    replaced_element.setIdRef("extern")
-    replaced_element = cplugin.createReplacedElement()
-    replaced_element.setSubmodelRef("submodel_update")
-    replaced_element.setIdRef("extern")
-
-    # shared species
+    # replace species
     create_species(model, [{
         A_ID: "C", A_NAME: "C", A_VALUE: 0.0, A_COMPARTMENT: "extern",
         A_CONSTANT: False, A_BOUNDARY_CONDITION: False, A_UNIT: model_factory.UNIT_AMOUNT,
         A_HAS_ONLY_SUBSTANCE_UNITS: True
     }])
-
-    s_C = model.getSpecies("C")
-    cplugin = s_C.getPlugin("comp")
-    replaced_element = cplugin.createReplacedElement()
-    replaced_element.setSubmodelRef("submodel_model")
-    replaced_element.setIdRef("C")
-    replaced_element = cplugin.createReplacedElement()
-    replaced_element.setSubmodelRef("submodel_update")
-    replaced_element.setIdRef("C")
+    comp.replace_species(model, 'C', ['model', 'update'])
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
-
-    # flatten the model
-    # TODO: how to flatten with libsbml?
-    # Use the flattened model for simulation
 
 
 def create_comp_full_model(sbml_file):
@@ -122,10 +95,10 @@ def create_comp_full_model(sbml_file):
     mdoc = doc.getPlugin("comp")
 
     # create listOfExternalModelDefinitions
-    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds", sbml_file="toy_ode_bounds.xml")
-    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file="toy_ode_update.xml")
-    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file="toy_ode_model.xml")
-    emd_fba = comp.create_ExternalModelDefinition(mdoc, "toy_fba", sbml_file="toy_fba.xml")
+    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds", sbml_file=ode_bounds_file)
+    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file=ode_update_file)
+    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file=ode_model_file)
+    emd_fba = comp.create_ExternalModelDefinition(mdoc, "toy_fba", sbml_file=fba_file)
 
     # create models and submodels
     model = doc.createModel()
@@ -135,22 +108,11 @@ def create_comp_full_model(sbml_file):
     mplugin = model.getPlugin("comp")
     model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
 
-    # add listOfSubmodels which reference the External models
-    submodel_bounds = mplugin.createSubmodel()
-    submodel_bounds.setId("bounds")
-    submodel_bounds.setModelRef(emd_bounds.getModelRef())
-
-    submodel_update = mplugin.createSubmodel()
-    submodel_update.setId("update")
-    submodel_update.setModelRef(emd_update.getModelRef())
-
-    submodel_model = mplugin.createSubmodel()
-    submodel_model.setId("model")
-    submodel_model.setModelRef(emd_model.getModelRef())
-
-    submodel_model = mplugin.createSubmodel()
-    submodel_model.setId("fba")
-    submodel_model.setModelRef(emd_fba.getModelRef())
+    # add submodel which references the external model definition
+    comp.add_submodel_from_emd(mplugin, submodel_sid="bounds", emd=emd_bounds)
+    comp.add_submodel_from_emd(mplugin, submodel_sid="update", emd=emd_update)
+    comp.add_submodel_from_emd(mplugin, submodel_sid="model", emd=emd_model)
+    comp.add_submodel_from_emd(mplugin, submodel_sid="fba", emd=emd_fba)
 
     #############################
     # compartments
@@ -159,7 +121,6 @@ def create_comp_full_model(sbml_file):
         {A_ID: "extern", A_NAME: "external compartment", A_VALUE: 1.0, A_SPATIAL_DIMENSION: 3, A_UNIT: model_factory.UNIT_VOLUME},
         {A_ID: 'cell', A_NAME: 'cell', A_VALUE: 1.0, A_SPATIAL_DIMENSION: 3, A_UNIT: model_factory.UNIT_VOLUME}
     ])
-
     # replaced compartments
     comp.replace_compartment(model, 'extern', ['model', 'update', 'fba'])
     comp.replace_compartment(model, 'cell', ['update', 'fba'])
@@ -167,14 +128,13 @@ def create_comp_full_model(sbml_file):
     #############################
     # species
     #############################
-    create_species(model, [
-        # external
-        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: model_factory.UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
-         A_COMPARTMENT: "extern"},
-    ])
     # replaced species
     # (fba species are not replaced, because they need their boundaryConditions for the FBA,
     #    and do not depend on the actual concentrations)
+    create_species(model, [
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: model_factory.UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
+         A_COMPARTMENT: "extern"},
+    ])
     comp.replace_species(model, 'C', ['model', 'update'])
 
     #############################
@@ -201,5 +161,9 @@ def create_comp_full_model(sbml_file):
 
 
 if __name__ == "__main__":
-    # create_comp_ode_model(comp_ode_file)
+    create_comp_ode_model(comp_ode_file)
     create_comp_full_model(comp_full_file)
+
+    # flatten the model
+    # TODO: how to flatten with libsbml?
+    # Use the flattened model for simulation

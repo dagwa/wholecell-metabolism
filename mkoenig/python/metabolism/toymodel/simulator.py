@@ -219,14 +219,18 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
 
 if __name__ == "__main__":
 
-
-
     # Run simulation of the hybrid model
     import libsbml
     from settings import comp_full_file
     import multiscale.sbmlutils.comp as comp
     doc_comp = libsbml.readSBMLFromFile(comp_full_file)
+
+    # find out the submodel frameworks via SBO on submodels
     model_frameworks = comp.get_submodel_frameworks(doc_comp)
+    print(model_frameworks)
+    exit()
+
+
 
     df = simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=0.1)
 

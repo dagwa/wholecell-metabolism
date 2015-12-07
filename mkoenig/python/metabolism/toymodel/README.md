@@ -15,6 +15,18 @@ SBO:0000004 - modelling framework
 ```
 In a first version the SBOTerm of the model is set. This is currently not legal, but the simplest approach.
 
+When creating the comp models the model SBOTerms should be copied to the respective submodel sbase, i.e.
+```
+<comp:listOfSubmodels>
+  <comp:submodel sboTerm="SBO:0000062" comp:id="bounds" comp:modelRef="toy_ode_bounds"/>
+  <comp:submodel sboTerm="SBO:0000062" comp:id="update" comp:modelRef="toy_ode_update"/>
+  <comp:submodel sboTerm="SBO:0000062" comp:id="model" comp:modelRef="toy_ode_model"/>
+  <comp:submodel sboTerm="SBO:0000624" comp:id="fba" comp:modelRef="toy_fba"/>
+</comp:listOfSubmodels>
+```
+The submodel SBOterms are used by the simulator to decide which simulation framework to use.
+
+
 ## Submodels
 ![submodel overview](docs/toymodel_overview.png)
 
