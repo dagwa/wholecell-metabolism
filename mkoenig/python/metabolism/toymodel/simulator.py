@@ -141,7 +141,8 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
     """
 
     # ode model
-    # the roadrunner fba file is the flattend comp file
+    # the roadrunner ode file is the flattend comp file, the FBA part does not change any of the
+    # kinetics, so it can just be integrated as is
     rr_comp = roadrunner.RoadRunner(mixed_sbml)
     sel = ['time'] \
         + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
@@ -150,10 +151,37 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
     rr_comp.timeCourseSelections = sel
     rr_comp.reset()
 
-    # load the fba sub models
+    # load fba sub models
+    # get the dictionary of submodels and look based on the submodel SBOterms
+    # which of them have to be simulated with FBA
+    doc = libsbml.readSBMLFromFile(mixed_sbml)
+    model_frameworks = comp.get_submodel_frameworks(doc_comp)
+    # necessary to get the files
+    fba_models = []
+    for key, value in model_frameworks.iteritems():
+        if value["sbo"] == 624:
+            print('FBA model')
+            # get the sbml file
+            modelRef = value["modelRef"]
+            mdoc = doc.getPlugin("comp")
+            emd = mdoc.getExternalModelDefinition(modelRef)
+            source = emd.getSource()
+            print(source)
+            fba_models.append(cobra.io.read_sbml_model(source))
+        elif value['sbo'] == 62:
+            print('ODE model')
+            # get the sbml file
+            modelRef = value["modelRef"]
+            mdoc = doc.getPlugin("comp")
+            emd = mdoc.getExternalModelDefinition(modelRef)
+            source = emd.getSource()
+            print(source)
+        else:
+            pass
 
-
-    # cobra_fba = cobra.io.read_sbml_model(fba_sbml)
+    # this are the submodels handled via FBA:
+    print(fba_models)
+    return
 
     # store results
     all_results = []
@@ -228,11 +256,8 @@ if __name__ == "__main__":
     # find out the submodel frameworks via SBO on submodels
     model_frameworks = comp.get_submodel_frameworks(doc_comp)
     print(model_frameworks)
-    exit()
 
-
-
-    df = simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=0.1)
+    df = simulate(mixed_sbml=comp_full_file, tend=10.0, step_size=1)
 
     # Run iterative simulation of the two models
     if 0:
