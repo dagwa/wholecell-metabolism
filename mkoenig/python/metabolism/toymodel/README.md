@@ -1,23 +1,50 @@
 # Toy model
-Simple toy model to demonstrate the coupling of different model types.
+Simple toy model to demonstrate the coupling of SBML models with different modelling frameworks.
 
-## TODO:
-[]
-[]
+## Modelling framework
+For the simulator to understand with which modelling framework submodels/models should be simulated it is
+necessary to annotate the `<model>` element with the modelling framework. For the annotation the SBO terms below the
+`SBO:0000004 - modelling framework` are used.
 
-## Installation
-### libsbml
-Build latest `libSBML` version from source with python bindings and the `fbc` and `comp` package.
 ```
-svn checkout http://svn.code.sf.net/p/sbml/code/trunk sbml-code
+SBO:0000004 - modelling framework
+|    SBO:0000062 continuous framework
+|    SBO:0000063 discrete framework
+|    SBO:0000624 flux balance framework
+|    SBO:0000234 logical framework
 ```
-### libroadrunner
+In a first version the SBOTerm of the model is set. This is currently not legal, but the simplest approach.
+
+## Submodels
 
 
-### cobrapy
-
-Running the examples requires to build libSBML, roadrunner and cobrapy from source.
 
 
-# Create the toy_models
-Use the `toymodel_factory' to create the models.
+## Create models and simulate
+The following content is available for the toy model
+```
+toymodel
+|   settings.py: file names and destinations
+|   model_factory.py: creates the individual submodels
+|   comp_factory.py: creates the combined comp models
+|   simulator.py: simulator for the comp model
+|   run_all.py: script
+|   models/: created models
+|   docs/: documentation of models (reports)
+|   results/: results of simulations
+```
+
+### Requirements
+Build the following libraries with their python bindings from the latest source
+* `libsbml`
+* `roadrunner`
+* `cobrapy`
+* 'sbmlutils' - python sbml utils (package missing)
+
+### Create models & simulate
+```
+python run_all.py
+```
+
+
+
