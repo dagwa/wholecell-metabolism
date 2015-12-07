@@ -124,7 +124,7 @@ def simulate_manual(fba_sbml, comp_ode_sbml, tend=10.0, step_size=0.01, debug=Tr
 
 
 
-def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
+def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
     """
     Performs the model integration.
 
@@ -181,7 +181,6 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
 
     # this are the submodels handled via FBA:
     print(fba_models)
-    return
 
     # store results
     all_results = []
@@ -196,26 +195,47 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
         # --------------------------------------
         # FBA
         # --------------------------------------
-        """
-        # set bounds in cobra model
-        cobra_R1 = cobra_fba.reactions.get_by_id("R1")
-        cobra_R1.upper_bound = rr_comp.submodel_bounds__ub_R1
+        # all fba submodels have to be simulated with FBA
+        # and perform their updates
+        for fba_model in fba_models:
+            # now the replacements have to be used to figure out what has to
+            # be passed between the models.
 
-        # optimize
-        cobra_fba.optimize()
+            # <parameter id="ub_R1" name="ub_r1" value="1" units="item_per_s" constant="false">
+            # <comp:listOfReplacedElements>
+            #     <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="fba"/>
+            #     <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="bounds"/>
+            # </comp:listOfReplacedElements>
+            # </parameter>
 
-        # set solution fluxes in rr_comp
-        # constant fluxes
-        for (rid, flux) in cobra_fba.solution.x_dict.iteritems():
-            pid = "submodel_update__v_{}".format(rid)
-            rr_comp[pid] = flux
+            # find all parameters replaced in the fba submodel
 
-        if debug:
-            print_flux_bounds(cobra_fba)
-            print(cobra_fba.solution.status)
-            print(cobra_fba.solution.x_dict)
-            print("-" * 80)
-        """
+            # if any of them is either lower or upper bound of a reaction
+            # get the reaction and set the upper bound in the model
+
+
+            # set bounds in fba model
+            R1 = fba_model.reactions.get_by_id("R1")
+            R1.upper_bound = rr_comp.ub_R1
+
+            # optimize
+            fba_model.optimize()
+
+            # also via the replacement the things have to be written back in the ODE
+            # subpart
+
+            # set solution fluxes in rr_comp
+            # constant fluxes
+            for (rid, flux) in fba_model.solution.x_dict.iteritems():
+                pid = "v_{}".format(rid)
+                rr_comp[pid] = flux
+
+            if debug:
+                print_flux_bounds(fba_model)
+                print(fba_model.solution.status)
+                print(fba_mdodel.solution.x_dict)
+                print("-" * 80)
+
         # --------------------------------------
         # ODE
         # --------------------------------------
@@ -257,8 +277,15 @@ if __name__ == "__main__":
     model_frameworks = comp.get_submodel_frameworks(doc_comp)
     print(model_frameworks)
 
-    df = simulate(mixed_sbml=comp_full_file, tend=10.0, step_size=1)
+    df = simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=1)
+    df.plot(x='time', y=['fba__R1', 'fba__R2', 'fba__R3', 'model__R4'])
+    df.plot(x='time', y=['[update__A]',
+                         '[update__B1]',
+                         '[update__B2]',
+                          '[C]',
+                          '[model__D]'])
 
+    """
     # Run iterative simulation of the two models
     if 0:
         from settings import fba_file, comp_ode_file
@@ -276,4 +303,4 @@ if __name__ == "__main__":
                               '[submodel_model__D]'])
 
         # TODO: save figures as files and csv (results folder)
-
+    """
