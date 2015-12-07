@@ -19,7 +19,6 @@ In a first version the SBOTerm of the model is set. This is currently not legal,
 ![submodel overview](docs/toymodel_overview.png)
 
 
-
 ## Create models and simulate
 The following content is available for the toy model
 ```
@@ -39,7 +38,7 @@ Build the following libraries with their python bindings from the latest source
 * `libsbml`
 * `roadrunner`
 * `cobrapy`
-* 'sbmlutils' - python sbml utils (package missing)
+* 'sbmlutils' - python sbmlutils (package not yet on github)
 
 ### Create models & simulate
 ```

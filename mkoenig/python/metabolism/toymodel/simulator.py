@@ -20,7 +20,6 @@ import pandas as pd
 from pandas import DataFrame
 import roadrunner
 import cobra
-from settings import fba_file, comp_ode_file
 
 print(roadrunner.__version__)
 print(cobra.__version__)
@@ -123,37 +122,129 @@ def simulate_manual(fba_sbml, comp_ode_sbml, tend=10.0, step_size=0.01, debug=Tr
     print(df)
     return df
 
-def simulate(mixed_sbml, tend=10.0, step_size=0.01, debug=True):
+
+
+def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=True):
     """
     Performs the model integration.
 
     The simulator has to figure out based on the replacement and SBO
     annotation which submodels to simulate with which algorithms.
 
+    Necessary to get the FBA submodels out and perform FBA on it, and clearly
+    define the interfaces between the submodels.
+
     :param tend: end time of the simulation
     :param step_size: step size for the integration, if None variable step size will be used
     :param debug: additional information
     :return: pandas solution data frame
     """
-    # TODO: implement
-    raise Exception("NOT IMPLEMENTED")
+
+    # ode model
+    # the roadrunner fba file is the flattend comp file
+    rr_comp = roadrunner.RoadRunner(mixed_sbml)
+    sel = ['time'] \
+        + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
+        + ["".join(["[", item, "]"]) for item in rr_comp.model.getFloatingSpeciesIds()] \
+        + rr_comp.model.getReactionIds()
+    rr_comp.timeCourseSelections = sel
+    rr_comp.reset()
+
+    # load the fba sub models
+
+
+    # cobra_fba = cobra.io.read_sbml_model(fba_sbml)
+
+    # store results
+    all_results = []
+    all_time = []
+    result = None
+    time = 0.0
+    while time <= tend:
+        if debug:
+            print("-" * 80)
+            print("Time: {}".format(time))
+
+        # --------------------------------------
+        # FBA
+        # --------------------------------------
+        """
+        # set bounds in cobra model
+        cobra_R1 = cobra_fba.reactions.get_by_id("R1")
+        cobra_R1.upper_bound = rr_comp.submodel_bounds__ub_R1
+
+        # optimize
+        cobra_fba.optimize()
+
+        # set solution fluxes in rr_comp
+        # constant fluxes
+        for (rid, flux) in cobra_fba.solution.x_dict.iteritems():
+            pid = "submodel_update__v_{}".format(rid)
+            rr_comp[pid] = flux
+
+        if debug:
+            print_flux_bounds(cobra_fba)
+            print(cobra_fba.solution.status)
+            print(cobra_fba.solution.x_dict)
+            print("-" * 80)
+        """
+        # --------------------------------------
+        # ODE
+        # --------------------------------------
+        # simulate (1 step)
+        if step_size:
+            # constant step size
+            result = rr_comp.simulate(0, end=step_size, steps=1)
+        else:
+            # variable step size
+            result = rr_comp.simulate(0, steps=1, variableStep=True)
+
+        # store results
+        all_results.append(result[1])
+        all_time.append(time)
+
+        # store simulation values & get time step
+        delta_time = result['time'][1]
+        time = time + delta_time
+
+        if debug:
+            print(result)
+
+    # create result matrix
+    df = pd.DataFrame(data=all_results, columns=result.colnames)
+    df.time = all_time
+    print(df)
+    return df
 
 
 if __name__ == "__main__":
-    
-    df1 = simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
-                          tend=50.0, step_size=0.1, debug=False)
-    # df2 = simulate(tend=10.0, step_size=None, debug=False)
 
-    df1.plot(x='time', y=['submodel_update__R1',
-                          'submodel_update__R2',
-                          'submodel_update__R3',
-                          'submodel_model__R4'])
-    df1.plot(x='time', y=['[submodel_update__A]',
-                          '[submodel_update__B1]',
-                          '[submodel_update__B2]',
-                          '[C]',
-                          '[submodel_model__D]'])
 
-    # TODO: save figures as files
+
+    # Run simulation of the hybrid model
+    import libsbml
+    from settings import comp_full_file
+    import multiscale.sbmlutils.comp as comp
+    doc_comp = libsbml.readSBMLFromFile(comp_full_file)
+    model_frameworks = comp.get_submodel_frameworks(doc_comp)
+
+    df = simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=0.1)
+
+    # Run iterative simulation of the two models
+    if 0:
+        from settings import fba_file, comp_ode_file
+        df1 = simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
+                              tend=50.0, step_size=0.1, debug=False)
+        # df2 = simulate(tend=10.0, step_size=None, debug=False)
+        df1.plot(x='time', y=['submodel_update__R1',
+                              'submodel_update__R2',
+                              'submodel_update__R3',
+                              'submodel_model__R4'])
+        df1.plot(x='time', y=['[submodel_update__A]',
+                              '[submodel_update__B1]',
+                              '[submodel_update__B2]',
+                              '[C]',
+                              '[submodel_model__D]'])
+
+        # TODO: save figures as files and csv (results folder)
 
