@@ -31,23 +31,19 @@ comp_factory.create_comp_full_model(comp_full_file)
 db_api.create_model(comp_ode_file, model_format=db_api.CompModelFormat.SBML)
 db_api.create_model(comp_full_file, model_format=db_api.CompModelFormat.SBML)
 
+
 ###########################################
 # Simulate the comp models
 ###########################################
-# Simulate via manual connection approach
-# comp_ode & fba
-df1 = simulator.simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
-                                tend=50.0, step_size=0.1, debug=False)
-# df2 = simulate(tend=10.0, step_size=None, debug=False)
+# comp_ode & fba (Simulate via manual connection approach)
+df_test = simulator.simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
+                                    tend=50.0, step_size=0.1, debug=False)
 
-df1.plot(x='time', y=['submodel_update__R1',
-                      'submodel_update__R2',
-                      'submodel_update__R3',
-                      'submodel_model__R4'])
-df1.plot(x='time', y=['[submodel_update__A]',
-                      '[submodel_update__B1]',
-                      '[submodel_update__B2]',
+# simulate the complete model
+df = simulator.simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=0.1)
+df.plot(x='time', y=['fba__R1', 'fba__R2', 'fba__R3', 'model__R4'])
+df.plot(x='time', y=['[update__A]',
+                     '[update__B1]',
+                     '[update__B2]',
                       '[C]',
-                      '[submodel_model__D]'])
-
-# Simulate the automatic approach
+                      '[model__D]'])

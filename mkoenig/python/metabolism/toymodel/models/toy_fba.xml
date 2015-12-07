@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model metaid="meta_01a33e4d84ad4651aaba60fc67895b19" sboTerm="SBO:0000624" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+  <model metaid="meta_23a7e7da08fb414bbe2d871a439fcfa4" sboTerm="SBO:0000624" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_01a33e4d84ad4651aaba60fc67895b19">
+    <rdf:Description rdf:about="#meta_23a7e7da08fb414bbe2d871a439fcfa4">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -43,10 +43,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2015-12-07T10:31:57Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2015-12-07T16:03:34Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2015-12-07T10:31:57Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2015-12-07T16:03:34Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
