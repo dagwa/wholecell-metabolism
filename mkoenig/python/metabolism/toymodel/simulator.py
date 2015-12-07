@@ -16,10 +16,12 @@ TODO: Fix the zero time point of the simulation
 """
 
 from __future__ import print_function
+import libsbml
 import pandas as pd
 from pandas import DataFrame
 import roadrunner
 import cobra
+import multiscale.sbmlutils.comp as comp
 
 print(roadrunner.__version__)
 print(cobra.__version__)
@@ -155,9 +157,11 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
     # get the dictionary of submodels and look based on the submodel SBOterms
     # which of them have to be simulated with FBA
     doc = libsbml.readSBMLFromFile(mixed_sbml)
-    model_frameworks = comp.get_submodel_frameworks(doc_comp)
-    # necessary to get the files
-    fba_models = []
+    model_frameworks = comp.get_submodel_frameworks(doc)
+    model = doc.getModel()
+
+    # get the individual files of the submodels
+    fba_models = {}
     for key, value in model_frameworks.iteritems():
         if value["sbo"] == 624:
             print('FBA model')
@@ -167,7 +171,8 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
             emd = mdoc.getExternalModelDefinition(modelRef)
             source = emd.getSource()
             print(source)
-            fba_models.append(cobra.io.read_sbml_model(source))
+            fba_models[key] = {'cobra': cobra.io.read_sbml_model(source),
+                               'doc': libsbml.readSBMLFromFile(source)}
         elif value['sbo'] == 62:
             print('ODE model')
             # get the sbml file
@@ -197,8 +202,10 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
         # --------------------------------------
         # all fba submodels have to be simulated with FBA
         # and perform their updates
-        for fba_model in fba_models:
-            # now the replacements have to be used to figure out what has to
+        for fba_key, fba_info in fba_models.iteritems():
+            cobra_model = fba_info['cobra']
+            sbml_model = fba_info['doc'].getModel()
+            # [1] now the replacements have to be used to figure out what has to
             # be passed between the models.
 
             # <parameter id="ub_R1" name="ub_r1" value="1" units="item_per_s" constant="false">
@@ -213,28 +220,68 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
             # if any of them is either lower or upper bound of a reaction
             # get the reaction and set the upper bound in the model
 
+            # the calculation of the replacement is only necessary once, than can be reused.
+            # Done every time for laziness right now.
 
             # set bounds in fba model
-            R1 = fba_model.reactions.get_by_id("R1")
-            R1.upper_bound = rr_comp.ub_R1
 
-            # optimize
-            fba_model.optimize()
+            # <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
+            # rid: parameter
+
+            # which parameters are upper or lower bounds
+            from collections import defaultdict
+            ub_parameters = defaultdict(list)
+            lb_parameters = defaultdict(list)
+            for r in sbml_model.getListOfReactions():
+                mr = r.getPlugin("fbc")
+                rid = r.getId()
+                if mr.isSetUpperFluxBound():
+                    ub_parameters[mr.getUpperFluxBound()].append(rid)
+                if mr.isSetLowerFluxBound():
+                    lb_parameters[mr.getLowerFluxBound()].append(rid)
+            print(ub_parameters)
+            print(lb_parameters)
+
+            # search in global replacements
+            for p in model.getListOfParameters():
+                pid = p.getId()
+                mp = p.getPlugin("comp")
+                for rep_element in mp.getListOfReplacedElements():
+                    # the submodel of the replacement belongs to the current model
+                    if rep_element.getSubmodelRef() == fba_key:
+                        # replace upper and lower bounds
+                        for rid in ub_parameters.get(pid, []):
+                            print(rid, ': (upper) -> ', pid)
+                            cobra_reaction = cobra_model.reactions.get_by_id(rid)
+                            cobra_reaction.upper_bound = rr_comp[pid]
+                        for rid in lb_parameters.get(pid, []):
+                            print(rid, ': (lower) -> ', pid)
+                            cobra_reaction = cobra_model.reactions.get_by_id(rid)
+                            cobra_reaction.lower_bound = rr_comp[pid]
+
+
+            # R1 = cobra_model.reactions.get_by_id("R1")
+            # R1.upper_bound = rr_comp['ub_R1']
+
+            # [2] optimize
+            cobra_model.optimize()
 
             # also via the replacement the things have to be written back in the ODE
             # subpart
 
             # set solution fluxes in rr_comp
             # constant fluxes
-            for (rid, flux) in fba_model.solution.x_dict.iteritems():
+            for (rid, flux) in cobra_model.solution.x_dict.iteritems():
                 pid = "v_{}".format(rid)
                 rr_comp[pid] = flux
 
             if debug:
-                print_flux_bounds(fba_model)
-                print(fba_model.solution.status)
-                print(fba_mdodel.solution.x_dict)
+                print_flux_bounds(cobra_model)
+                print(cobra_model.solution.status)
+                print(cobra_model.solution.x_dict)
                 print("-" * 80)
+
+        # exit()
 
         # --------------------------------------
         # ODE
@@ -268,14 +315,7 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
 if __name__ == "__main__":
 
     # Run simulation of the hybrid model
-    import libsbml
     from settings import comp_full_file
-    import multiscale.sbmlutils.comp as comp
-    doc_comp = libsbml.readSBMLFromFile(comp_full_file)
-
-    # find out the submodel frameworks via SBO on submodels
-    model_frameworks = comp.get_submodel_frameworks(doc_comp)
-    print(model_frameworks)
 
     df = simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=1)
     df.plot(x='time', y=['fba__R1', 'fba__R2', 'fba__R3', 'model__R4'])
