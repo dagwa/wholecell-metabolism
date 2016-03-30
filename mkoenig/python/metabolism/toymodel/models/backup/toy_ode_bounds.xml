@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model metaid="meta_f1dcc84df4ce49c0901b2487d012c7d7" sboTerm="SBO:0000062" id="toy_ode_update" name="ODE metabolite update submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
+  <model metaid="meta_f3a0b47bd75e43a4967925d446d0b24d" sboTerm="SBO:0000062" id="toy_ode_bounds" name="ODE bound calculation submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -10,7 +10,7 @@
       <a href="https://livermetabolism.com/contact.html" title="Matthias Koenig" target="_blank">Matthias Koenig</a>.
       </div>
       <h2>Terms of use</h2>
-      <div class="dc:rightsHolder">Copyright © 2016 Wholecell Consortium.</div>
+      <div class="dc:rightsHolder">Copyright © 2015 Wholecell Consortium.</div>
       <div class="dc:license">
         <p>Redistribution and use of any part of this model, with or without modification, are permitted provided that
       the following conditions are met:
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_f1dcc84df4ce49c0901b2487d012c7d7">
+    <rdf:Description rdf:about="#meta_f3a0b47bd75e43a4967925d446d0b24d">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -37,16 +37,16 @@
             </vCard:N>
             <vCard:EMAIL>konigmatt@googlemail.com</vCard:EMAIL>
             <vCard:ORG rdf:parseType="Resource">
-              <vCard:Orgname>Humboldt University Berlin</vCard:Orgname>
+              <vCard:Orgname>Charite Berlin</vCard:Orgname>
             </vCard:ORG>
           </rdf:li>
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T17:41:51Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-30T14:25:43Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T17:41:51Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-30T14:25:43Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
@@ -99,49 +99,19 @@
       <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
     </listOfUnits>
   </unitDefinition>
-</listOfUnitDefinitions><listOfCompartments>
-  <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" units="m3" constant="true"/>
-  <compartment id="cell" name="cell" spatialDimensions="3" size="1" units="m3" constant="true"/>
-</listOfCompartments><listOfSpecies>
-  <species id="A" name="A" compartment="extern" initialAmount="10" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-  <species id="C" name="C" compartment="extern" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-  <species id="B1" name="B1" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-  <species id="B2" name="B2" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-</listOfSpecies><listOfParameters>
-  <parameter id="ub_R1" name="ub R1" value="1" units="item_per_s" constant="false"/>
-  <parameter id="lb" name="lower bound" value="0" units="item_per_s" constant="true"/>
-  <parameter id="ub" name="upper bound" value="1000" units="item_per_s" constant="true"/>
-</listOfParameters><listOfReactions>
-  <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub_R1">
-    <listOfReactants>
-      <speciesReference species="A" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="B1" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-  </reaction>
-  <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-    <listOfReactants>
-      <speciesReference species="B1" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="B2" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-  </reaction>
-  <reaction id="R3" name="B2 export (R3)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-    <listOfReactants>
-      <speciesReference species="B2" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="C" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-  </reaction>
-</listOfReactions><fbc:listOfObjectives fbc:activeObjective="R3_maximize">
-  <fbc:objective fbc:id="R3_maximize" fbc:type="maximize">
-    <fbc:listOfFluxObjectives>
-      <fbc:fluxObjective fbc:reaction="R3" fbc:coefficient="1"/>
-    </fbc:listOfFluxObjectives>
-  </fbc:objective>
-</fbc:listOfObjectives>
+</listOfUnitDefinitions><listOfParameters>
+  <parameter id="ub_R1" name="ub_r1" value="1" units="item_per_s" constant="false"/>
+  <parameter id="k1" name="k1" value="-0.2" units="per_s" constant="false"/>
+</listOfParameters><listOfRules>
+  <rateRule variable="ub_R1">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <times/>
+        <ci> k1 </ci>
+        <ci> ub_R1 </ci>
+      </apply>
+    </math>
+  </rateRule>
+</listOfRules>
 </model>
 </sbml>

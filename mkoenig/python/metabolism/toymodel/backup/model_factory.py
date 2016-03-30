@@ -28,7 +28,7 @@ notes = XMLNode.convertStringToXMLNode("""
       </div>
 
     <h2>Terms of use</h2>
-      <div class="dc:rightsHolder">Copyright © 2016 Wholecell Consortium.</div>
+      <div class="dc:rightsHolder">Copyright © 2015 Wholecell Consortium.</div>
       <div class="dc:license">
       <p>Redistribution and use of any part of this model, with or without modification, are permitted provided that
       the following conditions are met:
@@ -46,8 +46,8 @@ notes = XMLNode.convertStringToXMLNode("""
 """)
 creators = {
     # id : ('FamilyName', 'GivenName', 'Email', 'Organization')
-    'mk': {'FamilyName':'Koenig', 'GivenName': 'Matthias',
-           'Email': 'konigmatt@googlemail.com', 'Organization': 'Humboldt University Berlin'},
+    'mk': {'FamilyName':'Koenig', 'GivenName':'Matthias',
+           'Email':'konigmatt@googlemail.com', 'Organization': 'Charite Berlin'},
 }
 main_units = {
     'time': 's',
@@ -65,7 +65,7 @@ units = {
     'm3': [(UNIT_KIND_METRE, 3.0)],
     'mM': [(UNIT_KIND_MOLE, 1.0, 0),
            (UNIT_KIND_METRE, -3.0)],
-    'per_s': [(UNIT_KIND_SECOND, -1.0)],
+    'per_s' : [(UNIT_KIND_SECOND, -1.0)],
     'item_per_s': [(UNIT_KIND_ITEM, 1.0),
                    (UNIT_KIND_SECOND, -1.0)],
     'item_per_m3': [(UNIT_KIND_ITEM, 1.0),
@@ -77,14 +77,12 @@ UNIT_VOLUME = 'm3'
 UNIT_CONCENTRATION = 'item_per_m3'
 UNIT_FLUX = 'item_per_s'
 
-
 ########################################################################
 def add_generic_info(model):
     sbml_annotation.set_model_history(model, creators)
     create_unit_definitions(model, units)
     set_main_units(model, main_units)
     model.setNotes(notes)
-
 
 ####################################################
 # ODE flux bounds
@@ -166,16 +164,23 @@ def create_fba(sbml_file):
         {A_ID: "ub_R1", A_NAME: "ub R1", A_VALUE: 1.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
         {A_ID: "lb", A_NAME: "lower bound", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: True},
         {A_ID: "ub", A_NAME: "upper bound", A_VALUE: 1000.0, A_UNIT: UNIT_FLUX, A_CONSTANT: True},
+        # parameters (fluxes)
+        {A_ID: "v_R1", A_NAME: "R1 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        {A_ID: "v_R2", A_NAME: "R2 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        {A_ID: "v_R3", A_NAME: "R3 flux", A_VALUE: 0.0, A_UNIT: UNIT_FLUX, A_CONSTANT: False},
     ]
     create_parameters(model, parameters)
 
     # reactions with constant flux
     r1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
-                           reactants={"A": 1}, products={"B1": 1})
+                           reactants={"A": 1}, products={"B1": 1},
+                           formula="v_R1")
     r2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
-                           reactants={"B1": 1}, products={"B2": 1})
+                           reactants={"B1": 1}, products={"B2": 1},
+                           formula="v_R2")
     r3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
-                           reactants={"B2": 1}, products={"C": 1})
+                           reactants={"B2": 1}, products={"C": 1},
+                           formula="v_R3")
 
     # flux bounds
     set_flux_bounds(r1, lb="lb", ub="ub_R1")
@@ -184,12 +189,6 @@ def create_fba(sbml_file):
 
     # objective function
     create_objective(mplugin, oid="R3_maximize", otype="maximize", fluxObjectives={"R3": 1.0})
-
-    # create ports
-    # <comp:listOfPorts>
-    #   <comp:port comp:id="R3_port" comp:idRef="R3" sboTerm="SBO:0000599"/>
-    #  <comp:port comp:id="r1_port_1" comp:idRef="r1" sboTerm="SBO:0000599"/>
-    #</comp:listOfPorts>
 
     # write SBML file
     sbml_io.write_and_check(doc_fba, sbml_file)

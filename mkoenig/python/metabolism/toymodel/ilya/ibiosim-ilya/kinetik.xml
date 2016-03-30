@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" xmlns:arrays="http://www.sbml.org/sbml/level3/version1/arrays/version1" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version1" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" arrays:required="true" comp:required="true" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" version="1" fbc:required="false">
+  <model name="kinetic" id="kinetik">
+    <comp:listOfPorts xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
+      <comp:port comp:id="C_port" comp:idRef="C" sboTerm="SBO:0000599"/>
+    </comp:listOfPorts>
+    <listOfCompartments>
+      <compartment name="kinetik" constant="false" id="default" size="1" spatialDimensions="3"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="true" initialAmount="100" compartment="default" id="C"/>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" initialAmount="0" compartment="default" id="D"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter constant="false" id="k_R4" value="1"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction name="C -> D" fast="false" id="R000005" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="false" species="C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference stoichiometry="1" constant="false" species="D"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> k_R4 </ci>
+              <ci> C </ci>
+            </apply>
+          </math>
+                </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model metaid="meta_0bdc7d59dcc84a9e82e4385258598f8e" sboTerm="SBO:0000624" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+  <model metaid="meta_f1dcc84df4ce49c0901b2487d012c7d7" sboTerm="SBO:0000624" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -10,7 +10,7 @@
       <a href="https://livermetabolism.com/contact.html" title="Matthias Koenig" target="_blank">Matthias Koenig</a>.
       </div>
       <h2>Terms of use</h2>
-      <div class="dc:rightsHolder">Copyright © 2015 Wholecell Consortium.</div>
+      <div class="dc:rightsHolder">Copyright © 2016 Wholecell Consortium.</div>
       <div class="dc:license">
         <p>Redistribution and use of any part of this model, with or without modification, are permitted provided that
       the following conditions are met:
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_0bdc7d59dcc84a9e82e4385258598f8e">
+    <rdf:Description rdf:about="#meta_f1dcc84df4ce49c0901b2487d012c7d7">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -37,16 +37,16 @@
             </vCard:N>
             <vCard:EMAIL>konigmatt@googlemail.com</vCard:EMAIL>
             <vCard:ORG rdf:parseType="Resource">
-              <vCard:Orgname>Charite Berlin</vCard:Orgname>
+              <vCard:Orgname>Humboldt University Berlin</vCard:Orgname>
             </vCard:ORG>
           </rdf:li>
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T14:25:43Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-30T17:41:51Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T14:25:43Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-30T17:41:51Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
@@ -111,9 +111,6 @@
   <parameter id="ub_R1" name="ub R1" value="1" units="item_per_s" constant="false"/>
   <parameter id="lb" name="lower bound" value="0" units="item_per_s" constant="true"/>
   <parameter id="ub" name="upper bound" value="1000" units="item_per_s" constant="true"/>
-  <parameter id="v_R1" name="R1 flux" value="0" units="item_per_s" constant="false"/>
-  <parameter id="v_R2" name="R2 flux" value="0" units="item_per_s" constant="false"/>
-  <parameter id="v_R3" name="R3 flux" value="0" units="item_per_s" constant="false"/>
 </listOfParameters><listOfReactions>
   <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub_R1">
     <listOfReactants>
@@ -122,11 +119,6 @@
     <listOfProducts>
       <speciesReference species="B1" stoichiometry="1" constant="true"/>
     </listOfProducts>
-    <kineticLaw>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <ci> v_R1 </ci>
-      </math>
-    </kineticLaw>
   </reaction>
   <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
     <listOfReactants>
@@ -135,11 +127,6 @@
     <listOfProducts>
       <speciesReference species="B2" stoichiometry="1" constant="true"/>
     </listOfProducts>
-    <kineticLaw>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <ci> v_R2 </ci>
-      </math>
-    </kineticLaw>
   </reaction>
   <reaction id="R3" name="B2 export (R3)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
     <listOfReactants>
@@ -148,11 +135,6 @@
     <listOfProducts>
       <speciesReference species="C" stoichiometry="1" constant="true"/>
     </listOfProducts>
-    <kineticLaw>
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <ci> v_R3 </ci>
-      </math>
-    </kineticLaw>
   </reaction>
 </listOfReactions><fbc:listOfObjectives fbc:activeObjective="R3_maximize">
   <fbc:objective fbc:id="R3_maximize" fbc:type="maximize">
