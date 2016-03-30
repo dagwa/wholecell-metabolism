@@ -7,7 +7,7 @@ The SBML comp extension is used for hierarchical model composition, i.e. to crea
 the main model and the kinetic model subparts.
 """
 from libsbml import *
-import multiscale.sbmlutils.io as sbml_io
+import multiscale.sbmlutils.sbmlio as sbml_io
 import multiscale.sbmlutils.annotation as sbml_annotation
 import multiscale.sbmlutils.comp as comp
 

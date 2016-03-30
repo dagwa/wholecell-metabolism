@@ -15,7 +15,7 @@ from settings import *
 import model_factory
 import multiscale.sbmlutils.comp as comp
 from multiscale.sbmlutils.factory import *
-import multiscale.sbmlutils.io as sbml_io
+import multiscale.sbmlutils.sbmlio as sbml_io
 
 
 def create_comp_ode_model(sbml_file):
