@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
-  <model metaid="meta_f1dcc84df4ce49c0901b2487d012c7d7" sboTerm="SBO:0000062" id="toy_ode_update" name="ODE metabolite update submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" fbc:required="false" comp:required="true">
+  <model metaid="meta_00e90b5441784fca8b3bf40314979a80" sboTerm="SBO:0000062" id="toy_ode_update" name="ODE metabolite update submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_f1dcc84df4ce49c0901b2487d012c7d7">
+    <rdf:Description rdf:about="#meta_00e90b5441784fca8b3bf40314979a80">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -43,10 +43,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T17:41:51Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-30T18:11:37Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T17:41:51Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-30T18:11:37Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
@@ -142,6 +142,9 @@
       <fbc:fluxObjective fbc:reaction="R3" fbc:coefficient="1"/>
     </fbc:listOfFluxObjectives>
   </fbc:objective>
-</fbc:listOfObjectives>
+</fbc:listOfObjectives><comp:listOfPorts>
+  <comp:port comp:idRef="R3" comp:id="R3_port"/>
+  <comp:port comp:idRef="ub_R1" comp:id="r1_port_1"/>
+</comp:listOfPorts>
 </model>
 </sbml>

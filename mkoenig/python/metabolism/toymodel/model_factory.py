@@ -127,9 +127,12 @@ def create_fba(sbml_file):
     TODO: load into multiscale model data base
     TODO: SBO term for fluxBounds, species, ...
     """
-    # Create the FBA submodel and run an optimization
     sbmlns = SBMLNamespaces(3, 1, "fbc", 2)
+    sbmlns.addPackageNamespace("comp", 1)  # comp for port definition
     doc_fba = SBMLDocument(sbmlns)
+    doc_fba.setPackageRequired("comp", True)
+    mdoc = doc_fba.getPlugin("comp")
+
     doc_fba.setPackageRequired("fbc", False)
     model = doc_fba.createModel()
     mplugin = model.getPlugin("fbc")
@@ -189,10 +192,14 @@ def create_fba(sbml_file):
     # <comp:listOfPorts>
     #   <comp:port comp:id="R3_port" comp:idRef="R3" sboTerm="SBO:0000599"/>
     #  <comp:port comp:id="r1_port_1" comp:idRef="r1" sboTerm="SBO:0000599"/>
-    #</comp:listOfPorts>
+    # </comp:listOfPorts>
+    comp._create_port(model, pid="R3_port", idRef="R3")
+    comp._create_port(model, pid="r1_port_1", idRef="ub_R1")
+
 
     # write SBML file
     sbml_io.write_and_check(doc_fba, sbml_file)
+
 
 ####################################################
 # ODE species update
@@ -221,6 +228,7 @@ def create_ode_update(sbml_file, fba_file):
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
+
 
 ####################################################
 # ODE/SSA model
