@@ -93,7 +93,7 @@ def create_ode_bounds(sbml_file):
     """"
     Submodel for dynamically calculating the flux bounds.
     """
-    sbmlns = SBMLNamespaces(3, 1)
+    sbmlns = SBMLNamespaces(3, 1, 'comp', 1)
     doc = SBMLDocument(sbmlns)
     model = doc.createModel()
     model.setId("toy_ode_bounds")
@@ -202,40 +202,11 @@ def create_fba(sbml_file):
 
 
 ####################################################
-# ODE species update
-####################################################
-# model for update of species count
-def create_ode_update(sbml_file, fba_file):
-    """ Submodel for dynamically updating the metabolite count.
-        Very similar model to the FBA model.
-    """
-    # read FBA model
-    reader = SBMLReader()
-    doc = reader.readSBMLFromFile(fba_file)
-
-    # model
-    model = doc.getModel()
-    model.setId("toy_ode_update")
-    model.setName("ODE metabolite update submodel")
-    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
-
-    # boundary conditions of FBA have to be released
-    # for the update of the species
-    s_A = model.getSpecies("A")
-    s_A.setBoundaryCondition(False)
-    s_C = model.getSpecies("C")
-    s_C.setBoundaryCondition(False)
-
-    # write SBML file
-    sbml_io.write_and_check(doc, sbml_file)
-
-
-####################################################
 # ODE/SSA model
 ####################################################
 def create_ode_model(sbml_file):
     """" Kinetic submodel (coupled model to FBA). """
-    sbmlns = SBMLNamespaces(3, 1)
+    sbmlns = SBMLNamespaces(3, 1, 'comp', 1)
     doc = SBMLDocument(sbmlns)
 
     # model
@@ -268,6 +239,8 @@ def create_ode_model(sbml_file):
     r4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
                          reactants={"C": 1}, products={"D": 1}, formula="k_R4*C")
 
+    comp._create_port(model, pid="C_port", idRef="C")
+
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
 
@@ -275,16 +248,14 @@ def create_ode_model(sbml_file):
 ########################################################################################################################
 if __name__ == "__main__":
     # write & check sbml
-    from settings import fba_file, ode_bounds_file, ode_update_file
+    from settings import fba_file, ode_bounds_file
     from settings import ode_model_file
 
     create_fba(fba_file)
     create_ode_bounds(ode_bounds_file)
-    create_ode_update(ode_update_file, fba_file)
     create_ode_model(ode_model_file)
 
     import multiscale.multiscalesite.simapp.db.api as db_api
     db_api.create_model(fba_file, model_format=db_api.CompModelFormat.SBML)
     db_api.create_model(ode_bounds_file, model_format=db_api.CompModelFormat.SBML)
-    db_api.create_model(ode_update_file, model_format=db_api.CompModelFormat.SBML)
     db_api.create_model(ode_model_file, model_format=db_api.CompModelFormat.SBML)

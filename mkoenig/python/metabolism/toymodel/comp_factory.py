@@ -8,7 +8,6 @@ For the simulation of the full combined model the tools have to figure out the s
 simulated with which simulation environment.
 """
 from __future__ import print_function
-import warnings
 from libsbml import *
 from settings import *
 
@@ -161,9 +160,5 @@ def create_comp_full_model(sbml_file):
 
 
 if __name__ == "__main__":
-    create_comp_ode_model(comp_ode_file)
+    # create_comp_ode_model(comp_ode_file)
     create_comp_full_model(comp_full_file)
-
-    # flatten the model
-    # TODO: how to flatten with libsbml?
-    # Use the flattened model for simulation
