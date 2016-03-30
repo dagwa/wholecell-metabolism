@@ -2,9 +2,11 @@
 Try to run a single step simulation.
 @author: Matthias Koenig
 """
+
+from __future__ import print_function, division
 import roadrunner
-print roadrunner.__version__
-# 1.4.0; Compiler: gcc 4.8.4, C++ version: 199711; JIT Compiler: LLVM-3.4; Date: Oct 14 2015, 00:00:59
+print(roadrunner.__version__)
+
 
 # Load model results in warnings about fbc v2
 from toymodel.settings import comp_ode_file, comp_full_file
@@ -20,4 +22,4 @@ rr.timeCourseSelections = sel
 
 # simulate multiple steps
 result = rr.simulate(start=0, end=10, steps=100)
-print result
+print(result)

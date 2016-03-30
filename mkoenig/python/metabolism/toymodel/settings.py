@@ -2,7 +2,7 @@
 Settings for the toy model,
 like file names and directories.
 """
-
+from __future__ import print_function, division
 import os
 out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'models')
 
