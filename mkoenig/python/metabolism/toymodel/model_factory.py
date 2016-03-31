@@ -7,11 +7,14 @@ The SBML comp extension is used for hierarchical model composition, i.e. to crea
 the main model and the kinetic model subparts.
 """
 from libsbml import *
+XMLOutputStream.setWriteTimestamp(False)
 import multiscale.sbmlutils.sbmlio as sbml_io
 import multiscale.sbmlutils.annotation as sbml_annotation
 import multiscale.sbmlutils.comp as comp
 
 from multiscale.sbmlutils.factory import *
+
+# TODO: add SBOterms for fluxBounds, species, ...
 
 ########################################################################
 # General model information
@@ -92,6 +95,8 @@ def add_generic_info(model):
 def create_ode_bounds(sbml_file):
     """"
     Submodel for dynamically calculating the flux bounds.
+    The dynamically changing flux bounds are the input to the
+    FBA model.
     """
     sbmlns = SBMLNamespaces(3, 1, 'comp', 1)
     doc = SBMLDocument(sbmlns)
@@ -112,7 +117,8 @@ def create_ode_bounds(sbml_file):
     ]
     create_rate_rules(model, rate_rules)
 
-    # TODO: add the ports
+    # ports
+    comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_PORT)
 
     sbml_io.write_and_check(doc, sbml_file)
 
@@ -124,10 +130,6 @@ def create_fba(sbml_file):
     """
     Create the fba model.
     FBA submodel in FBC v2 which uses parameters as flux bounds.
-
-    TODO: add units for species and fluxes, important for the correct update and synchronization.
-    TODO: load into multiscale model data base
-    TODO: SBO term for fluxBounds, species, ...
     """
     sbmlns = SBMLNamespaces(3, 1, "fbc", 2)
     sbmlns.addPackageNamespace("comp", 1)  # comp for port definition
@@ -199,12 +201,61 @@ def create_fba(sbml_file):
 
 
 ####################################################
+# ODE species update
+####################################################
+# model for update of species count
+def create_ode_update(sbml_file):
+    """
+        Submodel for dynamically updating the metabolite count.
+        This updates the ode model based on the FBA fluxes.
+    """
+    sbmlns = SBMLNamespaces(3, 1, 'comp', 1)
+    doc = SBMLDocument(sbmlns)
+    doc.setPackageRequired("comp", True)
+
+    # model
+    model = doc.createModel()
+    model.setId("toy_ode_update")
+    model.setName("ODE metabolite update submodel")
+    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
+    add_generic_info(model)
+
+    compartments = [
+        {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: "m3", A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
+    ]
+    create_compartments(model, compartments)
+
+    # only update the boundarySpecies in the reactions
+    species = [
+        {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
+         A_COMPARTMENT: "extern", A_BOUNDARY_CONDITION: False},
+    ]
+    create_species(model, species)
+
+    parameters = [
+        {A_ID: "vR3", A_NAME: "vR3 (FBA flux)", A_VALUE: 0.1, A_CONSTANT: True, A_UNIT: "item_per_s"}
+    ]
+    create_parameters(model, parameters)
+
+    # kinetic reaction (MMK)
+    r4 = create_reaction(model, rid="R3", name="-> C", fast=False, reversible=False,
+                         reactants={}, products={"C": 1}, formula="vR3")
+
+    comp._create_port(model, pid="vR3_port", idRef="vR3", portType=comp.PORT_TYPE_INPUT)
+    comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
+
+    # write SBML file
+    sbml_io.write_and_check(doc, sbml_file)
+
+
+####################################################
 # ODE/SSA model
 ####################################################
 def create_ode_model(sbml_file):
     """" Kinetic submodel (coupled model to FBA). """
     sbmlns = SBMLNamespaces(3, 1, 'comp', 1)
     doc = SBMLDocument(sbmlns)
+    doc.setPackageRequired("comp", True)
 
     # model
     model = doc.createModel()
@@ -245,14 +296,16 @@ def create_ode_model(sbml_file):
 ########################################################################################################################
 if __name__ == "__main__":
     # write & check sbml
-    from settings import fba_file, ode_bounds_file
+    from settings import fba_file, ode_bounds_file, ode_update_file
     from settings import ode_model_file
 
-    create_fba(fba_file)
     create_ode_bounds(ode_bounds_file)
+    create_fba(fba_file)
+    create_ode_update(ode_update_file)
     create_ode_model(ode_model_file)
 
     import multiscale.multiscalesite.simapp.db.api as db_api
-    db_api.create_model(fba_file, model_format=db_api.CompModelFormat.SBML)
     db_api.create_model(ode_bounds_file, model_format=db_api.CompModelFormat.SBML)
+    db_api.create_model(fba_file, model_format=db_api.CompModelFormat.SBML)
+    db_api.create_model(ode_update_file, model_format=db_api.CompModelFormat.SBML)
     db_api.create_model(ode_model_file, model_format=db_api.CompModelFormat.SBML)

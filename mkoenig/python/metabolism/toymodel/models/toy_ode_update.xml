@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" fbc:required="false" comp:required="true">
-  <model metaid="meta_24ff3f9598ea4a658f6391e2db88e1e8" sboTerm="SBO:0000624" id="toy_fba" name="FBA submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" comp:required="true">
+  <model metaid="meta_7d72c339f18e4724b4f3871de8518932" sboTerm="SBO:0000062" id="toy_ode_update" name="ODE metabolite update submodel" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_24ff3f9598ea4a658f6391e2db88e1e8">
+    <rdf:Description rdf:about="#meta_7d72c339f18e4724b4f3871de8518932">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -101,50 +101,24 @@
   </unitDefinition>
 </listOfUnitDefinitions><listOfCompartments>
   <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" units="m3" constant="true"/>
-  <compartment id="cell" name="cell" spatialDimensions="3" size="1" units="m3" constant="true"/>
 </listOfCompartments><listOfSpecies>
-  <species id="A" name="A" compartment="extern" initialAmount="10" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
-  <species id="C" name="C" compartment="extern" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false"/>
-  <species id="B1" name="B1" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-  <species id="B2" name="B2" compartment="cell" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+  <species id="C" name="C" compartment="extern" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
 </listOfSpecies><listOfParameters>
-  <parameter id="ub_R1" name="ub R1" value="1" units="item_per_s" constant="false"/>
-  <parameter id="lb" name="lower bound" value="0" units="item_per_s" constant="true"/>
-  <parameter id="ub" name="upper bound" value="1000" units="item_per_s" constant="true"/>
+  <parameter id="vR3" name="vR3 (FBA flux)" value="0.1" units="item_per_s" constant="true"/>
 </listOfParameters><listOfReactions>
-  <reaction id="R1" name="A import (R1)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub_R1">
-    <listOfReactants>
-      <speciesReference species="A" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="B1" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-  </reaction>
-  <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-    <listOfReactants>
-      <speciesReference species="B1" stoichiometry="1" constant="true"/>
-    </listOfReactants>
-    <listOfProducts>
-      <speciesReference species="B2" stoichiometry="1" constant="true"/>
-    </listOfProducts>
-  </reaction>
-  <reaction id="R3" name="B2 export (R3)" reversible="true" fast="false" fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-    <listOfReactants>
-      <speciesReference species="B2" stoichiometry="1" constant="true"/>
-    </listOfReactants>
+  <reaction id="R3" name="-&gt; C" reversible="false" fast="false">
     <listOfProducts>
       <speciesReference species="C" stoichiometry="1" constant="true"/>
     </listOfProducts>
+    <kineticLaw>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <ci> vR3 </ci>
+      </math>
+    </kineticLaw>
   </reaction>
-</listOfReactions><fbc:listOfObjectives fbc:activeObjective="R3_maximize">
-  <fbc:objective fbc:id="R3_maximize" fbc:type="maximize">
-    <fbc:listOfFluxObjectives>
-      <fbc:fluxObjective fbc:reaction="R3" fbc:coefficient="1"/>
-    </fbc:listOfFluxObjectives>
-  </fbc:objective>
-</fbc:listOfObjectives><comp:listOfPorts>
-  <comp:port sboTerm="SBO:0000601" comp:idRef="R3" comp:id="R3_port"/>
-  <comp:port sboTerm="SBO:0000600" comp:idRef="ub_R1" comp:id="ub_R1_port"/>
+</listOfReactions><comp:listOfPorts>
+  <comp:port sboTerm="SBO:0000600" comp:idRef="vR3" comp:id="vR3_port"/>
+  <comp:port sboTerm="SBO:0000599" comp:idRef="C" comp:id="C_port"/>
 </comp:listOfPorts>
 </model>
 </sbml>
