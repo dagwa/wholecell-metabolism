@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" comp:required="true">
-  <model metaid="meta_f229e44b90ec4cb783e40e3a05b83591" sboTerm="SBO:0000062" id="toy_comp_full" name="Combined SSA with FBA model" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
+  <model metaid="meta_784a6c3be6f04a74b4e111e1fb951ce5" sboTerm="SBO:0000062" id="toy_top_level" name="Top level model" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_f229e44b90ec4cb783e40e3a05b83591">
+    <rdf:Description rdf:about="#meta_784a6c3be6f04a74b4e111e1fb951ce5">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -43,10 +43,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T22:37:19Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-31T12:26:10Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-30T22:37:19Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-31T12:26:10Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
@@ -103,13 +103,12 @@
   <compartment id="extern" name="external compartment" spatialDimensions="3" size="1" units="m3" constant="true">
     <comp:listOfReplacedElements>
       <comp:replacedElement comp:idRef="extern" comp:submodelRef="model"/>
-      <comp:replacedElement comp:idRef="extern" comp:submodelRef="update"/>
       <comp:replacedElement comp:idRef="extern" comp:submodelRef="fba"/>
+      <comp:replacedElement comp:idRef="extern" comp:submodelRef="update"/>
     </comp:listOfReplacedElements>
   </compartment>
   <compartment id="cell" name="cell" spatialDimensions="3" size="1" units="m3" constant="true">
     <comp:listOfReplacedElements>
-      <comp:replacedElement comp:idRef="cell" comp:submodelRef="update"/>
       <comp:replacedElement comp:idRef="cell" comp:submodelRef="fba"/>
     </comp:listOfReplacedElements>
   </compartment>
@@ -121,40 +120,32 @@
     </comp:listOfReplacedElements>
   </species>
 </listOfSpecies><listOfParameters>
-  <parameter id="ub_R1" name="ub_r1" value="1" units="item_per_s" constant="false">
+  <parameter id="ub_R1" name="ub_R1" value="1" units="item_per_s" constant="false">
     <comp:listOfReplacedElements>
       <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="fba"/>
       <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="bounds"/>
     </comp:listOfReplacedElements>
   </parameter>
-  <parameter id="v_R1" name="R1 flux" value="0" units="item_per_s" constant="false">
+</listOfParameters><listOfReactions>
+  <reaction id="R3" name="R3 dummy" reversible="true" fast="false">
+    <listOfProducts>
+      <speciesReference species="C" stoichiometry="1" constant="true"/>
+    </listOfProducts>
     <comp:listOfReplacedElements>
-      <comp:replacedElement comp:idRef="v_R1" comp:submodelRef="fba"/>
-      <comp:replacedElement comp:idRef="v_R1" comp:submodelRef="update"/>
+      <comp:replacedElement comp:idRef="R3" comp:submodelRef="fba"/>
+      <comp:replacedElement comp:idRef="R3" comp:submodelRef="update"/>
     </comp:listOfReplacedElements>
-  </parameter>
-  <parameter id="v_R2" name="R2 flux" value="0" units="item_per_s" constant="false">
-    <comp:listOfReplacedElements>
-      <comp:replacedElement comp:idRef="v_R2" comp:submodelRef="fba"/>
-      <comp:replacedElement comp:idRef="v_R2" comp:submodelRef="update"/>
-    </comp:listOfReplacedElements>
-  </parameter>
-  <parameter id="v_R3" name="R3 flux" value="0" units="item_per_s" constant="false">
-    <comp:listOfReplacedElements>
-      <comp:replacedElement comp:idRef="v_R3" comp:submodelRef="fba"/>
-      <comp:replacedElement comp:idRef="v_R3" comp:submodelRef="update"/>
-    </comp:listOfReplacedElements>
-  </parameter>
-</listOfParameters><comp:listOfSubmodels>
+  </reaction>
+</listOfReactions><comp:listOfSubmodels>
   <comp:submodel sboTerm="SBO:0000062" comp:id="bounds" comp:modelRef="toy_ode_bounds"/>
+  <comp:submodel sboTerm="SBO:0000624" comp:id="fba" comp:modelRef="toy_fba"/>
   <comp:submodel sboTerm="SBO:0000062" comp:id="update" comp:modelRef="toy_ode_update"/>
   <comp:submodel sboTerm="SBO:0000062" comp:id="model" comp:modelRef="toy_ode_model"/>
-  <comp:submodel sboTerm="SBO:0000624" comp:id="fba" comp:modelRef="toy_fba"/>
 </comp:listOfSubmodels>
 </model><comp:listOfExternalModelDefinitions>
-  <comp:externalModelDefinition comp:id="toy_ode_bounds" comp:name="toy_ode_bounds" comp:source="/home/mkoenig/git/wholecell-metabolism/mkoenig/python/metabolism/toymodel/models/toy_ode_bounds.xml" comp:modelRef="toy_ode_bounds"/>
-  <comp:externalModelDefinition comp:id="toy_ode_update" comp:name="toy_ode_update" comp:source="/home/mkoenig/git/wholecell-metabolism/mkoenig/python/metabolism/toymodel/models/toy_ode_update.xml" comp:modelRef="toy_ode_update"/>
-  <comp:externalModelDefinition comp:id="toy_ode_model" comp:name="toy_ode_model" comp:source="/home/mkoenig/git/wholecell-metabolism/mkoenig/python/metabolism/toymodel/models/toy_ode_model.xml" comp:modelRef="toy_ode_model"/>
-  <comp:externalModelDefinition comp:id="toy_fba" comp:name="toy_fba" comp:source="/home/mkoenig/git/wholecell-metabolism/mkoenig/python/metabolism/toymodel/models/toy_fba.xml" comp:modelRef="toy_fba"/>
+  <comp:externalModelDefinition comp:id="toy_ode_bounds" comp:name="toy_ode_bounds" comp:source="toy_ode_bounds.xml" comp:modelRef="toy_ode_bounds"/>
+  <comp:externalModelDefinition comp:id="toy_fba" comp:name="toy_fba" comp:source="toy_fba.xml" comp:modelRef="toy_fba"/>
+  <comp:externalModelDefinition comp:id="toy_ode_update" comp:name="toy_ode_update" comp:source="toy_ode_update.xml" comp:modelRef="toy_ode_update"/>
+  <comp:externalModelDefinition comp:id="toy_ode_model" comp:name="toy_ode_model" comp:source="toy_ode_model.xml" comp:modelRef="toy_ode_model"/>
 </comp:listOfExternalModelDefinitions>
 </sbml>

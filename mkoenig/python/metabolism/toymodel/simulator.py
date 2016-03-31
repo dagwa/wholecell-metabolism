@@ -330,8 +330,8 @@ def simulate_manual(fba_sbml, comp_ode_sbml, tend=10.0, step_size=0.01, debug=Tr
 if __name__ == "__main__":
 
     # Run simulation of the hybrid model
-    from settings import comp_full_file
-    df = simulate(mixed_sbml=comp_full_file, tend=50.0, step_size=0.1)
+    from settings import top_level_file
+    df = simulate(mixed_sbml=top_level_file, tend=50.0, step_size=0.1)
     df.plot(x='time', y=['fba__R1', 'fba__R2', 'fba__R3', 'model__R4'])
     df.plot(x='time', y=['[update__A]',
                          '[update__B1]',

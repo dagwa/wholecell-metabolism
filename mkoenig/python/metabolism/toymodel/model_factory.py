@@ -193,8 +193,10 @@ def create_fba(sbml_file):
     create_objective(mplugin, oid="R3_maximize", otype="maximize", fluxObjectives={"R3": 1.0})
 
     # create ports
-    comp._create_port(model, pid="R3_port", idRef="R3", portType=comp.PORT_TYPE_OUTPUT)
-    comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_INPUT)
+    comp._create_port(model, pid="R3_port", idRef="R3", portType=comp.PORT_TYPE_PORT)
+    comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_PORT)
+    comp._create_port(model, pid="cell_port", idRef="cell", portType=comp.PORT_TYPE_PORT)
+    comp._create_port(model, pid="extern_port", idRef="extern", portType=comp.PORT_TYPE_PORT)
 
     # write SBML file
     sbml_io.write_and_check(doc_fba, sbml_file)
@@ -241,8 +243,9 @@ def create_ode_update(sbml_file):
     r4 = create_reaction(model, rid="R3", name="-> C", fast=False, reversible=False,
                          reactants={}, products={"C": 1}, formula="vR3")
 
-    comp._create_port(model, pid="vR3_port", idRef="vR3", portType=comp.PORT_TYPE_INPUT)
+    comp._create_port(model, pid="vR3_port", idRef="vR3", portType=comp.PORT_TYPE_PORT)
     comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
+    comp._create_port(model, pid="extern_port", idRef="extern", portType=comp.PORT_TYPE_PORT)
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
@@ -287,7 +290,8 @@ def create_ode_model(sbml_file):
     r4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
                          reactants={"C": 1}, products={"D": 1}, formula="k_R4*C")
 
-    comp._create_port(model, pid="C_port", idRef="C")
+    comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
+    comp._create_port(model, pid="extern_port", idRef="extern", portType=comp.PORT_TYPE_PORT)
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
@@ -299,13 +303,9 @@ if __name__ == "__main__":
     from settings import fba_file, ode_bounds_file, ode_update_file
     from settings import ode_model_file
 
-    create_ode_bounds(ode_bounds_file)
-    create_fba(fba_file)
-    create_ode_update(ode_update_file)
-    create_ode_model(ode_model_file)
+    create_ode_bounds(os.path.basename(ode_bounds_file))
+    create_fba(os.path.basename(fba_file))
+    create_ode_update(os.path.basename(ode_update_file))
+    create_ode_model(os.path.basename(ode_model_file))
 
-    import multiscale.multiscalesite.simapp.db.api as db_api
-    db_api.create_model(ode_bounds_file, model_format=db_api.CompModelFormat.SBML)
-    db_api.create_model(fba_file, model_format=db_api.CompModelFormat.SBML)
-    db_api.create_model(ode_update_file, model_format=db_api.CompModelFormat.SBML)
-    db_api.create_model(ode_model_file, model_format=db_api.CompModelFormat.SBML)
+    # TODO: create reports

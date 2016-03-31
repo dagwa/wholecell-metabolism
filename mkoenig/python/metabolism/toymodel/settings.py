@@ -15,5 +15,5 @@ ode_model_file = os.path.join(out_dir, 'toy_ode_model.xml')
 # comp ODE submodels
 comp_ode_file = os.path.join(out_dir, 'toy_comp_ode.xml')
 # comp ODE & FBA model
-comp_full_file = os.path.join(out_dir, 'toy_comp_full.xml')
+top_level_file = os.path.join(out_dir, 'toy_top_level.xml')
 

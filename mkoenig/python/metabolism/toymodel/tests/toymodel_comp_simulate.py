@@ -9,9 +9,9 @@ print(roadrunner.__version__)
 
 
 # Load model results in warnings about fbc v2
-from toymodel.settings import comp_ode_file, comp_full_file
+from toymodel.settings import comp_ode_file, top_level_file
 # rr = roadrunner.RoadRunner(comp_ode_file)
-rr = roadrunner.RoadRunner(comp_full_file)
+rr = roadrunner.RoadRunner(top_level_file)
 
 # boundary and floating species in selection
 

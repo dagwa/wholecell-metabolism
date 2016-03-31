@@ -162,7 +162,7 @@ def create_comp_full_model(sbml_file):
 
 if __name__ == "__main__":
     create_comp_ode_model(comp_ode_file)
-    create_comp_full_model(comp_full_file)
+    create_comp_full_model(top_level_file)
 
     # flatten the model
     # TODO: how to flatten with libsbml?
