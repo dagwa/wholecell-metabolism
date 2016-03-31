@@ -49,6 +49,46 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
     :param debug: additional information
     :return: pandas solution data frame
     """
+    ###############################
+    # Process FBA assignment rules
+    ###############################
+    # Necessary to find the assignment rules in the top model
+    # These cannot be set in an hybrid approach.
+    doc = libsbml.readSBMLFromFile(mixed_sbml)
+    model = doc.getModel()
+
+    def _process_mixed_assignments(model):
+        """
+        Find the assignment rules which assign to a variable a reaction rate.
+        """
+        fba_rules = {}
+
+        for rule in model.getListOfRules():
+            if not rule.isAssignment():
+                continue
+            variable = rule.getVariable()
+            formula = rule.getFormula()
+            parameter = model.getParameter(variable)
+            if not parameter:
+                continue
+            reaction = model.getReaction(formula)
+            if not reaction:
+                continue
+            fba_rules[reaction.getId()] = parameter.getId()
+        return fba_rules
+
+    fba_rules = _process_mixed_assignments(model)
+    print('FBA rules:', fba_rules)
+
+    # remove the FBA assignment rules from the model, so they can be set via the simulator
+    for variable in fba_rules.values():
+        print(variable)
+        model.removeRuleByVariable(variable)
+    import tempfile
+    mixed_sbml_cleaned = tempfile.NamedTemporaryFile("w", suffix=".xml")
+    libsbml.writeSBMLToFile(doc, mixed_sbml_cleaned.name)
+    # mixed_sbml_cleaned.close()
+
 
     ###########################
     # Load ODE model
@@ -58,11 +98,11 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
     # and fluxes).
     # Consequently the ode part can be solved as is, only the iterative update between ode and fba has
     # to be performed
-    rr_comp = roadrunner.RoadRunner(mixed_sbml)
+    rr_comp = roadrunner.RoadRunner(mixed_sbml_cleaned.name)
     sel = ['time'] \
         + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
         + ["".join(["[", item, "]"]) for item in rr_comp.model.getFloatingSpeciesIds()] \
-        + rr_comp.model.getReactionIds()
+        + rr_comp.model.getReactionIds() + fba_rules.values()
     rr_comp.timeCourseSelections = sel
     rr_comp.reset()
 
@@ -74,6 +114,9 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
     doc = libsbml.readSBMLFromFile(mixed_sbml)
     model_frameworks = comp.get_submodel_frameworks(doc)
     model = doc.getModel()
+
+    # get top level reaction ids
+    # top_level_rids = frozenset([reaction.getId() for reaction in model.getListOfReactions()])
 
     # assign submodels to FBA
     fba_models = {}
@@ -122,29 +165,7 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
             cobra_model = fba_info['cobra']
             sbml_model = fba_info['doc'].getModel()
 
-            # [1] update flux bounds based on replacement parameters
-            # the replacements are used to figure out what has to
-            # be passed between the models.
-
-            # Parameters in global:
-            # <parameter id="ub_R1" name="ub_r1" value="1" units="item_per_s" constant="false">
-            # <comp:listOfReplacedElements>
-            #     <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="fba"/>
-            #     <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="bounds"/>
-            # </comp:listOfReplacedElements>
-            # </parameter>
-
-            # Reactions in FBA:
-            #   <reaction id="R2" name="B1 &lt;-&gt; B2 (R2)" reversible="true" fast="false"
-            #       fbc:lowerFluxBound="lb" fbc:upperFluxBound="ub">
-
-            # The calculation of the replacement is only necessary once, than can be reused.
-            # Done every time for laziness right now.
-
-            # In summary, the following is happening for all bounds affecting the FBA:
-            # R1 = cobra_model.reactions.get_by_id("R1")
-            # R1.upper_bound = rr_comp['ub_R1']
-
+            # TODO: calculate once
             # which parameters are upper or lower bounds
             from collections import defaultdict
             ub_parameters = defaultdict(list)
@@ -161,6 +182,7 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
 
             # search in global parameter replacements for replacements which replace the bounds
             # of reactions
+            print("* set bounds *")
             for p in model.getListOfParameters():
                 pid = p.getId()
                 mp = p.getPlugin("comp")
@@ -178,26 +200,20 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
                             cobra_reaction.lower_bound = rr_comp[pid]
 
             # [2] optimize
+            print("* optimize *")
+            # TODO: start with last solution (speed improvement)
             cobra_model.optimize()
 
-            # [3] replace fluxes in ODE part
+            # [3] set fluxes in ODE part
+            print("* set fba fluxes in ode *")
             # based on replacements the fluxes are written in the kinetic part
             # set solution fluxes in parameters
             for (rid, flux) in cobra_model.solution.x_dict.iteritems():
-                # This is the arbitrary convention of the fluxes, i.e.
-                # R1 flux is stored in parameter v_R1
-                pid = "v_{}".format(rid)
-                # update global parameter if they are in the replacements
-                p = model.getParameter(pid)
-                # global model has parameter
-                if p:
-                    mp = p.getPlugin("comp")
-                    for rep_element in mp.getListOfReplacedElements():
-                        # the submodel of the replacement belongs to the current model
-                        if rep_element.getSubmodelRef() == fba_key:
-                            # yes the flux should be replaced in the global model
-                            print(pid, ': (flux) -> ', pid)
-                            rr_comp[pid] = flux
+                if rid in fba_rules:
+                    rr_comp[fba_rules[rid]] = flux
+                    print(rid, ':', fba_rules[rid], "=", flux)
+                else:
+                    print(rid, "no boundary flux")
 
             if debug:
                 print_flux_bounds(cobra_model)
@@ -221,6 +237,7 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
 
         # store results
         all_results.append(result[1])
+        # set the fba fluxes in the model)
         all_time.append(time)
 
         # store simulation values & get time step
@@ -244,13 +261,27 @@ if __name__ == "__main__":
     import os
 
     os.chdir(out_dir)
-    df = simulate(mixed_sbml=top_level_file, tend=50.0, step_size=0.1)
-    df.plot(x='time', y=['fba__R1', 'fba__R2', 'fba__R3', 'model__R4'])
-    df.plot(x='time', y=['[update__A]',
-                         '[update__B1]',
-                         '[update__B2]',
-                         '[C]',
-                         '[model__D]'])
+    df = simulate(mixed_sbml=top_level_file, tend=50.0, step_size=0.1, debug=True)
 
-    # TODO: save figures as files and csv (results folder)
+    # create plots (use ids from flattened model for plotting)
+    import libsbml
+    flattened_file = "flattened.xml"
+    comp.flattenSBMLFile(top_level_file, output_file=flattened_file)
+    flat_doc = libsbml.readSBMLFromFile(flattened_file)
+    flat_model = flat_doc.getModel()
+    reaction_ids = [r.getId() for r in flat_model.getListOfReactions()]
+    species_ids = ["[{}]".format(s.getId()) for s in flat_model.getListOfSpecies()]
 
+    # plot reactions
+    print(reaction_ids)
+    ax_r = df.plot(x='time', y=reaction_ids + ['vR3'])
+    fig = ax_r.get_figure()
+    fig.savefig('reactions.png')
+
+    # plot species
+    print(species_ids)
+    ax_s = df.plot(x='time', y=species_ids)
+    fig = ax_s.get_figure()
+    fig.savefig('species.png')
+
+    df.to_csv("simulation.csv", sep="\t")

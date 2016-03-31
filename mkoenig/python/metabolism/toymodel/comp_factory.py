@@ -147,4 +147,4 @@ if __name__ == "__main__":
 
     # flatten the combined model
     from multiscale.sbmlutils import comp
-    comp.flattenSBMLFile(top_level_file, output_file="flatten.xml")
+    comp.flattenSBMLFile(top_level_file, output_file="flattened.xml")
