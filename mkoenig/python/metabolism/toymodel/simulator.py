@@ -240,26 +240,17 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
 if __name__ == "__main__":
 
     # Run simulation of the hybrid model
-    from simsettings import top_level_file
+    from simsettings import top_level_file, out_dir
     import os
-    dirname = os.path.dirname(top_level_file)
-    os.chdir(dirname)
 
-    sbml_file = os.path.basename(top_level_file)
-    from multiscale.sbmlutils import comp
-    comp.flattenSBMLFile(sbml_file, output_file="flatten.xml")
-
-    rr_comp = roadrunner.RoadRunner(sbml_file)
-    exit()
-
-
-    df = simulate(mixed_sbml=sbml_file, tend=50.0, step_size=0.1)
+    os.chdir(out_dir)
+    df = simulate(mixed_sbml=top_level_file, tend=50.0, step_size=0.1)
     df.plot(x='time', y=['fba__R1', 'fba__R2', 'fba__R3', 'model__R4'])
     df.plot(x='time', y=['[update__A]',
                          '[update__B1]',
                          '[update__B2]',
-                          '[C]',
-                          '[model__D]'])
+                         '[C]',
+                         '[model__D]'])
 
     # TODO: save figures as files and csv (results folder)
 

@@ -101,7 +101,7 @@ def create_top_level_model(sbml_file):
     # --- reactions ---
     # dummy reaction in top model
     r1 = create_reaction(model, rid="R3", name="R3 dummy", fast=False, reversible=True,
-                         reactants={}, products={"C": 1})
+                         reactants={}, products={"C": 1}, compartment="extern")
     # assignment rule
     create_assignment_rules(model, [{A_ID: "vR3", A_VALUE: "R3"}])
 
@@ -133,12 +133,10 @@ def create_top_level_model(sbml_file):
         comp.replace_element_in_submodels(model, uid, ref_type=comp.SBASE_REF_TYPE_UNIT,
                                       submodels=['bounds', 'fba', 'update', 'model'])
 
-
-
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
 
-
+###########################################################################################
 if __name__ == "__main__":
     from simsettings import *
     import os

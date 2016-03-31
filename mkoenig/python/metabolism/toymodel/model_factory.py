@@ -76,6 +76,7 @@ units = {
 }
 
 UNIT_AMOUNT = UNIT_KIND_ITEM
+UNIT_AREA = 'm2'
 UNIT_VOLUME = 'm3'
 UNIT_CONCENTRATION = 'item_per_m3'
 UNIT_FLUX = 'item_per_s'
@@ -151,7 +152,8 @@ def create_fba(sbml_file):
 
     compartments = [
         {A_ID: 'extern', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_NAME: 'external compartment', A_SPATIAL_DIMENSION: 3},
-        {A_ID: 'cell', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_NAME: 'cell', A_SPATIAL_DIMENSION: 3}
+        {A_ID: 'cell', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_NAME: 'cell', A_SPATIAL_DIMENSION: 3},
+        {A_ID: 'membrane', A_VALUE: 1.0, A_UNIT: UNIT_AREA, A_NAME: 'membrane', A_SPATIAL_DIMENSION: 2}
     ]
     create_compartments(model, compartments)
 
@@ -179,11 +181,11 @@ def create_fba(sbml_file):
 
     # reactions with constant flux
     r1 = create_reaction(model, rid="R1", name="A import (R1)", fast=False, reversible=True,
-                           reactants={"A": 1}, products={"B1": 1})
+                           reactants={"A": 1}, products={"B1": 1}, compartment='membrane')
     r2 = create_reaction(model, rid="R2", name="B1 <-> B2 (R2)", fast=False, reversible=True,
-                           reactants={"B1": 1}, products={"B2": 1})
+                           reactants={"B1": 1}, products={"B2": 1}, compartment='cell')
     r3 = create_reaction(model, rid="R3", name="B2 export (R3)", fast=False, reversible=True,
-                           reactants={"B2": 1}, products={"C": 1})
+                           reactants={"B2": 1}, products={"C": 1}, compartment='membrane')
 
     # flux bounds
     set_flux_bounds(r1, lb="lb", ub="ub_R1")
@@ -242,7 +244,7 @@ def create_ode_update(sbml_file):
 
     # kinetic reaction (MMK)
     r4 = create_reaction(model, rid="R3", name="-> C", fast=False, reversible=False,
-                         reactants={}, products={"C": 1}, formula="vR3")
+                         reactants={}, products={"C": 1}, formula="vR3", compartment="extern")
 
     comp._create_port(model, pid="vR3_port", idRef="vR3", portType=comp.PORT_TYPE_PORT)
     comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
@@ -289,7 +291,7 @@ def create_ode_model(sbml_file):
 
     # kinetic reaction (MMK)
     r4 = create_reaction(model, rid="R4", name="C -> D", fast=False, reversible=False,
-                         reactants={"C": 1}, products={"D": 1}, formula="k_R4*C")
+                         reactants={"C": 1}, products={"D": 1}, formula="k_R4*C", compartment="extern")
 
     comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
     comp._create_port(model, pid="extern_port", idRef="extern", portType=comp.PORT_TYPE_PORT)
