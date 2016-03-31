@@ -14,6 +14,7 @@ import model_factory
 from multiscale.sbmlutils.factory import *
 from multiscale.sbmlutils import comp
 import multiscale.sbmlutils.sbmlio as sbml_io
+from simsettings import *
 
 
 def create_top_level_model(sbml_file):
@@ -53,14 +54,10 @@ def create_top_level_model(sbml_file):
     emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file=ode_update_file)
     emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file=ode_model_file)
     '''
-    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds",
-                                                     sbml_file=os.path.basename(ode_bounds_file))
-    emd_fba = comp.create_ExternalModelDefinition(mdoc, "toy_fba",
-                                                     sbml_file=os.path.basename(fba_file))
-    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update",
-                                                     sbml_file=os.path.basename(ode_update_file))
-    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model",
-                                                     sbml_file=os.path.basename(ode_model_file))
+    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds", sbml_file=ode_bounds_file)
+    emd_fba = comp.create_ExternalModelDefinition(mdoc, "toy_fba", sbml_file=fba_file)
+    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file=ode_update_file)
+    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file=ode_model_file)
 
     # create models and submodels
     model = doc.createModel()
@@ -138,7 +135,6 @@ def create_top_level_model(sbml_file):
 
 ###########################################################################################
 if __name__ == "__main__":
-    from simsettings import *
     import os
     os.chdir(out_dir)
 
@@ -147,4 +143,4 @@ if __name__ == "__main__":
 
     # flatten the combined model
     from multiscale.sbmlutils import comp
-    comp.flattenSBMLFile(top_level_file, output_file="flattened.xml")
+    comp.flattenSBMLFile(top_level_file, output_file=flattened_file)

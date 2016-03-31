@@ -10,6 +10,7 @@ Simulating the model.
 
 TODO: Fix the zero time point of the simulation, how to handle this correctly
 TODO: refactor all the 1 time calculations out of the iteration (replacements)
+TODO: write fba ssubmodel results in complete result vector (for plotting & visualization)
 """
 
 from __future__ import print_function, division
@@ -165,7 +166,7 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
             cobra_model = fba_info['cobra']
             sbml_model = fba_info['doc'].getModel()
 
-            # TODO: calculate once
+            # TODO: calculate once (not required in loop)
             # which parameters are upper or lower bounds
             from collections import defaultdict
             ub_parameters = defaultdict(list)
@@ -238,6 +239,8 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
         # store results
         all_results.append(result[1])
         # set the fba fluxes in the model)
+        # TODO: the fba fluxes are not set in the full kinetic result (shown as zero)
+        #   these have to be set with the mapping between comp and flattened model
         all_time.append(time)
 
         # store simulation values & get time step
@@ -253,20 +256,17 @@ def simulate(mixed_sbml, tend=10.0, step_size=0.1, debug=False):
     print(df)
     return df
 
-########################################################################################################################
-if __name__ == "__main__":
 
+def simulate_toy_model(tend=50.0, step_size=0.1):
     # Run simulation of the hybrid model
-    from simsettings import top_level_file, out_dir
+    from simsettings import top_level_file, flattened_file, out_dir
     import os
 
     os.chdir(out_dir)
-    df = simulate(mixed_sbml=top_level_file, tend=50.0, step_size=0.1, debug=True)
+    df = simulate(mixed_sbml=top_level_file, tend=tend, step_size=step_size, debug=True)
 
     # create plots (use ids from flattened model for plotting)
     import libsbml
-    flattened_file = "flattened.xml"
-    comp.flattenSBMLFile(top_level_file, output_file=flattened_file)
     flat_doc = libsbml.readSBMLFromFile(flattened_file)
     flat_model = flat_doc.getModel()
     reaction_ids = [r.getId() for r in flat_model.getListOfReactions()]
@@ -285,3 +285,10 @@ if __name__ == "__main__":
     fig.savefig('species.png')
 
     df.to_csv("simulation.csv", sep="\t")
+
+
+
+########################################################################################################################
+if __name__ == "__main__":
+    simulate_toy_model(tend=50.0, step_size=0.1)
+
