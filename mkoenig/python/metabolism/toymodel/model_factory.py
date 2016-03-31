@@ -197,6 +197,7 @@ def create_fba(sbml_file):
     comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_PORT)
     comp._create_port(model, pid="cell_port", idRef="cell", portType=comp.PORT_TYPE_PORT)
     comp._create_port(model, pid="extern_port", idRef="extern", portType=comp.PORT_TYPE_PORT)
+    comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
 
     # write SBML file
     sbml_io.write_and_check(doc_fba, sbml_file)
@@ -205,7 +206,6 @@ def create_fba(sbml_file):
 ####################################################
 # ODE species update
 ####################################################
-# model for update of species count
 def create_ode_update(sbml_file):
     """
         Submodel for dynamically updating the metabolite count.

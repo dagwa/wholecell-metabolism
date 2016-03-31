@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" comp:required="true">
-  <model metaid="meta_784a6c3be6f04a74b4e111e1fb951ce5" sboTerm="SBO:0000062" id="toy_top_level" name="Top level model" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
+  <model metaid="meta_2d44bc60a0d144cbaaafae368e96f316" sboTerm="SBO:0000062" id="toy_top_level" name="Top level model" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Toy Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_784a6c3be6f04a74b4e111e1fb951ce5">
+    <rdf:Description rdf:about="#meta_2d44bc60a0d144cbaaafae368e96f316">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -43,10 +43,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-31T12:26:10Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-31T13:26:06Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-03-31T12:26:10Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-03-31T13:26:06Z</dcterms:W3CDTF>
       </dcterms:modified>
     </rdf:Description>
   </rdf:RDF>
@@ -116,6 +116,7 @@
   <species id="C" name="C" compartment="extern" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false">
     <comp:listOfReplacedElements>
       <comp:replacedElement comp:idRef="C" comp:submodelRef="model"/>
+      <comp:replacedElement comp:idRef="C" comp:submodelRef="fba"/>
       <comp:replacedElement comp:idRef="C" comp:submodelRef="update"/>
     </comp:listOfReplacedElements>
   </species>
@@ -126,15 +127,23 @@
       <comp:replacedElement comp:idRef="ub_R1" comp:submodelRef="bounds"/>
     </comp:listOfReplacedElements>
   </parameter>
-</listOfParameters><listOfReactions>
+  <parameter id="vR3" name="vR3 (FBA flux)" value="0.1" units="item_per_s" constant="false">
+    <comp:listOfReplacedElements>
+      <comp:replacedElement comp:idRef="vR3" comp:submodelRef="update"/>
+    </comp:listOfReplacedElements>
+  </parameter>
+</listOfParameters><listOfRules>
+  <assignmentRule variable="vR3">
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <ci> R3 </ci>
+    </math>
+  </assignmentRule>
+</listOfRules><listOfReactions>
   <reaction id="R3" name="R3 dummy" reversible="true" fast="false">
     <listOfProducts>
       <speciesReference species="C" stoichiometry="1" constant="true"/>
     </listOfProducts>
-    <comp:listOfReplacedElements>
-      <comp:replacedElement comp:idRef="R3" comp:submodelRef="fba"/>
-      <comp:replacedElement comp:idRef="R3" comp:submodelRef="update"/>
-    </comp:listOfReplacedElements>
+    <comp:replacedBy comp:idRef="R3" comp:submodelRef="fba"/>
   </reaction>
 </listOfReactions><comp:listOfSubmodels>
   <comp:submodel sboTerm="SBO:0000062" comp:id="bounds" comp:modelRef="toy_ode_bounds"/>

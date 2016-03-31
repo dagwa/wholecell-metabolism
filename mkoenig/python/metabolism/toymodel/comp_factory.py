@@ -131,18 +131,13 @@ def create_comp_full_model(sbml_file):
         {A_ID: "extern", A_NAME: "external compartment", A_VALUE: 1.0, A_SPATIAL_DIMENSION: 3, A_UNIT: model_factory.UNIT_VOLUME},
         {A_ID: 'cell', A_NAME: 'cell', A_VALUE: 1.0, A_SPATIAL_DIMENSION: 3, A_UNIT: model_factory.UNIT_VOLUME}
     ])
-    # replace extern
+    # replace compartments
     comp.replace_elements(model, 'extern', {
                                             'fba': ['extern'],
                                             'update': ['extern'],
                                             'model': ['extern'],
                                             })
-    # comp._create_port(model, pid="extern_port", idRef="extern", portType=comp.PORT_TYPE_PORT)
-    # replace cell
-    comp.replace_elements(model, 'cell', {
-                                            'fba': ['cell'],
-                                          })
-    # comp._create_port(model, pid="cell_port", idRef="cell", portType=comp.PORT_TYPE_PORT)
+    comp.replace_elements(model, 'cell', {'fba': ['cell']})
 
     #############################
     # species
@@ -154,39 +149,41 @@ def create_comp_full_model(sbml_file):
         {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: model_factory.UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
          A_COMPARTMENT: "extern"},
     ])
-    # replace C
+    # replace species
     comp.replace_elements(model, 'C', {
+                                        'fba': ['C'],
                                         'update': ['C'],
                                         'model': ['C'],
                                        })
-    # comp._create_port(model, pid="C_port", idRef="C", portType=comp.PORT_TYPE_PORT)
 
     #############################
     # parameters
     #############################
     create_parameters(model, [
         # bounds
-        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: model_factory.UNIT_FLUX,
-         A_NAME: 'ub_R1', A_CONSTANT: False},
+        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: model_factory.UNIT_FLUX, A_NAME: 'ub_R1', A_CONSTANT: False},
+        {A_ID: "vR3", A_NAME: "vR3 (FBA flux)", A_VALUE: 0.1, A_UNIT: model_factory.UNIT_FLUX, A_CONSTANT: False}
     ])
     # bounds -> fba
     comp.replace_elements(model, 'ub_R1', {
                                             'bounds': ['ub_R1'],
                                             'fba': ['ub_R1'],
                                            })
-    # comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_PORT)
+    comp.replace_elements(model, 'vR3', {
+        'update': ['vR3'],
+    })
+
 
     #############################
     # reactions
     #############################
+    # Create dummy reaction in top model
     r1 = create_reaction(model, rid="R3", name="R3 dummy", fast=False, reversible=True,
                          reactants={}, products={"C": 1})
-    # fba -> update
-    comp.replace_elements(model, 'R3', {
-                                        'fba': ['R3'],
-                                        'update': ['R3']
-                                        })
-    # comp._create_port(model, pid="R3_port", idRef="R3", portType=comp.PORT_TYPE_PORT)
+    # replaced by fba reaction
+    comp.replaced_by(model, 'R3', submodel_id='fba', idRef="R3")
+    # assignment rule
+    create_assignment_rules(model, [{A_ID: "vR3", A_VALUE: "R3"}])
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
