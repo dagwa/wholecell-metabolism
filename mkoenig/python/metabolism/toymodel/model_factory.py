@@ -112,6 +112,8 @@ def create_ode_bounds(sbml_file):
     ]
     create_rate_rules(model, rate_rules)
 
+    # TODO: add the ports
+
     sbml_io.write_and_check(doc, sbml_file)
 
 
@@ -189,13 +191,8 @@ def create_fba(sbml_file):
     create_objective(mplugin, oid="R3_maximize", otype="maximize", fluxObjectives={"R3": 1.0})
 
     # create ports
-    # <comp:listOfPorts>
-    #   <comp:port comp:id="R3_port" comp:idRef="R3" sboTerm="SBO:0000599"/>
-    #  <comp:port comp:id="r1_port_1" comp:idRef="r1" sboTerm="SBO:0000599"/>
-    # </comp:listOfPorts>
-    comp._create_port(model, pid="R3_port", idRef="R3")
-    comp._create_port(model, pid="r1_port_1", idRef="ub_R1")
-
+    comp._create_port(model, pid="R3_port", idRef="R3", portType=comp.PORT_TYPE_OUTPUT)
+    comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_INPUT)
 
     # write SBML file
     sbml_io.write_and_check(doc_fba, sbml_file)
