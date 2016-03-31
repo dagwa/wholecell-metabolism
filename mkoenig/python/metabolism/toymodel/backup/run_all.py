@@ -26,7 +26,7 @@ db_api.create_model(ode_model_file, model_format=db_api.CompModelFormat.SBML)
 # Create comp models
 ###########################################
 comp_factory.create_comp_ode_model(comp_ode_file)
-comp_factory.create_comp_full_model(top_level_file)
+comp_factory.create_top_level_model(top_level_file)
 
 db_api.create_model(comp_ode_file, model_format=db_api.CompModelFormat.SBML)
 db_api.create_model(top_level_file, model_format=db_api.CompModelFormat.SBML)

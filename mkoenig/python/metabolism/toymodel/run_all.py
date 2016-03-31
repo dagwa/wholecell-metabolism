@@ -1,7 +1,7 @@
 """
 Create all files and run the simulations.
 """
-from settings import *
+from simsettings import *
 import model_factory
 import comp_factory
 import simulator
@@ -12,32 +12,21 @@ import multiscale.multiscalesite.simapp.db.api as db_api
 ###########################################
 model_factory.create_fba(fba_file)
 model_factory.create_ode_bounds(ode_bounds_file)
-model_factory.create_ode_update(ode_update_file, fba_file)
+model_factory.create_ode_update(ode_update_file)
 model_factory.create_ode_model(ode_model_file)
-
-# store in local database & report
-db_api.create_model(fba_file, model_format=db_api.CompModelFormat.SBML)
-db_api.create_model(ode_bounds_file, model_format=db_api.CompModelFormat.SBML)
-db_api.create_model(ode_update_file, model_format=db_api.CompModelFormat.SBML)
-db_api.create_model(ode_model_file, model_format=db_api.CompModelFormat.SBML)
-
 
 ###########################################
 # Create comp models
 ###########################################
-comp_factory.create_comp_ode_model(comp_ode_file)
-comp_factory.create_comp_full_model(top_level_file)
-
-db_api.create_model(comp_ode_file, model_format=db_api.CompModelFormat.SBML)
-db_api.create_model(top_level_file, model_format=db_api.CompModelFormat.SBML)
+comp_factory.create_top_level_model(top_level_file)
 
 
 ###########################################
 # Simulate the comp models
 ###########################################
 # comp_ode & fba (Simulate via manual connection approach)
-df_test = simulator.simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
-                                    tend=50.0, step_size=0.1, debug=False)
+# df_test = simulator.simulate_manual(fba_sbml=fba_file, comp_ode_sbml=comp_ode_file,
+#                                    tend=50.0, step_size=0.1, debug=False)
 
 # simulate the complete model
 df = simulator.simulate(mixed_sbml=top_level_file, tend=50.0, step_size=0.1)

@@ -131,12 +131,13 @@ def create_fba(sbml_file):
     Create the fba model.
     FBA submodel in FBC v2 which uses parameters as flux bounds.
     """
-    sbmlns = SBMLNamespaces(3, 1, "fbc", 2)
-    sbmlns.addPackageNamespace("comp", 1)  # comp for port definition
+    sbmlns = SBMLNamespaces(3, 1)
+    sbmlns.addPackageNamespace("fbc", 2)
+    sbmlns.addPackageNamespace("comp", 1)
+
     doc_fba = SBMLDocument(sbmlns)
     doc_fba.setPackageRequired("comp", True)
     mdoc = doc_fba.getPlugin("comp")
-
     doc_fba.setPackageRequired("fbc", False)
     model = doc_fba.createModel()
     mplugin = model.getPlugin("fbc")
@@ -299,13 +300,14 @@ def create_ode_model(sbml_file):
 
 ########################################################################################################################
 if __name__ == "__main__":
-    # write & check sbml
-    from settings import fba_file, ode_bounds_file, ode_update_file
-    from settings import ode_model_file
+    from simsettings import *
+    import os
+    os.chdir(out_dir)
 
-    create_ode_bounds(os.path.basename(ode_bounds_file))
-    create_fba(os.path.basename(fba_file))
-    create_ode_update(os.path.basename(ode_update_file))
-    create_ode_model(os.path.basename(ode_model_file))
+    # write & check sbml
+    create_ode_bounds(ode_bounds_file)
+    create_fba(fba_file)
+    create_ode_update(ode_update_file)
+    create_ode_model(ode_model_file)
 
     # TODO: create reports

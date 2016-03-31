@@ -9,63 +9,14 @@ simulated with which simulation environment.
 """
 from __future__ import print_function
 from libsbml import *
-from settings import *
 
 import model_factory
-import multiscale.sbmlutils.comp as comp
 from multiscale.sbmlutils.factory import *
+from multiscale.sbmlutils import comp
 import multiscale.sbmlutils.sbmlio as sbml_io
 
 
-def create_comp_ode_model(sbml_file):
-    """
-    Creates the ODE/SSA comp model.
-    These are all the ode submodels combined without the FBA part.
-    """
-    sbmlns = SBMLNamespaces(3, 1, "comp", 1)
-    doc = SBMLDocument(sbmlns)
-    doc.setPackageRequired("comp", True)
-    mdoc = doc.getPlugin("comp")
-
-    # create listOfExternalModelDefinitions
-    # absolute file path for model resolving essential !
-    emd_bounds = comp.create_ExternalModelDefinition(mdoc, "toy_ode_bounds", sbml_file=ode_bounds_file)
-    emd_update = comp.create_ExternalModelDefinition(mdoc, "toy_ode_update", sbml_file=ode_update_file)
-    emd_model = comp.create_ExternalModelDefinition(mdoc, "toy_ode_model", sbml_file=ode_model_file)
-
-    # create models and submodels
-    model = doc.createModel()
-    model.setId("toy_top_level")
-    model.setName("Top level model")
-    model_factory.add_generic_info(model)
-    model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
-    mplugin = model.getPlugin("comp")
-
-    # add listOfSubmodels which reference the External models
-    comp.add_submodel_from_emd(mplugin, submodel_sid="bounds", emd=emd_bounds)
-    comp.add_submodel_from_emd(mplugin, submodel_sid="update", emd=emd_update)
-    comp.add_submodel_from_emd(mplugin, submodel_sid="model", emd=emd_model)
-
-    # replace compartment
-    create_compartments(model, [{
-        A_ID: "extern", A_NAME: "external compartment", A_SPATIAL_DIMENSION: 3, A_VALUE: 1.0,
-        A_UNIT: model_factory.UNIT_VOLUME
-    }])
-    comp.replace_compartment(model, 'extern', ['model', 'update'])
-
-    # replace species
-    create_species(model, [{
-        A_ID: "C", A_NAME: "C", A_VALUE: 0.0, A_COMPARTMENT: "extern",
-        A_CONSTANT: False, A_BOUNDARY_CONDITION: False, A_UNIT: model_factory.UNIT_AMOUNT,
-        A_HAS_ONLY_SUBSTANCE_UNITS: True
-    }])
-    comp.replace_species(model, 'C', ['model', 'update'])
-
-    # write SBML file
-    sbml_io.write_and_check(doc, sbml_file)
-
-
-def create_comp_full_model(sbml_file):
+def create_top_level_model(sbml_file):
     """
     Creates the full comp model as combination of FBA and comp models.
 
@@ -91,6 +42,7 @@ def create_comp_full_model(sbml_file):
     sbmlns = SBMLNamespaces(3, 1, "comp", 1)
     doc = SBMLDocument(sbmlns)
     doc.setPackageRequired("comp", True)
+    doc.setPackageRequired("fbc", False)
 
     mdoc = doc.getPlugin("comp")
 
@@ -124,24 +76,13 @@ def create_comp_full_model(sbml_file):
     comp.add_submodel_from_emd(mplugin, submodel_sid="update", emd=emd_update)
     comp.add_submodel_from_emd(mplugin, submodel_sid="model", emd=emd_model)
 
-    #############################
-    # compartments
-    #############################
+    # --- compartments ---
     create_compartments(model, [
         {A_ID: "extern", A_NAME: "external compartment", A_VALUE: 1.0, A_SPATIAL_DIMENSION: 3, A_UNIT: model_factory.UNIT_VOLUME},
         {A_ID: 'cell', A_NAME: 'cell', A_VALUE: 1.0, A_SPATIAL_DIMENSION: 3, A_UNIT: model_factory.UNIT_VOLUME}
     ])
-    # replace compartments
-    comp.replace_elements(model, 'extern', {
-                                            'fba': ['extern'],
-                                            'update': ['extern'],
-                                            'model': ['extern'],
-                                            })
-    comp.replace_elements(model, 'cell', {'fba': ['cell']})
 
-    #############################
-    # species
-    #############################
+    # --- species ---
     # replaced species
     # (fba species are not replaced, because they need their boundaryConditions for the FBA,
     #    and do not depend on the actual concentrations)
@@ -149,56 +90,63 @@ def create_comp_full_model(sbml_file):
         {A_ID: 'C', A_NAME: "C", A_VALUE: 0, A_UNIT: model_factory.UNIT_AMOUNT, A_HAS_ONLY_SUBSTANCE_UNITS: True,
          A_COMPARTMENT: "extern"},
     ])
-    # replace species
-    comp.replace_elements(model, 'C', {
-                                        'fba': ['C'],
-                                        'update': ['C'],
-                                        'model': ['C'],
-                                       })
 
-    #############################
-    # parameters
-    #############################
+    # --- parameters ---
     create_parameters(model, [
         # bounds
         {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: model_factory.UNIT_FLUX, A_NAME: 'ub_R1', A_CONSTANT: False},
         {A_ID: "vR3", A_NAME: "vR3 (FBA flux)", A_VALUE: 0.1, A_UNIT: model_factory.UNIT_FLUX, A_CONSTANT: False}
     ])
-    # bounds -> fba
-    comp.replace_elements(model, 'ub_R1', {
-                                            'bounds': ['ub_R1'],
-                                            'fba': ['ub_R1'],
-                                           })
-    comp.replace_elements(model, 'vR3', {
-        'update': ['vR3'],
-    })
 
-
-    #############################
-    # reactions
-    #############################
-    # Create dummy reaction in top model
+    # --- reactions ---
+    # dummy reaction in top model
     r1 = create_reaction(model, rid="R3", name="R3 dummy", fast=False, reversible=True,
                          reactants={}, products={"C": 1})
-    # replaced by fba reaction
-    comp.replaced_by(model, 'R3', submodel_id='fba', idRef="R3")
     # assignment rule
     create_assignment_rules(model, [{A_ID: "vR3", A_VALUE: "R3"}])
+
+    # --- replacements ---
+    # replace compartments
+    comp.replace_elements(model, 'extern', ref_type=comp.SBASE_REF_TYPE_PORT,
+                          replaced_elements={'fba': ['extern_port'], 'update': ['extern_port'], 'model': ['extern_port']})
+
+    comp.replace_elements(model, 'cell', ref_type=comp.SBASE_REF_TYPE_PORT,
+                          replaced_elements={'fba': ['cell_port']})
+
+    # replace parameters
+    comp.replace_elements(model, 'ub_R1', ref_type=comp.SBASE_REF_TYPE_PORT,
+                          replaced_elements={'bounds': ['ub_R1_port'], 'fba': ['ub_R1_port']})
+    comp.replace_elements(model, 'vR3', ref_type=comp.SBASE_REF_TYPE_PORT,
+                          replaced_elements={'update': ['vR3_port']})
+
+    # replace species
+    comp.replace_elements(model, 'C', ref_type=comp.SBASE_REF_TYPE_PORT,
+                          replaced_elements={'fba': ['C_port'], 'update': ['C_port'],
+                                             'model': ['C_port']})
+
+    # replace reaction by fba reaction
+    comp.replaced_by(model, 'R3', ref_type=comp.SBASE_REF_TYPE_PORT,
+                     submodel='fba', replaced_by="R3_port")
+
+    # replace units
+    for uid in ['s', 'kg', 'm3', 'm2', 'mM', 'item_per_m3', 'm', 'per_s', 'item_per_s']:
+        comp.replace_element_in_submodels(model, uid, ref_type=comp.SBASE_REF_TYPE_UNIT,
+                                      submodels=['bounds', 'fba', 'update', 'model'])
+
+
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
 
 
 if __name__ == "__main__":
-    # create_comp_ode_model(comp_ode_file)
-    create_comp_full_model(os.path.basename(top_level_file))
+    from simsettings import *
+    import os
+    os.chdir(out_dir)
 
-    # move files to model
-    import shutil
-    shutil.move(os.path.basename(top_level_file), top_level_file)
+    # create top comp model
+    create_top_level_model(top_level_file)
 
-    shutil.move(os.path.basename(ode_bounds_file), ode_bounds_file)
-    shutil.move(os.path.basename(fba_file), fba_file)
-    shutil.move(os.path.basename(ode_update_file), ode_update_file)
-    shutil.move(os.path.basename(ode_model_file), ode_model_file)
-
+    # flatten the combined model
+    from multiscale.sbmlutils import comp
+    comp.flattenSBMLFile(top_level_file, output_file="flatten.xml")
