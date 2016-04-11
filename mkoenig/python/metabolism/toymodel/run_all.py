@@ -2,11 +2,12 @@
 Create all files and run the simulations.
 """
 from __future__ import print_function, division
+from sbmlutils import comp
+from simulator import simulate_toy_model
 from simsettings import *
 import model_factory
 import comp_factory
-from multiscale.sbmlutils import comp
-from simulator import simulate_toy_model
+
 import os
 
 os.chdir(out_dir)  # set working dir to models
