@@ -19,7 +19,7 @@ import pandas as pd
 from pandas import DataFrame
 import roadrunner
 import cobra
-import multiscale.sbmlutils.comp as comp
+import sbmlutils.comp as comp
 
 print(roadrunner.__version__)
 print(cobra.__version__)

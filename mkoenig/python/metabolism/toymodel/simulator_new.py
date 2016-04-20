@@ -16,77 +16,90 @@ TODO: write fba ssubmodel results in complete result vector (for plotting & visu
 from __future__ import print_function, division
 import libsbml
 import pandas as pd
-from pandas import DataFrame
 import roadrunner
 import cobra
+
+from pandas import DataFrame
 import sbmlutils.comp as comp
 import numpy
 import warnings
 
+from collections import defaultdict
+
+#################################################
 MODEL_FRAMEWORK_FBA = 'fba'
 MODEL_FRAMEWORK_ODE = 'ode'
 MODEL_FRAMEWORK_STOCHASTIC = 'stochastic'
 MODEL_FRAMEWORK_LOGICAL = 'logical'
 
+MODEL_FRAMEWORKS = [
+    MODEL_FRAMEWORK_FBA,
+    MODEL_FRAMEWORK_ODE,
+    MODEL_FRAMEWORK_STOCHASTIC,
+    MODEL_FRAMEWORK_LOGICAL,
+]
+#################################################
+
+class FBAModel(object):
+    """ Handling FBA models
+
+    """
+    def __init__(self, fba_doc):
+        self.fba_doc = fba_doc
+        self.fba_model = fba_doc.getModel()
+
+        # bounds are mappings from parameters to reactions
+        #       parameter_id -> [rid1, rid2, ...]
+        self.ub_parameters = defaultdict(list)
+        self.lb_parameters = defaultdict(list)
+        self.process_bounds()
+
+    def process_bounds(self):
+        """  Determine which parameters are upper or lower bounds.
+        :return:
+        :rtype:
+        """
+        for r in self.fba_model.getListOfReactions():
+            mr = r.getPlugin("fbc")
+            rid = r.getId()
+            if mr.isSetUpperFluxBound():
+                self.ub_parameters[mr.getUpperFluxBound()].append(rid)
+            if mr.isSetLowerFluxBound():
+                self.lb_parameters[mr.getLowerFluxBound()].append(rid)
+
 
 class Simulator(object):
+    """ Simulator class to simulate hybrid models.
 
-    def __init__(self, sbml_top):
-        """ Create the simulator with the top level SBML file. """
-        self.sbml_top = sbml_top
+    The simulator is initialized with the top level sbml file.
+    """
+
+    def __init__(self, top_level_file):
+        """ Create the simulator with the top level SBML file.
+
+        The models are resolved to their respective simulation framework.
+        The top level network must be an ode network.
+        """
+        self.sbml_top = top_level_file
         # read top level model
         self.doc_top = libsbml.readSBMLFromFile(self.sbml_top)
         self.model_top = self.doc_top.getModel()
         self.framework_top = self.get_framework(self.model_top)
+        if self.framework_top is not MODEL_FRAMEWORK_ODE:
+            warnings.warn("The top level model framework is not ode: {}".format(self.framework_top))
 
-        self.models_ode = []
-        self.models_fba = []
-        self.models_stochastic = []
-        self.models_logical = []
+        self.submodels = defaultdict(list)
 
         # memory for synchronization between models
         self.global_data = {}
-
-    def __str__(self):
-        """ Information string. """
-        print(self.doc_top, self.framework_top)
-        print('* ode *')
-        print(self.models_ode)
-
-        print('* fba *')
-        print(self.models_fba)
-
-        print('* stochastic *')
-        print(self.models_stochastic)
-
-        print('* stochastic *')
-        print(self.models_logical)
-
-    def _process_mixed_assignments(model):
-        """ Find the assignment rules which assign to a variable a reaction rate.
-
-        This are the assignment rules synchronizing between FBA and ODE models.
-        """
-        fba_rules = {}
-
-        for rule in model.getListOfRules():
-            if not rule.isAssignment():
-                continue
-            variable = rule.getVariable()
-            formula = rule.getFormula()
-            parameter = model.getParameter(variable)
-            if not parameter:
-                continue
-            reaction = model.getReaction(formula)
-            if not reaction:
-                continue
-            fba_rules[reaction.getId()] = parameter.getId()
-        return fba_rules
+        self._process_top_level()
 
     @staticmethod
     def get_framework(model):
         """ Get the framework for the given model/submodel object.
         Terms from the SBO modelling framework.
+
+        This is the sbo which is set on the respective model/submodel element
 
         :param model:
         :return:
@@ -106,8 +119,18 @@ class Simulator(object):
                 warnings.warn("Modelling Framework not supported: {}".format(sbo))
         return framework
 
+    def __str__(self):
+        """ Information string. """
+        # top level
+        print('-' * 80)
+        print(self.doc_top, self.framework_top)
+        print('-' * 80)
+        # submodels
+        for framework in MODEL_FRAMEWORKS:
+            print("{:<10} : {}".format(framework, self.submodels[framework]))
+        print('-' * 80)
 
-    def process_top_level(self):
+    def _process_top_level(self):
         """ Process the top level information.
 
         Reads all the submodels, creates the global data structure.
@@ -115,52 +138,29 @@ class Simulator(object):
 
         :return:
         """
-
         # get list of submodels
-        model = doc.getModel()
+        model = self.doc_top.getModel()
+        if model is None:
+            warnings.warn("No top level model found.")
 
-
-        # This is the sbo which is set on the submodel element
-        # not the SBO which is set on the model in listOfModels or
-        # listOfExternalModels
-
-        # Get to level framework
-        self.framework_top = Simulator.get_framework(self.model_top)
-
-        # Get submodel frameworks
+        # Get submodel frameworks & store in respective list
         top_plugin = self.model_top.getPlugin("comp")
         for submodel in top_plugin.getListOfSubmodels():
+            # models are processed in the order they are listed in the listOfSubmodels
             framework = Simulator.get_framework(submodel)
-            if framework == MODEL_FRAMEWORK_FBA:
-                self.models_fba.append(submodel)
-            elif framework == MODEL_FRAMEWORK_ODE:
-                self.models_ode.append(submodel)
-            elif framework == MODEL_FRAMEWORK_STOCHASTIC:
-                self.models_stochastic.append(submodel)
-            elif framework == MODEL_FRAMEWORK_LOGICAL:
-                self.models_logical.append(framework)
+            self.submodels[framework].append(submodel)
 
-            sid = submodel.getId()
-            sbo = None
-            if submodel.isSetSBOTerm():
-                # This is the sbo which is set on the submodel element
-                # not the SBO which is set on the model in listOfModels or
-                # listOfExternalModels
-                sbo = submodel.getSBOTerm()
-            frameworks[sid] = {"sid": sid, "modelRef": submodel.getModelRef(), "sbo": sbo}
+        print(self.__str__())
 
 
+    def _prepare_models(self):
+        """ Prepare the models for simulation.
 
-        # Read model
-        # via the submodels information it is decided which submodels are belonging to which
-        # modeling framework (SBOTerms on submodel)
-        doc = libsbml.readSBMLFromFile(mixed_sbml)
-        model_frameworks = comp.get_submodel_frameworks(doc)
-        model = doc.getModel()
-
-        # get top level reaction ids
-        # top_level_rids = frozenset([reaction.getId() for reaction in model.getListOfReactions()])
-
+        :return:
+        :rtype:
+        """
+        pass
+        '''
         # assign submodels to FBA
         fba_models = {}
         for key, value in model_frameworks.iteritems():
@@ -187,8 +187,6 @@ class Simulator(object):
 
         # submodels handled by FBA
         print(fba_models)
-
-
 
         # process FBA assignment rules
         # Necessary to find the assignment rules in the top model
@@ -261,7 +259,28 @@ class Simulator(object):
 
         # submodels handled by FBA
         print(fba_models)
+        '''
 
+    def _process_mixed_assignments(model):
+        """ Find the assignment rules which assign to a variable a reaction rate.
+
+        This are the assignment rules synchronizing between FBA and ODE models.
+        """
+        fba_rules = {}
+
+        for rule in model.getListOfRules():
+            if not rule.isAssignment():
+                continue
+            variable = rule.getVariable()
+            formula = rule.getFormula()
+            parameter = model.getParameter(variable)
+            if not parameter:
+                continue
+            reaction = model.getReaction(formula)
+            if not reaction:
+                continue
+            fba_rules[reaction.getId()] = parameter.getId()
+        return fba_rules
 
     @staticmethod
     def print_flux_bounds(model):
@@ -274,8 +293,7 @@ class Simulator(object):
         print(df)
         pd.reset_option('display.max_rows')
 
-
-    def simulate(tstart=0.0, tend=10.0, step_size=0.1, debug=False):
+    def simulate(self, tstart=0.0, tend=10.0, step_size=0.1, debug=False):
         """
         Performs model simulation.
 
@@ -283,7 +301,6 @@ class Simulator(object):
         simulation/modelling framework to use.
         The passing of information between FBA and SSA/ODE is based on the list of replacements.
         """
-
 
         ###########################
         # Simulation
@@ -305,23 +322,10 @@ class Simulator(object):
                 cobra_model = fba_info['cobra']
                 sbml_model = fba_info['doc'].getModel()
 
-                # TODO: calculate once (not required in loop)
-                # which parameters are upper or lower bounds
-                from collections import defaultdict
-                ub_parameters = defaultdict(list)
-                lb_parameters = defaultdict(list)
-                for r in sbml_model.getListOfReactions():
-                    mr = r.getPlugin("fbc")
-                    rid = r.getId()
-                    if mr.isSetUpperFluxBound():
-                        ub_parameters[mr.getUpperFluxBound()].append(rid)
-                    if mr.isSetLowerFluxBound():
-                        lb_parameters[mr.getLowerFluxBound()].append(rid)
-                print(ub_parameters)
-                print(lb_parameters)
 
                 # search in global parameter replacements for replacements which replace the bounds
                 # of reactions
+                # TODO: calculate the replacements only once
                 print("* set bounds *")
                 for p in model.getListOfParameters():
                     pid = p.getId()
@@ -394,48 +398,61 @@ class Simulator(object):
         df.time = all_time
         print(df)
         return df
+        '''
 
+    def plot_species(self, df, path="species.png"):
+        """ Plot species.
 
-def simulate_toy_model(tend=50.0, step_size=0.1):
-    """
-    The simulator has to be more unspecific.
+        :param df:
+        :type df:
+        :return:
+        :rtype:
+        """
+        # create plots (use ids from flattened model for plotting)
+        flat_doc = libsbml.readSBMLFromFile(flattened_file)
+        flat_model = flat_doc.getModel()
+        species_ids = ["[{}]".format(s.getId()) for s in flat_model.getListOfSpecies()]
 
-    :param tend:
-    :param step_size:
-    :return:
-    """
+        print(species_ids)
 
-    # Run simulation of the hybrid model
-    from simsettings import top_level_file, flattened_file, out_dir
-    import os
+        ax_s = df.plot(x='time', y=species_ids)
+        fig = ax_s.get_figure()
+        fig.savefig(path)
 
-    os.chdir(out_dir)
-    df = simulate(mixed_sbml=top_level_file, tend=tend, step_size=step_size, debug=True)
+    def plot_reactions(self, df, path="reactions.png"):
+        """ Plot reactions.
 
-    # create plots (use ids from flattened model for plotting)
-    import libsbml
-    flat_doc = libsbml.readSBMLFromFile(flattened_file)
-    flat_model = flat_doc.getModel()
-    reaction_ids = [r.getId() for r in flat_model.getListOfReactions()]
-    species_ids = ["[{}]".format(s.getId()) for s in flat_model.getListOfSpecies()]
+        :param df:
+        :type df:
+        :return:
+        :rtype:
+        """
+        flat_doc = libsbml.readSBMLFromFile(flattened_file)
+        flat_model = flat_doc.getModel()
+        reaction_ids = [r.getId() for r in flat_model.getListOfReactions()]
 
-    # plot reactions
-    print(reaction_ids)
-    ax_r = df.plot(x='time', y=reaction_ids + ['vR3'])
-    fig = ax_r.get_figure()
-    fig.savefig('reactions.png')
+        # plot reactions
+        print(reaction_ids)
+        ax_r = df.plot(x='time', y=reaction_ids + ['vR3'])
+        fig = ax_r.get_figure()
+        fig.savefig(path)
 
-    # plot species
-    print(species_ids)
-    ax_s = df.plot(x='time', y=species_ids)
-    fig = ax_s.get_figure()
-    fig.savefig('species.png')
-
-    df.to_csv("simulation.csv", sep="\t")
-
+    def save_csv(self, df, path="simulation.csv"):
+        """ Save results to csv.
+        """
+        df.to_csv(path, sep="\t")
 
 
 ########################################################################################################################
 if __name__ == "__main__":
-    simulate_toy_model(tend=50.0, step_size=0.1)
+    # Run simulation of the hybrid model
+    from simsettings import top_level_file, flattened_file, out_dir
+    import os
+    os.chdir(out_dir)
 
+    # Create simulator instance
+    simulator = Simulator(top_level_file=top_level_file)
+    df = simulator.simulate(tstart=0.0, tend=50.0, step_size=0.1, debug=True)
+    simulator.plot_reactions(df)
+    simulator.plot_species(df)
+    simulator.save_csv(df)
