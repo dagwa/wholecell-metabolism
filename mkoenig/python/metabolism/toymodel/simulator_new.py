@@ -46,10 +46,13 @@ class FBAModel(object):
     """ Handling FBA submodels models
 
     """
-    def __init__(self, submodel, fba_doc):
+    def __init__(self, submodel, source):
+        self.source = source
         self.submodel = submodel
-        self.fba_doc = fba_doc
-        self.fba_model = fba_doc.getModel()
+
+        self.fba_doc = libsbml.readSBMLFromFile(source)
+        self.fba_model = self.fba_doc.getModel()
+        self.cobra_model = cobra.io.read_sbml_model(source)
 
         # bounds are mappings from parameters to reactions
         #       parameter_id -> [rid1, rid2, ...]
@@ -129,7 +132,7 @@ class FBAModel(object):
         print("* set fba fluxes in ode *")
         # based on replacements the fluxes are written in the kinetic part
         # set solution fluxes in parameters
-        for (rid, flux) in cobra_model.solution.x_dict.iteritems():
+        for (rid, flux) in self.cobra_model.solution.x_dict.iteritems():
             if rid in self.fba_rules:
                 rr_comp[self.fba_rules[rid]] = flux
                 print(rid, ':', self.fba_rules[rid], "=", flux)
@@ -169,9 +172,9 @@ class Simulator(object):
             warnings.warn("The top level model framework is not ode: {}".format(self.framework_top))
 
         self.submodels = defaultdict(list)
+        self.rr_comp = None
+        self.fba_models = []
 
-        # memory for synchronization between models
-        self.global_data = {}
         self._process_top_level()
         self._prepare_models()
 
@@ -240,109 +243,54 @@ class Simulator(object):
         :return:
         :rtype:
         """
-        
-        '''
-        # assign submodels to FBA
-        fba_models = {}
-        for key, value in model_frameworks.iteritems():
-            if value["sbo"] == 624:
-                print('FBA model')
-                # get SBML file
-                modelRef = value["modelRef"]
-                mdoc = doc.getPlugin("comp")
-                emd = mdoc.getExternalModelDefinition(modelRef)
-                source = emd.getSource()
-                print(source)
-                fba_models[key] = {'cobra': cobra.io.read_sbml_model(source),
-                                   'doc': libsbml.readSBMLFromFile(source)}
-            elif value['sbo'] == 62:
-                print('ODE model')
-                # get the sbml file
-                modelRef = value["modelRef"]
-                mdoc = doc.getPlugin("comp")
-                emd = mdoc.getExternalModelDefinition(modelRef)
-                source = emd.getSource()
-                print(source)
-            else:
-                raise Exception("Modelling framework not supported, or not annotated on submodel: ", sbo)
-
-        # submodels handled by FBA
-        print(fba_models)
-
-        # process FBA assignment rules
-        # Necessary to find the assignment rules in the top model
-        # These cannot be set in an hybrid approach.
-        fba_rules = self._process_mixed_assignments(self.model_top)
-        print('FBA rules:', fba_rules)
-
-        # remove the FBA assignment rules from the model, so they can be set via the simulator
-        for variable in fba_rules.values():
-            print(variable)
-            self.model_top.removeRuleByVariable(variable)
-
-        import tempfile
-        mixed_sbml_cleaned = tempfile.NamedTemporaryFile("w", suffix=".xml")
-        libsbml.writeSBMLToFile(doc, mixed_sbml_cleaned.name)
-        # mixed_sbml_cleaned.close()
-
+        ###########################
+        # prepare FBA models
+        ###########################
+        mdoc = self.doc_top.getPlugin("comp")
+        for submodel in self.submodels[MODEL_FRAMEWORK_FBA]:
+            print('submodel', submodel)
+            mref = submodel.getModelRef()
+            emd = mdoc.getExternalModelDefinition(mref)
+            source = emd.getSource()
+            print(source)
+            fba_model = FBAModel(submodel=submodel, source=source)
+            self.fba_models.append(fba_model)
 
         ###########################
-        # Load ODE model
+        # prepare ODE model
         ###########################
         # the roadrunner ode file is the flattend comp file.
         # FBA subparts do not change change any of the kinetic subparts (only connections via replaced bounds
         # and fluxes).
         # Consequently the ode part can be solved as is, only the iterative update between ode and fba has
         # to be performed
+
+        # process FBA assignment rules
+        # find the assignment rules in the top model
+        # These cannot be set in an hybrid approach.
+        self.fba_rules = self._process_mixed_assignments(self.model_top)
+        print('FBA rules:', self.fba_rules)
+
+        # remove the FBA assignment rules from the model, so they can be set via the simulator
+        for variable in self.fba_rules.values():
+            print(variable)
+            self.model_top.removeRuleByVariable(variable)
+
+        import tempfile
+        mixed_sbml_cleaned = tempfile.NamedTemporaryFile("w", suffix=".xml")
+        libsbml.writeSBMLToFile(self.doc_top, mixed_sbml_cleaned.name)
+
         rr_comp = roadrunner.RoadRunner(mixed_sbml_cleaned.name)
         sel = ['time'] \
               + ["".join(["[", item, "]"]) for item in rr_comp.model.getBoundarySpeciesIds()] \
               + ["".join(["[", item, "]"]) for item in rr_comp.model.getFloatingSpeciesIds()] \
-              + rr_comp.model.getReactionIds() + fba_rules.values()
+              + rr_comp.model.getReactionIds() + self.fba_rules.values()
         rr_comp.timeCourseSelections = sel
         rr_comp.reset()
+        self.rr_comp = rr_comp
 
-        ###########################
-        # Load FBA models
-        ###########################
-        # via the submodels information it is decided which submodels are belonging to which
-        # modeling framework (SBOTerms on submodel)
-        doc = libsbml.readSBMLFromFile(mixed_sbml)
-        model_frameworks = comp.get_submodel_frameworks(doc)
-        model = doc.getModel()
 
-        # get top level reaction ids
-        # top_level_rids = frozenset([reaction.getId() for reaction in model.getListOfReactions()])
-
-        # assign submodels to FBA
-        fba_models = {}
-        for key, value in model_frameworks.iteritems():
-            if value["sbo"] == 624:
-                print('FBA model')
-                # get SBML file
-                modelRef = value["modelRef"]
-                mdoc = doc.getPlugin("comp")
-                emd = mdoc.getExternalModelDefinition(modelRef)
-                source = emd.getSource()
-                print(source)
-                fba_models[key] = {'cobra': cobra.io.read_sbml_model(source),
-                                   'doc': libsbml.readSBMLFromFile(source)}
-            elif value['sbo'] == 62:
-                print('ODE model')
-                # get the sbml file
-                modelRef = value["modelRef"]
-                mdoc = doc.getPlugin("comp")
-                emd = mdoc.getExternalModelDefinition(modelRef)
-                source = emd.getSource()
-                print(source)
-            else:
-                raise Exception("Modelling framework not supported, or not annotated on submodel: ", sbo)
-
-        # submodels handled by FBA
-        print(fba_models)
-        '''
-
-    def _process_mixed_assignments(model):
+    def _process_mixed_assignments(self, model):
         """ Find the assignment rules which assign to a variable a reaction rate.
 
         This are the assignment rules synchronizing between FBA and ODE models.
@@ -484,6 +432,7 @@ if __name__ == "__main__":
 
     # Create simulator instance
     simulator = Simulator(top_level_file=top_level_file)
+    simulator._process_top_level()
     df = simulator.simulate(tstart=0.0, tend=50.0, step_size=0.1, debug=True)
     simulator.plot_reactions(df)
     simulator.plot_species(df)
