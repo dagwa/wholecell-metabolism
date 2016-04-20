@@ -27,6 +27,8 @@ import warnings
 from collections import defaultdict
 
 #################################################
+DEBUG = False  # set True to get detailed output
+
 MODEL_FRAMEWORK_FBA = 'fba'
 MODEL_FRAMEWORK_ODE = 'ode'
 MODEL_FRAMEWORK_STOCHASTIC = 'stochastic'
@@ -41,10 +43,11 @@ MODEL_FRAMEWORKS = [
 #################################################
 
 class FBAModel(object):
-    """ Handling FBA models
+    """ Handling FBA submodels models
 
     """
-    def __init__(self, fba_doc):
+    def __init__(self, submodel, fba_doc):
+        self.submodel = submodel
         self.fba_doc = fba_doc
         self.fba_model = fba_doc.getModel()
 
@@ -52,7 +55,12 @@ class FBAModel(object):
         #       parameter_id -> [rid1, rid2, ...]
         self.ub_parameters = defaultdict(list)
         self.lb_parameters = defaultdict(list)
+        self.ub_replacements = []
+        self.lb_replacements = []
         self.process_bounds()
+
+    def load_cobra_model(self):
+        pass
 
     def process_bounds(self):
         """  Determine which parameters are upper or lower bounds.
@@ -66,6 +74,78 @@ class FBAModel(object):
                 self.ub_parameters[mr.getUpperFluxBound()].append(rid)
             if mr.isSetLowerFluxBound():
                 self.lb_parameters[mr.getLowerFluxBound()].append(rid)
+
+    def process_replacements(self, top_model):
+        """ Process the global replacements once. """
+        for p in top_model.getListOfParameters():
+            pid = p.getId()
+            mp = p.getPlugin("comp")
+            for rep_element in mp.getListOfReplacedElements():
+                # the submodel of the replacement belongs to the current model
+                if rep_element.getSubmodelRef() == self.submodel.getId():
+                    # and parameter is part of the bounds
+                    if pid in self.ub_parameters:
+                        self.up_replacements.append(pid)
+                    if pid in self.lb_parameters:
+                        self.lb_replacements.append(pid)
+
+    def update_fba_bounds(self, rr_comp):
+        """
+        Uses the global parameter replacements for replacements which replace the bounds
+        of reactions.
+
+        :param model:
+        :type model:
+        :return:
+        :rtype:
+        """
+        for pid in self.ub_replacements:
+            for rid in self.ub_parameters.get(pid):
+                print(rid, ': (upper) -> ', pid)
+                cobra_reaction = self.cobra_model.reactions.get_by_id(rid)
+                cobra_reaction.upper_bound = rr_comp[pid]
+
+        for pid in self.lb_replacements:
+            for rid in self.lb_parameters.get(pid):
+                print(rid, ': (lower) -> ', pid)
+                cobra_reaction = self.cobra_model.reactions.get_by_id(rid)
+                cobra_reaction.lower_bound = rr_comp[pid]
+
+    def optimize(self):
+        """ Optimize the model """
+        # TODO: start with last solution (speed improvement)
+        print("* optimize *")
+        self.cobra_model.optimize()
+
+        if DEBUG:
+            self.print_flux_bounds()
+            print(self.cobra_model.solution.status)
+            print(self._model.solution.x_dict)
+            print("-" * 80)
+
+    def set_ode_fluxes(self, rr_comp):
+
+        # [3] set fluxes in ODE part
+        print("* set fba fluxes in ode *")
+        # based on replacements the fluxes are written in the kinetic part
+        # set solution fluxes in parameters
+        for (rid, flux) in cobra_model.solution.x_dict.iteritems():
+            if rid in self.fba_rules:
+                rr_comp[self.fba_rules[rid]] = flux
+                print(rid, ':', self.fba_rules[rid], "=", flux)
+            else:
+                print(rid, "no boundary flux")
+
+    def print_flux_bounds(self):
+        """ Prints flux bounds for all reactions. """
+        info = []
+        for r in self.cobra_model.reactions:
+            info.append([r.id, r.lower_bound, r.upper_bound])
+        df = DataFrame(info, columns=['id', 'lb', 'ub'])
+        pd.set_option('display.max_rows', len(df))
+        print(df)
+        pd.reset_option('display.max_rows')
+
 
 
 class Simulator(object):
@@ -93,6 +173,7 @@ class Simulator(object):
         # memory for synchronization between models
         self.global_data = {}
         self._process_top_level()
+        self._prepare_models()
 
     @staticmethod
     def get_framework(model):
@@ -159,7 +240,7 @@ class Simulator(object):
         :return:
         :rtype:
         """
-        pass
+        
         '''
         # assign submodels to FBA
         fba_models = {}
@@ -282,16 +363,7 @@ class Simulator(object):
             fba_rules[reaction.getId()] = parameter.getId()
         return fba_rules
 
-    @staticmethod
-    def print_flux_bounds(model):
-        """ Prints flux bounds for all reactions. """
-        info = []
-        for r in model.reactions:
-            info.append([r.id, r.lower_bound, r.upper_bound])
-        df = DataFrame(info, columns=['id', 'lb', 'ub'])
-        pd.set_option('display.max_rows', len(df))
-        print(df)
-        pd.reset_option('display.max_rows')
+
 
     def simulate(self, tstart=0.0, tend=10.0, step_size=0.1, debug=False):
         """
@@ -309,6 +381,11 @@ class Simulator(object):
         all_time = []
         result = None
         time = 0.0
+
+        # variable step size integration
+        if not step_size:
+            self.rr_comp.integrator.setValue('variable_step_size', True)
+
         while time <= tend:
             if debug:
                 print("-" * 80)
@@ -317,88 +394,43 @@ class Simulator(object):
             # --------------------------------------
             # FBA
             # --------------------------------------
-            # all fba submodels are simulated
-            for fba_key, fba_info in fba_models.iteritems():
-                cobra_model = fba_info['cobra']
-                sbml_model = fba_info['doc'].getModel()
-
-
-                # search in global parameter replacements for replacements which replace the bounds
-                # of reactions
-                # TODO: calculate the replacements only once
-                print("* set bounds *")
-                for p in model.getListOfParameters():
-                    pid = p.getId()
-                    mp = p.getPlugin("comp")
-                    for rep_element in mp.getListOfReplacedElements():
-                        # the submodel of the replacement belongs to the current model
-                        if rep_element.getSubmodelRef() == fba_key:
-                            # update upper and lower bounds
-                            for rid in ub_parameters.get(pid, []):
-                                print(rid, ': (upper) -> ', pid)
-                                cobra_reaction = cobra_model.reactions.get_by_id(rid)
-                                cobra_reaction.upper_bound = rr_comp[pid]
-                            for rid in lb_parameters.get(pid, []):
-                                print(rid, ': (lower) -> ', pid)
-                                cobra_reaction = cobra_model.reactions.get_by_id(rid)
-                                cobra_reaction.lower_bound = rr_comp[pid]
-
-                # [2] optimize
-                print("* optimize *")
-                # TODO: start with last solution (speed improvement)
-                cobra_model.optimize()
-
-                # [3] set fluxes in ODE part
-                print("* set fba fluxes in ode *")
-                # based on replacements the fluxes are written in the kinetic part
-                # set solution fluxes in parameters
-                for (rid, flux) in cobra_model.solution.x_dict.iteritems():
-                    if rid in fba_rules:
-                        rr_comp[fba_rules[rid]] = flux
-                        print(rid, ':', fba_rules[rid], "=", flux)
-                    else:
-                        print(rid, "no boundary flux")
-
-                if debug:
-                    print_flux_bounds(cobra_model)
-                    print(cobra_model.solution.status)
-                    print(cobra_model.solution.x_dict)
-                    print("-" * 80)
+            for fba_model in self.fba_models:
+                # update fba bounds from ode
+                fba_model.update_fba_bounds(self.rr_comp)
+                # optimize fba
+                fba_model.optimize()
+                # set ode fluxes from fba
+                fba_model.set_ode_fluxes(self.rr_comp)
 
             # --------------------------------------
             # ODE
             # --------------------------------------
-            # With the updated fluxes from the FBA the kinetic part is
-            # calculated:
-
-            # simulate (1 step)
             if step_size:
                 # constant step size
-                result = rr_comp.simulate(0, end=step_size, steps=1)
+                result = self.rr_comp.simulate(start=0, end=step_size, steps=1)
             else:
                 # variable step size
-                result = rr_comp.simulate(0, steps=1, variableStep=True)
+                result = self.rr_comp.simulate(start=0, steps=1)
 
             # store results
-            all_results.append(result[1])
-            # set the fba fluxes in the model)
             # TODO: the fba fluxes are not set in the full kinetic result (shown as zero)
             #   these have to be set with the mapping between comp and flattened model
+            # TODO: preinit array
+            all_results.append(result[1])
+
             all_time.append(time)
 
             # store simulation values & get time step
             delta_time = result['time'][1]
             time = time + delta_time
 
-            if debug:
+            if DEBUG:
                 print(result)
 
         # create result matrix
         df = pd.DataFrame(data=all_results, columns=result.colnames)
         df.time = all_time
-        print(df)
         return df
-        '''
 
     def plot_species(self, df, path="species.png"):
         """ Plot species.
