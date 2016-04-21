@@ -15,21 +15,15 @@ TODO: write fba ssubmodel results in complete result vector (for plotting & visu
 
 from __future__ import print_function, division
 import libsbml
-import pandas as pd
 import roadrunner
 import cobra
-
+import pandas as pd
 from pandas import DataFrame
-import sbmlutils.comp as comp
-import numpy
-
 import logging
-logging.basicConfig(format='%(message)s', level=logging.DEBUG)
 import warnings
-
 from collections import defaultdict
 
-
+logging.basicConfig(format='%(message)s', level=logging.DEBUG)
 
 #################################################
 
@@ -45,6 +39,7 @@ MODEL_FRAMEWORKS = [
     MODEL_FRAMEWORK_LOGICAL,
 ]
 #################################################
+
 
 class FBAModel(object):
     """ Handling FBA submodels models
@@ -71,6 +66,20 @@ class FBAModel(object):
         self.ub_replacements = []
         self.lb_replacements = []
         self.process_bounds()
+
+    def __str__(self):
+        """ Information string. """
+        s = "{}\n".format('-' * 80)
+        s += "{} {}\n".format(self.submodel, self.source)
+        s += "{}\n".format('-' * 80)
+        s += "{:<20}: {}\n".format('FBA rules', self.fba_rules)
+        s += "{:<20}: {}\n".format('ub parameters', self.ub_parameters)
+        s += "{:<20}: {}\n".format('lb parameters', self.lb_parameters)
+        s += "{:<20}: {}\n".format('ub replacements', self.ub_replacements)
+        s += "{:<20}: {}\n".format('lb replacements', self.lb_replacements)
+        s += "{}\n".format('-' * 80)
+
+        return s
 
     def load_cobra_model(self):
         pass
@@ -112,7 +121,7 @@ class FBAModel(object):
                 if rep_element.getSubmodelRef() == self.submodel.getId():
                     # and parameter is part of the bounds
                     if pid in self.ub_parameters:
-                        self.up_replacements.append(pid)
+                        self.ub_replacements.append(pid)
                     if pid in self.lb_parameters:
                         self.lb_replacements.append(pid)
 
@@ -129,13 +138,13 @@ class FBAModel(object):
         logging.debug('* update_fba_bounds *')
         for pid in self.ub_replacements:
             for rid in self.ub_parameters.get(pid):
-                logging.debug(rid, ': (upper) -> ', pid)
+                logging.debug('{}: (upper) -> {}'.format(rid, pid))
                 cobra_reaction = self.cobra_model.reactions.get_by_id(rid)
                 cobra_reaction.upper_bound = rr_comp[pid]
 
         for pid in self.lb_replacements:
             for rid in self.lb_parameters.get(pid):
-                logging.debug(rid, ': (lower) -> ', pid)
+                logging.debug('{}: (lower) -> {}'.format(rid, pid))
                 cobra_reaction = self.cobra_model.reactions.get_by_id(rid)
                 cobra_reaction.lower_bound = rr_comp[pid]
 
@@ -145,7 +154,6 @@ class FBAModel(object):
         logging.debug("* optimize *")
         self.cobra_model.optimize()
 
-        # TODO: log
         self.log_flux_bounds()
         logging.debug('Solution status: {}'.format(self.cobra_model.solution.status))
         logging.debug('Solution fluxes: {}'.format(self.cobra_model.solution.x_dict))
@@ -231,13 +239,16 @@ class Simulator(object):
     def __str__(self):
         """ Information string. """
         # top level
-        print('-' * 80)
-        print(self.doc_top, self.framework_top)
-        print('-' * 80)
-        # submodels
+        s = "{}\n".format('-' * 80)
+        s += "{} {}\n".format(self.doc_top, self.framework_top)
+        s += "{}\n".format('-' * 80)
+
+        # sub models
         for framework in MODEL_FRAMEWORKS:
-            print("{:<10} : {}".format(framework, self.submodels[framework]))
-        print('-' * 80)
+            s += "{:<10} : {}\n".format(framework, self.submodels[framework])
+        s += "{}\n".format('-' * 80)
+
+        return s
 
     def _process_top_level(self):
         """ Process the top level information.
@@ -259,7 +270,7 @@ class Simulator(object):
             framework = Simulator.get_framework(submodel)
             self.submodels[framework].append(submodel)
 
-        print(self.__str__())
+        print(self)
 
     def _prepare_models(self):
         """ Prepare the models for simulation.
@@ -288,7 +299,10 @@ class Simulator(object):
             emd = mdoc.getExternalModelDefinition(mref)
             source = emd.getSource()
             fba_model = FBAModel(submodel=submodel, source=source, fba_rules=self.fba_rules)
+            fba_model.process_replacements(self.model_top)
             self.fba_models.append(fba_model)
+
+            print(fba_model)
 
         ###########################
         # prepare ODE model
@@ -450,7 +464,7 @@ class Simulator(object):
 ########################################################################################################################
 if __name__ == "__main__":
     # Run simulation of the hybrid model
-    logging.getLogger().setLevel(logging.DEBUG)
+    logging.getLogger().setLevel(logging.INFO)
     from simsettings import top_level_file, flattened_file, out_dir
     import os
     os.chdir(out_dir)
@@ -466,3 +480,5 @@ if __name__ == "__main__":
     simulator.plot_reactions(df)
     simulator.plot_species(df)
     simulator.save_csv(df)
+
+    print(df)

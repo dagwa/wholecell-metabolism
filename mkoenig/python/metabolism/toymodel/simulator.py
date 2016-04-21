@@ -261,9 +261,13 @@ def simulate_toy_model(tend=50.0, step_size=0.1):
     # Run simulation of the hybrid model
     from simsettings import top_level_file, flattened_file, out_dir
     import os
-
     os.chdir(out_dir)
+    import timeit
+
+    start_time = timeit.default_timer()
     df = simulate(mixed_sbml=top_level_file, tend=tend, step_size=step_size, debug=True)
+    elapsed = timeit.default_timer() - start_time
+    print("Simulation time: {}".format(elapsed))
 
     # create plots (use ids from flattened model for plotting)
     import libsbml
