@@ -19,6 +19,7 @@ import roadrunner
 import cobra
 import pandas as pd
 from pandas import DataFrame
+import numpy
 import logging
 import warnings
 from collections import defaultdict
@@ -82,9 +83,6 @@ class FBAModel(object):
         s += "{}\n".format('-' * 80)
 
         return s
-
-    def load_cobra_model(self):
-        pass
 
     def process_fba_rules(self, fba_rules):
         """ Returns subset of fba_rules relevant for the FBA model.
@@ -182,7 +180,6 @@ class FBAModel(object):
         logging.debug("* optimize *")
         self.cobra_model.optimize()
 
-        self.log_flux_bounds()
         logging.debug('Solution status: {}'.format(self.cobra_model.solution.status))
         logging.debug('Solution fluxes: {}'.format(self.cobra_model.solution.x_dict))
 
@@ -398,15 +395,16 @@ class Simulator(object):
         simulation/modelling framework to use.
         The passing of information between FBA and SSA/ODE is based on the list of replacements.
         """
-        # TODO: initialize empty array which is filled with data instead of appending rows
-        import numpy
+        # TODO: store directly in numpy arrays for speed improvements
 
         logging.debug('###########################')
         logging.debug('# Simulation')
         logging.debug('###########################')
 
         all_time = numpy.linspace(start=tstart, stop=tend, num=points)
-        all_results = pd.DataFrame(index=all_time, columns=self.rr_comp.timeCourseSelections)
+        all_results = []
+        df_results = pd.DataFrame(index=all_time, columns=self.rr_comp.timeCourseSelections)
+
         step_size = (tend-tstart)/(points-1.0)
         result = None
         time = 0.0
@@ -445,12 +443,16 @@ class Simulator(object):
                 # result = self.rr_comp.simulate(start=0, steps=1)
 
             # store ode row
-            all_results.iloc[kstep] = result[1, :]
+            row = result[1, :]
+
             # store fba fluxes
             for fba_model in self.fba_models:
                 for k, v in fba_model.flat_mapping.iteritems():
                     flux = fba_model.cobra_model.solution.x_dict[k]
-                    all_results.iloc[kstep].loc[v] = flux
+                    vindex = df_results.columns.get_loc(v)
+                    row[vindex] = flux
+
+            all_results.append(row)
 
             # store and update time
             kstep += 1
@@ -458,8 +460,10 @@ class Simulator(object):
             logging.debug(result)
 
         # create result matrix
-        all_results.time = all_time
-        return all_results
+        df_results = pd.DataFrame(index=all_time, columns=self.rr_comp.timeCourseSelections,
+                                  data=all_results)
+        df_results.time = all_time
+        return df_results
 
     def plot_species(self, df, rr_comp, path="species.png"):
         """ Plot species.
@@ -519,4 +523,4 @@ if __name__ == "__main__":
     simulator.plot_species(df, rr_comp=simulator.rr_comp)
     simulator.save_csv(df)
 
-    print(df)
+    # print(df)
