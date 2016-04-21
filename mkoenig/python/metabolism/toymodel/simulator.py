@@ -5,13 +5,9 @@ modeling frameworks.
 Simulation of the combined toy model consisting of FBA and kinetic submodels.
 Using FBA simulator & kinetic simulator to simulate submodels with
 synchronization between the partial simulations.
-
-Simulating the model.
-
-TODO: Fix the zero time point of the simulation, how to handle this correctly
-TODO: refactor all the 1 time calculations out of the iteration (replacements)
-TODO: write fba ssubmodel results in complete result vector (for plotting & visualization)
 """
+# TODO: Fix the zero time point of the simulation, how to handle this correctly (when are fluxes calculated
+#       and when are the updates written (order and timing of updates)
 
 from __future__ import print_function, division
 import libsbml
@@ -499,8 +495,6 @@ class Simulator(object):
         """ Save results to csv.
         """
         df.to_csv(path, sep="\t")
-
-
 
 
 ########################################################################################################################

@@ -1,11 +1,13 @@
 """
 Creates the SBML for the metabolism sub-modul directly from the database information.
 
-@author: Matthias Koeng
-@date: 2015-10-11
+@author: Matthias Koenig
 """
 from libsbml import *
-from sbml_tools.validator import SBMLValidator
+import libsbml
+from sbmlutils.validation import validate_sbml
+
+from model_history import set_history_information
 from metabolism_settings import RESULTS_DIR, VERSION        
 
 import pandas as pd
@@ -77,7 +79,6 @@ if __name__ == "__main__":
     mplugin.setStrict(False)  # +-INF bounds in the Karr model
 
     # history & creators
-    from sbml.model_history import set_history_information
     set_history_information(model)
     
     # compartments
@@ -250,21 +251,14 @@ if __name__ == "__main__":
     print sbml_out
 
     # perform the full validation checks & validation
-    from sbml_tools.checks import check_sbml
-    check_sbml(sbml_out) 
-    
-    # ---------
-    
-    validator = SBMLValidator(False)
-    print validator.validate(sbml_out)
+    validate_sbml(sbml_out)
 
 
     # Conversion to cobra model
-    from libsbml import ConversionProperties, LIBSBML_OPERATION_SUCCESS
-    conversion_properties = ConversionProperties()
+    conversion_properties = libsbml.ConversionProperties()
     conversion_properties.addOption("convert fbc to cobra", True, "Convert FBC model to Cobra model")
     result = doc.convert(conversion_properties)
-    if result != LIBSBML_OPERATION_SUCCESS:
+    if result != libsbml.LIBSBML_OPERATION_SUCCESS:
         raise(Exception("Conversion of SBML+fbc to COBRA failed"))    
     sbml_cobra = os.path.join(RESULTS_DIR, "Metabolism_matrices_cobra_{}_L3V1.xml".format(VERSION))
     writer = SBMLWriter()

@@ -10,8 +10,8 @@ from libsbml import *
 from pandas import DataFrame
 from metabolism_settings import RESULTS_DIR, VERSION
 
-from sbml_tools.checks import check 
-from sbml.annotation import create_meta_id
+from sbmlutils.validation import check
+from annotation import create_meta_id
 
 ###############################################################################
 sbml_L3V1_history = os.path.join(RESULTS_DIR, "Metabolism_history_{}_L3V1.xml".format(VERSION))
@@ -113,4 +113,4 @@ if __name__ == "__main__":
     writer = SBMLWriter()
     writer.writeSBML(doc, sbml_out)
     print sbml_out    
-    
+

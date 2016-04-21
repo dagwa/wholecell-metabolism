@@ -18,7 +18,7 @@ The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
 """
 import warnings
 from libsbml import *
-from sbml_tools.checks import check_sbml, check
+from sbmlutils.validation import check_sbml, check
 from pandas import DataFrame
 import pandas as pd
 from metabolism_settings import RESULTS_DIR, DATA_DIR, VERSION

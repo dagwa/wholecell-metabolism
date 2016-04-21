@@ -1,19 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar 23 11:23:46 2015
-
-@author: mkoenig
-"""
-
-'''
 Definition of general helper functions to create the various
 objects in the SBML. 
 These functions are called with the information dictionaries 
 during the generation of cell and tissue model.
-
-Created on Jun 18, 2014
-@author: mkoenig
-'''
+"""
+# TODO: refactor code in the sbmlutils
 
 import libsbml
 from libsbml import UNIT_KIND_DIMENSIONLESS, UnitKind_toString
