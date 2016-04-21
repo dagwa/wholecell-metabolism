@@ -11,9 +11,9 @@ from __future__ import print_function
 from libsbml import *
 
 import model_factory
-from multiscale.sbmlutils.factory import *
-from multiscale.sbmlutils import comp
-import multiscale.sbmlutils.sbmlio as sbml_io
+from sbmlutils.factory import *
+from sbmlutils import comp
+import sbmlutils.sbmlio as sbml_io
 from simsettings import *
 
 

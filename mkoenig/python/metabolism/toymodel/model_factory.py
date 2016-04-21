@@ -8,11 +8,11 @@ the main model and the kinetic model subparts.
 """
 from libsbml import *
 XMLOutputStream.setWriteTimestamp(False)
-import multiscale.sbmlutils.sbmlio as sbml_io
-import multiscale.sbmlutils.annotation as sbml_annotation
-import multiscale.sbmlutils.comp as comp
+import sbmlutils.sbmlio as sbml_io
+import sbmlutils.annotation as sbml_annotation
+import sbmlutils.comp as comp
 
-from multiscale.sbmlutils.factory import *
+from sbmlutils.factory import *
 
 # TODO: add SBOterms for fluxBounds, species, ...
 
