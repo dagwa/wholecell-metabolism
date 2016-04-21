@@ -436,8 +436,10 @@ class Simulator(object):
             # --------------------------------------
             if points:
                 # constant step size
-                logging.debug("rr_comp vR3 = {}".format(self.rr_comp['vR3']))
-                result = self.rr_comp.simulate(start=0, end=step_size, steps=1)
+                if kstep == 0:
+                    result = self.rr_comp.simulate(start=0, end=0, steps=1)
+                else:
+                    result = self.rr_comp.simulate(start=0, end=step_size, steps=1)
             # else:
                 # variable step size
                 # result = self.rr_comp.simulate(start=0, steps=1)
