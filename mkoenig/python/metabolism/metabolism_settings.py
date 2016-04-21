@@ -10,3 +10,5 @@ if True:
 else:
     DATA_DIR = os.path.join(BASE_DIR, "../../data") 
     RESULTS_DIR = os.path.join(BASE_DIR, "../../results")
+
+sbml_L3V1_history = os.path.join(RESULTS_DIR, "Metabolism_history_{}_L3V1.xml".format(VERSION))

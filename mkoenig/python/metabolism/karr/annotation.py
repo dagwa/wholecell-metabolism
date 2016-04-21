@@ -14,11 +14,11 @@ The CV terms are defined for metabolites and reactions in m_cvdf & r_cvdf.
         BQB_IS_VERSION_OF)
 
 @author: Matthias Koenig
-@date: 2015-10-11
 """
+from __future__ import print_function, division
 import warnings
 from libsbml import *
-from sbmlutils.validation import check_sbml, check
+from sbmlutils.validation import validate_sbml, check
 from pandas import DataFrame
 import pandas as pd
 from metabolism_settings import RESULTS_DIR, DATA_DIR, VERSION
@@ -35,7 +35,6 @@ sbml_annotated = os.path.join(RESULTS_DIR, "Metabolism_matrices_annotated_{}_L3V
 csv_metabolites = os.path.join(DATA_DIR, "Table_S3G_metabolites.csv")
 csv_reactions = os.path.join(DATA_DIR, "Table_S3O_reactions.csv")
 #######################################################################
-
 
 def cvdf_from_resource_data(r_data):
     cv_df = DataFrame(columns=('ID', 'BQB', 'Qualifier', 'URI'))
@@ -137,7 +136,7 @@ def annotate_objects(objects, o_df, o_cvdf, otype):
             cid = cid_from_sid(sid)
         elif otype == 'REACTION':
             cid = cid_from_rid(sid)
-        print '***', sid, '->', cid, '***'
+        print('***', sid, '->', cid, '***')
         
         # WTF - not working without meta id, but no proper warning
         # TODO: how to properly generate meta ids
@@ -162,7 +161,7 @@ def annotate_objects(objects, o_df, o_cvdf, otype):
                 qt = int(o_cvdf.loc[cv_type, 'BQB'])
                 bqt = int(o_cvdf.loc[cv_type, 'Qualifier'])
                 uri = '{}{}'.format(o_cvdf.loc[cv_type, 'URI'], cv_id)
-                print qt, bqt, uri
+                print(qt, bqt, uri)
                 
                 cv = CVTerm()
                 check(cv.setQualifierType(qt), 'setQualifier')
@@ -175,7 +174,7 @@ def annotate_model_sbo(m):
     from public.models import Entry
     from public.models import Reaction as DBReaction
     from django.core.exceptions import ObjectDoesNotExist
-    print '* Annotate SBO *'
+    print('* Annotate SBO *')
     
     sbo_dict = {
             'Compartment': "SBO:0000290",     # physical compartment
@@ -241,13 +240,12 @@ def annotate_model_sbo(m):
         for modifier in r.getListOfModifiers():
             check(modifier.setSBOTerm(sbo_dict['Modifier']), 'Set SBO')
 
-
 def annotate_Karr():
     """
     Annotations of the original Karr SBML file and conversion to SBML L3V1.
     This takes the model and writes all the additional information to it.
     """
-    check_sbml(sbml_raw)
+    validate_sbml(sbml_raw, ucheck=False)
 
     # read model
     doc = readSBML(sbml_raw)
@@ -261,13 +259,11 @@ def annotate_Karr():
     
     annotate_model_cv(m)
     annotate_model_sbo(m)
-    from model_history import set_history_information
-    set_history_information(m)
+    set_model_history(m)
 
     # save
     writeSBMLToFile(doc, sbml_out)
-    check_sbml(sbml_out)
-    print sbml_out
+    validate_sbml(sbml_out)
     
     # convert to 3.1
     convert = True
@@ -276,8 +272,7 @@ def annotate_Karr():
         props.addOption("convert cobra", True, "Convert Cobra model")
         check(doc.convert(props), 'Convert COBRA')
         writeSBMLToFile(doc, sbml_out_L3V1)
-        print sbml_out_L3V1
-        check_sbml(sbml_out_L3V1)
+        validate_sbml(sbml_out_L3V1, ucheck=False)
 
 
 def annotate_sbml(sbml_empty, sbml_annotated):
@@ -286,36 +281,35 @@ def annotate_sbml(sbml_empty, sbml_annotated):
     Similar to the annotation of the Karr SBML model.
     """
     # check/validate the input SBML file
-    print("*** Check SBML ***")
-    check_sbml(sbml_empty)
+    print("*Check SBML *")
+    validate_sbml(sbml_empty, ucheck=False)
 
     # read model
     doc = readSBML(sbml_empty)
     model = doc.getModel()
 
-    print("*** Write model history ***")
-    from model_history import set_history_information
-    set_history_information(model)
+    print("* Write model history *")
+    set_model_history(model)
 
-    print("*** Annotate SBO ***")
+    print("* Annotate SBO *")
     annotate_model_sbo(model)
 
-    print("*** Annotate CV terms ***")
+    print("* Annotate CV terms *")
     annotate_model_cv(model)
 
     # save
     writeSBMLToFile(doc, sbml_annotated)
 
     # check/validate annotated file
-    print("*** Check annotated SBML ***")
-    check_sbml(sbml_annotated)
+    print("* Check annotated SBML *")
+    validate_sbml(sbml_annotated, ucheck=False)
 
 
 if __name__ == "__main__":
     # Load annotation data & index with ID for O(1) lookup    
     m_df = pd.io.parsers.read_csv(csv_metabolites, sep="\t", dtype={'PubChem': object, 'ChEBI': object})
     m_df = m_df.set_index(m_df.ID)
-    print m_df.head()
+    print(m_df.head())
     # m_df.ix['A23CMP']
     
     r_df = pd.io.parsers.read_csv(csv_reactions, sep="\t")
