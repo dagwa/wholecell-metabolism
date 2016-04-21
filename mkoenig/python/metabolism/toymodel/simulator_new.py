@@ -22,12 +22,16 @@ import cobra
 from pandas import DataFrame
 import sbmlutils.comp as comp
 import numpy
+
+import logging
+logging.basicConfig(format='%(message)s', level=logging.DEBUG)
 import warnings
 
 from collections import defaultdict
 
+
+
 #################################################
-DEBUG = False  # set True to get detailed output
 
 MODEL_FRAMEWORK_FBA = 'fba'
 MODEL_FRAMEWORK_ODE = 'ode'
@@ -46,13 +50,19 @@ class FBAModel(object):
     """ Handling FBA submodels models
 
     """
-    def __init__(self, submodel, source):
+    # TODO: handle submodels directly defined in model
+
+    def __init__(self, submodel, source, fba_rules):
         self.source = source
         self.submodel = submodel
 
+        # read the model
         self.fba_doc = libsbml.readSBMLFromFile(source)
         self.fba_model = self.fba_doc.getModel()
         self.cobra_model = cobra.io.read_sbml_model(source)
+
+        # parameters to replace in top model
+        self.fba_rules = self.process_fba_rules(fba_rules)
 
         # bounds are mappings from parameters to reactions
         #       parameter_id -> [rid1, rid2, ...]
@@ -64,6 +74,20 @@ class FBAModel(object):
 
     def load_cobra_model(self):
         pass
+
+    def process_fba_rules(self, fba_rules):
+        """ Returns subset of fba_rules relevant for the FBA model.
+
+        :param fba_rules:
+        :type fba_rules:
+        :return:
+        :rtype:
+        """
+        rules = {}
+        for rid, pid in fba_rules.iteritems():
+            if self.fba_model.getReaction(rid) is not None:
+                rules[rid] = pid
+        return rules
 
     def process_bounds(self):
         """  Determine which parameters are upper or lower bounds.
@@ -102,53 +126,54 @@ class FBAModel(object):
         :return:
         :rtype:
         """
+        logging.debug('* update_fba_bounds *')
         for pid in self.ub_replacements:
             for rid in self.ub_parameters.get(pid):
-                print(rid, ': (upper) -> ', pid)
+                logging.debug(rid, ': (upper) -> ', pid)
                 cobra_reaction = self.cobra_model.reactions.get_by_id(rid)
                 cobra_reaction.upper_bound = rr_comp[pid]
 
         for pid in self.lb_replacements:
             for rid in self.lb_parameters.get(pid):
-                print(rid, ': (lower) -> ', pid)
+                logging.debug(rid, ': (lower) -> ', pid)
                 cobra_reaction = self.cobra_model.reactions.get_by_id(rid)
                 cobra_reaction.lower_bound = rr_comp[pid]
 
     def optimize(self):
         """ Optimize the model """
         # TODO: start with last solution (speed improvement)
-        print("* optimize *")
+        logging.debug("* optimize *")
         self.cobra_model.optimize()
 
-        if DEBUG:
-            self.print_flux_bounds()
-            print(self.cobra_model.solution.status)
-            print(self._model.solution.x_dict)
-            print("-" * 80)
+        # TODO: log
+        self.log_flux_bounds()
+        logging.debug('Solution status: {}'.format(self.cobra_model.solution.status))
+        logging.debug('Solution fluxes: {}'.format(self.cobra_model.solution.x_dict))
 
     def set_ode_fluxes(self, rr_comp):
+        """ Set fluxes in ODE part.
 
-        # [3] set fluxes in ODE part
-        print("* set fba fluxes in ode *")
-        # based on replacements the fluxes are written in the kinetic part
-        # set solution fluxes in parameters
-        for (rid, flux) in self.cobra_model.solution.x_dict.iteritems():
-            if rid in self.fba_rules:
-                rr_comp[self.fba_rules[rid]] = flux
-                print(rid, ':', self.fba_rules[rid], "=", flux)
-            else:
-                print(rid, "no boundary flux")
+        Based on replacements the fluxes are written in the kinetic part
+        :param rr_comp:
+        :type rr_comp:
+        :return:
+        :rtype:
+        """
+        logging.debug("* set_ode_fluxes *")
+        for rid, pid in self.fba_rules.iteritems():
+            flux = self.cobra_model.solution.x_dict[rid]
+            rr_comp[pid] = flux
+            logging.debug('{}: {} = {}'.format(rid, pid, flux))
 
-    def print_flux_bounds(self):
+    def log_flux_bounds(self):
         """ Prints flux bounds for all reactions. """
         info = []
         for r in self.cobra_model.reactions:
             info.append([r.id, r.lower_bound, r.upper_bound])
         df = DataFrame(info, columns=['id', 'lb', 'ub'])
         pd.set_option('display.max_rows', len(df))
-        print(df)
+        logging.debug(df)
         pd.reset_option('display.max_rows')
-
 
 
 class Simulator(object):
@@ -236,24 +261,33 @@ class Simulator(object):
 
         print(self.__str__())
 
-
     def _prepare_models(self):
         """ Prepare the models for simulation.
+
+        Resolves the replacements and model couplings between the
+        different frameworks and creates the respective simulatable
+        models for the different frameworks.
 
         :return:
         :rtype:
         """
+        logging.debug('_prepare_models')
+        ###########################
+        # find FBA rules
+        ###########################
+        # process FBA assignment rules of the top model
+        self.fba_rules = self.find_fba_rules(self.model_top)
+        logging.debug('FBA rules:', self.fba_rules)
+
         ###########################
         # prepare FBA models
         ###########################
         mdoc = self.doc_top.getPlugin("comp")
         for submodel in self.submodels[MODEL_FRAMEWORK_FBA]:
-            print('submodel', submodel)
             mref = submodel.getModelRef()
             emd = mdoc.getExternalModelDefinition(mref)
             source = emd.getSource()
-            print(source)
-            fba_model = FBAModel(submodel=submodel, source=source)
+            fba_model = FBAModel(submodel=submodel, source=source, fba_rules=self.fba_rules)
             self.fba_models.append(fba_model)
 
         ###########################
@@ -265,15 +299,8 @@ class Simulator(object):
         # Consequently the ode part can be solved as is, only the iterative update between ode and fba has
         # to be performed
 
-        # process FBA assignment rules
-        # find the assignment rules in the top model
-        # These cannot be set in an hybrid approach.
-        self.fba_rules = self._process_mixed_assignments(self.model_top)
-        print('FBA rules:', self.fba_rules)
-
-        # remove the FBA assignment rules from the model, so they can be set via the simulator
+        # remove FBA assignment rules from the model, so they can be set via the simulator
         for variable in self.fba_rules.values():
-            print(variable)
             self.model_top.removeRuleByVariable(variable)
 
         import tempfile
@@ -289,31 +316,33 @@ class Simulator(object):
         rr_comp.reset()
         self.rr_comp = rr_comp
 
+    def find_fba_rules(self, top_model):
+        """ Finds FBA rules in top model.
 
-    def _process_mixed_assignments(self, model):
-        """ Find the assignment rules which assign to a variable a reaction rate.
-
+        Find the assignment rules which assign a reaction rate to a parameter.
         This are the assignment rules synchronizing between FBA and ODE models.
+
+        These are Assignment rules of the form
+            pid = rid
+        i.e. a reaction rate is assigned to a parameter.
         """
         fba_rules = {}
 
-        for rule in model.getListOfRules():
+        for rule in top_model.getListOfRules():
             if not rule.isAssignment():
                 continue
             variable = rule.getVariable()
             formula = rule.getFormula()
-            parameter = model.getParameter(variable)
+            parameter = top_model.getParameter(variable)
             if not parameter:
                 continue
-            reaction = model.getReaction(formula)
+            reaction = top_model.getReaction(formula)
             if not reaction:
                 continue
             fba_rules[reaction.getId()] = parameter.getId()
         return fba_rules
 
-
-
-    def simulate(self, tstart=0.0, tend=10.0, step_size=0.1, debug=False):
+    def simulate(self, tstart=0.0, tend=10.0, step_size=0.1):
         """
         Performs model simulation.
 
@@ -322,9 +351,9 @@ class Simulator(object):
         The passing of information between FBA and SSA/ODE is based on the list of replacements.
         """
 
-        ###########################
-        # Simulation
-        ###########################
+        logging.debug('###########################')
+        logging.debug('# Simulation')
+        logging.debug('###########################')
         all_results = []
         all_time = []
         result = None
@@ -335,9 +364,8 @@ class Simulator(object):
             self.rr_comp.integrator.setValue('variable_step_size', True)
 
         while time <= tend:
-            if debug:
-                print("-" * 80)
-                print("Time: {}".format(time))
+            logging.debug("-" * 80)
+            logging.debug("Time: {}".format(time))
 
             # --------------------------------------
             # FBA
@@ -355,6 +383,7 @@ class Simulator(object):
             # --------------------------------------
             if step_size:
                 # constant step size
+                logging.debug("rr_comp vR3 = {}".format(self.rr_comp['vR3']))
                 result = self.rr_comp.simulate(start=0, end=step_size, steps=1)
             else:
                 # variable step size
@@ -372,8 +401,7 @@ class Simulator(object):
             delta_time = result['time'][1]
             time = time + delta_time
 
-            if DEBUG:
-                print(result)
+            logging.debug(result)
 
         # create result matrix
         df = pd.DataFrame(data=all_results, columns=result.colnames)
@@ -393,8 +421,6 @@ class Simulator(object):
         flat_model = flat_doc.getModel()
         species_ids = ["[{}]".format(s.getId()) for s in flat_model.getListOfSpecies()]
 
-        print(species_ids)
-
         ax_s = df.plot(x='time', y=species_ids)
         fig = ax_s.get_figure()
         fig.savefig(path)
@@ -411,8 +437,6 @@ class Simulator(object):
         flat_model = flat_doc.getModel()
         reaction_ids = [r.getId() for r in flat_model.getListOfReactions()]
 
-        # plot reactions
-        print(reaction_ids)
         ax_r = df.plot(x='time', y=reaction_ids + ['vR3'])
         fig = ax_r.get_figure()
         fig.savefig(path)
@@ -426,14 +450,19 @@ class Simulator(object):
 ########################################################################################################################
 if __name__ == "__main__":
     # Run simulation of the hybrid model
+    logging.getLogger().setLevel(logging.DEBUG)
     from simsettings import top_level_file, flattened_file, out_dir
     import os
     os.chdir(out_dir)
+    import timeit
 
     # Create simulator instance
     simulator = Simulator(top_level_file=top_level_file)
-    simulator._process_top_level()
-    df = simulator.simulate(tstart=0.0, tend=50.0, step_size=0.1, debug=True)
+
+    start_time = timeit.default_timer()
+    df = simulator.simulate(tstart=0.0, tend=50.0, step_size=0.1)
+    elapsed = timeit.default_timer() - start_time
+    logging.info("Simulation time: {}".format(elapsed))
     simulator.plot_reactions(df)
     simulator.plot_species(df)
     simulator.save_csv(df)
