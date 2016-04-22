@@ -217,6 +217,11 @@ def create_metabolism_sbml():
     print('* create compartments *')
     create_compartments(model, compartments)
 
+    # compartment ports
+    for c_info in compartments:
+        cid = c_info[A_ID]
+        comp._create_port(model, pid="{}_port".format(cid), idRef=cid, portType=comp.PORT_TYPE_PORT)
+
     # <metabolites>
     print('* create metabolites *')
     metabolite_count = 1000  # to get rid of warnings, not required for FBA simulations
@@ -376,6 +381,14 @@ def create_metabolism_sbml():
         ]
         create_parameters(model, parameters)
         set_flux_bounds(r, lb=lb_id, ub=ub_id)
+
+        # reaction ports
+        comp._create_port(model, pid="{}_port".format(rid), idRef=rid, portType=comp.PORT_TYPE_PORT)
+
+        # bound ports
+        comp._create_port(model, pid="{}_port".format(ub_id), idRef=ub_id, portType=comp.PORT_TYPE_PORT)
+        comp._create_port(model, pid="{}_port".format(lb_id), idRef=lb_id, portType=comp.PORT_TYPE_PORT)
+
 
     # <objective function>
     print('* create objective function *')
