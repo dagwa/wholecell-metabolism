@@ -7,15 +7,12 @@ from matlab matrices and database information.
 """
 
 # TODO: create the kinetic ode model/comp model
-
 # TODO: update the annotations/integrate
-
 # TODO: glycolysis subnetwork
 
 
-
-
 from __future__ import print_function, division
+from metabolism_settings import RESULTS_DIR
 from libsbml import *
 import libsbml
 from sbmlutils.validation import validate_sbml, check
@@ -25,9 +22,6 @@ import sbmlutils.comp as comp
 
 from sbmlutils.factory import *
 
-from metabolism_settings import RESULTS_DIR, VERSION        
-
-import re
 
 import pandas as pd
 from pandas import DataFrame
@@ -36,9 +30,12 @@ import warnings
 ##########################################################################
 # Model information
 ##########################################################################
-version = VERSION
-model_id = 'WCM_3_10'
-model_name = 'Whole Cell 2015 - Metabolism'
+
+# model_id = 'WCM_3_10'
+# model_name = 'Whole Cell 2015 - Metabolism'
+model_id = 'WCM_3_10_metabolism__fba'
+model_name = 'WCM_3_10_metabolism__fba'
+
 
 notes = XMLNode.convertStringToXMLNode("""
     <body xmlns='http://www.w3.org/1999/xhtml'>
@@ -119,8 +116,7 @@ UNIT_CONCENTRATION = 'item_per_m3'
 UNIT_FLUX = 'item_per_s'
 ########################################################################
 
-
-def set_model_information(model):
+def set_model_information(model, model_id, model_name):
     """ Writes the core information in the Karr model. """
     model.setId(model_id)
     model.setName(model_name)
@@ -165,7 +161,7 @@ compartments = [
 ]
 
 
-def create_metabolism_sbml():
+def create_fba_model(sbml_out):
     """ Creates the metabolic Karr model.
 
     :return:
@@ -211,7 +207,7 @@ def create_metabolism_sbml():
     mplugin.setStrict(False)  # +-INF bounds in the Karr model
 
     # history & creators
-    set_model_information(model)
+    set_model_information(model, model_id=model_id, model_name=model_name)
 
     # compartments
     print('* create compartments *')
@@ -404,7 +400,6 @@ def create_metabolism_sbml():
             fluxObjective.setCoefficient(coeff)
 
     # write sbml
-    sbml_out = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
     writer = SBMLWriter()
     writer.writeSBML(doc, sbml_out)
     print(sbml_out)
@@ -415,4 +410,6 @@ def create_metabolism_sbml():
 
 
 if __name__ == "__main__":
-    create_metabolism_sbml()
+    from metabolism_settings import RESULTS_DIR, VERSION
+    sbml_out = os.path.join(RESULTS_DIR, "wholecell_fba_{}.xml".format(VERSION))
+    create_fba_model(sbml_out)
