@@ -374,6 +374,3 @@ class GrowthCalculator(object):
         
         
         return (growth, reactionFluxs, fbaReactionFluxs)
-    
-
-    

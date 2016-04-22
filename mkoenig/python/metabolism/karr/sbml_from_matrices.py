@@ -5,14 +5,11 @@ from matlab matrices and database information.
 
 @author mkoenig
 """
-# TODO: handle exchange reactions correctly
-# TODO: run example simulations (in cobra)
 
+# TODO: create the kinetic ode model/comp model
 
 # TODO: update the annotations/integrate
 
-
-# TODO: create the kinetic ode model/comp model
 # TODO: glycolysis subnetwork
 
 
@@ -318,7 +315,7 @@ def create_metabolism_sbml():
         r.setReversible(True)  # some are irreversible via Flux bounds in forward or backward direction
 
         # exchange reactions
-        if index.startswith('metabolite_ex_'):
+        if index.startswith('metabolite_ex_') or index.startswith('metabolite_ix_') or index == 'biomassConsumption':
             r.setSBOTerm(627)  # exchange reaction
 
         # get FBC plugin
@@ -333,7 +330,6 @@ def create_metabolism_sbml():
             mod.setSpecies(eid)
 
             # gene associations
-            # TODO: create the ga objects !
             gene_str = e_df['genes'][eid]
             genes = [g.strip() for g in gene_str.split(',')]
             genes_formula = ' AND '.join(genes)
@@ -348,7 +344,7 @@ def create_metabolism_sbml():
         col = col[abs(col) > tol]
 
         # exchange reactions are defined in export direction
-        if index.startswith('metabolite_ex_'):
+        if index.startswith('metabolite_ex_') or index == 'biomassConsumption':
             col = -1.0 * col
         # create species references depending on stoichiometry
         for sid, stoichiometry in col.iteritems():
@@ -404,19 +400,6 @@ def create_metabolism_sbml():
     print('* validate_sbml *')
     validate_sbml(sbml_out, ucheck=False)
 
-    """
-    # Conversion to cobra model
-    print('* convert to cobra *')
-    conversion_properties = libsbml.ConversionProperties()
-    conversion_properties.addOption("convert fbc to cobra", True, "Convert FBC model to Cobra model")
-    result = doc.convert(conversion_properties)
-    if result != libsbml.LIBSBML_OPERATION_SUCCESS:
-        raise (Exception("Conversion of SBML+fbc to COBRA failed"))
-    sbml_cobra = os.path.join(RESULTS_DIR, "Metabolism_matrices_cobra_{}_L3V1.xml".format(VERSION))
-    print(sbml_cobra)
-    writer = SBMLWriter()
-    writer.writeSBML(doc, sbml_cobra)
-    """
 
 if __name__ == "__main__":
     create_metabolism_sbml()

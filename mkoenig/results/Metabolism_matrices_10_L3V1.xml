@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" fbc:required="false" comp:required="true">
-  <model metaid="meta_ca71f22a29f84954ae6848809ee54d1e" id="WCM_3_10" name="Whole Cell 2015 - Metabolism" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+  <model metaid="meta_0c7e90a71f5742529bcb41421135fed5" id="WCM_3_10" name="Whole Cell 2015 - Metabolism" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_ca71f22a29f84954ae6848809ee54d1e">
+    <rdf:Description rdf:about="#meta_0c7e90a71f5742529bcb41421135fed5">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -93,10 +93,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-04-22T15:21:59Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-04-22T16:31:04Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-04-22T15:21:59Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-04-22T16:31:04Z</dcterms:W3CDTF>
       </dcterms:modified>
       <bqmodel:isDerivedFrom>
         <rdf:Bag>
@@ -7256,12 +7256,12 @@
       <speciesReference species="ZN__e" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_1" name="metabolite_ix_1" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_1" fbc:upperFluxBound="ub_metabolite_ix_1">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_1" name="metabolite_ix_1" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_1" fbc:upperFluxBound="ub_metabolite_ix_1">
     <listOfReactants>
       <speciesReference species="AD" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_2" name="metabolite_ix_2" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_2" fbc:upperFluxBound="ub_metabolite_ix_2">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_2" name="metabolite_ix_2" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_2" fbc:upperFluxBound="ub_metabolite_ix_2">
     <listOfReactants>
       <speciesReference species="ADP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7269,12 +7269,12 @@
       <speciesReference species="metabolite_constraint_ix_1" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_3" name="metabolite_ix_3" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_3" fbc:upperFluxBound="ub_metabolite_ix_3">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_3" name="metabolite_ix_3" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_3" fbc:upperFluxBound="ub_metabolite_ix_3">
     <listOfReactants>
       <speciesReference species="AHCYS" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_4" name="metabolite_ix_4" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_4" fbc:upperFluxBound="ub_metabolite_ix_4">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_4" name="metabolite_ix_4" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_4" fbc:upperFluxBound="ub_metabolite_ix_4">
     <listOfReactants>
       <speciesReference species="AMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7282,7 +7282,7 @@
       <speciesReference species="metabolite_constraint_ix_1" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_5" name="metabolite_ix_5" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_5" fbc:upperFluxBound="ub_metabolite_ix_5">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_5" name="metabolite_ix_5" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_5" fbc:upperFluxBound="ub_metabolite_ix_5">
     <listOfReactants>
       <speciesReference species="ATP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7290,12 +7290,12 @@
       <speciesReference species="metabolite_constraint_ix_1" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_6" name="metabolite_ix_6" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_6" fbc:upperFluxBound="ub_metabolite_ix_6">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_6" name="metabolite_ix_6" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_6" fbc:upperFluxBound="ub_metabolite_ix_6">
     <listOfReactants>
       <speciesReference species="cmnm5s2UMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_7" name="metabolite_ix_7" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_7" fbc:upperFluxBound="ub_metabolite_ix_7">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_7" name="metabolite_ix_7" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_7" fbc:upperFluxBound="ub_metabolite_ix_7">
     <listOfReactants>
       <speciesReference species="CMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7303,7 +7303,7 @@
       <speciesReference species="metabolite_constraint_ix_2" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_8" name="metabolite_ix_8" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_8" fbc:upperFluxBound="ub_metabolite_ix_8">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_8" name="metabolite_ix_8" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_8" fbc:upperFluxBound="ub_metabolite_ix_8">
     <listOfReactants>
       <speciesReference species="CTP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7311,12 +7311,12 @@
       <speciesReference species="metabolite_constraint_ix_2" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_9" name="metabolite_ix_9" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_9" fbc:upperFluxBound="ub_metabolite_ix_9">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_9" name="metabolite_ix_9" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_9" fbc:upperFluxBound="ub_metabolite_ix_9">
     <listOfReactants>
       <speciesReference species="DR5P" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_10" name="metabolite_ix_10" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_10" fbc:upperFluxBound="ub_metabolite_ix_10">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_10" name="metabolite_ix_10" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_10" fbc:upperFluxBound="ub_metabolite_ix_10">
     <listOfReactants>
       <speciesReference species="FMET" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7325,7 +7325,7 @@
       <speciesReference species="metabolite_constraint_ix_7" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_11" name="metabolite_ix_11" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_11" fbc:upperFluxBound="ub_metabolite_ix_11">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_11" name="metabolite_ix_11" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_11" fbc:upperFluxBound="ub_metabolite_ix_11">
     <listOfReactants>
       <speciesReference species="FOR" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7333,7 +7333,7 @@
       <speciesReference species="metabolite_constraint_ix_6" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_12" name="metabolite_ix_12" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_12" fbc:upperFluxBound="ub_metabolite_ix_12">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_12" name="metabolite_ix_12" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_12" fbc:upperFluxBound="ub_metabolite_ix_12">
     <listOfReactants>
       <speciesReference species="FTHF10" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7342,7 +7342,7 @@
       <speciesReference species="metabolite_constraint_ix_6" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_13" name="metabolite_ix_13" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_13" fbc:upperFluxBound="ub_metabolite_ix_13">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_13" name="metabolite_ix_13" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_13" fbc:upperFluxBound="ub_metabolite_ix_13">
     <listOfReactants>
       <speciesReference species="GDP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7350,12 +7350,12 @@
       <speciesReference species="metabolite_constraint_ix_3" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_14" name="metabolite_ix_14" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_14" fbc:upperFluxBound="ub_metabolite_ix_14">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_14" name="metabolite_ix_14" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_14" fbc:upperFluxBound="ub_metabolite_ix_14">
     <listOfReactants>
       <speciesReference species="GmMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_15" name="metabolite_ix_15" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_15" fbc:upperFluxBound="ub_metabolite_ix_15">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_15" name="metabolite_ix_15" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_15" fbc:upperFluxBound="ub_metabolite_ix_15">
     <listOfReactants>
       <speciesReference species="GMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7363,12 +7363,12 @@
       <speciesReference species="metabolite_constraint_ix_3" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_16" name="metabolite_ix_16" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_16" fbc:upperFluxBound="ub_metabolite_ix_16">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_16" name="metabolite_ix_16" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_16" fbc:upperFluxBound="ub_metabolite_ix_16">
     <listOfReactants>
       <speciesReference species="GN" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_17" name="metabolite_ix_17" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_17" fbc:upperFluxBound="ub_metabolite_ix_17">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_17" name="metabolite_ix_17" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_17" fbc:upperFluxBound="ub_metabolite_ix_17">
     <listOfReactants>
       <speciesReference species="GTP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7376,47 +7376,47 @@
       <speciesReference species="metabolite_constraint_ix_3" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_18" name="metabolite_ix_18" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_18" fbc:upperFluxBound="ub_metabolite_ix_18">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_18" name="metabolite_ix_18" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_18" fbc:upperFluxBound="ub_metabolite_ix_18">
     <listOfReactants>
       <speciesReference species="H" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_19" name="metabolite_ix_19" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_19" fbc:upperFluxBound="ub_metabolite_ix_19">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_19" name="metabolite_ix_19" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_19" fbc:upperFluxBound="ub_metabolite_ix_19">
     <listOfReactants>
       <speciesReference species="H2O" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_20" name="metabolite_ix_20" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_20" fbc:upperFluxBound="ub_metabolite_ix_20">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_20" name="metabolite_ix_20" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_20" fbc:upperFluxBound="ub_metabolite_ix_20">
     <listOfReactants>
       <speciesReference species="k2CMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_21" name="metabolite_ix_21" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_21" fbc:upperFluxBound="ub_metabolite_ix_21">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_21" name="metabolite_ix_21" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_21" fbc:upperFluxBound="ub_metabolite_ix_21">
     <listOfReactants>
       <speciesReference species="LIPOYLLYS" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_22" name="metabolite_ix_22" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_22" fbc:upperFluxBound="ub_metabolite_ix_22">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_22" name="metabolite_ix_22" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_22" fbc:upperFluxBound="ub_metabolite_ix_22">
     <listOfReactants>
       <speciesReference species="m1GMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_23" name="metabolite_ix_23" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_23" fbc:upperFluxBound="ub_metabolite_ix_23">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_23" name="metabolite_ix_23" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_23" fbc:upperFluxBound="ub_metabolite_ix_23">
     <listOfReactants>
       <speciesReference species="m2GMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_24" name="metabolite_ix_24" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_24" fbc:upperFluxBound="ub_metabolite_ix_24">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_24" name="metabolite_ix_24" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_24" fbc:upperFluxBound="ub_metabolite_ix_24">
     <listOfReactants>
       <speciesReference species="m62AMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_25" name="metabolite_ix_25" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_25" fbc:upperFluxBound="ub_metabolite_ix_25">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_25" name="metabolite_ix_25" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_25" fbc:upperFluxBound="ub_metabolite_ix_25">
     <listOfReactants>
       <speciesReference species="m7GMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_26" name="metabolite_ix_26" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_26" fbc:upperFluxBound="ub_metabolite_ix_26">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_26" name="metabolite_ix_26" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_26" fbc:upperFluxBound="ub_metabolite_ix_26">
     <listOfReactants>
       <speciesReference species="MET" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7424,57 +7424,57 @@
       <speciesReference species="metabolite_constraint_ix_7" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_27" name="metabolite_ix_27" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_27" fbc:upperFluxBound="ub_metabolite_ix_27">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_27" name="metabolite_ix_27" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_27" fbc:upperFluxBound="ub_metabolite_ix_27">
     <listOfReactants>
       <speciesReference species="NH3" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_28" name="metabolite_ix_28" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_28" fbc:upperFluxBound="ub_metabolite_ix_28">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_28" name="metabolite_ix_28" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_28" fbc:upperFluxBound="ub_metabolite_ix_28">
     <listOfReactants>
       <speciesReference species="NMN" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_29" name="metabolite_ix_29" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_29" fbc:upperFluxBound="ub_metabolite_ix_29">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_29" name="metabolite_ix_29" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_29" fbc:upperFluxBound="ub_metabolite_ix_29">
     <listOfReactants>
       <speciesReference species="PI" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_30" name="metabolite_ix_30" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_30" fbc:upperFluxBound="ub_metabolite_ix_30">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_30" name="metabolite_ix_30" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_30" fbc:upperFluxBound="ub_metabolite_ix_30">
     <listOfReactants>
       <speciesReference species="PPI" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_31" name="metabolite_ix_31" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_31" fbc:upperFluxBound="ub_metabolite_ix_31">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_31" name="metabolite_ix_31" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_31" fbc:upperFluxBound="ub_metabolite_ix_31">
     <listOfReactants>
       <speciesReference species="pSER" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_32" name="metabolite_ix_32" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_32" fbc:upperFluxBound="ub_metabolite_ix_32">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_32" name="metabolite_ix_32" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_32" fbc:upperFluxBound="ub_metabolite_ix_32">
     <listOfReactants>
       <speciesReference species="PSIURIMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_33" name="metabolite_ix_33" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_33" fbc:upperFluxBound="ub_metabolite_ix_33">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_33" name="metabolite_ix_33" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_33" fbc:upperFluxBound="ub_metabolite_ix_33">
     <listOfReactants>
       <speciesReference species="pTHR" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_34" name="metabolite_ix_34" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_34" fbc:upperFluxBound="ub_metabolite_ix_34">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_34" name="metabolite_ix_34" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_34" fbc:upperFluxBound="ub_metabolite_ix_34">
     <listOfReactants>
       <speciesReference species="pTYR" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_35" name="metabolite_ix_35" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_35" fbc:upperFluxBound="ub_metabolite_ix_35">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_35" name="metabolite_ix_35" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_35" fbc:upperFluxBound="ub_metabolite_ix_35">
     <listOfReactants>
       <speciesReference species="s4UMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_36" name="metabolite_ix_36" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_36" fbc:upperFluxBound="ub_metabolite_ix_36">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_36" name="metabolite_ix_36" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_36" fbc:upperFluxBound="ub_metabolite_ix_36">
     <listOfReactants>
       <speciesReference species="SNGLYP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_37" name="metabolite_ix_37" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_37" fbc:upperFluxBound="ub_metabolite_ix_37">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_37" name="metabolite_ix_37" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_37" fbc:upperFluxBound="ub_metabolite_ix_37">
     <listOfReactants>
       <speciesReference species="THF" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7482,17 +7482,17 @@
       <speciesReference species="metabolite_constraint_ix_5" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_38" name="metabolite_ix_38" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_38" fbc:upperFluxBound="ub_metabolite_ix_38">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_38" name="metabolite_ix_38" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_38" fbc:upperFluxBound="ub_metabolite_ix_38">
     <listOfReactants>
       <speciesReference species="THY" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_39" name="metabolite_ix_39" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_39" fbc:upperFluxBound="ub_metabolite_ix_39">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_39" name="metabolite_ix_39" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_39" fbc:upperFluxBound="ub_metabolite_ix_39">
     <listOfReactants>
       <speciesReference species="UmMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_40" name="metabolite_ix_40" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_40" fbc:upperFluxBound="ub_metabolite_ix_40">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_40" name="metabolite_ix_40" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_40" fbc:upperFluxBound="ub_metabolite_ix_40">
     <listOfReactants>
       <speciesReference species="UMP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7500,12 +7500,12 @@
       <speciesReference species="metabolite_constraint_ix_4" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="metabolite_ix_41" name="metabolite_ix_41" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_41" fbc:upperFluxBound="ub_metabolite_ix_41">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_41" name="metabolite_ix_41" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_41" fbc:upperFluxBound="ub_metabolite_ix_41">
     <listOfReactants>
       <speciesReference species="URA" stoichiometry="1" constant="true"/>
     </listOfReactants>
   </reaction>
-  <reaction id="metabolite_ix_42" name="metabolite_ix_42" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_42" fbc:upperFluxBound="ub_metabolite_ix_42">
+  <reaction sboTerm="SBO:0000627" id="metabolite_ix_42" name="metabolite_ix_42" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_42" fbc:upperFluxBound="ub_metabolite_ix_42">
     <listOfReactants>
       <speciesReference species="UTP" stoichiometry="1" constant="true"/>
     </listOfReactants>
@@ -7598,10 +7598,10 @@
       <speciesReference species="biomass" stoichiometry="1" constant="true"/>
     </listOfProducts>
   </reaction>
-  <reaction id="biomassConsumption" name="biomassConsumption" reversible="true" fast="false" fbc:lowerFluxBound="lb_biomassConsumption" fbc:upperFluxBound="ub_biomassConsumption">
-    <listOfProducts>
+  <reaction sboTerm="SBO:0000627" id="biomassConsumption" name="biomassConsumption" reversible="true" fast="false" fbc:lowerFluxBound="lb_biomassConsumption" fbc:upperFluxBound="ub_biomassConsumption">
+    <listOfReactants>
       <speciesReference species="biomass" stoichiometry="1" constant="true"/>
-    </listOfProducts>
+    </listOfReactants>
   </reaction>
 </listOfReactions><fbc:listOfObjectives fbc:activeObjective="growth">
   <fbc:objective fbc:id="growth" fbc:type="maximize">
