@@ -1,3 +1,4 @@
+# -*- coding=utf-8 -*-
 """
 Creates the SBML for the metabolism submodul
 from matlab matrices and database information.
@@ -5,6 +6,7 @@ from matlab matrices and database information.
 @author Matthias Koenig
 """
 # TODO: add units to model (items and items_per_s)
+
 # TODO: add initial values
 # TODO: update the annotations/integrate
 # TODO: set the boundary conditions (instead of exchange reactions)
@@ -17,7 +19,11 @@ from __future__ import print_function, division
 from libsbml import *
 import libsbml
 from sbmlutils.validation import validate_sbml, check
-from sbmlutils.annotation import set_model_history
+import sbmlutils.sbmlio as sbml_io
+import sbmlutils.annotation as sbml_annotation
+import sbmlutils.comp as comp
+
+from sbmlutils.factory import *
 
 from metabolism_settings import RESULTS_DIR, VERSION        
 
@@ -25,12 +31,41 @@ import pandas as pd
 from pandas import DataFrame
 import warnings
 
-
-
-
 ##########################################################################
-# Creators
+# Model information
 ##########################################################################
+version = 9
+model_id = 'WCM_3_10'
+model_name = 'Whole Cell 2015 - Metabolism'
+
+notes = XMLNode.convertStringToXMLNode("""
+    <body xmlns='http://www.w3.org/1999/xhtml'>
+    <h1>Wholecell Model</h1>
+    <h2>Description</h2>
+    <p>This is the metabolic submodel of the Karr model.</p>
+
+    <div class="dc:publisher">This file has been produced by
+      <a href="https://livermetabolism.com/contact.html" title="Matthias Koenig" target="_blank">Matthias Koenig</a>.
+      </div>
+
+    <h2>Terms of use</h2>
+      <div class="dc:rightsHolder">Copyright © 2016 Wholecell Consortium.</div>
+      <div class="dc:license">
+      <p>Redistribution and use of any part of this model, with or without modification, are permitted provided that
+      the following conditions are met:
+        <ol>
+          <li>Redistributions of this SBML file must retain the above copyright notice, this list of conditions
+              and the following disclaimer.</li>
+          <li>Redistributions in a different form must reproduce the above copyright notice, this list of
+              conditions and the following disclaimer in the documentation and/or other materials provided
+          with the distribution.</li>
+        </ol>
+        This model is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+             the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
+      </div>
+    </body>
+""")
+
 creators = [
     ['Bergmann', 'Frank', 'fbergman@caltech.edu', 'Caltech'],
     ['Koenig', 'Matthias', 'konigmatt@googlemail.com', 'Charite Berlin'],
@@ -41,12 +76,6 @@ creators = [
 ]
 creators = [dict(zip(['FamilyName', 'GivenName', 'Email', 'Organization'], entry)) for entry in creators]
 
-##########################################################################
-# Model information
-##########################################################################
-model_id = 'WCM_3_10'
-model_name = 'Whole Cell 2015 - Metabolism'
-
 cvterms = [
     [MODEL_QUALIFIER, BQM_IS_DERIVED_FROM, "http://identifiers.org/doi/10.1016/j.cell.2012.05.044"],
     [MODEL_QUALIFIER, BQM_IS_DESCRIBED_BY, "http://identifiers.org/pubmed/22817898"],
@@ -56,12 +85,47 @@ cvterms = [
 ]
 cvterms_df = DataFrame(data=cvterms, columns=['Qualifier', 'QualifierType', 'Resource'])
 
+##########################################################################
+# Units
+##########################################################################
+main_units = {
+    'time': 's',
+    'extent': UNIT_KIND_ITEM,
+    'substance': UNIT_KIND_ITEM,
+    'length': 'm',
+    'area': 'm2',
+    'volume': 'm3',
+}
+units = {
+    's': [(UNIT_KIND_SECOND, 1.0)],
+    'kg': [(UNIT_KIND_KILOGRAM, 1.0)],
+    'm': [(UNIT_KIND_METRE, 1.0)],
+    'm2': [(UNIT_KIND_METRE, 2.0)],
+    'm3': [(UNIT_KIND_METRE, 3.0)],
+    'mM': [(UNIT_KIND_MOLE, 1.0, 0),
+           (UNIT_KIND_METRE, -3.0)],
+    'per_s': [(UNIT_KIND_SECOND, -1.0)],
+    'item_per_s': [(UNIT_KIND_ITEM, 1.0),
+                   (UNIT_KIND_SECOND, -1.0)],
+    'item_per_m3': [(UNIT_KIND_ITEM, 1.0),
+                    (UNIT_KIND_METRE, -3.0)],
+}
+UNIT_AMOUNT = UNIT_KIND_ITEM
+UNIT_AREA = 'm2'
+UNIT_VOLUME = 'm3'
+UNIT_CONCENTRATION = 'item_per_m3'
+UNIT_FLUX = 'item_per_s'
+########################################################################
+
 
 def set_model_information(model):
     """ Writes the core information in the Karr model. """
     model.setId(model_id)
     model.setName(model_name)
-    set_model_history(model, creators)
+    sbml_annotation.set_model_history(model, creators)
+    create_unit_definitions(model, units)
+    set_main_units(model, main_units)
+    model.setNotes(notes)
     set_cv_terms(model, cvterms_df)
 
 
@@ -89,29 +153,14 @@ def set_cv_terms(model, cvterms_df):
 
 ##########################################################################
 # Compartments
-########################################################################## 
-# Compartment information is hard coded.
-# Compartment 'none' is added to account for pseudo-metabolites
-# used in the FBA.
-comp_df = DataFrame(columns=['id', 'name', 'size', 'spatialDimensions', 'constant'],
-                       data=[
-                             ['c', 'cytosol', 1.0, 3, False],
-                             ['m', 'membrane', 1.0, 2, False],
-                             ['e', 'extracellular', 1.0, 3, False],
-                             ['n', 'none', 1.0, 3, False],
-                            ])
-comp_df.set_index(comp_df.id, inplace=True)
-
-
-def create_compartments(model, comp_df):
-    """ Create compartments based on compartment information. """
-    for index, row in comp_df.iterrows():
-        c = model.createCompartment()
-        c.setId(row['id'])
-        c.setName(row['name'])
-        c.setSize(row['size'])
-        c.setSpatialDimensions(row['spatialDimensions'])
-        c.setConstant(row['constant'])
+##########################################################################
+compartments = [
+    # Compartment 'none' is added to account for pseudo-metabolites used in the FBA.
+    {A_ID: 'c', A_NAME: 'cytosol', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_SPATIAL_DIMENSION: 3, A_CONSTANT: False},
+    {A_ID: 'm', A_NAME: 'membrane', A_VALUE: 1.0, A_UNIT: UNIT_AREA, A_SPATIAL_DIMENSION: 2, A_CONSTANT: False},
+    {A_ID: 'e', A_NAME: 'extracellular', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_SPATIAL_DIMENSION: 3, A_CONSTANT: False},
+    {A_ID: 'n', A_NAME: 'none', A_VALUE: 1.0, A_UNIT: UNIT_VOLUME, A_SPATIAL_DIMENSION: 3, A_CONSTANT: False},
+]
 
 
 def create_metabolism_sbml():
@@ -120,6 +169,8 @@ def create_metabolism_sbml():
     :return:
     :rtype:
     """
+    tol = 1E-12  # within this tolerance matrix elements are considered != 0
+
     ###########################################################################
     # Load matrix information
     ###########################################################################
@@ -145,12 +196,13 @@ def create_metabolism_sbml():
     ###########################################################################
     # SBML Creation
     ###########################################################################
-    tol = 1E-12  # within this tolerance matrix elements are considered != 0
-    # for instance in stoichiometric matrix
-
     # SBML model with FBC support
-    sbmlns = SBMLNamespaces(3, 1, "fbc", 2)
+    sbmlns = SBMLNamespaces(3, 1)
+    sbmlns.addPackageNamespace("fbc", 2)
+    sbmlns.addPackageNamespace("comp", 1)
+
     doc = SBMLDocument(sbmlns)
+    doc.setPackageRequired("comp", True)
     doc.setPackageRequired("fbc", False)
     model = doc.createModel()
     mplugin = model.getPlugin("fbc")
@@ -161,7 +213,7 @@ def create_metabolism_sbml():
 
     # compartments
     print('* create compartments *')
-    create_compartments(model, comp_df)
+    create_compartments(model, compartments)
 
     # <metabolites>
     print('* create metabolites *')
