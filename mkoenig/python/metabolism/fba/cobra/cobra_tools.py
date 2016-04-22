@@ -1,9 +1,9 @@
-'''
+"""
 Reading the FBC v1 information in cobrapy.
 
-@author: Matthias Koenig
-@date: 2015-03-25
-'''
+@author: mkoenig
+"""
+from __future__ import print_function, division
 import cobra
 from libsbml import readSBML
 import pandas as pd
@@ -14,35 +14,35 @@ import warnings
 # Objectives & coefficients
 # -----------------------------------------------------------------------------
 def _get_active_objective_from_fbc(sbml):
-    ''' Read the active objective from fbc model. '''
+    """ Read the active objective from fbc model. """
     obj_coefs = {}
     doc = readSBML(sbml)
-    if (doc.getPlugin("fbc") != None):
+    if doc.getPlugin("fbc") != None:
         model_sbml = doc.getModel()
-        mplugin = model_sbml.getPlugin("fbc");
-        # read the active objective        
+        mplugin = model_sbml.getPlugin("fbc")
+        # read the active objective
         objective = mplugin.getActiveObjective()
         for fluxobj in objective.getListOfFluxObjectives():
             obj_coefs[fluxobj.getReaction()] = fluxobj.getCoefficient()
     return obj_coefs
 
+
 def reset_objective_coefficients(model):
-    ''' Set all objective coefficents to 0.0. '''
+    """ Set all objective coefficents to 0.0. """
     for reaction in model.reactions:
         reaction.objective_coefficient = 0
-    return None
 
     
 def set_objective_coefficients(model, coefs_dict):
-    ''' Set given objective coefficients. '''
+    """ Set given objective coefficients. """
     reset_objective_coefficients(model)
     for rid, coef in coefs_dict.iteritems():
         reaction = model.reactions.get_by_id(rid)
         reaction.objective_coefficient = coef
 
-    
+
 def get_objective_coefficients(model):
-    ''' Returns objective coefficents != 0. '''
+    """ Returns objective coefficents != 0. """
     return {reaction: reaction.objective_coefficient for reaction in model.reactions if reaction.objective_coefficient != 0}
 
 
@@ -50,15 +50,16 @@ def get_objective_coefficients(model):
 # FluxBounds
 # -----------------------------------------------------------------------------
 def get_flux_bounds_from_fbc(sbml):
+    """ Read the flux bounds from given SBML. """
     bound_ids = []
     reaction_ids = []
     operations = []
     values = []
     
     doc = readSBML(sbml)
-    if (doc.getPlugin("fbc") != None):
+    if doc.getPlugin("fbc") is not None:
         model_sbml = doc.getModel()
-        mplugin = model_sbml.getPlugin("fbc");
+        mplugin = model_sbml.getPlugin("fbc")
     
         # read flux bounds
         for fb in mplugin.getListOfFluxBounds():
@@ -72,9 +73,9 @@ def get_flux_bounds_from_fbc(sbml):
                       'operation': operations, 
                       'value' :values}, index=bound_ids)
 
+
 def _set_flux_bounds_from_fbc(model, sbml):
-    ''' Sets all the lower and upper fluxbounds from the FBC. '''
-    
+    """ Sets all the lower and upper fluxbounds from the FBC. """
     bounds_df = get_flux_bounds_from_fbc(sbml)
     for index, row in bounds_df.iterrows():
         reaction_id = row.reaction
@@ -119,11 +120,11 @@ def print_flux_bounds(model):
 # GeneAssociations
 # -----------------------------------------------------------------------------
 def _set_gene_associations_from_fbc(model_cobra, sbml):
-    ''' Read GeneAssociations from FBC v1. '''
+    """ Read GeneAssociations from FBC v1. """
     doc = readSBML(sbml)
-    if (doc.getPlugin("fbc") != None):
+    if doc.getPlugin("fbc") is not None:
         model_sbml = doc.getModel()
-        mplugin = model_sbml.getPlugin("fbc");
+        mplugin = model_sbml.getPlugin("fbc")
         for ga in mplugin.getListOfGeneAssociations():        
             # get the rule string for cobrapy        
             ass = ga.getAssociation()
@@ -159,16 +160,15 @@ if __name__ == '__main__':
     from metabolism_settings import VERSION, RESULTS_DIR 
     sbml = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
 
-    # model = cobra.io.read_sbml_model(sbml)
-    model = read_sbml_fbc_model(sbml) # with additional FBC v1 information
+    model = read_sbml_fbc_model(sbml)  # with additional FBC v1 information
 
-    print len(model.reactions)    # 504
-    print len(model.metabolites)  # 479  (336 + 104 -1) species + proteins - protein_species
-    print len(model.genes)        # 142  (104)
-    print model.compartments
+    print(len(model.reactions))  # 504
+    print(len(model.metabolites))  # 479  (336 + 104 -1) species + proteins - protein_species
+    print(len(model.genes))  # 142  (104)
+    print(model.compartments)
 
     for key, value in get_objective_coefficients(model).iteritems():
-        print key, value    
+        print(key, value)
         
     bounds_df = get_flux_bounds_from_fbc(sbml)
-    print bounds_df
+    print(bounds_df)

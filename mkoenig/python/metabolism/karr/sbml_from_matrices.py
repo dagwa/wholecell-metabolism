@@ -3,16 +3,19 @@
 Creates the SBML for the metabolism submodul
 from matlab matrices and database information.
 
-@author Matthias Koenig
+@author mkoenig
 """
-# TODO: add units to model (items and items_per_s)
+# TODO: handle exchange reactions correctly
+# TODO: run example simulations (in cobra)
 
-# TODO: add initial values
+
 # TODO: update the annotations/integrate
-# TODO: set the boundary conditions (instead of exchange reactions)
-# TODO: run example simulations
+
+
 # TODO: create the kinetic ode model/comp model
 # TODO: glycolysis subnetwork
+
+
 
 
 from __future__ import print_function, division
@@ -27,6 +30,8 @@ from sbmlutils.factory import *
 
 from metabolism_settings import RESULTS_DIR, VERSION        
 
+import re
+
 import pandas as pd
 from pandas import DataFrame
 import warnings
@@ -34,7 +39,7 @@ import warnings
 ##########################################################################
 # Model information
 ##########################################################################
-version = 9
+version = VERSION
 model_id = 'WCM_3_10'
 model_name = 'Whole Cell 2015 - Metabolism'
 
@@ -293,8 +298,9 @@ def create_metabolism_sbml():
     print('* create reactions *')
     # Reactions are all columns in the FBA stoichiometric matrix.
     # This includes some pseudo-reactions (internal & external exchange) which
-    # are not represented in the knowledgbase.
+    # are not represented in the knowledg base.
     for index, row in r_fba_df.iterrows():
+
         # create reaction
         r = model.createReaction()
         r.setId(index)
@@ -302,6 +308,19 @@ def create_metabolism_sbml():
         if not pd.isnull(name):
             r.setName(name)
         r.setFast(False)
+
+        # <reversibility>
+        # The reversibility can be calculated from the reaction bounds. In some
+        # cases the reversibility is in backward direction. This would require the
+        # change of reactants and products for encoding. The SBML is strictly reproducing
+        # the FBA problem, so that no reversibilities are defined in the SBML.
+        # Reversibility is functional in the FBA via the actual flux bounds.
+        r.setReversible(True)  # some are irreversible via Flux bounds in forward or backward direction
+
+        # exchange reactions
+        if index.startswith('metabolite_ex_'):
+            r.setSBOTerm(627)  # exchange reaction
+
         # get FBC plugin
         rplugin = r.getPlugin("fbc")
 
@@ -314,21 +333,23 @@ def create_metabolism_sbml():
             mod.setSpecies(eid)
 
             # gene associations
+            # TODO: create the ga objects !
             gene_str = e_df['genes'][eid]
             genes = [g.strip() for g in gene_str.split(',')]
             genes_formula = ' AND '.join(genes)
 
             gpa = rplugin.createGeneProductAssociation()
             gpa.setId('ga__{}__{}'.format(index, eid))
-            # print("*"*60)
-            # print(r.getId())
-            # print(genes_formula)
             gpa.setAssociation(genes_formula)
 
         # stoichiometry from stoichiometric matrix  # [376x504]
         # find non-zero elements in the reaction column
         col = mat_stoichiometry[index]
         col = col[abs(col) > tol]
+
+        # exchange reactions are defined in export direction
+        if index.startswith('metabolite_ex_'):
+            col = -1.0 * col
         # create species references depending on stoichiometry
         for sid, stoichiometry in col.iteritems():
             if stoichiometry < 0:
@@ -336,46 +357,29 @@ def create_metabolism_sbml():
                 rt.setSpecies(sid)
                 rt.setStoichiometry(abs(stoichiometry))
                 rt.setConstant(True)
+                if index.startswith('metabolite_ex_'):
+                    r.setId("metabolite_ex_{}".format(sid))
             if stoichiometry > 0:
                 pt = r.createProduct()
                 pt.setSpecies(sid)
                 pt.setStoichiometry(stoichiometry)
                 pt.setConstant(True)
 
-        # <reversibility>
-        # The reversibility can be calculated from the reaction bounds. In some
-        # cases the reversibility is in backward direction. This would require the
-        # change of reactants and products for encoding. The SBML is strictly reproducing
-        # the FBA problem, so that no reversibilities are defined in the SBML.
-        # Reversibility is functional in the FBA via the actual flux bounds.
-        r.setReversible(True)  # some are irreversible via Flux bounds in forward or backward direction
-
-        # <fluxbounds>
-        def createFluxParameter(p_name, index, pid=None):
-            if not pid:
-                pid = '{}__{}'.format(index, p_name)
-            p = model.createParameter()
-            p.setId(pid)
-            p.setValue(r_fba_df[p_name][index])
-            p.setConstant(True)
-            return p
-
-        # create parameters for dynamical calculation of flux bounds
-        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds', 'lb_fbaEnzymeBounds', 'ub_fbaEnzymeBounds'):
-            createFluxParameter(p_name, index)
-        # upper bound & lower bounds parameters (this
-        for p_name in ('lb_fbaReactionBounds', 'ub_fbaReactionBounds'):
-            if p_name.startswith('lb'):
-                createFluxParameter(p_name, index, pid='lb__{}'.format(index))
-            if p_name.startswith('ub'):
-                createFluxParameter(p_name, index, pid='ub__{}'.format(index))
-
         # The reaction flux bounds are set as hard upper and lower flux bounds
         # These are NOT the dynamical flux bounds.
         # The actual flux bounds are calculated based on an outer model which evaluates AssignmentRules for the
         # parameters (taking into account metabolite counts, protein counts, kcat, ...)
-        rplugin.setLowerFluxBound('lb__{}'.format(index))
-        rplugin.setUpperFluxBound('ub__{}'.format(index))
+        rid = r.getId()
+        ub_id = 'ub_{}'.format(rid)
+        lb_id = 'lb_{}'.format(rid)
+
+        parameters = [
+            # bounds
+            {A_ID: lb_id, A_NAME: lb_id, A_VALUE: float("-inf"), A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+            {A_ID: ub_id, A_NAME: ub_id, A_VALUE: float("inf"), A_UNIT: UNIT_FLUX, A_CONSTANT: False},
+        ]
+        create_parameters(model, parameters)
+        set_flux_bounds(r, lb=lb_id, ub=ub_id)
 
     # <objective function>
     print('* create objective function *')
@@ -394,13 +398,13 @@ def create_metabolism_sbml():
     sbml_out = os.path.join(RESULTS_DIR, "Metabolism_matrices_{}_L3V1.xml".format(VERSION))
     writer = SBMLWriter()
     writer.writeSBML(doc, sbml_out)
-    # print(sbml_out)
+    print(sbml_out)
 
     # perform the full validation checks & validation
     print('* validate_sbml *')
-    print(sbml_out)
     validate_sbml(sbml_out, ucheck=False)
 
+    """
     # Conversion to cobra model
     print('* convert to cobra *')
     conversion_properties = libsbml.ConversionProperties()
@@ -412,6 +416,7 @@ def create_metabolism_sbml():
     print(sbml_cobra)
     writer = SBMLWriter()
     writer.writeSBML(doc, sbml_cobra)
+    """
 
 if __name__ == "__main__":
     create_metabolism_sbml()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" fbc:required="false" comp:required="true">
-  <model metaid="meta_bafffd3138a54c139339258a143174a5" id="WCM_3_10" name="Whole Cell 2015 - Metabolism" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
+  <model metaid="meta_ca71f22a29f84954ae6848809ee54d1e" id="WCM_3_10" name="Whole Cell 2015 - Metabolism" substanceUnits="item" timeUnits="s" volumeUnits="m3" areaUnits="m2" lengthUnits="m" extentUnits="item" fbc:strict="false">
     <notes>
       <body xmlns="http://www.w3.org/1999/xhtml">
         <h1>Wholecell Model</h1>
@@ -27,7 +27,7 @@
   </body>
 </notes><annotation>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-    <rdf:Description rdf:about="#meta_bafffd3138a54c139339258a143174a5">
+    <rdf:Description rdf:about="#meta_ca71f22a29f84954ae6848809ee54d1e">
       <dc:creator>
         <rdf:Bag>
           <rdf:li rdf:parseType="Resource">
@@ -93,10 +93,10 @@
         </rdf:Bag>
       </dc:creator>
       <dcterms:created rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-04-22T14:47:29Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-04-22T15:21:59Z</dcterms:W3CDTF>
       </dcterms:created>
       <dcterms:modified rdf:parseType="Resource">
-        <dcterms:W3CDTF>2016-04-22T14:47:29Z</dcterms:W3CDTF>
+        <dcterms:W3CDTF>2016-04-22T15:21:59Z</dcterms:W3CDTF>
       </dcterms:modified>
       <bqmodel:isDerivedFrom>
         <rdf:Bag>
@@ -409,130 +409,130 @@
   <species id="metabolite_constraint_ix_6" name="metabolite_constraint_ix_6" compartment="n" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
   <species id="metabolite_constraint_ix_7" name="metabolite_constraint_ix_7" compartment="n" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
   <species id="biomass" name="biomass" compartment="n" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-  <species id="AC__e" name="acetate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C2H3O2"/>
-  <species id="ACAL__e" name="acetaldehyde" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C2H4O1"/>
-  <species id="AD__e" name="adenine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H5N5"/>
-  <species id="AEPP__e" name="2-aminoethylphosphonate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C2H8N1O3P1"/>
-  <species id="AKG__e" name="2-Oxoglutarate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C5H4O5"/>
-  <species id="AlaAla__e" name="L-alanyl-L-alanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12N2O3"/>
-  <species id="AMP__e" name="AMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O7P1"/>
-  <species id="AMP_Lysine__e" name="AMP-Lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H26N7O8P1"/>
-  <species id="AMP_Mor__e" name="AMP-morpholidate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H21N6O7P1"/>
-  <species id="AMP_NH2__e" name="AMP-NH2" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C10H15N6O6P1"/>
-  <species id="ArgArg__e" name="L-arginyl-L-arginine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="C12H28N8O3"/>
-  <species id="AsnAsn__e" name="L-asparaginyl-L-asparagine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H14N4O5"/>
-  <species id="AspAsp__e" name="L-aspartyl-L-aspartic Acid" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C8H10N2O7"/>
-  <species id="BUT__e" name="butyric acid, butanoic acid" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C4H8O2"/>
-  <species id="CA__e" name="calcium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Ca1"/>
-  <species id="CAP__e" name="carbamoyl phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C1H2N1O5P1"/>
-  <species id="CH3OH__e" name="methanol" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C1H4O1"/>
-  <species id="CL__e" name="chloride ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="Cl1"/>
-  <species id="cmnm5s2U__e" name="5-carboxymethylaminomethyl-2-thiouridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H17N3O7S1"/>
-  <species id="CO__e" name="cobalt ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Co1"/>
-  <species id="CO2__e" name="carbon dioxide" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C1O2"/>
-  <species id="COA__e" name="coenzyme A" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-4" fbc:chemicalFormula="C21H32N7O16P3S1"/>
-  <species id="CU__e" name="cupric ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Cu1"/>
-  <species id="CysCys__e" name="L-cysteinyl-L-cysteine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12N2O3S2"/>
-  <species id="CYTD__e" name="cytidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H13N3O5"/>
-  <species id="DA__e" name="deoxyadenosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O3"/>
-  <species id="DAMP__e" name="dAMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O6P1"/>
-  <species id="dApdAp__e" name="dAp-dAp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-3" fbc:chemicalFormula="C20H23N10O11P2"/>
-  <species id="DCMP__e" name="dCMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C9H12N3O7P1"/>
-  <species id="dCpdCp__e" name="dCp-dCp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-3" fbc:chemicalFormula="C18H23N6O13P2"/>
-  <species id="DDCA__e" name="Dodecanoate (n-C12:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C12H23O2"/>
-  <species id="DGMP__e" name="dGMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O7P1"/>
-  <species id="dGpdGp__e" name="dGp-dGp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-3" fbc:chemicalFormula="C20H23N10O13P2"/>
-  <species id="DIBUTYRIN__e" name="dibutyrin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H20O5"/>
-  <species id="dINS__e" name="2&apos;-deoxyinosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C10H12N4O4"/>
-  <species id="DTMP__e" name="dTMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H13N2O8P1"/>
-  <species id="dTpdTp__e" name="dTp-dTp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-3" fbc:chemicalFormula="C20H25N4O15P2"/>
-  <species id="FE2__e" name="ferrous iron" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Fe1"/>
-  <species id="FE3__e" name="ferric iron" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="3" fbc:chemicalFormula="Fe1"/>
-  <species id="FOR__e" name="Formate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C1H1O2"/>
-  <species id="FRU__e" name="D-Fructose" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12O6"/>
-  <species id="G6P__e" name="D-Glucose 6-phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C6H11O9P1"/>
-  <species id="GL__e" name="glycerol" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C3H8O3"/>
-  <species id="GL3P__e" name="Glycerol 3-phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C3H8O6P1"/>
-  <species id="GLC__e" name="D-Glucose" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12O6"/>
-  <species id="GLN__e" name="L-glutamine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H10N2O3"/>
-  <species id="GlnGln__e" name="L-glutaminyl-L-glutamine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H18N4O5"/>
-  <species id="GluGlu__e" name="L-glutamyl-L-glutamic acid" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H14N2O7"/>
-  <species id="GlyGly__e" name="L-glycyl-L-glycine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H8N2O3"/>
-  <species id="Gm__e" name="2&apos;-O-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H15N5O5"/>
-  <species id="GMP__e" name="GMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O8P1"/>
-  <species id="GMP_Lysine__e" name="GMP-lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H26N7O9P1"/>
-  <species id="GMP_Mor__e" name="GMP-morpholidate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H21N6O8P1"/>
-  <species id="GN__e" name="guanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H5N5O1"/>
-  <species id="H__e" name="hydrogen ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="H1"/>
-  <species id="H2O__e" name="water" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="H2O1"/>
-  <species id="H2O2__e" name="hydrogen peroxide" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="H2O2"/>
-  <species id="HDCA__e" name="Hexadecanoate (n-C16:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H31O2"/>
-  <species id="HDCEA__e" name="Hexadecenoate (n-C16:1)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H29O2"/>
-  <species id="HisHis__e" name="L-histidyl-L-histidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H16N6O3"/>
-  <species id="IleIle__e" name="L-isoleucyl-L-isoleucine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H24N2O3"/>
-  <species id="K__e" name="potassium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="K1"/>
-  <species id="k2C__e" name="lysidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="C15H25N5O6"/>
-  <species id="LeuLeu__e" name="L-leucyl-L-leucine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H24N2O3"/>
-  <species id="LIPOATE__e" name="lipoate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C8H13O2S2"/>
-  <species id="LYS__e" name="L-Lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="C6H15N2O2"/>
-  <species id="LysLys__e" name="L-lysyl-L-lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="C12H28N4O3"/>
-  <species id="m1G__e" name="1-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H15N5O5"/>
-  <species id="m2G__e" name="N(2)-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H15N5O5"/>
-  <species id="m62A__e" name="N6,N6-dimethyladenosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H17N5O4"/>
-  <species id="m7G__e" name="7-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="C11H16N5O5"/>
-  <species id="METHYL_OCDCEA__e" name="methyl oleate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C19H36O2"/>
-  <species id="MetMet__e" name="L-methionyl-L-methionine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H20N2O3S2"/>
-  <species id="MG__e" name="magnesium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Mg1"/>
-  <species id="MN__e" name="manganese ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Mn1"/>
-  <species id="MOBD__e" name="Molybdate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="Mo1O4"/>
-  <species id="MONOBUTYRIN__e" name="1-monobutyrin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C7H14O4"/>
-  <species id="MOR__e" name="morpholine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="C4H9N1O1"/>
-  <species id="NA__e" name="sodium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="Na1"/>
-  <species id="NAC__e" name="nicotinate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C6H4N1O2"/>
-  <species id="NH3__e" name="ammonia" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="H3N1"/>
-  <species id="NH4__e" name="ammonium" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="H4N1"/>
-  <species id="NI__e" name="nickel" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Ni1"/>
-  <species id="O2__e" name="oxygen" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="O2"/>
-  <species id="OA__e" name="oxaloacetate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C4H2O5"/>
-  <species id="OCDCA__e" name="octadecanoate (n-C18:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C18H35O2"/>
-  <species id="OCDCEA__e" name="octadecenoate (n-C18:1)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C18H33O2"/>
-  <species id="PHE__e" name="L-phenylalanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H11N1O2"/>
-  <species id="PhePhe__e" name="L-phenylalanyl-L-phenylalanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C18H20N2O3"/>
-  <species id="PI__e" name="phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="H1O4P1"/>
-  <species id="POE_SORBITAN__e" name="Polyoxyethylene (20) sorbitan" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C46H92O25"/>
-  <species id="ProPro__e" name="L-prolyl-L-proline" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H16N2O3"/>
-  <species id="PSIURI__e" name="pseudouridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H12N2O6"/>
-  <species id="PTRC__e" name="putrescine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="C4H14N2"/>
-  <species id="PYDX__e" name="Pyridoxal" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H9N1O3"/>
-  <species id="RIBFLV__e" name="riboflavin, oxidized" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C17H20N4O6"/>
-  <species id="s4U__e" name="4-thiouridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H12N2O5S1"/>
-  <species id="SerSer__e" name="L-seryl-L-serine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12N2O5"/>
-  <species id="SO4__e" name="sulphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="O4S1"/>
-  <species id="SPMD__e" name="spermidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="3" fbc:chemicalFormula="C7H22N3"/>
-  <species id="STEROL__e" name="cholesterol" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C27H46O1"/>
-  <species id="THF__e" name="5,6,7,8-Tetrahydrofolate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-2" fbc:chemicalFormula="C19H21N7O6"/>
-  <species id="THM__e" name="thiamine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="1" fbc:chemicalFormula="C12H17N4O1S1"/>
-  <species id="ThrThr__e" name="L-threonyl-L-threonine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H16N2O5"/>
-  <species id="THY__e" name="thymine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H6N2O2"/>
-  <species id="TRIBUTYRIN__e" name="tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C15H26O6"/>
-  <species id="TRILAURIN__e" name="trilaurin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C39H74O6"/>
-  <species id="TRIMYRISTIN__e" name="trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C45H86O6"/>
-  <species id="TRIOLEIN__e" name="triolein" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C57H104O6"/>
-  <species id="TRIPALMITIN__e" name="tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C51H98O6"/>
-  <species id="TRISTEARIN__e" name="Tristearin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C57H110O6"/>
-  <species id="TRI_HDCEA_IN__e" name="triacylglycerol of {Hexadecenoate acid}" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C51H92O6"/>
-  <species id="TRI_TTDCEA_IN__e" name="triacylglycerol of {tetradecenoic acid}" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C45H78O6"/>
-  <species id="TRP__e" name="L-tryptophan" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H12N2O2"/>
-  <species id="TrpTrp__e" name="L-trytophanyl-L-trytophan" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C22H22N4O3"/>
-  <species id="TTDCA__e" name="tetradecanoate (n-C14:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H27O2"/>
-  <species id="TTDCEA__e" name="tetradecenoate (n-C14:1)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H25O2"/>
-  <species id="TWEEN80__e" name="Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C64H124O26"/>
-  <species id="TYR__e" name="L-tyrosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H11N1O3"/>
-  <species id="TyrTyr__e" name="L-tyrosyl-L-tyrosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C18H20N2O5"/>
-  <species id="Um__e" name="2&apos;-O-methyluridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H14N2O6"/>
-  <species id="URA__e" name="uracil" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H4N2O2"/>
-  <species id="ValVal__e" name="L-valyl-L-valine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H20N2O3"/>
-  <species id="ZN__e" name="zinc ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="true" constant="false" fbc:charge="2" fbc:chemicalFormula="Zn1"/>
+  <species id="AC__e" name="acetate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C2H3O2"/>
+  <species id="ACAL__e" name="acetaldehyde" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C2H4O1"/>
+  <species id="AD__e" name="adenine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H5N5"/>
+  <species id="AEPP__e" name="2-aminoethylphosphonate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C2H8N1O3P1"/>
+  <species id="AKG__e" name="2-Oxoglutarate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C5H4O5"/>
+  <species id="AlaAla__e" name="L-alanyl-L-alanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12N2O3"/>
+  <species id="AMP__e" name="AMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O7P1"/>
+  <species id="AMP_Lysine__e" name="AMP-Lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H26N7O8P1"/>
+  <species id="AMP_Mor__e" name="AMP-morpholidate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H21N6O7P1"/>
+  <species id="AMP_NH2__e" name="AMP-NH2" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C10H15N6O6P1"/>
+  <species id="ArgArg__e" name="L-arginyl-L-arginine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="C12H28N8O3"/>
+  <species id="AsnAsn__e" name="L-asparaginyl-L-asparagine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H14N4O5"/>
+  <species id="AspAsp__e" name="L-aspartyl-L-aspartic Acid" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C8H10N2O7"/>
+  <species id="BUT__e" name="butyric acid, butanoic acid" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C4H8O2"/>
+  <species id="CA__e" name="calcium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Ca1"/>
+  <species id="CAP__e" name="carbamoyl phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C1H2N1O5P1"/>
+  <species id="CH3OH__e" name="methanol" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C1H4O1"/>
+  <species id="CL__e" name="chloride ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="Cl1"/>
+  <species id="cmnm5s2U__e" name="5-carboxymethylaminomethyl-2-thiouridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H17N3O7S1"/>
+  <species id="CO__e" name="cobalt ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Co1"/>
+  <species id="CO2__e" name="carbon dioxide" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C1O2"/>
+  <species id="COA__e" name="coenzyme A" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-4" fbc:chemicalFormula="C21H32N7O16P3S1"/>
+  <species id="CU__e" name="cupric ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Cu1"/>
+  <species id="CysCys__e" name="L-cysteinyl-L-cysteine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12N2O3S2"/>
+  <species id="CYTD__e" name="cytidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H13N3O5"/>
+  <species id="DA__e" name="deoxyadenosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O3"/>
+  <species id="DAMP__e" name="dAMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O6P1"/>
+  <species id="dApdAp__e" name="dAp-dAp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-3" fbc:chemicalFormula="C20H23N10O11P2"/>
+  <species id="DCMP__e" name="dCMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C9H12N3O7P1"/>
+  <species id="dCpdCp__e" name="dCp-dCp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-3" fbc:chemicalFormula="C18H23N6O13P2"/>
+  <species id="DDCA__e" name="Dodecanoate (n-C12:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C12H23O2"/>
+  <species id="DGMP__e" name="dGMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O7P1"/>
+  <species id="dGpdGp__e" name="dGp-dGp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-3" fbc:chemicalFormula="C20H23N10O13P2"/>
+  <species id="DIBUTYRIN__e" name="dibutyrin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H20O5"/>
+  <species id="dINS__e" name="2&apos;-deoxyinosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C10H12N4O4"/>
+  <species id="DTMP__e" name="dTMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H13N2O8P1"/>
+  <species id="dTpdTp__e" name="dTp-dTp" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-3" fbc:chemicalFormula="C20H25N4O15P2"/>
+  <species id="FE2__e" name="ferrous iron" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Fe1"/>
+  <species id="FE3__e" name="ferric iron" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="3" fbc:chemicalFormula="Fe1"/>
+  <species id="FOR__e" name="Formate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C1H1O2"/>
+  <species id="FRU__e" name="D-Fructose" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12O6"/>
+  <species id="G6P__e" name="D-Glucose 6-phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C6H11O9P1"/>
+  <species id="GL__e" name="glycerol" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C3H8O3"/>
+  <species id="GL3P__e" name="Glycerol 3-phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C3H8O6P1"/>
+  <species id="GLC__e" name="D-Glucose" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12O6"/>
+  <species id="GLN__e" name="L-glutamine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H10N2O3"/>
+  <species id="GlnGln__e" name="L-glutaminyl-L-glutamine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H18N4O5"/>
+  <species id="GluGlu__e" name="L-glutamyl-L-glutamic acid" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H14N2O7"/>
+  <species id="GlyGly__e" name="L-glycyl-L-glycine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H8N2O3"/>
+  <species id="Gm__e" name="2&apos;-O-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H15N5O5"/>
+  <species id="GMP__e" name="GMP" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C10H12N5O8P1"/>
+  <species id="GMP_Lysine__e" name="GMP-lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H26N7O9P1"/>
+  <species id="GMP_Mor__e" name="GMP-morpholidate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H21N6O8P1"/>
+  <species id="GN__e" name="guanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H5N5O1"/>
+  <species id="H__e" name="hydrogen ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="H1"/>
+  <species id="H2O__e" name="water" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="H2O1"/>
+  <species id="H2O2__e" name="hydrogen peroxide" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="H2O2"/>
+  <species id="HDCA__e" name="Hexadecanoate (n-C16:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H31O2"/>
+  <species id="HDCEA__e" name="Hexadecenoate (n-C16:1)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C16H29O2"/>
+  <species id="HisHis__e" name="L-histidyl-L-histidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H16N6O3"/>
+  <species id="IleIle__e" name="L-isoleucyl-L-isoleucine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H24N2O3"/>
+  <species id="K__e" name="potassium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="K1"/>
+  <species id="k2C__e" name="lysidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="C15H25N5O6"/>
+  <species id="LeuLeu__e" name="L-leucyl-L-leucine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H24N2O3"/>
+  <species id="LIPOATE__e" name="lipoate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C8H13O2S2"/>
+  <species id="LYS__e" name="L-Lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="C6H15N2O2"/>
+  <species id="LysLys__e" name="L-lysyl-L-lysine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="C12H28N4O3"/>
+  <species id="m1G__e" name="1-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H15N5O5"/>
+  <species id="m2G__e" name="N(2)-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H15N5O5"/>
+  <species id="m62A__e" name="N6,N6-dimethyladenosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H17N5O4"/>
+  <species id="m7G__e" name="7-methylguanosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="C11H16N5O5"/>
+  <species id="METHYL_OCDCEA__e" name="methyl oleate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C19H36O2"/>
+  <species id="MetMet__e" name="L-methionyl-L-methionine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H20N2O3S2"/>
+  <species id="MG__e" name="magnesium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Mg1"/>
+  <species id="MN__e" name="manganese ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Mn1"/>
+  <species id="MOBD__e" name="Molybdate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="Mo1O4"/>
+  <species id="MONOBUTYRIN__e" name="1-monobutyrin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C7H14O4"/>
+  <species id="MOR__e" name="morpholine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="C4H9N1O1"/>
+  <species id="NA__e" name="sodium ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="Na1"/>
+  <species id="NAC__e" name="nicotinate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C6H4N1O2"/>
+  <species id="NH3__e" name="ammonia" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="H3N1"/>
+  <species id="NH4__e" name="ammonium" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="H4N1"/>
+  <species id="NI__e" name="nickel" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Ni1"/>
+  <species id="O2__e" name="oxygen" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="O2"/>
+  <species id="OA__e" name="oxaloacetate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C4H2O5"/>
+  <species id="OCDCA__e" name="octadecanoate (n-C18:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C18H35O2"/>
+  <species id="OCDCEA__e" name="octadecenoate (n-C18:1)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C18H33O2"/>
+  <species id="PHE__e" name="L-phenylalanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H11N1O2"/>
+  <species id="PhePhe__e" name="L-phenylalanyl-L-phenylalanine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C18H20N2O3"/>
+  <species id="PI__e" name="phosphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="H1O4P1"/>
+  <species id="POE_SORBITAN__e" name="Polyoxyethylene (20) sorbitan" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C46H92O25"/>
+  <species id="ProPro__e" name="L-prolyl-L-proline" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H16N2O3"/>
+  <species id="PSIURI__e" name="pseudouridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H12N2O6"/>
+  <species id="PTRC__e" name="putrescine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="C4H14N2"/>
+  <species id="PYDX__e" name="Pyridoxal" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H9N1O3"/>
+  <species id="RIBFLV__e" name="riboflavin, oxidized" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C17H20N4O6"/>
+  <species id="s4U__e" name="4-thiouridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H12N2O5S1"/>
+  <species id="SerSer__e" name="L-seryl-L-serine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H12N2O5"/>
+  <species id="SO4__e" name="sulphate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="O4S1"/>
+  <species id="SPMD__e" name="spermidine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="3" fbc:chemicalFormula="C7H22N3"/>
+  <species id="STEROL__e" name="cholesterol" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C27H46O1"/>
+  <species id="THF__e" name="5,6,7,8-Tetrahydrofolate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C19H21N7O6"/>
+  <species id="THM__e" name="thiamine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="1" fbc:chemicalFormula="C12H17N4O1S1"/>
+  <species id="ThrThr__e" name="L-threonyl-L-threonine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H16N2O5"/>
+  <species id="THY__e" name="thymine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H6N2O2"/>
+  <species id="TRIBUTYRIN__e" name="tributyrin; 1,3-Di(butanoyloxy)propan-2-yl butanoate; butyrin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C15H26O6"/>
+  <species id="TRILAURIN__e" name="trilaurin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C39H74O6"/>
+  <species id="TRIMYRISTIN__e" name="trimyristin; 1,3-Di(tetradecanoyloxy)propan-2-yl tetradecanoate; glyceryl trimyristate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C45H86O6"/>
+  <species id="TRIOLEIN__e" name="triolein" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C57H104O6"/>
+  <species id="TRIPALMITIN__e" name="tripalmitin; 1,2,3-Trihexadecanoylglycerol; Glyceryl Tripalmitate; Glycerol Tripalmitate" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C51H98O6"/>
+  <species id="TRISTEARIN__e" name="Tristearin" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C57H110O6"/>
+  <species id="TRI_HDCEA_IN__e" name="triacylglycerol of {Hexadecenoate acid}" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C51H92O6"/>
+  <species id="TRI_TTDCEA_IN__e" name="triacylglycerol of {tetradecenoic acid}" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C45H78O6"/>
+  <species id="TRP__e" name="L-tryptophan" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H12N2O2"/>
+  <species id="TrpTrp__e" name="L-trytophanyl-L-trytophan" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C22H22N4O3"/>
+  <species id="TTDCA__e" name="tetradecanoate (n-C14:0)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H27O2"/>
+  <species id="TTDCEA__e" name="tetradecenoate (n-C14:1)" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-1" fbc:chemicalFormula="C14H25O2"/>
+  <species id="TWEEN80__e" name="Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C64H124O26"/>
+  <species id="TYR__e" name="L-tyrosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H11N1O3"/>
+  <species id="TyrTyr__e" name="L-tyrosyl-L-tyrosine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C18H20N2O5"/>
+  <species id="Um__e" name="2&apos;-O-methyluridine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H14N2O6"/>
+  <species id="URA__e" name="uracil" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H4N2O2"/>
+  <species id="ValVal__e" name="L-valyl-L-valine" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H20N2O3"/>
+  <species id="ZN__e" name="zinc ion" compartment="e" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="2" fbc:chemicalFormula="Zn1"/>
   <species id="CDPDG160__m" name="CDP-1,2-dihexadecanoylglycerol" compartment="m" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C44H79N3O15P2"/>
   <species id="CDPDG161__m" name="CDP-1,2-dihexadec-9-enoylglycerol" compartment="m" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C44H75N3O15P2"/>
   <species id="CDPDG181__m" name="CDP-1,2-dioctadec-11-enoylglycerol" compartment="m" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false" fbc:charge="-2" fbc:chemicalFormula="C48H83N3O15P2"/>
@@ -1329,6 +1329,254 @@
   <parameter id="ub_YbiV_SNGLYP" name="ub_YbiV_SNGLYP" value="INF" units="item_per_s" constant="false"/>
   <parameter id="lb_YicP" name="lb_YicP" value="-INF" units="item_per_s" constant="false"/>
   <parameter id="ub_YicP" name="ub_YicP" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AC__e" name="lb_metabolite_ex_AC__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AC__e" name="ub_metabolite_ex_AC__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_ACAL__e" name="lb_metabolite_ex_ACAL__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_ACAL__e" name="ub_metabolite_ex_ACAL__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AD__e" name="lb_metabolite_ex_AD__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AD__e" name="ub_metabolite_ex_AD__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AEPP__e" name="lb_metabolite_ex_AEPP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AEPP__e" name="ub_metabolite_ex_AEPP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AKG__e" name="lb_metabolite_ex_AKG__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AKG__e" name="ub_metabolite_ex_AKG__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AlaAla__e" name="lb_metabolite_ex_AlaAla__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AlaAla__e" name="ub_metabolite_ex_AlaAla__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AMP__e" name="lb_metabolite_ex_AMP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AMP__e" name="ub_metabolite_ex_AMP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AMP_Lysine__e" name="lb_metabolite_ex_AMP_Lysine__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AMP_Lysine__e" name="ub_metabolite_ex_AMP_Lysine__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AMP_Mor__e" name="lb_metabolite_ex_AMP_Mor__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AMP_Mor__e" name="ub_metabolite_ex_AMP_Mor__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AMP_NH2__e" name="lb_metabolite_ex_AMP_NH2__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AMP_NH2__e" name="ub_metabolite_ex_AMP_NH2__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_ArgArg__e" name="lb_metabolite_ex_ArgArg__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_ArgArg__e" name="ub_metabolite_ex_ArgArg__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AsnAsn__e" name="lb_metabolite_ex_AsnAsn__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AsnAsn__e" name="ub_metabolite_ex_AsnAsn__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_AspAsp__e" name="lb_metabolite_ex_AspAsp__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_AspAsp__e" name="ub_metabolite_ex_AspAsp__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_BUT__e" name="lb_metabolite_ex_BUT__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_BUT__e" name="ub_metabolite_ex_BUT__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CA__e" name="lb_metabolite_ex_CA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CA__e" name="ub_metabolite_ex_CA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CAP__e" name="lb_metabolite_ex_CAP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CAP__e" name="ub_metabolite_ex_CAP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CH3OH__e" name="lb_metabolite_ex_CH3OH__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CH3OH__e" name="ub_metabolite_ex_CH3OH__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CL__e" name="lb_metabolite_ex_CL__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CL__e" name="ub_metabolite_ex_CL__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_cmnm5s2U__e" name="lb_metabolite_ex_cmnm5s2U__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_cmnm5s2U__e" name="ub_metabolite_ex_cmnm5s2U__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CO__e" name="lb_metabolite_ex_CO__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CO__e" name="ub_metabolite_ex_CO__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CO2__e" name="lb_metabolite_ex_CO2__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CO2__e" name="ub_metabolite_ex_CO2__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_COA__e" name="lb_metabolite_ex_COA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_COA__e" name="ub_metabolite_ex_COA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CU__e" name="lb_metabolite_ex_CU__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CU__e" name="ub_metabolite_ex_CU__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CysCys__e" name="lb_metabolite_ex_CysCys__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CysCys__e" name="ub_metabolite_ex_CysCys__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_CYTD__e" name="lb_metabolite_ex_CYTD__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_CYTD__e" name="ub_metabolite_ex_CYTD__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DA__e" name="lb_metabolite_ex_DA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DA__e" name="ub_metabolite_ex_DA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DAMP__e" name="lb_metabolite_ex_DAMP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DAMP__e" name="ub_metabolite_ex_DAMP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_dApdAp__e" name="lb_metabolite_ex_dApdAp__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_dApdAp__e" name="ub_metabolite_ex_dApdAp__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DCMP__e" name="lb_metabolite_ex_DCMP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DCMP__e" name="ub_metabolite_ex_DCMP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_dCpdCp__e" name="lb_metabolite_ex_dCpdCp__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_dCpdCp__e" name="ub_metabolite_ex_dCpdCp__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DDCA__e" name="lb_metabolite_ex_DDCA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DDCA__e" name="ub_metabolite_ex_DDCA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DGMP__e" name="lb_metabolite_ex_DGMP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DGMP__e" name="ub_metabolite_ex_DGMP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_dGpdGp__e" name="lb_metabolite_ex_dGpdGp__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_dGpdGp__e" name="ub_metabolite_ex_dGpdGp__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DIBUTYRIN__e" name="lb_metabolite_ex_DIBUTYRIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DIBUTYRIN__e" name="ub_metabolite_ex_DIBUTYRIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_dINS__e" name="lb_metabolite_ex_dINS__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_dINS__e" name="ub_metabolite_ex_dINS__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_DTMP__e" name="lb_metabolite_ex_DTMP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_DTMP__e" name="ub_metabolite_ex_DTMP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_dTpdTp__e" name="lb_metabolite_ex_dTpdTp__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_dTpdTp__e" name="ub_metabolite_ex_dTpdTp__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_FE2__e" name="lb_metabolite_ex_FE2__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_FE2__e" name="ub_metabolite_ex_FE2__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_FE3__e" name="lb_metabolite_ex_FE3__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_FE3__e" name="ub_metabolite_ex_FE3__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_FOR__e" name="lb_metabolite_ex_FOR__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_FOR__e" name="ub_metabolite_ex_FOR__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_FRU__e" name="lb_metabolite_ex_FRU__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_FRU__e" name="ub_metabolite_ex_FRU__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_G6P__e" name="lb_metabolite_ex_G6P__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_G6P__e" name="ub_metabolite_ex_G6P__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GL__e" name="lb_metabolite_ex_GL__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GL__e" name="ub_metabolite_ex_GL__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GL3P__e" name="lb_metabolite_ex_GL3P__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GL3P__e" name="ub_metabolite_ex_GL3P__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GLC__e" name="lb_metabolite_ex_GLC__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GLC__e" name="ub_metabolite_ex_GLC__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GLN__e" name="lb_metabolite_ex_GLN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GLN__e" name="ub_metabolite_ex_GLN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GlnGln__e" name="lb_metabolite_ex_GlnGln__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GlnGln__e" name="ub_metabolite_ex_GlnGln__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GluGlu__e" name="lb_metabolite_ex_GluGlu__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GluGlu__e" name="ub_metabolite_ex_GluGlu__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GlyGly__e" name="lb_metabolite_ex_GlyGly__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GlyGly__e" name="ub_metabolite_ex_GlyGly__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_Gm__e" name="lb_metabolite_ex_Gm__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_Gm__e" name="ub_metabolite_ex_Gm__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GMP__e" name="lb_metabolite_ex_GMP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GMP__e" name="ub_metabolite_ex_GMP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GMP_Lysine__e" name="lb_metabolite_ex_GMP_Lysine__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GMP_Lysine__e" name="ub_metabolite_ex_GMP_Lysine__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GMP_Mor__e" name="lb_metabolite_ex_GMP_Mor__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GMP_Mor__e" name="ub_metabolite_ex_GMP_Mor__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_GN__e" name="lb_metabolite_ex_GN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_GN__e" name="ub_metabolite_ex_GN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_H__e" name="lb_metabolite_ex_H__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_H__e" name="ub_metabolite_ex_H__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_H2O__e" name="lb_metabolite_ex_H2O__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_H2O__e" name="ub_metabolite_ex_H2O__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_H2O2__e" name="lb_metabolite_ex_H2O2__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_H2O2__e" name="ub_metabolite_ex_H2O2__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_HDCA__e" name="lb_metabolite_ex_HDCA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_HDCA__e" name="ub_metabolite_ex_HDCA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_HDCEA__e" name="lb_metabolite_ex_HDCEA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_HDCEA__e" name="ub_metabolite_ex_HDCEA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_HisHis__e" name="lb_metabolite_ex_HisHis__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_HisHis__e" name="ub_metabolite_ex_HisHis__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_IleIle__e" name="lb_metabolite_ex_IleIle__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_IleIle__e" name="ub_metabolite_ex_IleIle__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_K__e" name="lb_metabolite_ex_K__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_K__e" name="ub_metabolite_ex_K__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_k2C__e" name="lb_metabolite_ex_k2C__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_k2C__e" name="ub_metabolite_ex_k2C__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_LeuLeu__e" name="lb_metabolite_ex_LeuLeu__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_LeuLeu__e" name="ub_metabolite_ex_LeuLeu__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_LIPOATE__e" name="lb_metabolite_ex_LIPOATE__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_LIPOATE__e" name="ub_metabolite_ex_LIPOATE__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_LYS__e" name="lb_metabolite_ex_LYS__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_LYS__e" name="ub_metabolite_ex_LYS__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_LysLys__e" name="lb_metabolite_ex_LysLys__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_LysLys__e" name="ub_metabolite_ex_LysLys__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_m1G__e" name="lb_metabolite_ex_m1G__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_m1G__e" name="ub_metabolite_ex_m1G__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_m2G__e" name="lb_metabolite_ex_m2G__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_m2G__e" name="ub_metabolite_ex_m2G__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_m62A__e" name="lb_metabolite_ex_m62A__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_m62A__e" name="ub_metabolite_ex_m62A__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_m7G__e" name="lb_metabolite_ex_m7G__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_m7G__e" name="ub_metabolite_ex_m7G__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_METHYL_OCDCEA__e" name="lb_metabolite_ex_METHYL_OCDCEA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_METHYL_OCDCEA__e" name="ub_metabolite_ex_METHYL_OCDCEA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_MetMet__e" name="lb_metabolite_ex_MetMet__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_MetMet__e" name="ub_metabolite_ex_MetMet__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_MG__e" name="lb_metabolite_ex_MG__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_MG__e" name="ub_metabolite_ex_MG__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_MN__e" name="lb_metabolite_ex_MN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_MN__e" name="ub_metabolite_ex_MN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_MOBD__e" name="lb_metabolite_ex_MOBD__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_MOBD__e" name="ub_metabolite_ex_MOBD__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_MONOBUTYRIN__e" name="lb_metabolite_ex_MONOBUTYRIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_MONOBUTYRIN__e" name="ub_metabolite_ex_MONOBUTYRIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_MOR__e" name="lb_metabolite_ex_MOR__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_MOR__e" name="ub_metabolite_ex_MOR__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_NA__e" name="lb_metabolite_ex_NA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_NA__e" name="ub_metabolite_ex_NA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_NAC__e" name="lb_metabolite_ex_NAC__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_NAC__e" name="ub_metabolite_ex_NAC__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_NH3__e" name="lb_metabolite_ex_NH3__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_NH3__e" name="ub_metabolite_ex_NH3__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_NH4__e" name="lb_metabolite_ex_NH4__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_NH4__e" name="ub_metabolite_ex_NH4__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_NI__e" name="lb_metabolite_ex_NI__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_NI__e" name="ub_metabolite_ex_NI__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_O2__e" name="lb_metabolite_ex_O2__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_O2__e" name="ub_metabolite_ex_O2__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_OA__e" name="lb_metabolite_ex_OA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_OA__e" name="ub_metabolite_ex_OA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_OCDCA__e" name="lb_metabolite_ex_OCDCA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_OCDCA__e" name="ub_metabolite_ex_OCDCA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_OCDCEA__e" name="lb_metabolite_ex_OCDCEA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_OCDCEA__e" name="ub_metabolite_ex_OCDCEA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_PHE__e" name="lb_metabolite_ex_PHE__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_PHE__e" name="ub_metabolite_ex_PHE__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_PhePhe__e" name="lb_metabolite_ex_PhePhe__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_PhePhe__e" name="ub_metabolite_ex_PhePhe__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_PI__e" name="lb_metabolite_ex_PI__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_PI__e" name="ub_metabolite_ex_PI__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_POE_SORBITAN__e" name="lb_metabolite_ex_POE_SORBITAN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_POE_SORBITAN__e" name="ub_metabolite_ex_POE_SORBITAN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_ProPro__e" name="lb_metabolite_ex_ProPro__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_ProPro__e" name="ub_metabolite_ex_ProPro__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_PSIURI__e" name="lb_metabolite_ex_PSIURI__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_PSIURI__e" name="ub_metabolite_ex_PSIURI__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_PTRC__e" name="lb_metabolite_ex_PTRC__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_PTRC__e" name="ub_metabolite_ex_PTRC__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_PYDX__e" name="lb_metabolite_ex_PYDX__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_PYDX__e" name="ub_metabolite_ex_PYDX__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_RIBFLV__e" name="lb_metabolite_ex_RIBFLV__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_RIBFLV__e" name="ub_metabolite_ex_RIBFLV__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_s4U__e" name="lb_metabolite_ex_s4U__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_s4U__e" name="ub_metabolite_ex_s4U__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_SerSer__e" name="lb_metabolite_ex_SerSer__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_SerSer__e" name="ub_metabolite_ex_SerSer__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_SO4__e" name="lb_metabolite_ex_SO4__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_SO4__e" name="ub_metabolite_ex_SO4__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_SPMD__e" name="lb_metabolite_ex_SPMD__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_SPMD__e" name="ub_metabolite_ex_SPMD__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_STEROL__e" name="lb_metabolite_ex_STEROL__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_STEROL__e" name="ub_metabolite_ex_STEROL__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_THF__e" name="lb_metabolite_ex_THF__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_THF__e" name="ub_metabolite_ex_THF__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_THM__e" name="lb_metabolite_ex_THM__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_THM__e" name="ub_metabolite_ex_THM__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_ThrThr__e" name="lb_metabolite_ex_ThrThr__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_ThrThr__e" name="ub_metabolite_ex_ThrThr__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_THY__e" name="lb_metabolite_ex_THY__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_THY__e" name="ub_metabolite_ex_THY__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRIBUTYRIN__e" name="lb_metabolite_ex_TRIBUTYRIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRIBUTYRIN__e" name="ub_metabolite_ex_TRIBUTYRIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRILAURIN__e" name="lb_metabolite_ex_TRILAURIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRILAURIN__e" name="ub_metabolite_ex_TRILAURIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRIMYRISTIN__e" name="lb_metabolite_ex_TRIMYRISTIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRIMYRISTIN__e" name="ub_metabolite_ex_TRIMYRISTIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRIOLEIN__e" name="lb_metabolite_ex_TRIOLEIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRIOLEIN__e" name="ub_metabolite_ex_TRIOLEIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRIPALMITIN__e" name="lb_metabolite_ex_TRIPALMITIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRIPALMITIN__e" name="ub_metabolite_ex_TRIPALMITIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRISTEARIN__e" name="lb_metabolite_ex_TRISTEARIN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRISTEARIN__e" name="ub_metabolite_ex_TRISTEARIN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRI_HDCEA_IN__e" name="lb_metabolite_ex_TRI_HDCEA_IN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRI_HDCEA_IN__e" name="ub_metabolite_ex_TRI_HDCEA_IN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRI_TTDCEA_IN__e" name="lb_metabolite_ex_TRI_TTDCEA_IN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRI_TTDCEA_IN__e" name="ub_metabolite_ex_TRI_TTDCEA_IN__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TRP__e" name="lb_metabolite_ex_TRP__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TRP__e" name="ub_metabolite_ex_TRP__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TrpTrp__e" name="lb_metabolite_ex_TrpTrp__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TrpTrp__e" name="ub_metabolite_ex_TrpTrp__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TTDCA__e" name="lb_metabolite_ex_TTDCA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TTDCA__e" name="ub_metabolite_ex_TTDCA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TTDCEA__e" name="lb_metabolite_ex_TTDCEA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TTDCEA__e" name="ub_metabolite_ex_TTDCEA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TWEEN80__e" name="lb_metabolite_ex_TWEEN80__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TWEEN80__e" name="ub_metabolite_ex_TWEEN80__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TYR__e" name="lb_metabolite_ex_TYR__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TYR__e" name="ub_metabolite_ex_TYR__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_TyrTyr__e" name="lb_metabolite_ex_TyrTyr__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_TyrTyr__e" name="ub_metabolite_ex_TyrTyr__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_Um__e" name="lb_metabolite_ex_Um__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_Um__e" name="ub_metabolite_ex_Um__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_URA__e" name="lb_metabolite_ex_URA__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_URA__e" name="ub_metabolite_ex_URA__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_ValVal__e" name="lb_metabolite_ex_ValVal__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_ValVal__e" name="ub_metabolite_ex_ValVal__e" value="INF" units="item_per_s" constant="false"/>
+  <parameter id="lb_metabolite_ex_ZN__e" name="lb_metabolite_ex_ZN__e" value="-INF" units="item_per_s" constant="false"/>
+  <parameter id="ub_metabolite_ex_ZN__e" name="ub_metabolite_ex_ZN__e" value="INF" units="item_per_s" constant="false"/>
   <parameter id="lb_metabolite_ix_1" name="lb_metabolite_ix_1" value="-INF" units="item_per_s" constant="false"/>
   <parameter id="ub_metabolite_ix_1" name="ub_metabolite_ix_1" value="INF" units="item_per_s" constant="false"/>
   <parameter id="lb_metabolite_ix_2" name="lb_metabolite_ix_2" value="-INF" units="item_per_s" constant="false"/>
@@ -6387,6 +6635,626 @@
       <speciesReference species="HYXN" stoichiometry="1" constant="true"/>
       <speciesReference species="NH3" stoichiometry="1" constant="true"/>
     </listOfProducts>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AC__e" name="metabolite_ex_1" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AC__e" fbc:upperFluxBound="ub_metabolite_ex_AC__e">
+    <listOfReactants>
+      <speciesReference species="AC__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_ACAL__e" name="metabolite_ex_2" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_ACAL__e" fbc:upperFluxBound="ub_metabolite_ex_ACAL__e">
+    <listOfReactants>
+      <speciesReference species="ACAL__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AD__e" name="metabolite_ex_3" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AD__e" fbc:upperFluxBound="ub_metabolite_ex_AD__e">
+    <listOfReactants>
+      <speciesReference species="AD__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AEPP__e" name="metabolite_ex_4" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AEPP__e" fbc:upperFluxBound="ub_metabolite_ex_AEPP__e">
+    <listOfReactants>
+      <speciesReference species="AEPP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AKG__e" name="metabolite_ex_5" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AKG__e" fbc:upperFluxBound="ub_metabolite_ex_AKG__e">
+    <listOfReactants>
+      <speciesReference species="AKG__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AlaAla__e" name="metabolite_ex_6" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AlaAla__e" fbc:upperFluxBound="ub_metabolite_ex_AlaAla__e">
+    <listOfReactants>
+      <speciesReference species="AlaAla__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AMP__e" name="metabolite_ex_7" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AMP__e" fbc:upperFluxBound="ub_metabolite_ex_AMP__e">
+    <listOfReactants>
+      <speciesReference species="AMP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AMP_Lysine__e" name="metabolite_ex_8" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AMP_Lysine__e" fbc:upperFluxBound="ub_metabolite_ex_AMP_Lysine__e">
+    <listOfReactants>
+      <speciesReference species="AMP_Lysine__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AMP_Mor__e" name="metabolite_ex_9" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AMP_Mor__e" fbc:upperFluxBound="ub_metabolite_ex_AMP_Mor__e">
+    <listOfReactants>
+      <speciesReference species="AMP_Mor__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AMP_NH2__e" name="metabolite_ex_10" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AMP_NH2__e" fbc:upperFluxBound="ub_metabolite_ex_AMP_NH2__e">
+    <listOfReactants>
+      <speciesReference species="AMP_NH2__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_ArgArg__e" name="metabolite_ex_11" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_ArgArg__e" fbc:upperFluxBound="ub_metabolite_ex_ArgArg__e">
+    <listOfReactants>
+      <speciesReference species="ArgArg__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AsnAsn__e" name="metabolite_ex_12" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AsnAsn__e" fbc:upperFluxBound="ub_metabolite_ex_AsnAsn__e">
+    <listOfReactants>
+      <speciesReference species="AsnAsn__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_AspAsp__e" name="metabolite_ex_13" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_AspAsp__e" fbc:upperFluxBound="ub_metabolite_ex_AspAsp__e">
+    <listOfReactants>
+      <speciesReference species="AspAsp__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_BUT__e" name="metabolite_ex_14" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_BUT__e" fbc:upperFluxBound="ub_metabolite_ex_BUT__e">
+    <listOfReactants>
+      <speciesReference species="BUT__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CA__e" name="metabolite_ex_15" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CA__e" fbc:upperFluxBound="ub_metabolite_ex_CA__e">
+    <listOfReactants>
+      <speciesReference species="CA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CAP__e" name="metabolite_ex_16" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CAP__e" fbc:upperFluxBound="ub_metabolite_ex_CAP__e">
+    <listOfReactants>
+      <speciesReference species="CAP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CH3OH__e" name="metabolite_ex_17" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CH3OH__e" fbc:upperFluxBound="ub_metabolite_ex_CH3OH__e">
+    <listOfReactants>
+      <speciesReference species="CH3OH__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CL__e" name="metabolite_ex_18" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CL__e" fbc:upperFluxBound="ub_metabolite_ex_CL__e">
+    <listOfReactants>
+      <speciesReference species="CL__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_cmnm5s2U__e" name="metabolite_ex_19" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_cmnm5s2U__e" fbc:upperFluxBound="ub_metabolite_ex_cmnm5s2U__e">
+    <listOfReactants>
+      <speciesReference species="cmnm5s2U__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CO__e" name="metabolite_ex_20" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CO__e" fbc:upperFluxBound="ub_metabolite_ex_CO__e">
+    <listOfReactants>
+      <speciesReference species="CO__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CO2__e" name="metabolite_ex_21" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CO2__e" fbc:upperFluxBound="ub_metabolite_ex_CO2__e">
+    <listOfReactants>
+      <speciesReference species="CO2__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_COA__e" name="metabolite_ex_22" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_COA__e" fbc:upperFluxBound="ub_metabolite_ex_COA__e">
+    <listOfReactants>
+      <speciesReference species="COA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CU__e" name="metabolite_ex_23" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CU__e" fbc:upperFluxBound="ub_metabolite_ex_CU__e">
+    <listOfReactants>
+      <speciesReference species="CU__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CysCys__e" name="metabolite_ex_24" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CysCys__e" fbc:upperFluxBound="ub_metabolite_ex_CysCys__e">
+    <listOfReactants>
+      <speciesReference species="CysCys__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_CYTD__e" name="metabolite_ex_25" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_CYTD__e" fbc:upperFluxBound="ub_metabolite_ex_CYTD__e">
+    <listOfReactants>
+      <speciesReference species="CYTD__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DA__e" name="metabolite_ex_26" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DA__e" fbc:upperFluxBound="ub_metabolite_ex_DA__e">
+    <listOfReactants>
+      <speciesReference species="DA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DAMP__e" name="metabolite_ex_27" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DAMP__e" fbc:upperFluxBound="ub_metabolite_ex_DAMP__e">
+    <listOfReactants>
+      <speciesReference species="DAMP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_dApdAp__e" name="metabolite_ex_28" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_dApdAp__e" fbc:upperFluxBound="ub_metabolite_ex_dApdAp__e">
+    <listOfReactants>
+      <speciesReference species="dApdAp__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DCMP__e" name="metabolite_ex_29" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DCMP__e" fbc:upperFluxBound="ub_metabolite_ex_DCMP__e">
+    <listOfReactants>
+      <speciesReference species="DCMP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_dCpdCp__e" name="metabolite_ex_30" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_dCpdCp__e" fbc:upperFluxBound="ub_metabolite_ex_dCpdCp__e">
+    <listOfReactants>
+      <speciesReference species="dCpdCp__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DDCA__e" name="metabolite_ex_31" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DDCA__e" fbc:upperFluxBound="ub_metabolite_ex_DDCA__e">
+    <listOfReactants>
+      <speciesReference species="DDCA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DGMP__e" name="metabolite_ex_32" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DGMP__e" fbc:upperFluxBound="ub_metabolite_ex_DGMP__e">
+    <listOfReactants>
+      <speciesReference species="DGMP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_dGpdGp__e" name="metabolite_ex_33" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_dGpdGp__e" fbc:upperFluxBound="ub_metabolite_ex_dGpdGp__e">
+    <listOfReactants>
+      <speciesReference species="dGpdGp__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DIBUTYRIN__e" name="metabolite_ex_34" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DIBUTYRIN__e" fbc:upperFluxBound="ub_metabolite_ex_DIBUTYRIN__e">
+    <listOfReactants>
+      <speciesReference species="DIBUTYRIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_dINS__e" name="metabolite_ex_35" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_dINS__e" fbc:upperFluxBound="ub_metabolite_ex_dINS__e">
+    <listOfReactants>
+      <speciesReference species="dINS__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_DTMP__e" name="metabolite_ex_36" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_DTMP__e" fbc:upperFluxBound="ub_metabolite_ex_DTMP__e">
+    <listOfReactants>
+      <speciesReference species="DTMP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_dTpdTp__e" name="metabolite_ex_37" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_dTpdTp__e" fbc:upperFluxBound="ub_metabolite_ex_dTpdTp__e">
+    <listOfReactants>
+      <speciesReference species="dTpdTp__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_FE2__e" name="metabolite_ex_38" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_FE2__e" fbc:upperFluxBound="ub_metabolite_ex_FE2__e">
+    <listOfReactants>
+      <speciesReference species="FE2__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_FE3__e" name="metabolite_ex_39" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_FE3__e" fbc:upperFluxBound="ub_metabolite_ex_FE3__e">
+    <listOfReactants>
+      <speciesReference species="FE3__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_FOR__e" name="metabolite_ex_40" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_FOR__e" fbc:upperFluxBound="ub_metabolite_ex_FOR__e">
+    <listOfReactants>
+      <speciesReference species="FOR__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_FRU__e" name="metabolite_ex_41" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_FRU__e" fbc:upperFluxBound="ub_metabolite_ex_FRU__e">
+    <listOfReactants>
+      <speciesReference species="FRU__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_G6P__e" name="metabolite_ex_42" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_G6P__e" fbc:upperFluxBound="ub_metabolite_ex_G6P__e">
+    <listOfReactants>
+      <speciesReference species="G6P__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GL__e" name="metabolite_ex_43" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GL__e" fbc:upperFluxBound="ub_metabolite_ex_GL__e">
+    <listOfReactants>
+      <speciesReference species="GL__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GL3P__e" name="metabolite_ex_44" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GL3P__e" fbc:upperFluxBound="ub_metabolite_ex_GL3P__e">
+    <listOfReactants>
+      <speciesReference species="GL3P__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GLC__e" name="metabolite_ex_45" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GLC__e" fbc:upperFluxBound="ub_metabolite_ex_GLC__e">
+    <listOfReactants>
+      <speciesReference species="GLC__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GLN__e" name="metabolite_ex_46" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GLN__e" fbc:upperFluxBound="ub_metabolite_ex_GLN__e">
+    <listOfReactants>
+      <speciesReference species="GLN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GlnGln__e" name="metabolite_ex_47" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GlnGln__e" fbc:upperFluxBound="ub_metabolite_ex_GlnGln__e">
+    <listOfReactants>
+      <speciesReference species="GlnGln__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GluGlu__e" name="metabolite_ex_48" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GluGlu__e" fbc:upperFluxBound="ub_metabolite_ex_GluGlu__e">
+    <listOfReactants>
+      <speciesReference species="GluGlu__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GlyGly__e" name="metabolite_ex_49" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GlyGly__e" fbc:upperFluxBound="ub_metabolite_ex_GlyGly__e">
+    <listOfReactants>
+      <speciesReference species="GlyGly__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_Gm__e" name="metabolite_ex_50" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_Gm__e" fbc:upperFluxBound="ub_metabolite_ex_Gm__e">
+    <listOfReactants>
+      <speciesReference species="Gm__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GMP__e" name="metabolite_ex_51" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GMP__e" fbc:upperFluxBound="ub_metabolite_ex_GMP__e">
+    <listOfReactants>
+      <speciesReference species="GMP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GMP_Lysine__e" name="metabolite_ex_52" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GMP_Lysine__e" fbc:upperFluxBound="ub_metabolite_ex_GMP_Lysine__e">
+    <listOfReactants>
+      <speciesReference species="GMP_Lysine__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GMP_Mor__e" name="metabolite_ex_53" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GMP_Mor__e" fbc:upperFluxBound="ub_metabolite_ex_GMP_Mor__e">
+    <listOfReactants>
+      <speciesReference species="GMP_Mor__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_GN__e" name="metabolite_ex_54" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_GN__e" fbc:upperFluxBound="ub_metabolite_ex_GN__e">
+    <listOfReactants>
+      <speciesReference species="GN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_H__e" name="metabolite_ex_55" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_H__e" fbc:upperFluxBound="ub_metabolite_ex_H__e">
+    <listOfReactants>
+      <speciesReference species="H__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_H2O__e" name="metabolite_ex_56" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_H2O__e" fbc:upperFluxBound="ub_metabolite_ex_H2O__e">
+    <listOfReactants>
+      <speciesReference species="H2O__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_H2O2__e" name="metabolite_ex_57" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_H2O2__e" fbc:upperFluxBound="ub_metabolite_ex_H2O2__e">
+    <listOfReactants>
+      <speciesReference species="H2O2__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_HDCA__e" name="metabolite_ex_58" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_HDCA__e" fbc:upperFluxBound="ub_metabolite_ex_HDCA__e">
+    <listOfReactants>
+      <speciesReference species="HDCA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_HDCEA__e" name="metabolite_ex_59" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_HDCEA__e" fbc:upperFluxBound="ub_metabolite_ex_HDCEA__e">
+    <listOfReactants>
+      <speciesReference species="HDCEA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_HisHis__e" name="metabolite_ex_60" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_HisHis__e" fbc:upperFluxBound="ub_metabolite_ex_HisHis__e">
+    <listOfReactants>
+      <speciesReference species="HisHis__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_IleIle__e" name="metabolite_ex_61" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_IleIle__e" fbc:upperFluxBound="ub_metabolite_ex_IleIle__e">
+    <listOfReactants>
+      <speciesReference species="IleIle__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_K__e" name="metabolite_ex_62" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_K__e" fbc:upperFluxBound="ub_metabolite_ex_K__e">
+    <listOfReactants>
+      <speciesReference species="K__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_k2C__e" name="metabolite_ex_63" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_k2C__e" fbc:upperFluxBound="ub_metabolite_ex_k2C__e">
+    <listOfReactants>
+      <speciesReference species="k2C__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_LeuLeu__e" name="metabolite_ex_64" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_LeuLeu__e" fbc:upperFluxBound="ub_metabolite_ex_LeuLeu__e">
+    <listOfReactants>
+      <speciesReference species="LeuLeu__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_LIPOATE__e" name="metabolite_ex_65" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_LIPOATE__e" fbc:upperFluxBound="ub_metabolite_ex_LIPOATE__e">
+    <listOfReactants>
+      <speciesReference species="LIPOATE__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_LYS__e" name="metabolite_ex_66" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_LYS__e" fbc:upperFluxBound="ub_metabolite_ex_LYS__e">
+    <listOfReactants>
+      <speciesReference species="LYS__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_LysLys__e" name="metabolite_ex_67" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_LysLys__e" fbc:upperFluxBound="ub_metabolite_ex_LysLys__e">
+    <listOfReactants>
+      <speciesReference species="LysLys__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_m1G__e" name="metabolite_ex_68" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_m1G__e" fbc:upperFluxBound="ub_metabolite_ex_m1G__e">
+    <listOfReactants>
+      <speciesReference species="m1G__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_m2G__e" name="metabolite_ex_69" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_m2G__e" fbc:upperFluxBound="ub_metabolite_ex_m2G__e">
+    <listOfReactants>
+      <speciesReference species="m2G__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_m62A__e" name="metabolite_ex_70" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_m62A__e" fbc:upperFluxBound="ub_metabolite_ex_m62A__e">
+    <listOfReactants>
+      <speciesReference species="m62A__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_m7G__e" name="metabolite_ex_71" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_m7G__e" fbc:upperFluxBound="ub_metabolite_ex_m7G__e">
+    <listOfReactants>
+      <speciesReference species="m7G__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_METHYL_OCDCEA__e" name="metabolite_ex_72" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_METHYL_OCDCEA__e" fbc:upperFluxBound="ub_metabolite_ex_METHYL_OCDCEA__e">
+    <listOfReactants>
+      <speciesReference species="METHYL_OCDCEA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_MetMet__e" name="metabolite_ex_73" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_MetMet__e" fbc:upperFluxBound="ub_metabolite_ex_MetMet__e">
+    <listOfReactants>
+      <speciesReference species="MetMet__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_MG__e" name="metabolite_ex_74" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_MG__e" fbc:upperFluxBound="ub_metabolite_ex_MG__e">
+    <listOfReactants>
+      <speciesReference species="MG__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_MN__e" name="metabolite_ex_75" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_MN__e" fbc:upperFluxBound="ub_metabolite_ex_MN__e">
+    <listOfReactants>
+      <speciesReference species="MN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_MOBD__e" name="metabolite_ex_76" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_MOBD__e" fbc:upperFluxBound="ub_metabolite_ex_MOBD__e">
+    <listOfReactants>
+      <speciesReference species="MOBD__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_MONOBUTYRIN__e" name="metabolite_ex_77" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_MONOBUTYRIN__e" fbc:upperFluxBound="ub_metabolite_ex_MONOBUTYRIN__e">
+    <listOfReactants>
+      <speciesReference species="MONOBUTYRIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_MOR__e" name="metabolite_ex_78" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_MOR__e" fbc:upperFluxBound="ub_metabolite_ex_MOR__e">
+    <listOfReactants>
+      <speciesReference species="MOR__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_NA__e" name="metabolite_ex_79" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_NA__e" fbc:upperFluxBound="ub_metabolite_ex_NA__e">
+    <listOfReactants>
+      <speciesReference species="NA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_NAC__e" name="metabolite_ex_80" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_NAC__e" fbc:upperFluxBound="ub_metabolite_ex_NAC__e">
+    <listOfReactants>
+      <speciesReference species="NAC__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_NH3__e" name="metabolite_ex_81" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_NH3__e" fbc:upperFluxBound="ub_metabolite_ex_NH3__e">
+    <listOfReactants>
+      <speciesReference species="NH3__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_NH4__e" name="metabolite_ex_82" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_NH4__e" fbc:upperFluxBound="ub_metabolite_ex_NH4__e">
+    <listOfReactants>
+      <speciesReference species="NH4__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_NI__e" name="metabolite_ex_83" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_NI__e" fbc:upperFluxBound="ub_metabolite_ex_NI__e">
+    <listOfReactants>
+      <speciesReference species="NI__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_O2__e" name="metabolite_ex_84" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_O2__e" fbc:upperFluxBound="ub_metabolite_ex_O2__e">
+    <listOfReactants>
+      <speciesReference species="O2__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_OA__e" name="metabolite_ex_85" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_OA__e" fbc:upperFluxBound="ub_metabolite_ex_OA__e">
+    <listOfReactants>
+      <speciesReference species="OA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_OCDCA__e" name="metabolite_ex_86" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_OCDCA__e" fbc:upperFluxBound="ub_metabolite_ex_OCDCA__e">
+    <listOfReactants>
+      <speciesReference species="OCDCA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_OCDCEA__e" name="metabolite_ex_87" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_OCDCEA__e" fbc:upperFluxBound="ub_metabolite_ex_OCDCEA__e">
+    <listOfReactants>
+      <speciesReference species="OCDCEA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_PHE__e" name="metabolite_ex_88" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_PHE__e" fbc:upperFluxBound="ub_metabolite_ex_PHE__e">
+    <listOfReactants>
+      <speciesReference species="PHE__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_PhePhe__e" name="metabolite_ex_89" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_PhePhe__e" fbc:upperFluxBound="ub_metabolite_ex_PhePhe__e">
+    <listOfReactants>
+      <speciesReference species="PhePhe__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_PI__e" name="metabolite_ex_90" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_PI__e" fbc:upperFluxBound="ub_metabolite_ex_PI__e">
+    <listOfReactants>
+      <speciesReference species="PI__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_POE_SORBITAN__e" name="metabolite_ex_91" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_POE_SORBITAN__e" fbc:upperFluxBound="ub_metabolite_ex_POE_SORBITAN__e">
+    <listOfReactants>
+      <speciesReference species="POE_SORBITAN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_ProPro__e" name="metabolite_ex_92" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_ProPro__e" fbc:upperFluxBound="ub_metabolite_ex_ProPro__e">
+    <listOfReactants>
+      <speciesReference species="ProPro__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_PSIURI__e" name="metabolite_ex_93" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_PSIURI__e" fbc:upperFluxBound="ub_metabolite_ex_PSIURI__e">
+    <listOfReactants>
+      <speciesReference species="PSIURI__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_PTRC__e" name="metabolite_ex_94" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_PTRC__e" fbc:upperFluxBound="ub_metabolite_ex_PTRC__e">
+    <listOfReactants>
+      <speciesReference species="PTRC__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_PYDX__e" name="metabolite_ex_95" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_PYDX__e" fbc:upperFluxBound="ub_metabolite_ex_PYDX__e">
+    <listOfReactants>
+      <speciesReference species="PYDX__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_RIBFLV__e" name="metabolite_ex_96" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_RIBFLV__e" fbc:upperFluxBound="ub_metabolite_ex_RIBFLV__e">
+    <listOfReactants>
+      <speciesReference species="RIBFLV__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_s4U__e" name="metabolite_ex_97" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_s4U__e" fbc:upperFluxBound="ub_metabolite_ex_s4U__e">
+    <listOfReactants>
+      <speciesReference species="s4U__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_SerSer__e" name="metabolite_ex_98" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_SerSer__e" fbc:upperFluxBound="ub_metabolite_ex_SerSer__e">
+    <listOfReactants>
+      <speciesReference species="SerSer__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_SO4__e" name="metabolite_ex_99" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_SO4__e" fbc:upperFluxBound="ub_metabolite_ex_SO4__e">
+    <listOfReactants>
+      <speciesReference species="SO4__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_SPMD__e" name="metabolite_ex_100" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_SPMD__e" fbc:upperFluxBound="ub_metabolite_ex_SPMD__e">
+    <listOfReactants>
+      <speciesReference species="SPMD__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_STEROL__e" name="metabolite_ex_101" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_STEROL__e" fbc:upperFluxBound="ub_metabolite_ex_STEROL__e">
+    <listOfReactants>
+      <speciesReference species="STEROL__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_THF__e" name="metabolite_ex_102" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_THF__e" fbc:upperFluxBound="ub_metabolite_ex_THF__e">
+    <listOfReactants>
+      <speciesReference species="THF__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_THM__e" name="metabolite_ex_103" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_THM__e" fbc:upperFluxBound="ub_metabolite_ex_THM__e">
+    <listOfReactants>
+      <speciesReference species="THM__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_ThrThr__e" name="metabolite_ex_104" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_ThrThr__e" fbc:upperFluxBound="ub_metabolite_ex_ThrThr__e">
+    <listOfReactants>
+      <speciesReference species="ThrThr__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_THY__e" name="metabolite_ex_105" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_THY__e" fbc:upperFluxBound="ub_metabolite_ex_THY__e">
+    <listOfReactants>
+      <speciesReference species="THY__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRIBUTYRIN__e" name="metabolite_ex_106" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRIBUTYRIN__e" fbc:upperFluxBound="ub_metabolite_ex_TRIBUTYRIN__e">
+    <listOfReactants>
+      <speciesReference species="TRIBUTYRIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRILAURIN__e" name="metabolite_ex_107" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRILAURIN__e" fbc:upperFluxBound="ub_metabolite_ex_TRILAURIN__e">
+    <listOfReactants>
+      <speciesReference species="TRILAURIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRIMYRISTIN__e" name="metabolite_ex_108" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRIMYRISTIN__e" fbc:upperFluxBound="ub_metabolite_ex_TRIMYRISTIN__e">
+    <listOfReactants>
+      <speciesReference species="TRIMYRISTIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRIOLEIN__e" name="metabolite_ex_109" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRIOLEIN__e" fbc:upperFluxBound="ub_metabolite_ex_TRIOLEIN__e">
+    <listOfReactants>
+      <speciesReference species="TRIOLEIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRIPALMITIN__e" name="metabolite_ex_110" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRIPALMITIN__e" fbc:upperFluxBound="ub_metabolite_ex_TRIPALMITIN__e">
+    <listOfReactants>
+      <speciesReference species="TRIPALMITIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRISTEARIN__e" name="metabolite_ex_111" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRISTEARIN__e" fbc:upperFluxBound="ub_metabolite_ex_TRISTEARIN__e">
+    <listOfReactants>
+      <speciesReference species="TRISTEARIN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRI_HDCEA_IN__e" name="metabolite_ex_112" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRI_HDCEA_IN__e" fbc:upperFluxBound="ub_metabolite_ex_TRI_HDCEA_IN__e">
+    <listOfReactants>
+      <speciesReference species="TRI_HDCEA_IN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRI_TTDCEA_IN__e" name="metabolite_ex_113" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRI_TTDCEA_IN__e" fbc:upperFluxBound="ub_metabolite_ex_TRI_TTDCEA_IN__e">
+    <listOfReactants>
+      <speciesReference species="TRI_TTDCEA_IN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TRP__e" name="metabolite_ex_114" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TRP__e" fbc:upperFluxBound="ub_metabolite_ex_TRP__e">
+    <listOfReactants>
+      <speciesReference species="TRP__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TrpTrp__e" name="metabolite_ex_115" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TrpTrp__e" fbc:upperFluxBound="ub_metabolite_ex_TrpTrp__e">
+    <listOfReactants>
+      <speciesReference species="TrpTrp__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TTDCA__e" name="metabolite_ex_116" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TTDCA__e" fbc:upperFluxBound="ub_metabolite_ex_TTDCA__e">
+    <listOfReactants>
+      <speciesReference species="TTDCA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TTDCEA__e" name="metabolite_ex_117" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TTDCEA__e" fbc:upperFluxBound="ub_metabolite_ex_TTDCEA__e">
+    <listOfReactants>
+      <speciesReference species="TTDCEA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TWEEN80__e" name="metabolite_ex_118" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TWEEN80__e" fbc:upperFluxBound="ub_metabolite_ex_TWEEN80__e">
+    <listOfReactants>
+      <speciesReference species="TWEEN80__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TYR__e" name="metabolite_ex_119" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TYR__e" fbc:upperFluxBound="ub_metabolite_ex_TYR__e">
+    <listOfReactants>
+      <speciesReference species="TYR__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_TyrTyr__e" name="metabolite_ex_120" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_TyrTyr__e" fbc:upperFluxBound="ub_metabolite_ex_TyrTyr__e">
+    <listOfReactants>
+      <speciesReference species="TyrTyr__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_Um__e" name="metabolite_ex_121" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_Um__e" fbc:upperFluxBound="ub_metabolite_ex_Um__e">
+    <listOfReactants>
+      <speciesReference species="Um__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_URA__e" name="metabolite_ex_122" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_URA__e" fbc:upperFluxBound="ub_metabolite_ex_URA__e">
+    <listOfReactants>
+      <speciesReference species="URA__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_ValVal__e" name="metabolite_ex_123" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_ValVal__e" fbc:upperFluxBound="ub_metabolite_ex_ValVal__e">
+    <listOfReactants>
+      <speciesReference species="ValVal__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
+  </reaction>
+  <reaction sboTerm="SBO:0000627" id="metabolite_ex_ZN__e" name="metabolite_ex_124" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ex_ZN__e" fbc:upperFluxBound="ub_metabolite_ex_ZN__e">
+    <listOfReactants>
+      <speciesReference species="ZN__e" stoichiometry="1" constant="true"/>
+    </listOfReactants>
   </reaction>
   <reaction id="metabolite_ix_1" name="metabolite_ix_1" reversible="true" fast="false" fbc:lowerFluxBound="lb_metabolite_ix_1" fbc:upperFluxBound="ub_metabolite_ix_1">
     <listOfReactants>
