@@ -217,16 +217,23 @@ def create_metabolism_sbml():
 
     # <metabolites>
     print('* create metabolites *')
+    metabolite_count = 1000  # to get rid of warnings, not required for FBA simulations
+    protein_count = 100
+
     # Metabolites in the FBA problem (rows) are encoded as species
     for index, row in s_fba_df.iterrows():
-        s = model.createSpecies()
-        s.setId(index)
-        s.setName(row['name'])
-        s.setConstant(False)
-        s.setBoundaryCondition(False)
-        s.setCompartment(row['compartment'])
-        s.setHasOnlySubstanceUnits(False)
-        s.setInitialAmount(0)  # to get rid of warnings, not required for FBA simulations
+        species = [{
+            A_ID: index,
+            A_NAME: row['name'],
+            A_VALUE: metabolite_count,
+            A_UNIT: UNIT_AMOUNT,
+            A_HAS_ONLY_SUBSTANCE_UNITS: True,
+            A_COMPARTMENT: row['compartment'],
+            A_BOUNDARY_CONDITION: False,
+            A_CONSTANT: False
+        }, ]
+        sdict = create_species(model, species)
+        s = sdict[index]
 
         # chemical formula and charge => for balance
         splugin = s.getPlugin("fbc")
@@ -234,8 +241,7 @@ def create_metabolism_sbml():
         if not pd.isnull(formula):
             splugin.setChemicalFormula(formula)
         charge = row['charge']
-
-        # string to int desaster due to NA name for sodium
+        # string to int disaster due to NA name for sodium
         # this is ugly but works
         if not pd.isnull(charge) and len(charge) != 0:
             splugin.setCharge(int(float(charge)))
@@ -251,20 +257,22 @@ def create_metabolism_sbml():
     #      And provides important information for possible visualization.
 
     def create_protein_species(sid, name):
-        s = model.createSpecies()
-        s.setId(sid)
-        # check name
-        if not pd.isnull(name):
-            s.setName(name)
-        s.setConstant(False)
-        s.setBoundaryCondition(False)
         # TODO: proper way to find location of reactions & proteins
         # Not important for simulation, only for visualization
-        s.setCompartment('c')  # this is just fix
-        s.setHasOnlySubstanceUnits(False)  # ?
-        s.setInitialAmount(0)  # fix to get rid of warnings
+        species = [{
+            A_ID: sid,
+            A_NAME: name,
+            A_VALUE: protein_count,
+            A_UNIT: UNIT_AMOUNT,
+            A_HAS_ONLY_SUBSTANCE_UNITS: True,
+            A_COMPARTMENT: 'c',  # this is just fix
+            A_BOUNDARY_CONDITION: False,
+            A_CONSTANT: False
+        }, ]
+        sdict = create_species(model, species)
+        return sdict[sid]
 
-    # Handle all Enzymes
+    # Create all Enzymes
     for index, row in e_df.iterrows():
         # check if the protein is already a species (due to involvment in reaction)
         s = model.getSpecies(index)
@@ -272,7 +280,10 @@ def create_metabolism_sbml():
             print(index, 'is already species.')
         else:
             # create species for protein
-            create_protein_species(sid=index, name=row['name'])
+            name = row['name']
+            if pd.isnull(name):
+                name = None
+            create_protein_species(sid=index, name=name)
 
     # Handle the special case of ACP (MG_287_MONOMER - acyl carrier protein)
     # Neither substrate nor enzyme (no part of FBA, but part of fluxbound calculation)
