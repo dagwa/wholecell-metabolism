@@ -6,6 +6,8 @@ from matlab matrices and database information.
 @author mkoenig
 """
 
+# TODO: read reversibilty from database and use in model creation
+
 # TODO: create the kinetic ode model/comp model
 # TODO: update the annotations/integrate
 # TODO: glycolysis subnetwork

@@ -23,7 +23,9 @@ def create_bounds_model(sbml_out, sbml_fba):
     In additon the kcat & other information is needed.
 
     """
-    # TODO: read kcat from database and use for flux bound calculation
+    # TODO: read kcat+ and kcat-, kex- and kex+ from database and use for flux bound calculation
+    doc_fba = libsbml.readSBMLFromFile(sbml_fba)
+    model_fba = doc_fba.getModel()
 
     model_id = 'WCM_3_10_metabolism__bounds'
     model_name = 'WCM_3_10_metabolism bound calculation'
@@ -34,28 +36,69 @@ def create_bounds_model(sbml_out, sbml_fba):
     model.setSBOTerm(comp.SBO_CONTINOUS_FRAMEWORK)
     fba_model.set_model_information(model, model_id=model_id, model_name=model_name)
 
-    # TODO: all species from the fba network
-    species = []
+    # --- compartments ---
+    # add all compartments from fba network (needed for species)
+    for c in model_fba.getListOfCompartments():
+        model.addCompartment(c)
+        cid = c.getId()
+        comp._create_port(model, pid="{}_port".format(cid), idRef=cid, portType=comp.PORT_TYPE_PORT)
 
-    # TODO: upper bounds, lower bounds, kcat values
+    # --- species ---
+    # add all species from  fba network
+    for s in model_fba.getListOfSpecies():
+        model.addSpecies(s)
+        sid = s.getId()
+        comp._create_port(model, pid="{}_port".format(sid), idRef=sid, portType=comp.PORT_TYPE_PORT)
+
+    # --- parameters ---
+    # upper and lower bound parameters
+    for p in model_fba.getListOfParameters():
+        pid = p.getId()
+        if pid.startswith('ub_') or pid.startswith('lb_'):
+            model.addParameter(p)
+            comp._create_port(model, pid="{}_port".format(pid), idRef=pid, portType=comp.PORT_TYPE_PORT)
+
+    # TODO: add kcat and exchange parameters
+    for r in model_fba.getListOfReactions():
+        rid = r.getId()
+
     parameters = [
-        {A_ID: 'ub_R1', A_VALUE: 1.0, A_UNIT: fba_model.UNIT_FLUX, A_NAME: 'ub_r1', A_CONSTANT: False},
-        {A_ID: 'k1', A_VALUE: -0.2, A_UNIT: "per_s", A_NAME: "k1", A_CONSTANT: False},
+        {A_ID: 'm', A_VALUE: 1.0, A_UNIT: "kg", A_NAME: "cell mass", A_CONSTANT: False},
+        {A_ID: 'kcat_fw', A_VALUE: 10, A_UNIT: "per_s", A_NAME: "kcat forward", A_CONSTANT: False},
+        {A_ID: 'kcat_bw', A_VALUE: 10, A_UNIT: "per_s", A_NAME: "kcat backward", A_CONSTANT: False},
+        {A_ID: 'kex_fw', A_VALUE: 10, A_UNIT: "per_s", A_NAME: "kcat forward", A_CONSTANT: False},
+        {A_ID: 'kex_bw', A_VALUE: 10, A_UNIT: "per_s", A_NAME: "kcat backward", A_CONSTANT: False},
     ]
     create_parameters(model, parameters)
 
-    # TODO: add the rate rules for all lower and upper bounds
-    rate_rules = [
-        {A_ID: "ub_R1", A_VALUE: "k1*ub_R1"}
-    ]
-    create_rate_rules(model, rate_rules)
+    # rate rule for upper and lower bounds
+    rate_rules = []
+    for r in model_fba.getListOfReactions():
+        rid = r.getId()
+        enzyme = None
+        modifiers = r.getListOfModifiers()
+        if len(modifiers) is 1:
+            enzyme = modifiers.get(0)
+        # catalyzed reaction
+        if enzyme:
+            ub_formula = '{} * {}'.format('kcat_fw', enzyme)
+            lb_formula = '-{} * {}'.format('kcat_bw', enzyme)
+        # chemical reaction
+        else:
+            # TODO: piecewise by enzyme
+            ub_formula = '{} * 1 item'.format('kcat_fw')
+            lb_formula = '-{} * 1 item'.format('kcat_bw')
 
-    # TODO: ports (all species, all upper and lower bounds)
-    comp._create_port(model, pid="ub_R1_port", idRef="ub_R1", portType=comp.PORT_TYPE_PORT)
+        print(ub_formula)
+        print(lb_formula)
+        rate_rules.append({A_ID: 'ub_{}'.format(rid), A_VALUE: ub_formula})
+        rate_rules.append({A_ID: 'lb_{}'.format(rid), A_VALUE: lb_formula})
+
+    create_rate_rules(model, rate_rules)
 
     sbml_io.write_and_check(doc, sbml_out)
 
-
+'''
 ####################################################
 # ODE species update
 ####################################################
@@ -200,7 +243,7 @@ def create_top_level_model(sbml_file):
 
     # write SBML file
     sbml_io.write_and_check(doc, sbml_file)
-
+'''
 
 ######################################################################
 if __name__ == "__main__":
@@ -208,8 +251,8 @@ if __name__ == "__main__":
     import fba_model
 
     sbml_fba = os.path.join(RESULTS_DIR, "wholecell_fba_{}.xml".format(VERSION))
-    fba_model.create_fba_model(sbml_fba)
+    # fba_model.create_fba_model(sbml_fba)
 
     sbml_bounds = os.path.join(RESULTS_DIR, "wholecell_bounds_{}.xml".format(VERSION))
-    create_bounds_model(sbml_bounds)
+    create_bounds_model(sbml_bounds, sbml_fba)
 
