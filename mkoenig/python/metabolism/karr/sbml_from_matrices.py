@@ -6,9 +6,12 @@ from matlab matrices and database information.
 """
 # TODO: add units to model (items and items_per_s)
 # TODO: add initial values
-# TODO: update the annotations
+# TODO: update the annotations/integrate
 # TODO: set the boundary conditions (instead of exchange reactions)
-# TODO: create the kinetic ode model
+# TODO: run example simulations
+# TODO: create the kinetic ode model/comp model
+# TODO: glycolysis subnetwork
+
 
 from __future__ import print_function, division
 from libsbml import *
@@ -60,6 +63,7 @@ def set_model_information(model):
     model.setName(model_name)
     set_model_history(model, creators)
     set_cv_terms(model, cvterms_df)
+
 
 def set_cv_terms(model, cvterms_df):
     """ Set model cv terms from DataFrame. """
