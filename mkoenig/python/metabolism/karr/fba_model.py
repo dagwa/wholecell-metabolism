@@ -408,7 +408,7 @@ def create_fba_model(sbml_out):
 
     # perform the full validation checks & validation
     print('* validate_sbml *')
-    validate_sbml(sbml_out, ucheck=False)
+    validate_sbml(sbml_out, ucheck=True)
 
 
 if __name__ == "__main__":
