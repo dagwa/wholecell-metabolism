@@ -494,7 +494,7 @@ class Simulator(object):
     def save_csv(self, df, path="simulation.csv"):
         """ Save results to csv.
         """
-        df.to_csv(path, sep="\t")
+        df.to_csv(path, sep="\t", index=False)
 
 
 ########################################################################################################################
