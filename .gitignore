@@ -6,5 +6,7 @@
 .pydevproject
 python/annotation/.settings/
 */.metadata/
+
 .Rhistory
 mkoenig/python/metabolism/.idea/
+.idea/

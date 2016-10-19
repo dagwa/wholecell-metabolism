@@ -1,5 +1,14 @@
 # Toy model
+
+** !!! DEPRECATED !!! **
+
+A working version of this code and model can be found at
+https://github.com/matthiaskoenig/sbmlutils
+
+** !!! DEPRECATED !!! **
+
 Simple toy model to demonstrate the coupling of SBML models with different modelling frameworks.
+
 
 ## Modelling framework
 For the simulator to understand with which modelling framework submodels/models should be simulated it is
